@@ -1,5 +1,7 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,6 +25,18 @@ public class SeccionTest {
 		String sufijo = seccion.getSufijo();
 
 		Assert.assertEquals("</section>", sufijo);
+	}
+	
+	@Test
+	public void seccionAgregaUnTitulo(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		seccion.agregarElemento(titulo);
+		
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		
+		Assert.assertTrue(listaDeElementos.contains(titulo));
 	}
 
 }

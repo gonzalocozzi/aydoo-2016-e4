@@ -32,12 +32,11 @@ public class ListaSinOrdenTest {
 		
 		ListaSinOrden lista = new ListaSinOrden();
 		ItemDeLista item = new ItemDeLista();
-		item.setTexto("un item de la lista");
 		lista.agregarItem(item);
 		
-		ArrayList<ItemDeLista> coleccionDeItems = lista.getColeccionDeItems();
+		ArrayList<ItemDeLista> listaDeItems = lista.getColeccionDeItems();
 		
-		Assert.assertTrue(coleccionDeItems.contains(item));
+		Assert.assertTrue(listaDeItems.contains(item));
 	}
 	
 	@Test
