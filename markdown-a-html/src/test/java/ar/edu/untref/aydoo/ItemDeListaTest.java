@@ -37,4 +37,16 @@ public class ItemDeListaTest {
 		Assert.assertEquals(contenido, textoDelItem);		
 	}
 	
+	@Test
+	public void itemDeListaDevuelveHTML(){
+		
+		EtiquetaHTML itemDeLista = new ItemDeLista();
+		String contenido = "un item de la lista";
+		itemDeLista.setTexto(contenido);
+		
+		String itemDeListaHTML = itemDeLista.getHTML();
+		
+		Assert.assertEquals("<li>un item de la lista</li>", itemDeListaHTML);	
+	}
+	
 }
