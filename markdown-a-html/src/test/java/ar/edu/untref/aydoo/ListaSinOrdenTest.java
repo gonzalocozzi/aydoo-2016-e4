@@ -59,6 +59,28 @@ public class ListaSinOrdenTest {
 		String htmlEsperado = "<li>un item de la lista</li>" + finDeLinea + "<li>otro item de la lista</li>" + finDeLinea;
 		
 		Assert.assertEquals(htmlEsperado, htmlDeLosItems);
-	}	
+	}
+	
+	@Test
+	public void listaSinOrdenDuvuelveHTML(){
+		
+		ListaSinOrden lista = new ListaSinOrden();
+		
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("un item de la lista");
+		lista.agregarItem(item1);
+		
+		ItemDeLista item2 = new ItemDeLista();
+		item2.setTexto("otro item de la lista");
+		lista.agregarItem(item2);
+		
+		String listaSinOrdenHTML = lista.getHTML();
+		
+		String finDeLinea = System.getProperty("line.separator");
+		
+		String htmlEsperado = "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "<li>otro item de la lista</li>" + finDeLinea + "</ul>";
+		
+		Assert.assertEquals(htmlEsperado, listaSinOrdenHTML);
+	}
 
 }

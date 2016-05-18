@@ -30,8 +30,7 @@ public class ListaSinOrden {
 		return this.listaDeItems;
 	}
 
-	public String getHTMLDeLosItems() {
-		
+	public String getHTMLDeLosItems() {		
 		String htmlDeLosItems = "";
 		String finDeLinea = System.getProperty("line.separator");
 		
@@ -41,6 +40,14 @@ public class ListaSinOrden {
 		}
 		
 		return htmlDeLosItems;
+	}
+
+	public String getHTML() {		
+		String htmlDeLosItems = this.getHTMLDeLosItems();
+		String finDeLinea = System.getProperty("line.separator");		
+		String html = this.prefijo + finDeLinea + htmlDeLosItems + this.sufijo;
+		
+		return html;
 	}
 
 }
