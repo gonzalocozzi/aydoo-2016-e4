@@ -3,12 +3,12 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EtiquetaDeImagenTest {
+public class ImagenTest {
 	
 	@Test
 	public void imagenSeCreaConPrefijo(){
 		
-		EtiquetaHTML imagen = new EtiquetaDeImagen();
+		EtiquetaHTML imagen = new Imagen();
 		
 		String prefijo = imagen.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class EtiquetaDeImagenTest {
 	@Test
 	public void imagenSeCreaConSufijo(){
 		
-		EtiquetaHTML imagen = new EtiquetaDeImagen();
+		EtiquetaHTML imagen = new Imagen();
 		
 		String sufijo = imagen.getSufijo();
 		
@@ -28,7 +28,7 @@ public class EtiquetaDeImagenTest {
 	@Test
 	public void seIncorporaRutaDeLaImagen(){
 		
-		EtiquetaHTML imagen = new EtiquetaDeImagen();	
+		EtiquetaHTML imagen = new Imagen();	
 		String ruta = "imagen.png";
 		imagen.setTexto(ruta);
 		
@@ -40,7 +40,7 @@ public class EtiquetaDeImagenTest {
 	@Test
 	public void imagenDevuelveHTML(){
 		
-		EtiquetaHTML imagen = new EtiquetaDeImagen();	
+		EtiquetaHTML imagen = new Imagen();	
 		String ruta = "imagen.png";
 		imagen.setTexto(ruta);
 		

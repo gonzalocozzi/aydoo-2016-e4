@@ -3,12 +3,12 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class EtiquetaDeSubtituloTest {
+public class SubtituloTest {
 	
 	@Test
 	public void subtituloSeCreaConPrefijo(){
 		
-		EtiquetaDeSubtitulo subtitulo = new EtiquetaDeSubtitulo();
+		Subtitulo subtitulo = new Subtitulo();
 		
 		String prefijo = subtitulo.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class EtiquetaDeSubtituloTest {
 	@Test
 	public void subtituloSeCreaConSufijo(){
 		
-		EtiquetaDeSubtitulo subtitulo = new EtiquetaDeSubtitulo();
+		Subtitulo subtitulo = new Subtitulo();
 		
 		String sufijo = subtitulo.getSufijo();
 		
@@ -28,7 +28,7 @@ public class EtiquetaDeSubtituloTest {
 	@Test
 	public void seIncorporaTextoAlSubtitulo(){
 		
-		EtiquetaDeSubtitulo subtitulo = new EtiquetaDeSubtitulo();		
+		Subtitulo subtitulo = new Subtitulo();		
 		String contenido = "el subtitulo";
 		subtitulo.setTexto(contenido);
 		
@@ -40,7 +40,7 @@ public class EtiquetaDeSubtituloTest {
 	@Test
 	public void subtituloDevuelveHTML(){
 		
-		EtiquetaDeSubtitulo subtitulo = new EtiquetaDeSubtitulo();		
+		Subtitulo subtitulo = new Subtitulo();		
 		String contenido = "el subtitulo";
 		subtitulo.setTexto(contenido);
 		
