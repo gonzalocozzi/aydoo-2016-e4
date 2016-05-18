@@ -14,5 +14,15 @@ public class ListaSinOrdenTest {
 		
 		Assert.assertEquals("<ul>", prefijo);
 	}
+	
+	@Test
+	public void listaSinOrdenSeCreaConSufijo(){
+		
+		ListaSinOrden lista = new ListaSinOrden();
+		
+		String sufijo = lista.getSufijo();
+		
+		Assert.assertEquals("</ul>", sufijo);
+	}
 
 }
