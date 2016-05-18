@@ -36,5 +36,17 @@ public class ImagenTest {
 		
 		Assert.assertEquals(ruta, rutaDeLaImagen);		
 	}
+	
+	@Test
+	public void imagenDevuelveHTML(){
+		
+		MarcaDeTexto imagen = new Imagen();	
+		String ruta = "imagen.png";
+		imagen.setTexto(ruta);
+		
+		String imagenHTML = imagen.getHTML();
+		
+		Assert.assertEquals("<img src=\"imagen.png\"/>", imagenHTML);	
+	}
 
 }
