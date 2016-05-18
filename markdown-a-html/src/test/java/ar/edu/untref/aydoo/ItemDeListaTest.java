@@ -25,4 +25,16 @@ public class ItemDeListaTest {
 		Assert.assertEquals("</li>", sufijo);
 	}
 	
+	@Test
+	public void seIncorporaTextoAlItemDeLista(){
+		
+		EtiquetaHTML itemDeLista = new ItemDeLista();
+		String contenido = "un item de la lista";
+		itemDeLista.setTexto(contenido);
+		
+		String textoDelItem = itemDeLista.getTexto();
+		
+		Assert.assertEquals(contenido, textoDelItem);		
+	}
+	
 }
