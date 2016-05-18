@@ -14,5 +14,15 @@ public class ItemDeListaTest {
 		
 		Assert.assertEquals("<li>", prefijo);
 	}	
-
+	
+	@Test
+	public void itemDeListaSeCreaConSufijo(){
+		
+		EtiquetaHTML itemDeLista = new ItemDeLista();
+		
+		String sufijo = itemDeLista.getSufijo();
+		
+		Assert.assertEquals("</li>", sufijo);
+	}
+	
 }
