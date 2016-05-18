@@ -14,5 +14,15 @@ public class TituloTest {
 		
 		Assert.assertEquals("<h1>", prefijo);
 	}	
+	
+	@Test
+	public void tituloSeCreaConSufijo(){
+		
+		Titulo titulo = new Titulo();
+		
+		String sufijo = titulo.getSufijo();
+		
+		Assert.assertEquals("</h1>", sufijo);
+	}
 
 }
