@@ -14,5 +14,27 @@ public class SubtituloTest {
 		
 		Assert.assertEquals("<h2>", prefijo);
 	}
+	
+	@Test
+	public void subtituloSeCreaConSufijo(){
+		
+		Subtitulo subtitulo = new Subtitulo();
+		
+		String sufijo = subtitulo.getSufijo();
+		
+		Assert.assertEquals("</h2>", sufijo);
+	}	
+	
+	@Test
+	public void seIncorporaTextoAlSubtitulo(){
+		
+		Subtitulo subtitulo = new Subtitulo();		
+		String contenido = "el subtitulo";
+		subtitulo.setTexto(contenido);
+		
+		String textoDelSubtitulo = subtitulo.getTexto();
+		
+		Assert.assertEquals(contenido, textoDelSubtitulo);		
+	}
 
 }
