@@ -36,5 +36,17 @@ public class TituloTest {
 		
 		Assert.assertEquals(contenido, textoDelTitulo);		
 	}
+	
+	@Test
+	public void tituloDevuelveHTML(){
+		
+		Titulo titulo = new Titulo();		
+		String contenido = "el titulo";
+		titulo.setTexto(contenido);
+		
+		String tituloHTML = titulo.getHTML();
+		
+		Assert.assertEquals("<h1>el titulo</h1>", tituloHTML);	
+	}
 
 }
