@@ -4,6 +4,7 @@ public class Titulo {
 	
 	private String prefijo;
 	private String sufijo;
+	private String texto;
 	
 	public Titulo(){		
 		this.prefijo = "<h1>";
@@ -16,6 +17,14 @@ public class Titulo {
 
 	public String getSufijo() {
 		return this.sufijo;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;	
+	}
+
+	public String getTexto() {
+		return this.texto;
 	}
 
 }

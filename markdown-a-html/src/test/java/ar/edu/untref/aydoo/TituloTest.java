@@ -24,5 +24,17 @@ public class TituloTest {
 		
 		Assert.assertEquals("</h1>", sufijo);
 	}
+	
+	@Test
+	public void seIncorporaTextoAlTitulo(){
+		
+		Titulo titulo = new Titulo();		
+		String contenido = "el titulo";
+		titulo.setTexto(contenido);
+		
+		String textoDelTitulo = titulo.getTexto();
+		
+		Assert.assertEquals(contenido, textoDelTitulo);		
+	}
 
 }
