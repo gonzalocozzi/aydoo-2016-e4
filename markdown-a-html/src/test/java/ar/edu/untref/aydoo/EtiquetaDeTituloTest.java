@@ -3,12 +3,12 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TituloTest {
+public class EtiquetaDeTituloTest {
 	
 	@Test
 	public void tituloSeCreaConPrefijo(){
 		
-		MarcaDeTexto titulo = new Titulo();
+		EtiquetaHTML titulo = new EtiquetaDeTitulo();
 		
 		String prefijo = titulo.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class TituloTest {
 	@Test
 	public void tituloSeCreaConSufijo(){
 		
-		MarcaDeTexto titulo = new Titulo();
+		EtiquetaHTML titulo = new EtiquetaDeTitulo();
 		
 		String sufijo = titulo.getSufijo();
 		
@@ -28,7 +28,7 @@ public class TituloTest {
 	@Test
 	public void seIncorporaTextoAlTitulo(){
 		
-		MarcaDeTexto titulo = new Titulo();		
+		EtiquetaHTML titulo = new EtiquetaDeTitulo();		
 		String contenido = "el titulo";
 		titulo.setTexto(contenido);
 		
@@ -40,7 +40,7 @@ public class TituloTest {
 	@Test
 	public void tituloDevuelveHTML(){
 		
-		MarcaDeTexto titulo = new Titulo();		
+		EtiquetaHTML titulo = new EtiquetaDeTitulo();		
 		String contenido = "el titulo";
 		titulo.setTexto(contenido);
 		

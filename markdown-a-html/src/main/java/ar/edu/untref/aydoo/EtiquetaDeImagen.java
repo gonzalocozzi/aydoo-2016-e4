@@ -1,8 +1,8 @@
 package ar.edu.untref.aydoo;
 
-public class Imagen extends MarcaDeTexto {
+public class EtiquetaDeImagen extends EtiquetaHTML {
 	
-	public Imagen(){		
+	public EtiquetaDeImagen(){		
 		this.prefijo = "<img src=\"";
 		this.sufijo = "\"/>";
 	}

@@ -1,14 +1,10 @@
 package ar.edu.untref.aydoo;
 
-public class MarcaDeTexto {
+public class EtiquetaHTML {
 
 	protected String prefijo;
 	protected String sufijo;
 	private String texto;
-
-	public MarcaDeTexto() {
-		super();
-	}
 
 	public String getPrefijo() {
 		return this.prefijo;

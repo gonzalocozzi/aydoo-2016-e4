@@ -1,8 +1,8 @@
 package ar.edu.untref.aydoo;
 
-public class Titulo extends MarcaDeTexto {
+public class EtiquetaDeTitulo extends EtiquetaHTML {
 	
-	public Titulo(){		
+	public EtiquetaDeTitulo(){		
 		this.prefijo = "<h1>";
 		this.sufijo = "</h1>";
 	}
