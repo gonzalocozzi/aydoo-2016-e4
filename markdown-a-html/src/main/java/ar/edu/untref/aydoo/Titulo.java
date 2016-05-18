@@ -1,35 +1,10 @@
 package ar.edu.untref.aydoo;
 
-public class Titulo {
-	
-	private String prefijo;
-	private String sufijo;
-	private String texto;
+public class Titulo extends MarcaDeTexto {
 	
 	public Titulo(){		
 		this.prefijo = "<h1>";
 		this.sufijo = "</h1>";
-	}
-
-	public String getPrefijo() {
-		return this.prefijo;
-	}
-
-	public String getSufijo() {
-		return this.sufijo;
-	}
-
-	public void setTexto(String texto) {
-		this.texto = texto;	
-	}
-
-	public String getTexto() {
-		return this.texto;
-	}
-
-	public String getHTML() {		
-		String html = this.prefijo.concat(texto).concat(sufijo);
-		return html;
 	}
 
 }
