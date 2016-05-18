@@ -6,12 +6,12 @@ public class ListaSinOrden {
 	
 	private String prefijo;
 	private String sufijo;
-	private ArrayList<ItemDeLista> coleccionDeItems;
+	private ArrayList<ItemDeLista> listaDeItems;
 	
 	public ListaSinOrden(){
 		this.prefijo = "<ul>";
 		this.sufijo = "</ul>";
-		this.coleccionDeItems = new ArrayList<>();
+		this.listaDeItems = new ArrayList<>();
 	}
 	
 	public String getPrefijo() {
@@ -23,11 +23,24 @@ public class ListaSinOrden {
 	}
 
 	public void agregarItem(ItemDeLista item) {
-		this.coleccionDeItems.add(item);		
+		this.listaDeItems.add(item);		
 	}	
 
 	public ArrayList<ItemDeLista> getColeccionDeItems() {
-		return this.coleccionDeItems;
+		return this.listaDeItems;
+	}
+
+	public String getHTMLDeLosItems() {
+		
+		String htmlDeLosItems = "";
+		String finDeLinea = System.getProperty("line.separator");
+		
+		for(ItemDeLista item : listaDeItems){			
+			htmlDeLosItems += item.getHTML();
+			htmlDeLosItems +=  finDeLinea;
+		}
+		
+		return htmlDeLosItems;
 	}
 
 }

@@ -23,7 +23,7 @@ public class EtiquetaHTML {
 	}
 
 	public String getHTML() {		
-		String html = this.prefijo.concat(texto).concat(sufijo);
+		String html = this.prefijo + this.texto + this.sufijo;
 		return html;
 	}
 

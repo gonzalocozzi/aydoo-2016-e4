@@ -39,5 +39,26 @@ public class ListaSinOrdenTest {
 		
 		Assert.assertTrue(coleccionDeItems.contains(item));
 	}
+	
+	@Test
+	public void listaSinOrdenDevuelveHTMLDeLosItems(){
+		
+		ListaSinOrden lista = new ListaSinOrden();
+		
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("un item de la lista");
+		lista.agregarItem(item1);
+		
+		ItemDeLista item2 = new ItemDeLista();
+		item2.setTexto("otro item de la lista");
+		lista.agregarItem(item2);
+		
+		String htmlDeLosItems = lista.getHTMLDeLosItems();
+		
+		String finDeLinea = System.getProperty("line.separator");
+		String htmlEsperado = "<li>un item de la lista</li>" + finDeLinea + "<li>otro item de la lista</li>" + finDeLinea;
+		
+		Assert.assertEquals(htmlEsperado, htmlDeLosItems);
+	}	
 
 }
