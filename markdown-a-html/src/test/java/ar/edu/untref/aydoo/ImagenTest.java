@@ -14,5 +14,15 @@ public class ImagenTest {
 		
 		Assert.assertEquals("<img src=\"", prefijo);
 	}	
+	
+	@Test
+	public void imagenSeCreaConSufijo(){
+		
+		MarcaDeTexto imagen = new Imagen();
+		
+		String sufijo = imagen.getSufijo();
+		
+		Assert.assertEquals("\"/>", sufijo);
+	}
 
 }
