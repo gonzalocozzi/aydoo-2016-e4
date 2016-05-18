@@ -22,7 +22,7 @@ public class Seccion {
 		return this.sufijo;
 	}
 
-	public void agregarElemento(Titulo elemento) {
+	public void agregarElemento(EtiquetaHTML elemento) {
 		this.listaDeElementos.add(elemento);		
 	}
 

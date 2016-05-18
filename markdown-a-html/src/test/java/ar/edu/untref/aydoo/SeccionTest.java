@@ -38,5 +38,17 @@ public class SeccionTest {
 		
 		Assert.assertTrue(listaDeElementos.contains(titulo));
 	}
+	
+	@Test
+	public void seccionAgregaUnSubtitulo(){
+		
+		Seccion seccion = new Seccion();
+		Subtitulo subtitulo = new Subtitulo();
+		seccion.agregarElemento(subtitulo);
+		
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		
+		Assert.assertTrue(listaDeElementos.contains(subtitulo));
+	}
 
 }
