@@ -27,4 +27,9 @@ public class Subtitulo {
 		return this.texto;
 	}
 
+	public String getHTML() {
+		String html = this.prefijo.concat(texto).concat(sufijo);
+		return html;
+	}
+
 }
