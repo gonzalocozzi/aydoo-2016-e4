@@ -74,10 +74,9 @@ public class ListaSinOrdenTest {
 		item2.setTexto("otro item de la lista");
 		lista.agregarItem(item2);
 		
-		String listaSinOrdenHTML = lista.getHTML();
+		String listaSinOrdenHTML = lista.getHTML();		
 		
-		String finDeLinea = System.getProperty("line.separator");
-		
+		String finDeLinea = System.getProperty("line.separator");		
 		String htmlEsperado = "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "<li>otro item de la lista</li>" + finDeLinea + "</ul>";
 		
 		Assert.assertEquals(htmlEsperado, listaSinOrdenHTML);
