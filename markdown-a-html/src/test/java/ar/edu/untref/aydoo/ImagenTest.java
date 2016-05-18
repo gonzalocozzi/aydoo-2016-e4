@@ -24,5 +24,17 @@ public class ImagenTest {
 		
 		Assert.assertEquals("\"/>", sufijo);
 	}
+	
+	@Test
+	public void seIncorporaRutaDeLaImagen(){
+		
+		MarcaDeTexto imagen = new Imagen();	
+		String ruta = "imagen.png";
+		imagen.setTexto(ruta);
+		
+		String rutaDeLaImagen = imagen.getTexto();
+		
+		Assert.assertEquals(ruta, rutaDeLaImagen);		
+	}
 
 }
