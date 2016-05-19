@@ -14,17 +14,17 @@ public class LectorDeMarkdown {
 		boolean seguirLeyendo = true;
 		String textoADevolver = "";
 		while(seguirLeyendo == true){
-		String linea = br.readLine();
-		if(linea == null){
-			seguirLeyendo = false;
-		}
-		else{
-			textoADevolver += linea;
-			textoADevolver += "\n";
-		}
+			String linea = br.readLine();
+			if(linea == null){
+				seguirLeyendo = false;
+			}
+			else{
+				textoADevolver += linea;
+				textoADevolver += "\n";
+			}
 		}
 		br.close();
 		return textoADevolver;
 	}
-	
+
 }
