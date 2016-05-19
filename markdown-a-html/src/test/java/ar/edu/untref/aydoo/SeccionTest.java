@@ -88,6 +88,19 @@ public class SeccionTest {
 		
 		Assert.assertTrue(listaDeElementos.contains(listaSinOrden));
 	}
+	
+	@Test
+	public void seccionAgregaUnaSeccion(){
+		
+		Seccion seccionContenedora = new Seccion();
+		Seccion seccionContenida = new Seccion();
+				
+		seccionContenedora.agregarElemento(seccionContenida);
+		
+		ArrayList<EtiquetaHTML> listaDeElementos = seccionContenedora.getListaDeElementos();
+		
+		Assert.assertTrue(listaDeElementos.contains(seccionContenida));
+	}
 
 	@Test
 	public void seccionDevuelveHTMLDeLosElementos(){
