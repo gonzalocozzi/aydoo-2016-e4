@@ -14,5 +14,15 @@ public class TextoSinFormatoTest {
 		
 		Assert.assertEquals("", prefijo);
 	}
+	
+	@Test
+	public void textoSinFormatoSeCreaSinSufijo(){
+		
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		
+		String sufijo = textoSinFormato.getSufijo();
+		
+		Assert.assertEquals("", sufijo);
+	}
 
 }
