@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class ItemDeLista extends EtiquetaHTML {
+public class ItemDeLista extends EtiquetaHTMLSimple {
 	
 	public ItemDeLista(){
 		this.prefijo = "<li>";

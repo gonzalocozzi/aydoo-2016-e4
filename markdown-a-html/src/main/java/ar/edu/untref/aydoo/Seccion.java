@@ -2,11 +2,9 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 
-public class Seccion {
+public class Seccion extends EtiquetaHTML {
 	
-	private String prefijo;
-	private String sufijo;
-	private ArrayList<EtiquetaHTML> listaDeElementos;
+	private ArrayList<EtiquetaHTMLSimple> listaDeElementos;
 	
 	public Seccion(){
 		this.prefijo = "<section>";
@@ -14,19 +12,11 @@ public class Seccion {
 		this.listaDeElementos = new ArrayList<>();
 	}
 
-	public String getPrefijo() {
-		return this.prefijo;
-	}
-
-	public String getSufijo() {
-		return this.sufijo;
-	}
-
-	public void agregarElemento(EtiquetaHTML elemento) {
+	public void agregarElemento(EtiquetaHTMLSimple elemento) {
 		this.listaDeElementos.add(elemento);		
 	}
 
-	public ArrayList<EtiquetaHTML> getListaDeElementos() {
+	public ArrayList<EtiquetaHTMLSimple> getListaDeElementos() {
 		return this.listaDeElementos;
 	}
 
@@ -34,7 +24,7 @@ public class Seccion {
 		String htmlDeLosElementos = "";
 		String finDeLinea = System.getProperty("line.separator");
 		
-		for(EtiquetaHTML elemento : this.listaDeElementos){			
+		for(EtiquetaHTMLSimple elemento : this.listaDeElementos){			
 			htmlDeLosElementos += elemento.getHTML();
 			htmlDeLosElementos += finDeLinea;
 		}

@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class Subtitulo extends EtiquetaHTML{
+public class Subtitulo extends EtiquetaHTMLSimple{
 	
 	public Subtitulo(){
 		this.prefijo = "<h2>";	

@@ -8,7 +8,7 @@ public class TituloTest {
 	@Test
 	public void tituloSeCreaConPrefijo(){
 		
-		EtiquetaHTML titulo = new Titulo();
+		EtiquetaHTMLSimple titulo = new Titulo();
 		
 		String prefijo = titulo.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class TituloTest {
 	@Test
 	public void tituloSeCreaConSufijo(){
 		
-		EtiquetaHTML titulo = new Titulo();
+		EtiquetaHTMLSimple titulo = new Titulo();
 		
 		String sufijo = titulo.getSufijo();
 		
@@ -28,7 +28,7 @@ public class TituloTest {
 	@Test
 	public void seIncorporaTextoAlTitulo(){
 		
-		EtiquetaHTML titulo = new Titulo();		
+		EtiquetaHTMLSimple titulo = new Titulo();		
 		String contenido = "el titulo";
 		titulo.setTexto(contenido);
 		
@@ -40,7 +40,7 @@ public class TituloTest {
 	@Test
 	public void tituloDevuelveHTML(){
 		
-		EtiquetaHTML titulo = new Titulo();		
+		EtiquetaHTMLSimple titulo = new Titulo();		
 		String contenido = "el titulo";
 		titulo.setTexto(contenido);
 		

@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class TextoSinFormato extends EtiquetaHTML {
+public class TextoSinFormato extends EtiquetaHTMLSimple {
 	
 	public TextoSinFormato(){
 		this.prefijo = "";

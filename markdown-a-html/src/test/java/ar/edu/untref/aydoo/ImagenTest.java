@@ -8,7 +8,7 @@ public class ImagenTest {
 	@Test
 	public void imagenSeCreaConPrefijo(){
 		
-		EtiquetaHTML imagen = new Imagen();
+		EtiquetaHTMLSimple imagen = new Imagen();
 		
 		String prefijo = imagen.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class ImagenTest {
 	@Test
 	public void imagenSeCreaConSufijo(){
 		
-		EtiquetaHTML imagen = new Imagen();
+		EtiquetaHTMLSimple imagen = new Imagen();
 		
 		String sufijo = imagen.getSufijo();
 		
@@ -28,7 +28,7 @@ public class ImagenTest {
 	@Test
 	public void seIncorporaRutaDeLaImagen(){
 		
-		EtiquetaHTML imagen = new Imagen();	
+		EtiquetaHTMLSimple imagen = new Imagen();	
 		String ruta = "imagen.png";
 		imagen.setTexto(ruta);
 		
@@ -40,7 +40,7 @@ public class ImagenTest {
 	@Test
 	public void imagenDevuelveHTML(){
 		
-		EtiquetaHTML imagen = new Imagen();	
+		EtiquetaHTMLSimple imagen = new Imagen();	
 		String ruta = "imagen.png";
 		imagen.setTexto(ruta);
 		

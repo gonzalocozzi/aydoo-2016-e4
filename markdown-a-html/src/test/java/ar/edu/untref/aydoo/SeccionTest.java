@@ -34,7 +34,7 @@ public class SeccionTest {
 		Titulo titulo = new Titulo();
 		seccion.agregarElemento(titulo);
 
-		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(titulo));
 	}
@@ -46,7 +46,7 @@ public class SeccionTest {
 		Subtitulo subtitulo = new Subtitulo();
 		seccion.agregarElemento(subtitulo);
 
-		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(subtitulo));
 	}
@@ -59,7 +59,7 @@ public class SeccionTest {
 		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 
-		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(textoSinFormato));
 	}
@@ -71,7 +71,7 @@ public class SeccionTest {
 		Imagen imagen = new Imagen();
 		seccion.agregarElemento(imagen);
 
-		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(imagen));
 	}

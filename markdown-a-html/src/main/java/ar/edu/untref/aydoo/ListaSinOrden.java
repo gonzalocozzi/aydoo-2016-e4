@@ -2,24 +2,14 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 
-public class ListaSinOrden {
+public class ListaSinOrden extends EtiquetaHTML {
 	
-	private String prefijo;
-	private String sufijo;
 	private ArrayList<ItemDeLista> listaDeItems;
 	
 	public ListaSinOrden(){
 		this.prefijo = "<ul>";
 		this.sufijo = "</ul>";
 		this.listaDeItems = new ArrayList<>();
-	}
-	
-	public String getPrefijo() {
-		return this.prefijo;
-	}
-
-	public String getSufijo() {
-		return this.sufijo;
 	}
 
 	public void agregarItem(ItemDeLista item) {
