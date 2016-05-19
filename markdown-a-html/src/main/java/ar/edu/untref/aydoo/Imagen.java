@@ -7,4 +7,7 @@ public class Imagen extends EtiquetaHTMLSimple {
 		this.sufijo = "\"/>";
 	}
 
+	public void aceptarVisitor(VisitorDeEtiquetas visitor) {
+		visitor.visitar(this);
+	}
 }

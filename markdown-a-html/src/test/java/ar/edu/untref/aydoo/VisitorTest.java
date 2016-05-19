@@ -108,4 +108,30 @@ public class VisitorTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void subtituloAceptaElVisitor(){
+		
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		subtitulo.aceptarVisitor(visitor);
+		
+		String resultadoEsperado = "<h2>un subtitulo</h2>";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
+	
+	@Test
+	public void imagenAceptaElVisitor(){
+		
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		imagen.aceptarVisitor(visitor);
+		
+		String resultadoEsperado = "<img src=\"imagen.jpg\"/>";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 }
