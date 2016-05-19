@@ -16,22 +16,22 @@ public class Visitor {
 	}
 	
 	public void visitar(Titulo titulo) {
-		this.listaDeLineas.add(titulo.getPrefijo()+titulo.getTexto()+titulo.getSufijo());
+		this.listaDeLineas.add(titulo.getHTML());
 	}
 
 	public void visitar(Subtitulo subtitulo) {
-		this.listaDeLineas.add(subtitulo.getPrefijo()+subtitulo.getTexto()+subtitulo.getSufijo());
+		this.listaDeLineas.add(subtitulo.getHTML());
 	}
 
 	public void visitar(Imagen imagen) {
-		this.listaDeLineas.add(imagen.getPrefijo()+imagen.getTexto()+imagen.getSufijo());
+		this.listaDeLineas.add(imagen.getHTML());
 	}
 
 	public void visitarTextSinFormato(TextoSinFormato textoSinFormato) {
-		this.listaDeLineas.add(textoSinFormato.getPrefijo()+textoSinFormato.getTexto()+textoSinFormato.getSufijo());
+		this.listaDeLineas.add(textoSinFormato.getHTML());
 	}
 
 	public void visitarItemDeLista(ItemDeLista itemDeLista) {
-		this.listaDeLineas.add(itemDeLista.getPrefijo()+itemDeLista.getTexto()+itemDeLista.getSufijo());
-	}	
+		this.listaDeLineas.add(itemDeLista.getHTML());
+	}
 }
