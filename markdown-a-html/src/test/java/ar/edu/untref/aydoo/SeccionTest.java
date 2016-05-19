@@ -50,5 +50,17 @@ public class SeccionTest {
 		
 		Assert.assertTrue(listaDeElementos.contains(subtitulo));
 	}
+	
+	@Test
+	public void seccionAgregaTextoSinFormato(){
+		
+		Seccion seccion = new Seccion();
+		TextoSinFormato textoSinFormato = new TextoSinFormato("solo texto sin nada mas");
+		seccion.agregarElemento(textoSinFormato);
+		
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		
+		Assert.assertTrue(listaDeElementos.contains(textoSinFormato));
+	}
 
 }
