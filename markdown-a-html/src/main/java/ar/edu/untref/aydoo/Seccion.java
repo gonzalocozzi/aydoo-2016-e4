@@ -40,6 +40,15 @@ public class Seccion {
 		}
 		
 		return htmlDeLosElementos;
+	}
+
+	public String getHTML() {
+		String htmlDeLosElementos = this.getHTMLDeLosElementos();
+		String finDeLinea = System.getProperty("line.separator");
+		
+		String html = this.prefijo + finDeLinea + htmlDeLosElementos + this.sufijo;
+		
+		return html;
 	}	
 
 }
