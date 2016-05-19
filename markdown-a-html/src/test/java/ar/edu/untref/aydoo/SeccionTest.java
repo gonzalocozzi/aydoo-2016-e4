@@ -75,30 +75,30 @@ public class SeccionTest {
 
 		Assert.assertTrue(listaDeElementos.contains(imagen));
 	}
-	
+
 	@Test
 	public void seccionAgregaUnaListaSinOrden(){
-		
+
 		Seccion seccion = new Seccion();
 		ListaSinOrden listaSinOrden = new ListaSinOrden();
-		
+
 		seccion.agregarElemento(listaSinOrden);
-		
+
 		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
-		
+
 		Assert.assertTrue(listaDeElementos.contains(listaSinOrden));
 	}
-	
+
 	@Test
 	public void seccionAgregaUnaSeccion(){
-		
+
 		Seccion seccionContenedora = new Seccion();
 		Seccion seccionContenida = new Seccion();
-				
+
 		seccionContenedora.agregarElemento(seccionContenida);
-		
+
 		ArrayList<EtiquetaHTML> listaDeElementos = seccionContenedora.getListaDeElementos();
-		
+
 		Assert.assertTrue(listaDeElementos.contains(seccionContenida));
 	}
 
@@ -119,10 +119,16 @@ public class SeccionTest {
 		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 
+		ListaSinOrden listaSinOrden = new ListaSinOrden();
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("un item de la lista");
+		listaSinOrden.agregarItem(item1);		
+		seccion.agregarElemento(listaSinOrden);
+
 		String htmlDeLosElementos = seccion.getHTMLDeLosElementos();
 
 		String finDeLinea = System.getProperty("line.separator");
-		String htmlEsperado = "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea;
+		String htmlEsperado = "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea + "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "</ul>" + finDeLinea;
 
 		Assert.assertEquals(htmlEsperado, htmlDeLosElementos);
 	}
@@ -144,10 +150,16 @@ public class SeccionTest {
 		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 		
+		ListaSinOrden listaSinOrden = new ListaSinOrden();
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("un item de la lista");
+		listaSinOrden.agregarItem(item1);		
+		seccion.agregarElemento(listaSinOrden);
+
 		String seccionHTML = seccion.getHTML();
 
 		String finDeLinea = System.getProperty("line.separator");
-		String htmlEsperado = "<section>" + finDeLinea + "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea + "</section>";
+		String htmlEsperado = "<section>" + finDeLinea + "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea + "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "</ul>" + finDeLinea + "</section>";
 
 		Assert.assertEquals(htmlEsperado, seccionHTML);
 	}
