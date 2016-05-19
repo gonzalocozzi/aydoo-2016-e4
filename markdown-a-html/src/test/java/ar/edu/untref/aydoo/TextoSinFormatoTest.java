@@ -24,5 +24,17 @@ public class TextoSinFormatoTest {
 		
 		Assert.assertEquals("", sufijo);
 	}
+	
+	@Test
+	public void seIncorporaTextoAlTextoSinFormato(){
+		
+		TextoSinFormato textoSinFormato = new TextoSinFormato();	
+		String contenido = "solo texto sin nada mas";
+		textoSinFormato.setTexto(contenido);
+		
+		String textoDevuelto = textoSinFormato.getTexto();
+		
+		Assert.assertEquals(contenido, textoDevuelto);		
+	}
 
 }
