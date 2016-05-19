@@ -61,7 +61,7 @@ public class ListaSinOrdenTest {
 	}
 	
 	@Test
-	public void listaSinOrdenDuvuelveHTML(){
+	public void listaSinOrdenDevuelveHTML(){
 		
 		ListaSinOrden lista = new ListaSinOrden();
 		

@@ -74,5 +74,29 @@ public class SeccionTest {
 		
 		Assert.assertTrue(listaDeElementos.contains(imagen));
 	}
+	
+	@Test
+	public void seccionDevuelveHTMLDeLosElementos(){
+		
+		Seccion seccion = new Seccion();
+		
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		seccion.agregarElemento(titulo);
+		
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		seccion.agregarElemento(subtitulo);
+		
+		TextoSinFormato textoSinFormato = new TextoSinFormato("solo texto sin nada mas");
+		seccion.agregarElemento(textoSinFormato);
+		
+		String htmlDeLosElementos = seccion.getHTMLDeLosElementos();
+		
+		String finDeLinea = System.getProperty("line.separator");
+		String htmlEsperado = "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea;
+		
+		Assert.assertEquals(htmlEsperado, htmlDeLosElementos);
+	}
 
 }

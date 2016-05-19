@@ -28,6 +28,18 @@ public class Seccion {
 
 	public ArrayList<EtiquetaHTML> getListaDeElementos() {
 		return this.listaDeElementos;
+	}
+
+	public String getHTMLDeLosElementos() {
+		String htmlDeLosElementos = "";
+		String finDeLinea = System.getProperty("line.separator");
+		
+		for(EtiquetaHTML elemento : this.listaDeElementos){			
+			htmlDeLosElementos += elemento.getHTML();
+			htmlDeLosElementos += finDeLinea;
+		}
+		
+		return htmlDeLosElementos;
 	}	
 
 }
