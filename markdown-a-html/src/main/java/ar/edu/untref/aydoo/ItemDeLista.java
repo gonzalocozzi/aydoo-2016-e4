@@ -6,4 +6,8 @@ public class ItemDeLista extends EtiquetaHTMLSimple {
 		this.prefijo = "<li>";
 		this.sufijo = "</li>";
 	}
+
+	public void aceptarVisitor(Visitor visitor) {
+		visitor.visitar(this);
+	}
 }
