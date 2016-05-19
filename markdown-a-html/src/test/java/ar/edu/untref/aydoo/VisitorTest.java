@@ -65,5 +65,20 @@ public class VisitorTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void visitaUnItemDeLista(){
+		
+		Visitor visitor = new Visitor();
+		
+		ItemDeLista itemDeLista = new ItemDeLista();
+		itemDeLista.setTexto("un item de lista");
+		
+		visitor.visitarItemDeLista(itemDeLista);
+		
+		String resultadoEsperado = "<li>un item de lista</li>";
+				
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));		
+	}
 
 }

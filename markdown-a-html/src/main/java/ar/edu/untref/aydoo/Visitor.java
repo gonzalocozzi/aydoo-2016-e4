@@ -29,5 +29,9 @@ public class Visitor {
 
 	public void visitarTextSinFormato(TextoSinFormato textoSinFormato) {
 		this.listaDeLineas.add(textoSinFormato.getPrefijo()+textoSinFormato.getTexto()+textoSinFormato.getSufijo());
+	}
+
+	public void visitarItemDeLista(ItemDeLista itemDeLista) {
+		this.listaDeLineas.add(itemDeLista.getPrefijo()+itemDeLista.getTexto()+itemDeLista.getSufijo());
 	}	
 }
