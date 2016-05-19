@@ -9,7 +9,7 @@ public class VisitorTest {
 	@Test
 	public void visitaUnTituloYPideContenido(){
 		
-		Visitor visitor = new Visitor();
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
@@ -24,7 +24,7 @@ public class VisitorTest {
 	@Test
 	public void visitaUnSubtituloYPideContenido(){
 		
-		Visitor visitor = new Visitor();
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
 		Subtitulo subtitulo = new Subtitulo();
 		subtitulo.setTexto("un subtitulo");
@@ -39,7 +39,7 @@ public class VisitorTest {
 	@Test
 	public void visitaUnaImagen(){
 		
-		Visitor visitor = new Visitor();
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
 		Imagen imagen = new Imagen();
 		imagen.setTexto("imagen.jpg");
@@ -54,7 +54,7 @@ public class VisitorTest {
 	@Test
 	public void visitaUnTextoSinFormato(){
 		
-		Visitor visitor = new Visitor();
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
 		TextoSinFormato textoSinFormato = new TextoSinFormato();
 		textoSinFormato.setTexto("un texto");
@@ -69,7 +69,7 @@ public class VisitorTest {
 	@Test
 	public void visitaUnItemDeLista(){
 		
-		Visitor visitor = new Visitor();
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
 		ItemDeLista itemDeLista = new ItemDeLista();
 		itemDeLista.setTexto("un item de lista");
@@ -79,5 +79,20 @@ public class VisitorTest {
 		String resultadoEsperado = "<li>un item de lista</li>";
 				
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));		
+	}
+	
+	@Test
+	public void visitaUnaEtiquetaHtmlSimpleQueEsUnTitulo(){
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		
+		EtiquetaHTMLSimple etiquetaGenerica = new Titulo();
+		etiquetaGenerica.setTexto("texto");
+		
+		visitor.visitar(etiquetaGenerica);
+		
+		String resultadoEsperado = "<h1>texto</h1>";
+				
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
 }
