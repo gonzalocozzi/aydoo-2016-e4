@@ -55,7 +55,8 @@ public class SeccionTest {
 	public void seccionAgregaTextoSinFormato(){
 
 		Seccion seccion = new Seccion();
-		TextoSinFormato textoSinFormato = new TextoSinFormato("solo texto sin nada mas");
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 
 		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
@@ -88,7 +89,8 @@ public class SeccionTest {
 		subtitulo.setTexto("un subtitulo");
 		seccion.agregarElemento(subtitulo);
 
-		TextoSinFormato textoSinFormato = new TextoSinFormato("solo texto sin nada mas");
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 
 		String htmlDeLosElementos = seccion.getHTMLDeLosElementos();
@@ -112,7 +114,8 @@ public class SeccionTest {
 		subtitulo.setTexto("un subtitulo");
 		seccion.agregarElemento(subtitulo);
 
-		TextoSinFormato textoSinFormato = new TextoSinFormato("solo texto sin nada mas");
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 		
 		String seccionHTML = seccion.getHTML();
