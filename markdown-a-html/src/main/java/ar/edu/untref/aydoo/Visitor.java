@@ -26,6 +26,8 @@ public class Visitor {
 	public void visitar(Imagen imagen) {
 		this.listaDeLineas.add(imagen.getPrefijo()+imagen.getTexto()+imagen.getSufijo());
 	}
-	
-	
+
+	public void visitarTextSinFormato(TextoSinFormato textoSinFormato) {
+		this.listaDeLineas.add(textoSinFormato.getPrefijo()+textoSinFormato.getTexto()+textoSinFormato.getSufijo());
+	}	
 }

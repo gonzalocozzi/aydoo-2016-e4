@@ -50,5 +50,20 @@ public class VisitorTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void visitaUnTextoSinFormato(){
+		
+		Visitor visitor = new Visitor();
+		
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("un texto");
+		
+		visitor.visitarTextSinFormato(textoSinFormato);
+		
+		String resultadoEsperado = "un texto";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 
 }
