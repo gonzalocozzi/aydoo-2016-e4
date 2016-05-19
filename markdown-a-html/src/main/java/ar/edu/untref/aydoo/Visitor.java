@@ -11,11 +11,17 @@ public class Visitor {
 		this.listaDeLineas = new LinkedList<String>();
 	}
 	
+	public List<String> getListaDeLineas() {
+		return this.listaDeLineas;
+	}
+	
 	public void visitar(Titulo titulo) {
 		this.listaDeLineas.add(titulo.getPrefijo()+titulo.getTexto()+titulo.getSufijo());
 	}
 
-	public List<String> getListaDeLineas() {
-		return this.listaDeLineas;
+	public void visitar(Subtitulo subtitulo) {
+		this.listaDeLineas.add(subtitulo.getPrefijo()+subtitulo.getTexto()+subtitulo.getSufijo());
 	}
+	
+	
 }
