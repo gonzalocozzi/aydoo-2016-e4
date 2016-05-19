@@ -14,26 +14,6 @@ public class VisitorDeEtiquetas implements Visitor{
 	public List<String> getListaDeLineas() {
 		return this.listaDeLineas;
 	}
-	
-	public void visitar(Titulo titulo) {
-		this.listaDeLineas.add(titulo.getHTML());
-	}
-
-	public void visitar(Subtitulo subtitulo) {
-		this.listaDeLineas.add(subtitulo.getHTML());
-	}
-
-	public void visitar(Imagen imagen) {
-		this.listaDeLineas.add(imagen.getHTML());
-	}
-
-	public void visitar(TextoSinFormato textoSinFormato) {
-		this.listaDeLineas.add(textoSinFormato.getHTML());
-	}
-
-	public void visitar(ItemDeLista itemDeLista) {
-		this.listaDeLineas.add(itemDeLista.getHTML());
-	}
 
 	public void visitar(EtiquetaHTMLSimple etiquetaGenerica) {
 		this.listaDeLineas.add(etiquetaGenerica.getHTML());	

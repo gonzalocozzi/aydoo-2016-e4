@@ -11,7 +11,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		Titulo titulo = new Titulo();
+		EtiquetaHTMLSimple titulo = new Titulo();
 		titulo.setTexto("un titulo");
 		
 		visitor.visitar(titulo);
@@ -26,7 +26,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		Subtitulo subtitulo = new Subtitulo();
+		EtiquetaHTMLSimple subtitulo = new Subtitulo();
 		subtitulo.setTexto("un subtitulo");
 		
 		visitor.visitar(subtitulo);
@@ -41,7 +41,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		Imagen imagen = new Imagen();
+		EtiquetaHTMLSimple imagen = new Imagen();
 		imagen.setTexto("imagen.jpg");
 		
 		visitor.visitar(imagen);
@@ -56,7 +56,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		EtiquetaHTMLSimple textoSinFormato = new TextoSinFormato();
 		textoSinFormato.setTexto("un texto");
 		
 		visitor.visitar(textoSinFormato);
@@ -71,7 +71,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		ItemDeLista itemDeLista = new ItemDeLista();
+		EtiquetaHTMLSimple itemDeLista = new ItemDeLista();
 		itemDeLista.setTexto("un item de lista");
 		
 		visitor.visitar(itemDeLista);
