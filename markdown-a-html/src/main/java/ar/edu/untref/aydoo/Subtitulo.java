@@ -6,5 +6,4 @@ public class Subtitulo extends EtiquetaHTMLSimple{
 		this.prefijo = "<h2>";	
 		this.sufijo = "</h2>";
 	}
-
 }

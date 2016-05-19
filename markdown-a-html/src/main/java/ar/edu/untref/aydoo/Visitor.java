@@ -22,6 +22,10 @@ public class Visitor {
 	public void visitar(Subtitulo subtitulo) {
 		this.listaDeLineas.add(subtitulo.getPrefijo()+subtitulo.getTexto()+subtitulo.getSufijo());
 	}
+
+	public void visitar(Imagen imagen) {
+		this.listaDeLineas.add(imagen.getPrefijo()+imagen.getTexto()+imagen.getSufijo());
+	}
 	
 	
 }

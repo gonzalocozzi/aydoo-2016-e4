@@ -35,5 +35,20 @@ public class VisitorTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void visitaUnaImagen(){
+		
+		Visitor visitor = new Visitor();
+		
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+		
+		visitor.visitar(imagen);
+		
+		String resultadoEsperado = "<img src=\"imagen.jpg\"/>";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 
 }
