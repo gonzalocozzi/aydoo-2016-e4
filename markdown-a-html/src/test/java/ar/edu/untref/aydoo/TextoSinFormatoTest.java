@@ -36,5 +36,17 @@ public class TextoSinFormatoTest {
 		
 		Assert.assertEquals(contenido, textoDevuelto);		
 	}
+	
+	@Test
+	public void textoSinFormatoDevuelveHTML(){
+		
+		TextoSinFormato textoSinFormato = new TextoSinFormato();	
+		String contenido = "solo texto sin nada mas";
+		textoSinFormato.setTexto(contenido);
+		
+		String textoDevuelto = textoSinFormato.getHTML();
+		
+		Assert.assertEquals("solo texto sin nada mas", textoDevuelto);	
+	}
 
 }
