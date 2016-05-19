@@ -7,4 +7,7 @@ public class Titulo extends EtiquetaHTMLSimple {
 		this.sufijo = "</h1>";
 	}
 
+	public void aceptarVisitor(Visitor visitor) {
+		visitor.visitar(this);		
+	}
 }

@@ -48,5 +48,4 @@ public class TituloTest {
 		
 		Assert.assertEquals("<h1>el titulo</h1>", tituloHTML);	
 	}
-
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class VisitorDeEtiquetas implements Visitor{
 	
-	List<String> listaDeLineas;
+	private List<String> listaDeLineas;
 	
 	public VisitorDeEtiquetas(){
 		this.listaDeLineas = new LinkedList<String>();
