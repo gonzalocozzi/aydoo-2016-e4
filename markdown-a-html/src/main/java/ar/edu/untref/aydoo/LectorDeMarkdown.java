@@ -15,7 +15,7 @@ public class LectorDeMarkdown {
 		BufferedReader br = new BufferedReader(fr);
 		boolean seguirLeyendo = true;
 		List<String> listaADevolver = new LinkedList<String>();
-		while(seguirLeyendo == true){
+		while(seguirLeyendo){
 			String linea = br.readLine();
 			if(linea == null){
 				seguirLeyendo = false;
