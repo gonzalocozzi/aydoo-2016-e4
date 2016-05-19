@@ -59,7 +59,7 @@ public class VisitorTest {
 		TextoSinFormato textoSinFormato = new TextoSinFormato();
 		textoSinFormato.setTexto("un texto");
 		
-		visitor.visitarTextSinFormato(textoSinFormato);
+		visitor.visitar(textoSinFormato);
 		
 		String resultadoEsperado = "un texto";
 		
@@ -74,7 +74,7 @@ public class VisitorTest {
 		ItemDeLista itemDeLista = new ItemDeLista();
 		itemDeLista.setTexto("un item de lista");
 		
-		visitor.visitarItemDeLista(itemDeLista);
+		visitor.visitar(itemDeLista);
 		
 		String resultadoEsperado = "<li>un item de lista</li>";
 				

@@ -27,11 +27,11 @@ public class VisitorDeEtiquetas implements Visitor{
 		this.listaDeLineas.add(imagen.getHTML());
 	}
 
-	public void visitarTextSinFormato(TextoSinFormato textoSinFormato) {
+	public void visitar(TextoSinFormato textoSinFormato) {
 		this.listaDeLineas.add(textoSinFormato.getHTML());
 	}
 
-	public void visitarItemDeLista(ItemDeLista itemDeLista) {
+	public void visitar(ItemDeLista itemDeLista) {
 		this.listaDeLineas.add(itemDeLista.getHTML());
 	}
 

@@ -8,7 +8,7 @@ public interface Visitor {
 
 	public void visitar(Imagen imagen);
 
-	public void visitarTextSinFormato(TextoSinFormato textoSinFormato);
+	public void visitar(TextoSinFormato textoSinFormato);
 
-	public void visitarItemDeLista(ItemDeLista itemDeLista);
+	public void visitar(ItemDeLista itemDeLista);
 }
