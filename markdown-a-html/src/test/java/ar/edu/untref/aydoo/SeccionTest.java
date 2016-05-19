@@ -62,5 +62,17 @@ public class SeccionTest {
 		
 		Assert.assertTrue(listaDeElementos.contains(textoSinFormato));
 	}
+	
+	@Test
+	public void seccionAgregaUnaImagen(){
+		
+		Seccion seccion = new Seccion();
+		Imagen imagen = new Imagen();
+		seccion.agregarElemento(imagen);
+		
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		
+		Assert.assertTrue(listaDeElementos.contains(imagen));
+	}
 
 }
