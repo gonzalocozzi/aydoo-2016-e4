@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Seccion extends EtiquetaHTML {
 	
-	private ArrayList<EtiquetaHTMLSimple> listaDeElementos;
+	private ArrayList<EtiquetaHTML> listaDeElementos;
 	
 	public Seccion(){
 		this.prefijo = "<section>";
@@ -12,11 +12,11 @@ public class Seccion extends EtiquetaHTML {
 		this.listaDeElementos = new ArrayList<>();
 	}
 
-	public void agregarElemento(EtiquetaHTMLSimple elemento) {
+	public void agregarElemento(EtiquetaHTML elemento) {
 		this.listaDeElementos.add(elemento);		
 	}
 
-	public ArrayList<EtiquetaHTMLSimple> getListaDeElementos() {
+	public ArrayList<EtiquetaHTML> getListaDeElementos() {
 		return this.listaDeElementos;
 	}
 
@@ -24,7 +24,7 @@ public class Seccion extends EtiquetaHTML {
 		String htmlDeLosElementos = "";
 		String finDeLinea = System.getProperty("line.separator");
 		
-		for(EtiquetaHTMLSimple elemento : this.listaDeElementos){			
+		for(EtiquetaHTML elemento : this.listaDeElementos){			
 			htmlDeLosElementos += elemento.getHTML();
 			htmlDeLosElementos += finDeLinea;
 		}

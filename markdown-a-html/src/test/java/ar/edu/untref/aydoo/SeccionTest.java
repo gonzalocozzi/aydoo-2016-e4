@@ -34,7 +34,7 @@ public class SeccionTest {
 		Titulo titulo = new Titulo();
 		seccion.agregarElemento(titulo);
 
-		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(titulo));
 	}
@@ -46,7 +46,7 @@ public class SeccionTest {
 		Subtitulo subtitulo = new Subtitulo();
 		seccion.agregarElemento(subtitulo);
 
-		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(subtitulo));
 	}
@@ -59,7 +59,7 @@ public class SeccionTest {
 		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 
-		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(textoSinFormato));
 	}
@@ -71,9 +71,22 @@ public class SeccionTest {
 		Imagen imagen = new Imagen();
 		seccion.agregarElemento(imagen);
 
-		ArrayList<EtiquetaHTMLSimple> listaDeElementos = seccion.getListaDeElementos();
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(imagen));
+	}
+	
+	@Test
+	public void seccionAgregaUnaListaSinOrden(){
+		
+		Seccion seccion = new Seccion();
+		ListaSinOrden listaSinOrden = new ListaSinOrden();
+		
+		seccion.agregarElemento(listaSinOrden);
+		
+		ArrayList<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		
+		Assert.assertTrue(listaDeElementos.contains(listaSinOrden));
 	}
 
 	@Test
