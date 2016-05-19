@@ -147,4 +147,17 @@ public class VisitorTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void textSinFormatoAceptaElVisitor(){
+		
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("texto");
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		textoSinFormato.aceptarVisitor(visitor);
+		
+		String resultadoEsperado = "texto";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 }

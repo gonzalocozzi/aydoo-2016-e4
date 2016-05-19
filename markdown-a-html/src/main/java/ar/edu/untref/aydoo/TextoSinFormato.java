@@ -7,4 +7,8 @@ public class TextoSinFormato extends EtiquetaHTMLSimple {
 		this.sufijo = "";
 	}
 
+	public void aceptarVisitor(Visitor visitor) {
+		visitor.visitar(this);
+	}
+
 }
