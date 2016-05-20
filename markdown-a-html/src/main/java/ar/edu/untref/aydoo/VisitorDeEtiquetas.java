@@ -22,7 +22,11 @@ public class VisitorDeEtiquetas implements Visitor{
 	public void visitar(Seccion seccion) {
 		
 		this.listaDeLineas.add(seccion.getPrefijo());
-		this.listaDeLineas.add(seccion.getListaDeElementos().get(0).getPrefijo()+seccion.getListaDeElementos().get(0).getTexto()+seccion.getListaDeElementos().get(0).getSufijo());
+		
+		for(EtiquetaHTML etiqueta : seccion.getListaDeElementos()){
+			this.visitar(etiqueta);
+		}
+		
 		this.listaDeLineas.add(seccion.getSufijo());		
 	}
 }
