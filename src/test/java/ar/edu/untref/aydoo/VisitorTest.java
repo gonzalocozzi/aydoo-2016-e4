@@ -230,4 +230,24 @@ public class VisitorTest {
 		
 		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
+	
+	@Test
+	public void visitaUnaListaSinOrdenConUnItem(){
+		
+		ListaSinOrden lista = new ListaSinOrden();
+		ItemDeLista item = new ItemDeLista();
+		
+		item.setTexto("item de lista");
+		lista.agregarItem(item);
+			
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<ul>");
+		listaDeLineas.add("<li>item de lista</li>");
+		listaDeLineas.add("</ul>");
+			
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(lista);
+			
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());		
+	}
 }

@@ -4,6 +4,7 @@ public abstract class EtiquetaHTML implements Visitable{
 	
 	protected String prefijo;
 	protected String sufijo;
+	private String texto;
 	
 	public String getPrefijo() {
 		return this.prefijo;
@@ -12,8 +13,7 @@ public abstract class EtiquetaHTML implements Visitable{
 	public String getSufijo() {
 		return this.sufijo;
 	}
-	private String texto;
-
+	
 	public void setTexto(String texto) {
 		this.texto = texto;	
 	}
@@ -21,7 +21,7 @@ public abstract class EtiquetaHTML implements Visitable{
 	public String getTexto() {
 		return this.texto;
 	}
-
+	
 	@Override
 	public void aceptarVisitor(Visitor visitor) {}
 }

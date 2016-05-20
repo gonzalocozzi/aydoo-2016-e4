@@ -3,11 +3,9 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Seccion {
+public class Seccion extends EtiquetaHTML{
 	
 	private List<EtiquetaHTML> listaDeElementos;
-	private String prefijo;
-	private String sufijo;
 	
 	public Seccion(){
 		this.prefijo = "<section>";
@@ -25,13 +23,5 @@ public class Seccion {
 	
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);
-	}
-
-	public String getSufijo() {
-		return this.sufijo;
-	}
-	
-	public String getPrefijo(){
-		return this.prefijo;
 	}
 }

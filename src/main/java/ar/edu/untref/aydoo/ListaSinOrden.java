@@ -19,6 +19,7 @@ public class ListaSinOrden extends EtiquetaHTML {
 	public ArrayList<ItemDeLista> getColeccionDeItems() {
 		return this.listaDeItems;
 	}
+	
 /**
 	public String getHTMLDeLosItems() {		
 		String htmlDeLosItems = "";

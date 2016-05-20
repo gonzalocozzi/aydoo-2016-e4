@@ -15,10 +15,21 @@ public class VisitorDeEtiquetas implements Visitor{
 		return this.listaDeLineas;
 	}
 
-	public void visitar(EtiquetaHTML etiquetaGenerica) {
-		this.listaDeLineas.add(etiquetaGenerica.getPrefijo()+etiquetaGenerica.getTexto()+etiquetaGenerica.getSufijo());	
+	public void visitar(EtiquetaHTML etiqueta ) {
+		this.listaDeLineas.add(etiqueta.getPrefijo()+etiqueta.getTexto()+etiqueta.getSufijo());	
 	}
 
+	public void visitar(ListaSinOrden lista){
+		
+		this.listaDeLineas.add(lista.getPrefijo());
+		
+		for(ItemDeLista item : lista.getColeccionDeItems()){
+			this.visitar(item);
+		}
+		
+		this.listaDeLineas.add(lista.getSufijo());
+	}
+	
 	public void visitar(Seccion seccion) {
 
 		this.listaDeLineas.add(seccion.getPrefijo());
