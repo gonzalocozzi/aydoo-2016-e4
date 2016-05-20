@@ -36,4 +36,17 @@ public class ImagenTest {
 		
 		Assert.assertEquals(ruta, rutaDeLaImagen);		
 	}
+	
+	@Test
+	public void imagenAceptaElVisitor(){
+		
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		imagen.aceptarVisitor(visitor);
+		
+		String resultadoEsperado = "<img src=\"imagen.jpg\"/>";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 }

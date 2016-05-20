@@ -36,4 +36,17 @@ public class SubtituloTest {
 		
 		Assert.assertEquals(contenido, textoDelSubtitulo);		
 	}
+	
+	@Test
+	public void subtituloAceptaElVisitor(){
+		
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		subtitulo.aceptarVisitor(visitor);
+		
+		String resultadoEsperado = "<h2>un subtitulo</h2>";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 }

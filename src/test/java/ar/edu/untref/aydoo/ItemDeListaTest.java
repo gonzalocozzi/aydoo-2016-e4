@@ -36,4 +36,17 @@ public class ItemDeListaTest {
 		
 		Assert.assertEquals(contenido, textoDelItem);		
 	}
+	
+	@Test
+	public void itemDeListaAceptaElVisitor(){
+		
+		ItemDeLista itemDeLista = new ItemDeLista();
+		itemDeLista.setTexto("item de lista");
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		itemDeLista.aceptarVisitor(visitor);
+		
+		String resultadoEsperado = "<li>item de lista</li>";
+		
+		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
 }

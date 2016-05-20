@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -87,5 +88,66 @@ public class SeccionTest {
 		List<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(listaSinOrden));
+	}
+	
+	@Test
+	public void seccionConTituloAceptaElVisitor(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		seccion.agregarElemento(titulo);
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		seccion.aceptarVisitor(visitor);
+		
+		List<String> listaDeLineasEsperada = new LinkedList<String>();
+		listaDeLineasEsperada.add("<section>");
+		listaDeLineasEsperada.add("<h1>un titulo</h1>");
+		listaDeLineasEsperada.add("</section>");
+		
+		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
+	}
+	
+	@Test
+	public void seccionConUnSubtituloAceptaElVisitor(){
+		
+		Seccion seccion = new Seccion();
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		seccion.agregarElemento(subtitulo);
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		seccion.aceptarVisitor(visitor);
+		
+		List<String> listaDeLineasEsperada = new LinkedList<String>();
+		listaDeLineasEsperada.add("<section>");
+		listaDeLineasEsperada.add("<h2>un subtitulo</h2>");
+		listaDeLineasEsperada.add("</section>");
+		
+		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
+	}
+	
+	@Test
+	public void seccionConUnTituloYUnaImagenAceptaElVisitor(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(imagen);
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		seccion.aceptarVisitor(visitor);
+		
+		List<String> listaDeLineasEsperada = new LinkedList<String>();
+		listaDeLineasEsperada.add("<section>");
+		listaDeLineasEsperada.add("<h1>un titulo</h1>");
+		listaDeLineasEsperada.add("<img src=\"imagen.jpg\"/>");
+		listaDeLineasEsperada.add("</section>");
+		
+		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
 	}
 }
