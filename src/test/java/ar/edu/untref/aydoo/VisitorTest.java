@@ -333,4 +333,27 @@ public class VisitorTest {
 		
 		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
 	}
+	
+	@Test
+	public void seccionConUnTituloYUnaImagenAceptaElVisitor(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(imagen);
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		seccion.aceptarVisitor(visitor);
+		
+		List<String> listaDeLineasEsperada = new LinkedList<String>();
+		listaDeLineasEsperada.add("<section>");
+		listaDeLineasEsperada.add("<h1>un titulo</h1>");
+		listaDeLineasEsperada.add("<img src=\"imagen.jpg\"/>");
+		listaDeLineasEsperada.add("</section>");
+		
+		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
+	}
 }
