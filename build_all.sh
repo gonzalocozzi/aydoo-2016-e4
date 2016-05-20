@@ -2,5 +2,3 @@
 set -e
 
 mvn clean test
-  
-done
