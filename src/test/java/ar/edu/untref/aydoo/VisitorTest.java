@@ -268,4 +268,33 @@ public class VisitorTest {
 		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2)+listaDeLineas.get(3), 
 				visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2)+visitor.getListaDeLineas().get(3));
 	}	
+	
+	@Test
+	public void visitaUnaSeccionConUnTituloYConUnSubtituloYUnaImagen(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+		
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(subtitulo);
+		seccion.agregarElemento(imagen);
+		
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<h1>un titulo</h1>");
+		listaDeLineas.add("<h2>un subtitulo</h2>");
+		listaDeLineas.add("<img src=\"imagen.jpg\"/>");
+		listaDeLineas.add("</section>");
+				
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(seccion);
+		
+		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2)+listaDeLineas.get(3)+listaDeLineas.get(4), 
+				visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2)+visitor.getListaDeLineas().get(3)+visitor.getListaDeLineas().get(4));
+	}	
 }
