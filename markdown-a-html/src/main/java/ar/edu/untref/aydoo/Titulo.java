@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class Titulo extends EtiquetaHTMLSimple {
+public class Titulo extends EtiquetaHTML implements Visitable{
 	
 	public Titulo(){		
 		this.prefijo = "<h1>";

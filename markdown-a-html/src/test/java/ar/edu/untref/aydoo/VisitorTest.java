@@ -2,6 +2,9 @@ package ar.edu.untref.aydoo;
 
 import org.junit.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.Assert;
 
 public class VisitorTest {
@@ -11,7 +14,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTMLSimple titulo = new Titulo();
+		EtiquetaHTML titulo = new Titulo();
 		titulo.setTexto("un titulo");
 		
 		visitor.visitar(titulo);
@@ -26,7 +29,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTMLSimple subtitulo = new Subtitulo();
+		EtiquetaHTML subtitulo = new Subtitulo();
 		subtitulo.setTexto("un subtitulo");
 		
 		visitor.visitar(subtitulo);
@@ -41,7 +44,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTMLSimple imagen = new Imagen();
+		EtiquetaHTML imagen = new Imagen();
 		imagen.setTexto("imagen.jpg");
 		
 		visitor.visitar(imagen);
@@ -56,7 +59,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTMLSimple textoSinFormato = new TextoSinFormato();
+		EtiquetaHTML textoSinFormato = new TextoSinFormato();
 		textoSinFormato.setTexto("un texto");
 		
 		visitor.visitar(textoSinFormato);
@@ -71,7 +74,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTMLSimple itemDeLista = new ItemDeLista();
+		EtiquetaHTML itemDeLista = new ItemDeLista();
 		itemDeLista.setTexto("un item de lista");
 		
 		visitor.visitar(itemDeLista);
@@ -86,7 +89,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTMLSimple etiquetaGenerica = new Titulo();
+		EtiquetaHTML etiquetaGenerica = new Titulo();
 		etiquetaGenerica.setTexto("texto");
 		
 		visitor.visitar(etiquetaGenerica);
@@ -159,5 +162,25 @@ public class VisitorTest {
 		String resultadoEsperado = "texto";
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
+	}
+	
+	@Test
+	public void visitaUnaSeccionYPideContenido(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		
+		seccion.agregarElemento(titulo);
+		
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<h1>un titulo</h1>");
+		listaDeLineas.add("</section>");
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(seccion);
+		
+		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
 	}
 }

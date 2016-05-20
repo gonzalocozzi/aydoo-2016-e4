@@ -36,17 +36,4 @@ public class SubtituloTest {
 		
 		Assert.assertEquals(contenido, textoDelSubtitulo);		
 	}
-	
-	@Test
-	public void subtituloDevuelveHTML(){
-		
-		Subtitulo subtitulo = new Subtitulo();		
-		String contenido = "el subtitulo";
-		subtitulo.setTexto(contenido);
-		
-		String subtituloHTML = subtitulo.getHTML();
-		
-		Assert.assertEquals("<h2>el subtitulo</h2>", subtituloHTML);	
-	}
-
 }

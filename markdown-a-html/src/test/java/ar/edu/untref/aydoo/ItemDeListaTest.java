@@ -8,7 +8,7 @@ public class ItemDeListaTest {
 	@Test
 	public void itemDeListaSeCreaConPrefijo(){
 		
-		EtiquetaHTMLSimple itemDeLista = new ItemDeLista();
+		EtiquetaHTML itemDeLista = new ItemDeLista();
 		
 		String prefijo = itemDeLista.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class ItemDeListaTest {
 	@Test
 	public void itemDeListaSeCreaConSufijo(){
 		
-		EtiquetaHTMLSimple itemDeLista = new ItemDeLista();
+		EtiquetaHTML itemDeLista = new ItemDeLista();
 		
 		String sufijo = itemDeLista.getSufijo();
 		
@@ -28,7 +28,7 @@ public class ItemDeListaTest {
 	@Test
 	public void seIncorporaTextoAlItemDeLista(){
 		
-		EtiquetaHTMLSimple itemDeLista = new ItemDeLista();
+		EtiquetaHTML itemDeLista = new ItemDeLista();
 		String contenido = "un item de la lista";
 		itemDeLista.setTexto(contenido);
 		
@@ -36,17 +36,4 @@ public class ItemDeListaTest {
 		
 		Assert.assertEquals(contenido, textoDelItem);		
 	}
-	
-	@Test
-	public void itemDeListaDevuelveHTML(){
-		
-		EtiquetaHTMLSimple itemDeLista = new ItemDeLista();
-		String contenido = "un item de la lista";
-		itemDeLista.setTexto(contenido);
-		
-		String itemDeListaHTML = itemDeLista.getHTML();
-		
-		Assert.assertEquals("<li>un item de la lista</li>", itemDeListaHTML);	
-	}
-	
 }

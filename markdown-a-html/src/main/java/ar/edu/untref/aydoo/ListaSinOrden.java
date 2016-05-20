@@ -19,7 +19,7 @@ public class ListaSinOrden extends EtiquetaHTML {
 	public ArrayList<ItemDeLista> getColeccionDeItems() {
 		return this.listaDeItems;
 	}
-
+/**
 	public String getHTMLDeLosItems() {		
 		String htmlDeLosItems = "";
 		String finDeLinea = System.getProperty("line.separator");
@@ -40,5 +40,5 @@ public class ListaSinOrden extends EtiquetaHTML {
 		
 		return html;
 	}
-
+*/
 }

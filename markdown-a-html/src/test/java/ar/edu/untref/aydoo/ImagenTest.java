@@ -8,7 +8,7 @@ public class ImagenTest {
 	@Test
 	public void imagenSeCreaConPrefijo(){
 		
-		EtiquetaHTMLSimple imagen = new Imagen();
+		EtiquetaHTML imagen = new Imagen();
 		
 		String prefijo = imagen.getPrefijo();
 		
@@ -18,7 +18,7 @@ public class ImagenTest {
 	@Test
 	public void imagenSeCreaConSufijo(){
 		
-		EtiquetaHTMLSimple imagen = new Imagen();
+		EtiquetaHTML imagen = new Imagen();
 		
 		String sufijo = imagen.getSufijo();
 		
@@ -28,7 +28,7 @@ public class ImagenTest {
 	@Test
 	public void seIncorporaRutaDeLaImagen(){
 		
-		EtiquetaHTMLSimple imagen = new Imagen();	
+		EtiquetaHTML imagen = new Imagen();	
 		String ruta = "imagen.png";
 		imagen.setTexto(ruta);
 		
@@ -36,17 +36,4 @@ public class ImagenTest {
 		
 		Assert.assertEquals(ruta, rutaDeLaImagen);		
 	}
-	
-	@Test
-	public void imagenDevuelveHTML(){
-		
-		EtiquetaHTMLSimple imagen = new Imagen();	
-		String ruta = "imagen.png";
-		imagen.setTexto(ruta);
-		
-		String imagenHTML = imagen.getHTML();
-		
-		Assert.assertEquals("<img src=\"imagen.png\"/>", imagenHTML);	
-	}
-
 }
