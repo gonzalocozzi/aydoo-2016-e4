@@ -165,7 +165,7 @@ public class VisitorTest {
 	}
 	
 	@Test
-	public void visitaUnaSeccionYPideContenido(){
+	public void visitaUnaSeccionConTitulo(){
 		
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
@@ -176,6 +176,26 @@ public class VisitorTest {
 		List<String> listaDeLineas = new LinkedList<String>();
 		listaDeLineas.add("<section>");
 		listaDeLineas.add("<h1>un titulo</h1>");
+		listaDeLineas.add("</section>");
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(seccion);
+		
+		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
+	}
+	
+	@Test
+	public void visitaUnaSeccionConSubtitulo(){
+		
+		Seccion seccion = new Seccion();
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		
+		seccion.agregarElemento(subtitulo);
+		
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<h2>un subtitulo</h2>");
 		listaDeLineas.add("</section>");
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
