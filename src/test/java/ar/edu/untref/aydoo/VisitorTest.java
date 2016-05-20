@@ -267,6 +267,5 @@ public class VisitorTest {
 		
 		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2)+listaDeLineas.get(3), 
 				visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2)+visitor.getListaDeLineas().get(3));
-	}
-	
+	}	
 }
