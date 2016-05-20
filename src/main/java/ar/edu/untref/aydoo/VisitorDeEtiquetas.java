@@ -16,11 +16,12 @@ public class VisitorDeEtiquetas implements Visitor{
 	}
 
 	public void visitar(EtiquetaHTML etiquetaGenerica) {
+		System.out.println("visita etiquetaHTML");
 		this.listaDeLineas.add(etiquetaGenerica.getPrefijo()+etiquetaGenerica.getTexto()+etiquetaGenerica.getSufijo());	
 	}
 
 	public void visitar(Seccion seccion) {
-		
+		System.out.println("visita seccion");
 		this.listaDeLineas.add(seccion.getPrefijo());
 		
 		for(EtiquetaHTML etiqueta : seccion.getListaDeElementos()){

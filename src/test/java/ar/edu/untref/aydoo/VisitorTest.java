@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Assert;
 
 public class VisitorTest {
-	
+	/**
 	@Test
 	public void visitaUnTituloYPideContenido(){
 		
@@ -181,7 +181,7 @@ public class VisitorTest {
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		visitor.visitar(seccion);
 		
-		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
 	
 	@Test
@@ -201,7 +201,7 @@ public class VisitorTest {
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		visitor.visitar(seccion);
 		
-		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
 	
 	@Test
@@ -221,7 +221,7 @@ public class VisitorTest {
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		visitor.visitar(seccion);
 		
-		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
 	
 	@Test
@@ -241,7 +241,7 @@ public class VisitorTest {
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		visitor.visitar(seccion);
 		
-		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
 	
 	@Test
@@ -265,8 +265,7 @@ public class VisitorTest {
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		visitor.visitar(seccion);
 		
-		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2)+listaDeLineas.get(3), 
-				visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2)+visitor.getListaDeLineas().get(3));
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}	
 	
 	@Test
@@ -294,7 +293,25 @@ public class VisitorTest {
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		visitor.visitar(seccion);
 		
-		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2)+listaDeLineas.get(3)+listaDeLineas.get(4), 
-				visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2)+visitor.getListaDeLineas().get(3)+visitor.getListaDeLineas().get(4));
-	}	
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
+	}
+	*/
+	@Test
+	public void seccionConTituloAceptaElVisitor(){
+		
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		seccion.agregarElemento(titulo);
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		seccion.aceptarVisitor(visitor);
+		
+		List<String> listaDeLineasEsperada = new LinkedList<String>();
+		listaDeLineasEsperada.add("<section>");
+		listaDeLineasEsperada.add("<h1>un titulo</h1>");
+		listaDeLineasEsperada.add("</section>");
+		
+		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
+	}
 }

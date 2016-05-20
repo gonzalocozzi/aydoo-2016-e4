@@ -8,6 +8,7 @@ public class Titulo extends EtiquetaHTML implements Visitable{
 	}
 
 	public void aceptarVisitor(Visitor visitor) {
+		System.out.println("entra al titulo");
 		visitor.visitar(this);		
 	}
 }

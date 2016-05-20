@@ -3,9 +3,11 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Seccion extends EtiquetaHTML {
+public class Seccion {
 	
 	private List<EtiquetaHTML> listaDeElementos;
+	private String prefijo;
+	private String sufijo;
 	
 	public Seccion(){
 		this.prefijo = "<section>";
@@ -20,26 +22,17 @@ public class Seccion extends EtiquetaHTML {
 	public List<EtiquetaHTML> getListaDeElementos() {
 		return this.listaDeElementos;
 	}
-/**
-	public String getHTMLDeLosElementos() {
-		String htmlDeLosElementos = "";
-		String finDeLinea = System.getProperty("line.separator");
-		
-		for(EtiquetaHTML elemento : this.listaDeElementos){			
-			htmlDeLosElementos += elemento.getHTML();
-			htmlDeLosElementos += finDeLinea;
-		}
-		
-		return htmlDeLosElementos;
+	
+	public void aceptarVisitor(Visitor visitor) {
+		System.out.println("entra a seccion");
+		visitor.visitar(this);
 	}
 
-	public String getHTML() {
-		String htmlDeLosElementos = this.getHTMLDeLosElementos();
-		String finDeLinea = System.getProperty("line.separator");
-		
-		String html = this.prefijo + finDeLinea + htmlDeLosElementos + this.sufijo;
-		
-		return html;
+	public String getSufijo() {
+		return this.sufijo;
 	}
-	*/
+	
+	public String getPrefijo(){
+		return this.prefijo;
+	}
 }
