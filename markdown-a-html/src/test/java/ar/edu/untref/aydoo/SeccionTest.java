@@ -124,11 +124,19 @@ public class SeccionTest {
 		item1.setTexto("un item de la lista");
 		listaSinOrden.agregarItem(item1);		
 		seccion.agregarElemento(listaSinOrden);
+		
+		Seccion seccionContenida = new Seccion();
+		TextoSinFormato textoSinFormato2 = new TextoSinFormato();
+		textoSinFormato2.setTexto("texto dentro de la seccion interna");
+		seccionContenida.agregarElemento(textoSinFormato2);		
+		seccion.agregarElemento(seccionContenida);
 
 		String htmlDeLosElementos = seccion.getHTMLDeLosElementos();
-
+		
 		String finDeLinea = System.getProperty("line.separator");
-		String htmlEsperado = "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea + "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "</ul>" + finDeLinea;
+		String htmlEsperado = "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" 
+		+ finDeLinea + "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "</ul>" + finDeLinea + "<section>" 
+				+ finDeLinea + "texto dentro de la seccion interna" + finDeLinea + "</section>" + finDeLinea;
 
 		Assert.assertEquals(htmlEsperado, htmlDeLosElementos);
 	}
@@ -155,11 +163,19 @@ public class SeccionTest {
 		item1.setTexto("un item de la lista");
 		listaSinOrden.agregarItem(item1);		
 		seccion.agregarElemento(listaSinOrden);
+		
+		Seccion seccionContenida = new Seccion();
+		TextoSinFormato textoSinFormato2 = new TextoSinFormato();
+		textoSinFormato2.setTexto("texto dentro de la seccion interna");
+		seccionContenida.agregarElemento(textoSinFormato2);		
+		seccion.agregarElemento(seccionContenida);
 
 		String seccionHTML = seccion.getHTML();
 
 		String finDeLinea = System.getProperty("line.separator");
-		String htmlEsperado = "<section>" + finDeLinea + "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" + finDeLinea + "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "</ul>" + finDeLinea + "</section>";
+		String htmlEsperado = "<section>" + finDeLinea + "<h1>un titulo</h1>" + finDeLinea + "<h2>un subtitulo</h2>" + finDeLinea + "solo texto sin nada mas" 
+		+ finDeLinea + "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "</ul>" + finDeLinea + "<section>" 
+				+ finDeLinea + "texto dentro de la seccion interna" + finDeLinea + "</section>" + finDeLinea + "</section>";
 
 		Assert.assertEquals(htmlEsperado, seccionHTML);
 	}

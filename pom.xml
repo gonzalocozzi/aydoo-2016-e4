@@ -37,7 +37,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>factores-primos-3</finalName>
+        <finalName>markdown-a-html</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
