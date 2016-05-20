@@ -24,7 +24,6 @@ public class Seccion {
 	}
 	
 	public void aceptarVisitor(Visitor visitor) {
-		System.out.println("entra a seccion");
 		visitor.visitar(this);
 	}
 

@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Assert;
 
 public class VisitorTest {
-	/**
+	
 	@Test
 	public void visitaUnTituloYPideContenido(){
 		
@@ -295,7 +295,7 @@ public class VisitorTest {
 		
 		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
-	*/
+	
 	@Test
 	public void seccionConTituloAceptaElVisitor(){
 		
@@ -310,6 +310,25 @@ public class VisitorTest {
 		List<String> listaDeLineasEsperada = new LinkedList<String>();
 		listaDeLineasEsperada.add("<section>");
 		listaDeLineasEsperada.add("<h1>un titulo</h1>");
+		listaDeLineasEsperada.add("</section>");
+		
+		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
+	}
+	
+	@Test
+	public void seccionConUnSubtituloAceptaElVisitor(){
+		
+		Seccion seccion = new Seccion();
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		seccion.agregarElemento(subtitulo);
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		seccion.aceptarVisitor(visitor);
+		
+		List<String> listaDeLineasEsperada = new LinkedList<String>();
+		listaDeLineasEsperada.add("<section>");
+		listaDeLineasEsperada.add("<h2>un subtitulo</h2>");
 		listaDeLineasEsperada.add("</section>");
 		
 		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
