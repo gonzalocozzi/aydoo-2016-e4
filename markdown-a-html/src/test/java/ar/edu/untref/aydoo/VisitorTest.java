@@ -224,6 +224,25 @@ public class VisitorTest {
 		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
 	}
 	
+	@Test
+	public void visitaUnaSeccionConTextoSinFormato(){
+		
+		Seccion seccion = new Seccion();
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("text sin formato");
+		
+		seccion.agregarElemento(textoSinFormato);
+		
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("text sin formato");
+		listaDeLineas.add("</section>");
+		
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(seccion);
+		
+		Assert.assertEquals(listaDeLineas.get(0)+listaDeLineas.get(1)+listaDeLineas.get(2), visitor.getListaDeLineas().get(0)+visitor.getListaDeLineas().get(1)+visitor.getListaDeLineas().get(2));
 	
+	}
 	
 }
