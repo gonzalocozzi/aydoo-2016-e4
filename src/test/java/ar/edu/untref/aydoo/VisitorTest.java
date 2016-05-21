@@ -276,4 +276,88 @@ public class VisitorTest {
 			
 		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());		
 	}
+	
+	@Test
+	public void seccionConTituloYListaSinOrden(){
+		
+		Seccion seccion = new Seccion();
+		
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		
+		ListaSinOrden lista = new ListaSinOrden();
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("item1");
+		lista.agregarItem(item1);
+		
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(lista);
+				
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<h1>un titulo</h1>");
+		listaDeLineas.add("<ul>");
+		listaDeLineas.add("<li>item1</li>");
+		listaDeLineas.add("</ul>");
+		listaDeLineas.add("</section>");
+				
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(seccion);
+		
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
+	}
+	
+	@Test
+	public void seccionConTituloConSubtituloYDosListaSSinOrdenConDosItem(){
+		
+		Seccion seccion = new Seccion();
+		
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		
+		ItemDeLista item1 = new ItemDeLista();
+		ItemDeLista item2 = new ItemDeLista();
+		item1.setTexto("item1");
+		item2.setTexto("item2");
+		
+		ListaSinOrden lista = new ListaSinOrden();		
+		lista.agregarItem(item1);
+		lista.agregarItem(item2);
+		
+		ItemDeLista item3 = new ItemDeLista();
+		ItemDeLista item4 = new ItemDeLista();
+		item3.setTexto("item3");
+		item4.setTexto("item4");
+		
+		ListaSinOrden lista2 = new ListaSinOrden();		
+		lista2.agregarItem(item3);
+		lista2.agregarItem(item4);
+		
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(subtitulo);
+		seccion.agregarElemento(lista);
+		seccion.agregarElemento(lista2);
+				
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<h1>un titulo</h1>");
+		listaDeLineas.add("<h2>un subtitulo</h2>");
+		listaDeLineas.add("<ul>");
+		listaDeLineas.add("<li>item1</li>");
+		listaDeLineas.add("<li>item2</li>");
+		listaDeLineas.add("</ul>");
+		listaDeLineas.add("<ul>");
+		listaDeLineas.add("<li>item3</li>");
+		listaDeLineas.add("<li>item4</li>");
+		listaDeLineas.add("</ul>");
+		listaDeLineas.add("</section>");
+				
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		visitor.visitar(seccion);
+		
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
+	}
 }

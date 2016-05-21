@@ -24,18 +24,18 @@ public class VisitorDeEtiquetas implements Visitor{
 		this.listaDeLineas.add(lista.getPrefijo());
 		
 		for(ItemDeLista item : lista.getColeccionDeItems()){
-			this.visitar(item);
+			item.aceptarVisitor(this);
 		}
 		
 		this.listaDeLineas.add(lista.getSufijo());
 	}
 	
 	public void visitar(Seccion seccion) {
-
+		
 		this.listaDeLineas.add(seccion.getPrefijo());
 		
 		for(EtiquetaHTML etiqueta : seccion.getListaDeElementos()){
-			this.visitar(etiqueta);
+			etiqueta.aceptarVisitor(this);
 		}
 		
 		this.listaDeLineas.add(seccion.getSufijo());		
