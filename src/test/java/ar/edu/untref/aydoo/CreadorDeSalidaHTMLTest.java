@@ -155,4 +155,33 @@ public class CreadorDeSalidaHTMLTest {
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
 	}
+	@Test
+	public void recibeUnaListaConUnaSeccionConUnTituloYUnaListaSinOrdenYUnItem(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("item de lista");
+		ListaSinOrden listaSinOrden = new ListaSinOrden();
+		listaSinOrden.agregarItem(item1);
+		
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(listaSinOrden);
+				
+		lista.add(seccion);		
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>un titulo</h1>");
+		listaEsperada.add("<ul>");
+		listaEsperada.add("<li>item de lista</li>");
+		listaEsperada.add("</ul>");
+		listaEsperada.add("</section>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
 }
