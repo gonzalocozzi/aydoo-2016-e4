@@ -88,4 +88,25 @@ public class CreadorDeSalidaHTMLTest {
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
 	}
+	
+	@Test
+	public void recibeUnaListaConUnSubtituloYUnTextoSinFormato(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		TextoSinFormato textoSinFormato = new TextoSinFormato();
+		textoSinFormato.setTexto("texto");
+
+		lista.add(subtitulo);
+		lista.add(textoSinFormato);
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<h2>un subtitulo</h2>");
+		listaEsperada.add("texto");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
 }
