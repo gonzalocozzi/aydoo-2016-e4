@@ -16,4 +16,10 @@ public class CreadorDeEtiquetasTest {
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(true, miCreador.getLista().contains("##"));
 	}
+	
+	@Test
+	public void seTieneLaRepresentacionDeLaImagen(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(true, miCreador.getLista().contains("i:"));
+	}
 }
