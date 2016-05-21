@@ -219,4 +219,80 @@ public class CreadorDeSalidaHTMLTest {
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
 	}
+	
+	@Test
+	public void recibeUnaListaConDosSeccionesConUnTitulo(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		
+		Seccion seccion1 = new Seccion();
+		Titulo titulo1 = new Titulo();
+		titulo1.setTexto("un titulo1");
+		
+		seccion.agregarElemento(titulo);
+		seccion1.agregarElemento(titulo1);
+				
+		lista.add(seccion);	
+		lista.add(seccion1);
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>un titulo</h1>");
+		listaEsperada.add("</section>");
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>un titulo1</h1>");
+		listaEsperada.add("</section>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
+	
+	@Test
+	public void recibeUnaListaConEjemploDeConsigna(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("El titulo");
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("El subtitulo");
+		
+		Seccion seccion = new Seccion();
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(subtitulo);
+		
+		Titulo titulo1 = new Titulo();
+		titulo1.setTexto("Solo un titulo");
+		
+		Seccion seccion1 = new Seccion();
+		seccion1.agregarElemento(titulo1);
+		
+		TextoSinFormato texto = new TextoSinFormato();
+		texto.setTexto("solo texto sinnada mas");
+		Seccion seccion2 = new Seccion();
+		seccion2.agregarElemento(texto);
+				
+		lista.add(seccion);	
+		lista.add(seccion1);
+		lista.add(seccion2);
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>El titulo</h1>");
+		listaEsperada.add("<h2>El subtitulo</h2>");
+		listaEsperada.add("</section>");
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>Solo un titulo</h1>");
+		listaEsperada.add("</section>");
+		listaEsperada.add("<section>");
+		listaEsperada.add("solo texto sinnada mas");
+		listaEsperada.add("</section>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
 }
