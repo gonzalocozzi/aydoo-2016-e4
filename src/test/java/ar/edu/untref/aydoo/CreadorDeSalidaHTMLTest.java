@@ -155,6 +155,7 @@ public class CreadorDeSalidaHTMLTest {
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
 	}
+	
 	@Test
 	public void recibeUnaListaConUnaSeccionConUnTituloYUnaListaSinOrdenYUnItem(){
 		
@@ -180,6 +181,40 @@ public class CreadorDeSalidaHTMLTest {
 		listaEsperada.add("<ul>");
 		listaEsperada.add("<li>item de lista</li>");
 		listaEsperada.add("</ul>");
+		listaEsperada.add("</section>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
+	
+	@Test
+	public void recibeUnaListaConUnaSeccionConUnTituloYUnaListaSinOrdenYUnItemYUnaImagen(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Seccion seccion = new Seccion();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		ItemDeLista item1 = new ItemDeLista();
+		item1.setTexto("item de lista");
+		ListaSinOrden listaSinOrden = new ListaSinOrden();
+		listaSinOrden.agregarItem(item1);
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");;
+		
+		seccion.agregarElemento(titulo);
+		seccion.agregarElemento(listaSinOrden);
+		seccion.agregarElemento(imagen);
+		
+		lista.add(seccion);		
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>un titulo</h1>");
+		listaEsperada.add("<ul>");
+		listaEsperada.add("<li>item de lista</li>");
+		listaEsperada.add("</ul>");
+		listaEsperada.add("<img src=\"imagen.jpg\"/>");
 		listaEsperada.add("</section>");
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
