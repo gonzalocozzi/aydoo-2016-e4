@@ -12,6 +12,12 @@ public class CreadorDeEtiquetasTest {
 	}
 	
 	@Test
+	public void laRepresentacionDelTituloEstaAsociadaConUnObjetoDeTipoTitulo(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(Titulo.class, miCreador.getDiccionario().get("#").getClass());
+	}
+	
+	@Test
 	public void seTieneLaRepresentacionDelSubtitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("##"));
