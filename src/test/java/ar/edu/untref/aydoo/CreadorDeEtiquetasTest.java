@@ -22,4 +22,10 @@ public class CreadorDeEtiquetasTest {
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(true, miCreador.getLista().contains("i:"));
 	}
+	
+	@Test
+	public void seTieneLaRepresentacionDeUnItem(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(true, miCreador.getLista().contains("*"));
+	}
 }
