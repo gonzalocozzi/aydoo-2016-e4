@@ -10,6 +10,7 @@ public class CreadorDeEtiquetas {
 	public CreadorDeEtiquetas(){
 		this.listaDeRepresentaciones = new LinkedList<String>();
 		this.listaDeRepresentaciones.add("#");
+		this.listaDeRepresentaciones.add("##");
 	}
 
 	public List<String> getLista() {
