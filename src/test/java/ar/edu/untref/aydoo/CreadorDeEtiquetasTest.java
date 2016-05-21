@@ -64,4 +64,10 @@ public class CreadorDeEtiquetasTest {
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(Seccion.class, miCreador.getDiccionario().get("---").getClass());
 	}
+	
+	@Test
+	public void seTieneLaRepresentacionDeUnTextoSinFormato(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(true, miCreador.getDiccionario().containsKey(""));
+	}
 }

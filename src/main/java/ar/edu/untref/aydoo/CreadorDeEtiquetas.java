@@ -13,6 +13,7 @@ public class CreadorDeEtiquetas {
 		this.diccionarioDeRepresentaciones.put("i:", new Imagen());
 		this.diccionarioDeRepresentaciones.put("*", new ItemDeLista());
 		this.diccionarioDeRepresentaciones.put("---", new Seccion());
+		this.diccionarioDeRepresentaciones.put("", new TextoSinFormato());
 	}
 	
 	public HashMap<String, EtiquetaHTML> getDiccionario(){
