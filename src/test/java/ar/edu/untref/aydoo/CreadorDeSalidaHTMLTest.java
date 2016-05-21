@@ -15,8 +15,25 @@ public class CreadorDeSalidaHTMLTest {
 		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
 		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
 		
-		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		List<String> listaEsperada = new LinkedList<String>();
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
+	
+	@Test
+	public void recibeUnaListaConUnTitulo(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		lista.add(titulo);
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<h1>un titulo</h1>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+		
 	}
 }
