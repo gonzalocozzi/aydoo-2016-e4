@@ -70,4 +70,10 @@ public class CreadorDeEtiquetasTest {
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(true, miCreador.getDiccionario().containsKey(""));
 	}
+	
+	@Test
+	public void laRepresentacionDeUnTextoSinFormatoEstaAsociadaConUnObjetoDeTextoSinFormato(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(TextoSinFormato.class, miCreador.getDiccionario().get("").getClass());
+	}
 }
