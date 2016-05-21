@@ -67,4 +67,25 @@ public class CreadorDeSalidaHTMLTest {
 		
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
 	}
+	
+	@Test
+	public void recibeUnaListaConUnTituloYUnaImagen(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Titulo titulo = new Titulo();
+		titulo.setTexto("un titulo");
+		Imagen imagen = new Imagen();
+		imagen.setTexto("imagen.jpg");
+
+		lista.add(titulo);
+		lista.add(imagen);
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<h1>un titulo</h1>");
+		listaEsperada.add("<img src=\"imagen.jpg\"/>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+	}
 }
