@@ -36,4 +36,21 @@ public class CreadorDeSalidaHTMLTest {
 		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
 		
 	}
+	
+	@Test
+	public void recibeUnaListaConUnSubtitulo(){
+		
+		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		Subtitulo subtitulo = new Subtitulo();
+		subtitulo.setTexto("un subtitulo");
+		lista.add(subtitulo);
+		
+		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<h2>un subtitulo</h2>");
+		
+		Assert.assertEquals(listaEsperada, creador.getListaDeSalidaHTML());
+		
+	}
 }
