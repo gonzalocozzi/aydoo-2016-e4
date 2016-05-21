@@ -28,4 +28,10 @@ public class CreadorDeEtiquetasTest {
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(true, miCreador.getLista().contains("*"));
 	}
+	
+	@Test
+	public void seTieneLaRepresentacionDeUnaSeccion(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(true, miCreador.getLista().contains("---"));
+	}
 }

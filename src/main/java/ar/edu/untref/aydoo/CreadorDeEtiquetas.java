@@ -13,6 +13,7 @@ public class CreadorDeEtiquetas {
 		this.listaDeRepresentaciones.add("##");
 		this.listaDeRepresentaciones.add("i:");
 		this.listaDeRepresentaciones.add("*");
+		this.listaDeRepresentaciones.add("---");
 	}
 
 	public List<String> getLista() {
