@@ -20,26 +20,7 @@ public class ListaSinOrden extends EtiquetaHTML {
 		return this.listaDeItems;
 	}
 	
-/**
-	public String getHTMLDeLosItems() {		
-		String htmlDeLosItems = "";
-		String finDeLinea = System.getProperty("line.separator");
-		
-		for(ItemDeLista item : this.listaDeItems){			
-			htmlDeLosItems += item.getHTML();
-			htmlDeLosItems +=  finDeLinea;
-		}
-		
-		return htmlDeLosItems;
+	public void aceptarVisitor(Visitor visitor){
+		visitor.visitar(this);
 	}
-
-	public String getHTML() {		
-		String htmlDeLosItems = this.getHTMLDeLosItems();
-		String finDeLinea = System.getProperty("line.separator");		
-		
-		String html = this.prefijo + finDeLinea + htmlDeLosItems + this.sufijo;
-		
-		return html;
-	}
-*/
 }

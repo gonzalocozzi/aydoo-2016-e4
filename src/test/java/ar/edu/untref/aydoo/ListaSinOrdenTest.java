@@ -1,6 +1,8 @@
 package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,47 +40,24 @@ public class ListaSinOrdenTest {
 		
 		Assert.assertTrue(listaDeItems.contains(item));
 	}
-	/**
-	@Test
-	public void listaSinOrdenDevuelveHTMLDeLosItems(){
-		
-		ListaSinOrden lista = new ListaSinOrden();
-		
-		ItemDeLista item1 = new ItemDeLista();
-		item1.setTexto("un item de la lista");
-		lista.agregarItem(item1);
-		
-		ItemDeLista item2 = new ItemDeLista();
-		item2.setTexto("otro item de la lista");
-		lista.agregarItem(item2);
-		
-		String htmlDeLosItems = lista.getHTMLDeLosItems();
-		
-		String finDeLinea = System.getProperty("line.separator");
-		String htmlEsperado = "<li>un item de la lista</li>" + finDeLinea + "<li>otro item de la lista</li>" + finDeLinea;
-		
-		Assert.assertEquals(htmlEsperado, htmlDeLosItems);
-	}
 	
 	@Test
-	public void listaSinOrdenDevuelveHTML(){
-		
+	public void listaSinOrdenConUnItemAceptaUnVisitor(){
+			
 		ListaSinOrden lista = new ListaSinOrden();
+		ItemDeLista item = new ItemDeLista();
 		
-		ItemDeLista item1 = new ItemDeLista();
-		item1.setTexto("un item de la lista");
-		lista.agregarItem(item1);
-		
-		ItemDeLista item2 = new ItemDeLista();
-		item2.setTexto("otro item de la lista");
-		lista.agregarItem(item2);
-		
-		String listaSinOrdenHTML = lista.getHTML();		
-		
-		String finDeLinea = System.getProperty("line.separator");		
-		String htmlEsperado = "<ul>" + finDeLinea + "<li>un item de la lista</li>" + finDeLinea + "<li>otro item de la lista</li>" + finDeLinea + "</ul>";
-		
-		Assert.assertEquals(htmlEsperado, listaSinOrdenHTML);
+		item.setTexto("item de lista");
+		lista.agregarItem(item);
+			
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<ul>");
+		listaDeLineas.add("<li>item de lista</li>");
+		listaDeLineas.add("</ul>");
+			
+		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
+		lista.aceptarVisitor(visitor);
+			
+		Assert.assertEquals(listaDeLineas,visitor.getListaDeLineas());
 	}
-*/
 }
