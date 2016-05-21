@@ -36,6 +36,12 @@ public class CreadorDeEtiquetasTest {
 	}
 	
 	@Test
+	public void laRepresentacionDeLaImagenEstaAsociadaConUnObjetoDeTipoImagen(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		Assert.assertEquals(Imagen.class, miCreador.getDiccionario().get("i:").getClass());
+	}
+	
+	@Test
 	public void seTieneLaRepresentacionDeUnItem(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("*"));
