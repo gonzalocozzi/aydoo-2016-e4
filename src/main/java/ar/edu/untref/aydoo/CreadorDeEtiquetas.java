@@ -1,23 +1,21 @@
 package ar.edu.untref.aydoo;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 
 public class CreadorDeEtiquetas {
 
-	private List<String> listaDeRepresentaciones;
+	private HashMap<String, EtiquetaHTML> diccionarioDeRepresentaciones;
 	
 	public CreadorDeEtiquetas(){
-		this.listaDeRepresentaciones = new LinkedList<String>();
-		this.listaDeRepresentaciones.add("#");
-		this.listaDeRepresentaciones.add("##");
-		this.listaDeRepresentaciones.add("i:");
-		this.listaDeRepresentaciones.add("*");
-		this.listaDeRepresentaciones.add("---");
+		this.diccionarioDeRepresentaciones = new HashMap<String, EtiquetaHTML>();
+		this.diccionarioDeRepresentaciones.put("#", new Titulo());
+		this.diccionarioDeRepresentaciones.put("##", new Subtitulo());
+		this.diccionarioDeRepresentaciones.put("i:", new Imagen());
+		this.diccionarioDeRepresentaciones.put("*", new ItemDeLista());
+		this.diccionarioDeRepresentaciones.put("---", new Seccion());
 	}
-
-	public List<String> getLista() {
-		return this.listaDeRepresentaciones;
+	
+	public HashMap<String, EtiquetaHTML> getDiccionario(){
+		return this.diccionarioDeRepresentaciones;
 	}
-
 }

@@ -8,30 +8,30 @@ public class CreadorDeEtiquetasTest {
 	@Test
 	public void seTieneLaRepresentacionDelTitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getLista().contains("#"));
+		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("#"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDelSubtitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getLista().contains("##"));
+		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("##"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeLaImagen(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getLista().contains("i:"));
+		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("i:"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeUnItem(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getLista().contains("*"));
+		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("*"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeUnaSeccion(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getLista().contains("---"));
+		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("---"));
 	}
 }
