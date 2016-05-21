@@ -52,7 +52,7 @@ public class ListaSinOrdenTest {
 			
 		List<String> listaDeLineas = new LinkedList<String>();
 		listaDeLineas.add("<ul>");
-		//listaDeLineas.add("<li>item de lista</li>");
+		listaDeLineas.add("<li>item de lista</li>");
 		listaDeLineas.add("</ul>");
 			
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
