@@ -7,9 +7,12 @@ public class AnalizadorDeArgumentos {
 	
 	private List<String> listaDeArgumentos;
 
-	public AnalizadorDeArgumentos(String[] args) {
+	public AnalizadorDeArgumentos(String[] args) {		
 		this.listaDeArgumentos = new ArrayList<String>();
-		this.listaDeArgumentos.add(args[0]);
+		
+		for(int i = 0; i < args.length; i++){
+			this.listaDeArgumentos.add(i, args[i].toLowerCase());
+		}
 	}
 
 	public List<String> getListaDeArgumentos() {
