@@ -2,7 +2,6 @@ package ar.edu.untref.aydoo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -67,6 +66,14 @@ public class ValidadorDeArgumentosTest {
 		List<String> args = new ArrayList<String>();
 		args.add("--output=salida");
 		args.add("--mode=no-output");
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
+		validador.validarListaDeArgumentos(args);
+	}
+	
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
+	public void validadorDeArgumentosExigeIngresarElNombreDelArchivoDeEntradaCuandoNoRecibeArgumentos(){
+		
+		List<String> args = new ArrayList<String>();
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
 		validador.validarListaDeArgumentos(args);
 	}
