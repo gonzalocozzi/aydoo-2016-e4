@@ -21,7 +21,4 @@ public abstract class EtiquetaHTML implements Visitable{
 	public String getTexto() {
 		return this.texto;
 	}
-	
-	@Override
-	public void aceptarVisitor(Visitor visitor) {}
 }
