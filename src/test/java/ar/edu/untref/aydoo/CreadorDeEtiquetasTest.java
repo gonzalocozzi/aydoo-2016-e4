@@ -107,4 +107,13 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals("esto es un item", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
 		Assert.assertEquals("subtituloDePrueba", miCreador.crearListaDeEtiquetas(miLista).get(3).getTexto());
 	}
+	
+	@Test
+	public void sePuedeGenerarUnaEtiquetaDeTextoSinFormato(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		miLista.add("esto es un texto sin formato");
+		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
+		Assert.assertEquals("esto es un texto sin formato", miCreador.crearListaDeEtiquetas(miLista).get(0).getTexto());
+	}
 }

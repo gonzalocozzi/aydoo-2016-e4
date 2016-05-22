@@ -60,10 +60,13 @@ public class CreadorDeEtiquetas {
 
 	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas) {
 		List<EtiquetaHTML> listaADevolver = listaDeEtiquetas;
-		EtiquetaHTML etiquetaACrear = this.diccionarioDeRepresentaciones.get(encabezado);
+		EtiquetaHTML etiquetaACrear = new TextoSinFormato(); //por defecto se crea un texto sin formato
+		if(!encabezado.equals("")){
+			etiquetaACrear = this.diccionarioDeRepresentaciones.get(encabezado);
+		}
 		etiquetaACrear.setTexto(texto);
 		listaADevolver.add(etiquetaACrear);
 		return listaADevolver;
 	}
-	
+
 }
