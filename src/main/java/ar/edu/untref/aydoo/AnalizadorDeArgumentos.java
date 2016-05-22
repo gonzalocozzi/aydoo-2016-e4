@@ -13,7 +13,7 @@ public class AnalizadorDeArgumentos {
 		
 		//MOVER AL VALIDADOR DE ARGUMENTOS
 		if(args.length == 1 && args[0].contains("--")){			
-			throw new SinNombreDelArchivoDeEntradaException();
+			throw new SinNombreDelArchivoDeEntradaException(nombreDeCarpetaDeSalida);
 		}
 		
 		for(int i = 0; i < args.length; i++){
