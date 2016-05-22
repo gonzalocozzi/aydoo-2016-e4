@@ -18,8 +18,12 @@ public class ValidadorDeArgumentos {
 			
 			if(!stringDeArgumentos.contains("--mode=default") && !stringDeArgumentos.contains("--mode=no-output") && !stringDeArgumentos.contains("--output=")){
 				
-				throw new ArgumentoInvalidoException("Ha ingresado un argumento invalido. Por favor, intente nuevamente.");
+				throw new ArgumentoInvalidoException("Ha ingresado un argumento invalido. Por favor, intentelo nuevamente.");
 			}
+			
+		} else if (args.size() > 2){
+			
+			throw new NumeroDeArgumentosExcedidoException("Puede ingresar hasta 2 argumentos, de los cuales uno debe ser el nombre del archivo de entrada.");
 		}
 		
 		this.listaDeArgumentos = args;		
