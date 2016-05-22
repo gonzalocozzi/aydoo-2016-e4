@@ -8,8 +8,12 @@ public class AnalizadorDeArgumentos {
 	private List<String> listaDeArgumentos;
 	private String nombreDeCarpetaDeSalida;
 
-	public AnalizadorDeArgumentos(String[] args) {		
+	public AnalizadorDeArgumentos(String[] args) throws NoInputFileNameException {		
 		this.listaDeArgumentos = new ArrayList<String>();
+		
+		if(args.length == 1 && args[0].contains("--")){			
+			throw new NoInputFileNameException();
+		}
 		
 		for(int i = 0; i < args.length; i++){
 			this.listaDeArgumentos.add(i, args[i].toLowerCase());
