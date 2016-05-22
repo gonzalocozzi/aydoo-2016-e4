@@ -12,13 +12,13 @@ public class ValidadorDeArgumentosTest {
 	public void validadorDeArgumentosRecibeListaDeArgumentos(){
 		
 		List<String> args = new ArrayList<String>();
-		args.add("mipresentacion.md");
+		args.add("mi.presentacion.md");
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
 		validador.setListaDeArgumentos(args);
 		
 		List<String> listaDeArgumentos = validador.getListaDeArgumentos();
 		
-		Assert.assertTrue(listaDeArgumentos.contains("mipresentacion.md"));
+		Assert.assertTrue(listaDeArgumentos.contains("mi.presentacion.md"));
 	}
 
 }
