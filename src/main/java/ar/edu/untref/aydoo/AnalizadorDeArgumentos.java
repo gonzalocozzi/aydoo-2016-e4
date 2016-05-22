@@ -44,9 +44,8 @@ public class AnalizadorDeArgumentos {
 			//se quita la extension Markdown al nombre de la carpeta de salida
 			nombreDeLaCarpetaSinExtension = args[posicionDelNombrelDeArchivoDeEntrada].replace(".md", "");
 		}
-		
-		if(this.nombreContieneCaracteresInvalidos(nombreDeLaCarpetaSinExtension)){
-			
+
+		if(this.nombreContieneCaracteresInvalidos(nombreDeLaCarpetaSinExtension)){			
 			throw new NombreInvalidoException();
 		}
 
@@ -55,11 +54,17 @@ public class AnalizadorDeArgumentos {
 
 	private boolean nombreContieneCaracteresInvalidos(String nombreDeLaCarpetaSinExtension) {
 
-		Boolean contieneCaracteresInvalidos = false;
-		
-		if(nombreDeLaCarpetaSinExtension.contains(" ") || nombreDeLaCarpetaSinExtension.contains("Ñ") || nombreDeLaCarpetaSinExtension.contains("ñ") || nombreDeLaCarpetaSinExtension.contains("/")){
-			
-			contieneCaracteresInvalidos = true;
+		Boolean contieneCaracteresInvalidos = false;		
+		String caracteresInvalidos = " ñÑÁÉÍÓÚ/";
+
+		//Este algoritmo recorre un string de caracteres invalidos para saber si alguno de ellos se encuentra en el nombre del archivo
+		for (int i = 0; i < nombreDeLaCarpetaSinExtension.length(); i++) {				
+			char c = nombreDeLaCarpetaSinExtension.charAt(i);			
+			for (int j = 0; j < caracteresInvalidos.length(); j++) {				
+				if (c == caracteresInvalidos.charAt(j)) {					
+					contieneCaracteresInvalidos = true;
+				}				
+			}			
 		}
 
 		return contieneCaracteresInvalidos;
