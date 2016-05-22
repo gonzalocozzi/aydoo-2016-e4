@@ -55,7 +55,7 @@ public class AnalizadorDeArgumentos {
 	private boolean nombreContieneCaracteresInvalidos(String nombreDeLaCarpetaSinExtension) {
 
 		Boolean contieneCaracteresInvalidos = false;		
-		String caracteresInvalidos = " ñÑÁÉÍÓÚ/";
+		String caracteresInvalidos = " ñÑáéíóúÁÉÍÓÚ/";
 
 		//Este algoritmo recorre un string de caracteres invalidos para saber si alguno de ellos se encuentra en el nombre del archivo
 		for (int i = 0; i < nombreDeLaCarpetaSinExtension.length(); i++) {				
