@@ -11,6 +11,7 @@ public class AnalizadorDeArgumentos {
 	public AnalizadorDeArgumentos(String[] args) throws SinNombreDelArchivoDeEntradaException {		
 		this.listaDeArgumentos = new ArrayList<String>();
 		
+		//MOVER AL VALIDADOR DE ARGUMENTOS
 		if(args.length == 1 && args[0].contains("--")){			
 			throw new SinNombreDelArchivoDeEntradaException();
 		}
