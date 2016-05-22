@@ -72,13 +72,5 @@ public class AnalizadorDeArgumentosTest {
 		
 		Assert.assertEquals("otra.presentacion", nombreDeLaCarpetaDeSalida);
 	}
-	
-	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
-	public void analizadorDeArgumentosRecibeUnParametroDeFormatoSinNombreDeArchivoYExigeNombreDeArchivo() throws SinNombreDelArchivoDeEntradaException{
-		
-		String[] args = {"--mode=default"};
-		@SuppressWarnings("unused")
-		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
-	}
 
 }

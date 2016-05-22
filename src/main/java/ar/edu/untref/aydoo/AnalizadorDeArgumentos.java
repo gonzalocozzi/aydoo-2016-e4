@@ -9,12 +9,8 @@ public class AnalizadorDeArgumentos {
 	private String nombreDeCarpetaDeSalida;
 
 	public AnalizadorDeArgumentos(String[] args) throws SinNombreDelArchivoDeEntradaException {		
-		this.listaDeArgumentos = new ArrayList<String>();
 		
-		//MOVER AL VALIDADOR DE ARGUMENTOS
-		if(args.length == 1 && args[0].contains("--")){			
-			throw new SinNombreDelArchivoDeEntradaException(nombreDeCarpetaDeSalida);
-		}
+		this.listaDeArgumentos = new ArrayList<String>();		
 		
 		for(int i = 0; i < args.length; i++){
 			this.listaDeArgumentos.add(i, args[i].toLowerCase());
