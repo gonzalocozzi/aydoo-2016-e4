@@ -82,9 +82,17 @@ public class AnalizadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConÑ(){
+	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMayuscula(){
 		
 		String[] args = {"--mode=default", "mipresentacionÑ.md"};
+		@SuppressWarnings("unused")
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+	}
+	
+	@Test(expected=NombreInvalidoException.class)
+	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMinuscula(){
+		
+		String[] args = {"--mode=default", "mipresentacionñ.md"};
 		@SuppressWarnings("unused")
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
 	}
