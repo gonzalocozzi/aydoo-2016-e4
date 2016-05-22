@@ -75,5 +75,22 @@ public class CreadorDeEtiquetasTest {
 		miLista.add("#tituloDePrueba");
 		miLista.add("##subtituloDePrueba");
 		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
+		Assert.assertEquals(Subtitulo.class, miCreador.crearListaDeEtiquetas(miLista).get(1).getClass());
+	}
+	
+	@Test
+	public void seGeneraUnaListaDeEtiquetasDeUnaListaQueTieneLosEncabezadosDeTodosLosElementosDelDiccionario(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		miLista.add("#tituloDePrueba");
+		miLista.add("i:estoEsUnaImagen.png");
+		miLista.add("*esto es un item");
+		miLista.add("---");
+		miLista.add("##subtituloDePrueba");
+		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
+		Assert.assertEquals(Imagen.class, miCreador.crearListaDeEtiquetas(miLista).get(1).getClass());
+		Assert.assertEquals(ItemDeLista.class, miCreador.crearListaDeEtiquetas(miLista).get(2).getClass());
+		Assert.assertEquals(Seccion.class, miCreador.crearListaDeEtiquetas(miLista).get(3).getClass());
+		Assert.assertEquals(Subtitulo.class, miCreador.crearListaDeEtiquetas(miLista).get(4).getClass());
 	}
 }
