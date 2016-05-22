@@ -1,5 +1,8 @@
 package ar.edu.untref.aydoo;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -66,14 +69,11 @@ public class CreadorDeEtiquetasTest {
 	}
 	
 	@Test
-	public void seTieneLaRepresentacionDeUnTextoSinFormato(){
+	public void seGeneraUnaListaDeUnaEtiquetaDeTipoTituloYSubtituloAPartirDeUnaLista(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getDiccionario().containsKey(""));
-	}
-	
-	@Test
-	public void laRepresentacionDeUnTextoSinFormatoEstaAsociadaConUnObjetoDeTextoSinFormato(){
-		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(TextoSinFormato.class, miCreador.getDiccionario().get("").getClass());
+		List<String> miLista = new LinkedList<String>();
+		miLista.add("#tituloDePrueba");
+		miLista.add("##subtituloDePrueba");
+		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
 	}
 }
