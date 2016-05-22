@@ -60,5 +60,15 @@ public class ValidadorDeArgumentosTest {
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
 		validador.validarListaDeArgumentos(args);
 	}
+	
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
+	public void validadorDeArgumentosExigeNombreDelArchivoDeEntradaCuandoRecibeDosArgumentos(){
+		
+		List<String> args = new ArrayList<String>();
+		args.add("--output=salida");
+		args.add("--mode=no-output");
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
+		validador.validarListaDeArgumentos(args);
+	}
 
 }
