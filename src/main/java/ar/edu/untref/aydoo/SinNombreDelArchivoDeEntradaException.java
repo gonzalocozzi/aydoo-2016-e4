@@ -1,6 +1,6 @@
 package ar.edu.untref.aydoo;
 
-public class NoInputFileNameException extends Exception{
+public class SinNombreDelArchivoDeEntradaException extends RuntimeException{
 
 	/**
 	 * 

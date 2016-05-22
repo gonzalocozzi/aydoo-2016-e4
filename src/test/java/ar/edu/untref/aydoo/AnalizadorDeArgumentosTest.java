@@ -8,7 +8,7 @@ import org.junit.Test;
 public class AnalizadorDeArgumentosTest {
 	
 	@Test
-	public void analizadorDeArgumentosSeCreaYAlmacenaUnArgumentoEnSuLista() throws NoInputFileNameException{
+	public void analizadorDeArgumentosSeCreaYAlmacenaUnArgumentoEnSuLista() throws SinNombreDelArchivoDeEntradaException{
 		
 		String[] args = {"mipresentacion.md"};
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
@@ -19,7 +19,7 @@ public class AnalizadorDeArgumentosTest {
 	}
 	
 	@Test
-	public void analizadorDeArgumentosSeCreaYAlmacenaVariosArgumentosEnSuLista1() throws NoInputFileNameException{
+	public void analizadorDeArgumentosSeCreaYAlmacenaVariosArgumentosEnSuLista1() throws SinNombreDelArchivoDeEntradaException{
 		
 		String[] args = {"--mode=default", "mipresentacion.md"};
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
@@ -30,7 +30,7 @@ public class AnalizadorDeArgumentosTest {
 	}
 	
 	@Test
-	public void analizadorDeArgumentosSeCreaYAlmacenaVariosArgumentosEnSuLista2() throws NoInputFileNameException{
+	public void analizadorDeArgumentosSeCreaYAlmacenaVariosArgumentosEnSuLista2() throws SinNombreDelArchivoDeEntradaException{
 		
 		String[] args = {"--mode=default", "mipresentacion.md"};
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
@@ -41,7 +41,7 @@ public class AnalizadorDeArgumentosTest {
 	}
 	
 	@Test
-	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDeLaCarpetaDeSalida() throws NoInputFileNameException{
+	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
 		
 		String[] args = {"mipresentacion.md"};
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
@@ -52,7 +52,7 @@ public class AnalizadorDeArgumentosTest {
 	}
 	
 	@Test
-	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalida() throws NoInputFileNameException{
+	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
 		
 		String[] args = {"--mode=default", "mipresentacion.md"};
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
@@ -62,8 +62,19 @@ public class AnalizadorDeArgumentosTest {
 		Assert.assertEquals("mipresentacion", nombreDeLaCarpetaDeSalida);
 	}
 	
-	@Test(expected=NoInputFileNameException.class)
-	public void analizadorDeArgumentosRecibeUnParametroDeFormatoSinNombreDeArchivoYExigeNombreDeArchivo() throws NoInputFileNameException{
+	@Test
+	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalidaSinImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
+		
+		String[] args = {"--output=presentacion1", "otra.presentacion.md", "--mode=default"};
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+		
+		String nombreDeLaCarpetaDeSalida = analizador.getNombreDeCarpetaDeSalida();
+		
+		Assert.assertEquals("otra.presentacion", nombreDeLaCarpetaDeSalida);
+	}
+	
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
+	public void analizadorDeArgumentosRecibeUnParametroDeFormatoSinNombreDeArchivoYExigeNombreDeArchivo() throws SinNombreDelArchivoDeEntradaException{
 		
 		String[] args = {"--mode=default"};
 		@SuppressWarnings("unused")

@@ -8,11 +8,11 @@ public class AnalizadorDeArgumentos {
 	private List<String> listaDeArgumentos;
 	private String nombreDeCarpetaDeSalida;
 
-	public AnalizadorDeArgumentos(String[] args) throws NoInputFileNameException {		
+	public AnalizadorDeArgumentos(String[] args) throws SinNombreDelArchivoDeEntradaException {		
 		this.listaDeArgumentos = new ArrayList<String>();
 		
 		if(args.length == 1 && args[0].contains("--")){			
-			throw new NoInputFileNameException();
+			throw new SinNombreDelArchivoDeEntradaException();
 		}
 		
 		for(int i = 0; i < args.length; i++){
@@ -20,6 +20,19 @@ public class AnalizadorDeArgumentos {
 		}
 		
 		this.setNombreDeCarpetaDeSalida();
+	}
+	
+	private Integer getPosicionDelNombreDelArchivoDeEntrada(){
+		
+		Integer posicionDelNombreDeArchivoDeEntrada = 0;
+		
+		for(int i = 0; i < this.listaDeArgumentos.size(); i++){			
+			if(!this.listaDeArgumentos.get(i).contains("--")){				
+				posicionDelNombreDeArchivoDeEntrada = i;
+			}			
+		}
+		
+		return posicionDelNombreDeArchivoDeEntrada;			
 	}
 	
 	private void setNombreDeCarpetaDeSalida(){
@@ -30,8 +43,9 @@ public class AnalizadorDeArgumentos {
 			//se quita la extension Markdown al nombre de la carpeta de salida
 			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).replace(".md", "");
 		} else {
+			Integer posicionDelNombrelDeArchivoDeEntrada = this.getPosicionDelNombreDelArchivoDeEntrada();
 			//se quita la extension Markdown al nombre de la carpeta de salida
-			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(this.listaDeArgumentos.size() - 1).replace(".md", "");
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(posicionDelNombrelDeArchivoDeEntrada).replace(".md", "");
 		}
 		
 		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
