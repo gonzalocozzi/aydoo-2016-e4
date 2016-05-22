@@ -19,8 +19,18 @@ public class AnalizadorDeArgumentos {
 	}
 	
 	private void setNombreDeCarpetaDeSalida(){
-		String nombreDeCarpetaSinExtension = this.listaDeArgumentos.get(0).replace(".md", "");
-		this.nombreDeCarpetaDeSalida = nombreDeCarpetaSinExtension;
+		
+		String nombreDeLaCarpetaSinExtension = ""; 
+		
+		if(this.listaDeArgumentos.size() == 1){			
+			//se quita la extension Markdown al nombre de la carpeta de salida
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).replace(".md", "");
+		} else {
+			//se quita la extension Markdown al nombre de la carpeta de salida
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(this.listaDeArgumentos.size() - 1).replace(".md", "");
+		}
+		
+		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
 	}
 
 	public List<String> getListaDeArgumentos() {

@@ -50,5 +50,16 @@ public class AnalizadorDeArgumentosTest {
 		
 		Assert.assertEquals("mipresentacion", nombreDeLaCarpetaDeSalida);
 	}
+	
+	@Test
+	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalida(){
+		
+		String[] args = {"--mode=default", "mipresentacion.md"};
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+		
+		String nombreDeLaCarpetaDeSalida = analizador.getNombreDeCarpetaDeSalida();
+		
+		Assert.assertEquals("mipresentacion", nombreDeLaCarpetaDeSalida);
+	}
 
 }
