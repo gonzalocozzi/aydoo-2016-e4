@@ -26,27 +26,31 @@ public class CreadorDeEtiquetas {
 		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
 		for(int i = 0; i < lineasDelMarkDown.size(); i++){
 			String principioDeLinea = lineasDelMarkDown.get(i).substring(0, 3);//me toma los primeros 3 caracteres
-			Iterator<String> it = this.diccionarioDeRepresentaciones.keySet().iterator();
-			boolean noHuboCoincidencia = true;
-			String representacionActual = "";
-			while(it.hasNext() && noHuboCoincidencia){
-				representacionActual = it.next();
-				if(principioDeLinea.contains(representacionActual)){
-					noHuboCoincidencia = false;
-				}
-				else{
-					representacionActual = "";
-				}
-			}
+			String representacionActual = buscarEncabezadoCorrespondiente(principioDeLinea);
 			String posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
-			if(posibleEncabezado.equals(representacionActual)){
+			if(posibleEncabezado.equals(representacionActual)){ //compara para ver si realmente es un encabezado, es decir que esta al inicio de la linea
 				int tamanioDelEncabezado = principioDeLinea.length();
 				String texto = lineasDelMarkDown.get(i).substring(tamanioDelEncabezado-1, lineasDelMarkDown.get(i).length()-1);
-				
 				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas);
 			}
 		}
 		return listaDeEtiquetas;
+	}
+
+	private String buscarEncabezadoCorrespondiente(String principioDeLinea) {
+		Iterator<String> it = this.diccionarioDeRepresentaciones.keySet().iterator();
+		boolean noHuboCoincidencia = true;
+		String representacionActual = "";
+		while(it.hasNext() && noHuboCoincidencia){
+			representacionActual = it.next();
+			if(principioDeLinea.contains(representacionActual)){
+				noHuboCoincidencia = false;
+			}
+			else{
+				representacionActual = "";
+			}
+		}
+		return representacionActual;
 	}
 
 	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas) {
