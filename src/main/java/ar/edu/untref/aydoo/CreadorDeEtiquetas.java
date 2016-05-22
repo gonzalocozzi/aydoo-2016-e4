@@ -29,12 +29,17 @@ public class CreadorDeEtiquetas {
 			String representacionActual = buscarEncabezadoCorrespondiente(principioDeLinea);
 			String posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
 			if(posibleEncabezado.equals(representacionActual)){ //compara para ver si realmente es un encabezado, es decir que esta al inicio de la linea
-				int tamanioDelEncabezado = principioDeLinea.length();
-				String texto = lineasDelMarkDown.get(i).substring(tamanioDelEncabezado-1, lineasDelMarkDown.get(i).length()-1);
+				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, representacionActual);
 				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas);
 			}
 		}
 		return listaDeEtiquetas;
+	}
+
+	private String asignarTextoALaEtiquetaAGenerar(List<String> lineasDelMarkDown, int i, String representacionActual) {
+		int tamanioDelEncabezado = representacionActual.length();
+		String texto = lineasDelMarkDown.get(i).substring(tamanioDelEncabezado, lineasDelMarkDown.get(i).length());
+		return texto;
 	}
 
 	private String buscarEncabezadoCorrespondiente(String principioDeLinea) {
