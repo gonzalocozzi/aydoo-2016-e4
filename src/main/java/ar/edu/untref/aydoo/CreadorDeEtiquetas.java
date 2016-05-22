@@ -32,6 +32,10 @@ public class CreadorDeEtiquetas {
 				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, representacionActual);
 				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas);
 			}
+			else{ //si no hay encabezado entonces va a ser un texto sin formato
+				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, "");
+				listaDeEtiquetas = crearEtiqueta("", texto, listaDeEtiquetas);
+			}
 		}
 		return listaDeEtiquetas;
 	}
@@ -50,9 +54,6 @@ public class CreadorDeEtiquetas {
 			representacionActual = it.next();
 			if(principioDeLinea.contains(representacionActual)){
 				noHuboCoincidencia = false;
-			}
-			else{
-				representacionActual = "";
 			}
 		}
 		return representacionActual;

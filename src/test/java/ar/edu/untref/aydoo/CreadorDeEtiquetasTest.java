@@ -116,4 +116,19 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
 		Assert.assertEquals("esto es un texto sin formato", miCreador.crearListaDeEtiquetas(miLista).get(0).getTexto());
 	}
+	
+	@Test
+	public void siElEncabezadoNoEstaAlPrincipioEntoncesEsUnTextoSinFormato(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		miLista.add("l## esto no es ni # un subtitulo ni titulo");
+		miLista.add("ari:imagen.png");
+		miLista.add("o*esto no va a ser un item");
+		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
+		Assert.assertEquals("l## esto no es ni # un subtitulo ni titulo", miCreador.crearListaDeEtiquetas(miLista).get(0).getTexto());
+		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(1).getClass());
+		Assert.assertEquals("ari:imagen.png", miCreador.crearListaDeEtiquetas(miLista).get(1).getTexto());
+		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(2).getClass());
+		Assert.assertEquals("o*esto no va a ser un item", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
+	}
 }
