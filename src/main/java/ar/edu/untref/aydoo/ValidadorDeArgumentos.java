@@ -6,7 +6,12 @@ public class ValidadorDeArgumentos {
 	
 	private List<String> listaDeArgumentos;
 
-	public void setListaDeArgumentos(List<String> args) {
+	public void validarListaDeArgumentos(List<String> args) {
+		
+		if(args.size() == 1 && args.get(0).contains("--")){			
+			throw new SinNombreDelArchivoDeEntradaException();
+		}
+		
 		this.listaDeArgumentos = args;		
 	}
 

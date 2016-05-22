@@ -14,11 +14,20 @@ public class ValidadorDeArgumentosTest {
 		List<String> args = new ArrayList<String>();
 		args.add("mi.presentacion.md");
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
-		validador.setListaDeArgumentos(args);
+		validador.validarListaDeArgumentos(args);
 		
 		List<String> listaDeArgumentos = validador.getListaDeArgumentos();
 		
 		Assert.assertTrue(listaDeArgumentos.contains("mi.presentacion.md"));
+	}
+	
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
+	public void validadorDeArgumentosExigeNombreDelArchivoDeEntrada(){
+		
+		List<String> args = new ArrayList<String>();
+		args.add("--mode=default");
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
+		validador.validarListaDeArgumentos(args);
 	}
 
 }
