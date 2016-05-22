@@ -57,7 +57,7 @@ public class AnalizadorDeArgumentos {
 
 		Boolean contieneCaracteresInvalidos = false;
 		
-		if(nombreDeLaCarpetaSinExtension.contains(" ") || nombreDeLaCarpetaSinExtension.contains("Ñ") || nombreDeLaCarpetaSinExtension.contains("ñ")){
+		if(nombreDeLaCarpetaSinExtension.contains(" ") || nombreDeLaCarpetaSinExtension.contains("Ñ") || nombreDeLaCarpetaSinExtension.contains("ñ") || nombreDeLaCarpetaSinExtension.contains("/")){
 			
 			contieneCaracteresInvalidos = true;
 		}
