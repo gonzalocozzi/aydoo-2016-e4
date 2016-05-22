@@ -4,7 +4,11 @@ import java.util.List;
 
 public class ValidadorDeArgumentos {
 	
-	private List<String> listaDeArgumentos;
+	private boolean argumentoEsValido;
+	
+	public ValidadorDeArgumentos(){		
+		this.argumentoEsValido = false;
+	}
 
 	public void validarListaDeArgumentos(List<String> args) {
 		
@@ -29,13 +33,16 @@ public class ValidadorDeArgumentos {
 		} else if (args.size() > 2) {
 			
 			throw new NumeroDeArgumentosExcedidoException("Puede ingresar hasta 2 argumentos, de los cuales uno debe ser el nombre del archivo de entrada.");
+			
+		} else {
+			
+			this.argumentoEsValido = true;
 		}
 		
-		this.listaDeArgumentos = args;		
 	}
 
-	public List<String> getListaDeArgumentos() {
-		return this.listaDeArgumentos;
-	}
+	public boolean argumentoEsValido() {
+		return this.argumentoEsValido;
+	}	
 
 }

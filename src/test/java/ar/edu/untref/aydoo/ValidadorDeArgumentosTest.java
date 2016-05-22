@@ -8,16 +8,14 @@ import org.junit.Test;
 public class ValidadorDeArgumentosTest {
 	
 	@Test
-	public void validadorDeArgumentosRecibeListaDeArgumentos(){
+	public void validadorDeArgumentosIndicaQueArgumentoEsValido(){
 		
 		List<String> args = new ArrayList<String>();
 		args.add("mi.presentacion.md");
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos();
 		validador.validarListaDeArgumentos(args);
 		
-		List<String> listaDeArgumentos = validador.getListaDeArgumentos();
-		
-		Assert.assertTrue(listaDeArgumentos.contains("mi.presentacion.md"));
+		Assert.assertTrue(validador.argumentoEsValido());
 	}
 	
 	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
