@@ -80,5 +80,13 @@ public class AnalizadorDeArgumentosTest {
 		@SuppressWarnings("unused")
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
 	}
+	
+	@Test(expected=NombreInvalidoException.class)
+	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConÑ(){
+		
+		String[] args = {"--mode=default", "mipresentacionÑ.md"};
+		@SuppressWarnings("unused")
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+	}
 
 }
