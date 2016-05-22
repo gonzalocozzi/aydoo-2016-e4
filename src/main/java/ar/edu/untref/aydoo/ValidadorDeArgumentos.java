@@ -10,11 +10,13 @@ public class ValidadorDeArgumentos {
 		
 		if(args.size() == 1 && args.get(0).contains("--")){			
 			
-			throw new SinNombreDelArchivoDeEntradaException("Debe especificar el nombre del archivo Markdown de entrada.");
+			throw new SinNombreDelArchivoDeEntradaException("Debe especificar el nombre del archivo de entrada.");
 			
-		} else if (args.size() > 1){
+		} else if (args.size() == 2){
 			
-			if(!args.contains("--mode=default") && !args.contains("--mode=no-output")){
+			String stringDeArgumentos = args.toString();
+			
+			if(!stringDeArgumentos.contains("--mode=default") && !stringDeArgumentos.contains("--mode=no-output") && !stringDeArgumentos.contains("--output=")){
 				
 				throw new ArgumentoInvalidoException("Ha ingresado un argumento invalido. Por favor, intente nuevamente.");
 			}
