@@ -14,7 +14,7 @@ public class Slider {
 		}
 		
 		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos();
-		validadorDeArgumentos.validarListaDeArgumentos(listaDeArgumentos);
+		validadorDeArgumentos.validarListaDeArgumentos(listaDeArgumentos);		
 	}
 
 }

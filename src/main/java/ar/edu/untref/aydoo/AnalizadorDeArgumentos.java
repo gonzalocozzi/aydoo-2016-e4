@@ -1,6 +1,5 @@
 package ar.edu.untref.aydoo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AnalizadorDeArgumentos {
@@ -8,23 +7,17 @@ public class AnalizadorDeArgumentos {
 	private List<String> listaDeArgumentos;
 	private String nombreDeCarpetaDeSalida;
 
-	public AnalizadorDeArgumentos(String[] args) throws SinNombreDelArchivoDeEntradaException {		
-
-		this.listaDeArgumentos = new ArrayList<String>();
-		this.setNombreDeCarpetaDeSalida(args);		
-
-		for(int i = 0; i < args.length; i++){
-			this.listaDeArgumentos.add(i, args[i].toLowerCase());
-		}
-
+	public AnalizadorDeArgumentos(List<String> listaDeArgumentos) throws SinNombreDelArchivoDeEntradaException {
+		this.listaDeArgumentos = listaDeArgumentos;
+		this.setNombreDeCarpetaDeSalida();			
 	}
 
-	private Integer getPosicionDelNombreDelArchivoDeEntrada(String[] args){
+	private Integer getPosicionDelNombreDelArchivoDeEntrada(){
 
 		Integer posicionDelNombreDeArchivoDeEntrada = 0;
 
-		for(int i = 0; i < args.length; i++){			
-			if(!args[i].contains("--")){				
+		for(int i = 0; i < this.listaDeArgumentos.size(); i++){			
+			if(!this.listaDeArgumentos.get(i).contains("--")){				
 				posicionDelNombreDeArchivoDeEntrada = i;
 			}			
 		}
@@ -32,19 +25,19 @@ public class AnalizadorDeArgumentos {
 		return posicionDelNombreDeArchivoDeEntrada;			
 	}
 
-	private void setNombreDeCarpetaDeSalida(String[] args){
+	private void setNombreDeCarpetaDeSalida(){
 
 		String nombreDeLaCarpetaSinExtension = ""; 
 
-		if(args.length == 1){
-			nombreDeLaCarpetaSinExtension = args[0].replace(".md", "");
-		} else if (args[0].substring(0, 9).equals("--output=")) {			
-			nombreDeLaCarpetaSinExtension = args[0].substring(9);			
-		} else if (args[1].substring(0, 9).equals("--output=")) {			
-			nombreDeLaCarpetaSinExtension = args[1].substring(9);			
+		if(this.listaDeArgumentos.size() == 1){
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).replace(".md", "");
+		} else if (this.listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
+		} else if (this.listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
 		} else {			
-			Integer posicionDelNombrelDeArchivoDeEntrada = this.getPosicionDelNombreDelArchivoDeEntrada(args);
-			nombreDeLaCarpetaSinExtension = args[posicionDelNombrelDeArchivoDeEntrada].replace(".md", "");
+			Integer posicionDelNombrelDeArchivoDeEntrada = this.getPosicionDelNombreDelArchivoDeEntrada();
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(posicionDelNombrelDeArchivoDeEntrada).replace(".md", "");
 		}
 
 		if(this.nombreContieneCaracteresInvalidos(nombreDeLaCarpetaSinExtension)){			
@@ -72,16 +65,12 @@ public class AnalizadorDeArgumentos {
 		return contieneCaracteresInvalidos;
 	}
 
-	public List<String> getListaDeArgumentos() {
-		return this.listaDeArgumentos;
-	}
-
 	public String getNombreDeCarpetaDeSalida() {		
 		return this.nombreDeCarpetaDeSalida;
 	}
 
 	public Boolean isModeDefault() {
-		return this.listaDeArgumentos.contains("--mode=default");
+		return this.listaDeArgumentos.contains("--mode=default") || this.listaDeArgumentos.size() == 1;
 	}
 
 	public Boolean isModeNoOutput() {
