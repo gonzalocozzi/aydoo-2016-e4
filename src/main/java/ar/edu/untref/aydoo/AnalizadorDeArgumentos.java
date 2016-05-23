@@ -36,12 +36,14 @@ public class AnalizadorDeArgumentos {
 
 		String nombreDeLaCarpetaSinExtension = ""; 
 
-		if(args.length == 1){			
-			//se quita la extension Markdown al nombre de la carpeta de salida
+		if(args.length == 1){
 			nombreDeLaCarpetaSinExtension = args[0].replace(".md", "");
-		} else {
+		} else if (args[0].substring(0, 9).equals("--output=")) {			
+			nombreDeLaCarpetaSinExtension = args[0].substring(9);			
+		} else if (args[1].substring(0, 9).equals("--output=")) {			
+			nombreDeLaCarpetaSinExtension = args[1].substring(9);			
+		} else {			
 			Integer posicionDelNombrelDeArchivoDeEntrada = this.getPosicionDelNombreDelArchivoDeEntrada(args);
-			//se quita la extension Markdown al nombre de la carpeta de salida
 			nombreDeLaCarpetaSinExtension = args[posicionDelNombrelDeArchivoDeEntrada].replace(".md", "");
 		}
 

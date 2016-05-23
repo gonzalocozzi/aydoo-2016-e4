@@ -65,12 +65,23 @@ public class AnalizadorDeArgumentosTest {
 	@Test
 	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalidaSinImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
 		
-		String[] args = {"--output=presentacion1", "otra.presentacion.md", "--mode=default"};
+		String[] args = {"--mode=default", "otra.presentacion.md"};
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
 		
 		String nombreDeLaCarpetaDeSalida = analizador.getNombreDeCarpetaDeSalida();
 		
 		Assert.assertEquals("otra.presentacion", nombreDeLaCarpetaDeSalida);
+	}
+	
+	@Test
+	public void analizadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
+		
+		String[] args = {"--output=nuevacarpeta", "mipresentacion.md"};
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+		
+		String nombreDeLaCarpetaDeSalida = analizador.getNombreDeCarpetaDeSalida();
+		
+		Assert.assertEquals("nuevacarpeta", nombreDeLaCarpetaDeSalida);
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
