@@ -13,10 +13,9 @@ public class EscritorDeArchivoHTMLTest {
 		
 		List<String> listaDeLineas = new LinkedList<String>();
 		
-		EscritorDeArchivoHTML escritor = new EscritorDeArchivoHTML(listaDeLineas);
+		EscritorDeArchivoHTML escritor = new EscritorDeArchivoHTML();
+		escritor.setListaAEscribir(listaDeLineas);
 		
 		Assert.assertEquals(listaDeLineas, escritor.getListaDeLineas());
-		
 	}
-
 }
