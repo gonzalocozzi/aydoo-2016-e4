@@ -6,17 +6,6 @@ import java.util.List;
 public class OrganizadorDeEtiquetas {
 
 	public List<EtiquetaHTML> organizarEtiquetasHTML(List<EtiquetaHTML> listaDeEtiquetas) {
-<<<<<<< HEAD
-		//List<EtiquetaHTML> listaAOrganizar = listaDeEtiquetas;
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
-		boolean esSeccion = false;
-		for(int i = 0; i < listaDeEtiquetas.size(); i++){
-			if(!esSeccion){
-				esSeccion = revisarSiEsSeccion(listaDeEtiquetas, i);
-			}
-			if(esSeccion){
-				agregarEtiquetaALaSeccion(listaDeEtiquetas, listaOrganizada, i);
-=======
 		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
 		boolean esSeccion = false;
 		for(int i = 0; i < listaDeEtiquetas.size(); i++){
@@ -38,22 +27,11 @@ public class OrganizadorDeEtiquetas {
 				else{
 					i = rellenarListaDeItems(listaDeEtiquetas, listaOrganizada, i, esSeccion);
 				}
->>>>>>> organizadorDeEtiquetas
 			}
 		}
 		return listaOrganizada;
 	}
 
-<<<<<<< HEAD
-	private void agregarEtiquetaALaSeccion(List<EtiquetaHTML> listaDeEtiquetas, List<EtiquetaHTML> listaOrganizada,
-			int i) {
-		if(revisarSiEsSeccion(listaDeEtiquetas, i)){
-			listaOrganizada.add(listaDeEtiquetas.get(i));
-		}
-		else{
-			((Seccion) listaOrganizada.get(listaOrganizada.size()-1)).agregarElemento(listaDeEtiquetas.get(i));
-		}
-=======
 	private int rellenarListaDeItems(List<EtiquetaHTML> listaDeEtiquetas, List<EtiquetaHTML> listaOrganizada, int i, boolean esSeccion) {
 		ListaSinOrden miListaDeItems = new ListaSinOrden();
 		int j = 0;
@@ -96,7 +74,6 @@ public class OrganizadorDeEtiquetas {
 	private void agregarEtiquetaALaSeccion(List<EtiquetaHTML> listaDeEtiquetas, List<EtiquetaHTML> listaOrganizada,
 			int i) {	
 		((Seccion) listaOrganizada.get(listaOrganizada.size()-1)).agregarElemento(listaDeEtiquetas.get(i));
->>>>>>> organizadorDeEtiquetas
 	}
 
 	private boolean revisarSiEsSeccion(List<EtiquetaHTML>listaDeEtiquetas, int i) { //si la Seccion no esta aun en la listaOrganizada, entonces se agrega
@@ -107,10 +84,7 @@ public class OrganizadorDeEtiquetas {
 		return respuesta;
 	}
 
-<<<<<<< HEAD
-=======
 	private void agregarEtiquetaALaSeccion(List<EtiquetaHTML> listaOrganizada, EtiquetaHTML etiquetaHTML) {	
 		((Seccion) listaOrganizada.get(listaOrganizada.size()-1)).agregarElemento(etiquetaHTML);
 	}
->>>>>>> organizadorDeEtiquetas
 }
