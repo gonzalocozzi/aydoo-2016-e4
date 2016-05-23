@@ -84,4 +84,8 @@ public class AnalizadorDeArgumentos {
 		return this.listaDeArgumentos.contains("--mode=default");
 	}
 
+	public Boolean isModeNoOutput() {
+		return this.listaDeArgumentos.contains("--mode=no-output");
+	}
+
 }

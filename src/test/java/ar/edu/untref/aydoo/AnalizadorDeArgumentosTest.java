@@ -142,5 +142,16 @@ public class AnalizadorDeArgumentosTest {
 		
 		Assert.assertTrue(modeDefault);
 	}
+	
+	@Test
+	public void analizadorDeArgumentosIndicaQueSeRecibioArgumentoModeNoOutput(){
+		
+		String[] args = {"--mode=no-output", "otra.presentacion.md"};
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+		
+		Boolean modeNoOutput = analizador.isModeNoOutput();
+		
+		Assert.assertTrue(modeNoOutput);
+	}
 
 }
