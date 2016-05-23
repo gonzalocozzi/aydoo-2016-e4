@@ -153,5 +153,16 @@ public class AnalizadorDeArgumentosTest {
 		
 		Assert.assertTrue(modeNoOutput);
 	}
+	
+	@Test
+	public void analizadorDeArgumentosIndicaQueSeRecibioArgumentoOutput(){
+		
+		String[] args = {"--output=algo", "otra.presentacion.md"};
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+		
+		Boolean output = analizador.isOutput();
+		
+		Assert.assertTrue(output);
+	}
 
 }

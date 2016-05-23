@@ -88,4 +88,9 @@ public class AnalizadorDeArgumentos {
 		return this.listaDeArgumentos.contains("--mode=no-output");
 	}
 
+	public Boolean isOutput() {
+		String stringDeArgumentos = this.listaDeArgumentos.toString();
+		return stringDeArgumentos.contains("--output=");
+	}
+
 }
