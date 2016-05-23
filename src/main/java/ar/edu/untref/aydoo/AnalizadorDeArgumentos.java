@@ -80,4 +80,8 @@ public class AnalizadorDeArgumentos {
 		return this.nombreDeCarpetaDeSalida;
 	}
 
+	public Boolean isModeDefault() {
+		return this.listaDeArgumentos.contains("--mode=default");
+	}
+
 }

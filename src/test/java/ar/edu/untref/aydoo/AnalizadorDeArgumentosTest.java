@@ -131,5 +131,16 @@ public class AnalizadorDeArgumentosTest {
 		@SuppressWarnings("unused")
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
 	}
+	
+	@Test
+	public void analizadorDeArgumentosIndicaQueSeRecibioArgumentoModeDefault(){
+		
+		String[] args = {"--mode=default", "otra.presentacion.md"};
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(args);
+		
+		Boolean modeDefault = analizador.isModeDefault();
+		
+		Assert.assertTrue(modeDefault);
+	}
 
 }
