@@ -10,6 +10,7 @@ public class Slider {
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		
 		for(int i = 0; i < args.length; i++){
+			//Me aseguro de poder recibir argumentos con cualquier capitalizacion
 			listaDeArgumentos.add(i, args[i].toLowerCase());
 		}
 		
