@@ -11,61 +11,31 @@ public class CreadorDeEtiquetasTest {
 	@Test
 	public void seTieneLaRepresentacionDelTitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("#"));
-	}
-	
-	@Test
-	public void laRepresentacionDelTituloEstaAsociadaConUnObjetoDeTipoTitulo(){
-		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(Titulo.class, miCreador.getDiccionario().get("#").getClass());
+		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("#"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDelSubtitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("##"));
-	}
-	
-	@Test
-	public void laRepresentacionDelSubtituloEstaAsociadaConUnObjetoDeTipoSubtitulo(){
-		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(Subtitulo.class, miCreador.getDiccionario().get("##").getClass());
+		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("##"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeLaImagen(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("i:"));
-	}
-	
-	@Test
-	public void laRepresentacionDeLaImagenEstaAsociadaConUnObjetoDeTipoImagen(){
-		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(Imagen.class, miCreador.getDiccionario().get("i:").getClass());
+		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("i:"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeUnItem(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("*"));
-	}
-	
-	@Test
-	public void laRepresentacionDeUnItemEstaAsociadaConUnObjetoDeTipoItem(){
-		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(ItemDeLista.class, miCreador.getDiccionario().get("*").getClass());
+		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("*"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeUnaSeccion(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getDiccionario().containsKey("---"));
-	}
-	
-	@Test
-	public void laRepresentacionDeUnaSeccionEstaAsociadaConUnObjetoDeTipoSeccion(){
-		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(Seccion.class, miCreador.getDiccionario().get("---").getClass());
+		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("---"));
 	}
 	
 	@Test
@@ -131,4 +101,5 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(2).getClass());
 		Assert.assertEquals("o*esto no va a ser un item", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
 	}
+	
 }

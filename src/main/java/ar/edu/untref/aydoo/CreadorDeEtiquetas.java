@@ -7,21 +7,19 @@ import java.util.List;
 
 public class CreadorDeEtiquetas {
 
-	private HashMap<String, EtiquetaHTML> diccionarioDeRepresentaciones;
-
+	private EtiquetaHTMLFactory etiquetaHTMLFactory;
+	private List<String> listaDeRepresentaciones;
+	
 	public CreadorDeEtiquetas(){
-		this.diccionarioDeRepresentaciones = new HashMap<String, EtiquetaHTML>();
-		this.diccionarioDeRepresentaciones.put("#", new Titulo());
-		this.diccionarioDeRepresentaciones.put("##", new Subtitulo());
-		this.diccionarioDeRepresentaciones.put("i:", new Imagen());
-		this.diccionarioDeRepresentaciones.put("*", new ItemDeLista());
-		this.diccionarioDeRepresentaciones.put("---", new Seccion());
+		this.listaDeRepresentaciones = new LinkedList<String>();
+		this.listaDeRepresentaciones.add("##");
+		this.listaDeRepresentaciones.add("#");
+		this.listaDeRepresentaciones.add("i:");
+		this.listaDeRepresentaciones.add("*");
+		this.listaDeRepresentaciones.add("---");
+		this.etiquetaHTMLFactory = new EtiquetaHTMLFactory();
 	}
-
-	public HashMap<String, EtiquetaHTML> getDiccionario(){
-		return this.diccionarioDeRepresentaciones;
-	}
-
+	
 	public List<EtiquetaHTML> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
 		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
 		for(int i = 0; i < lineasDelMarkDown.size(); i++){
@@ -30,11 +28,11 @@ public class CreadorDeEtiquetas {
 			String posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
 			if(posibleEncabezado.equals(representacionActual)){ //compara para ver si realmente es un encabezado, es decir que esta al inicio de la linea
 				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, representacionActual);
-				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas);
+				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas, i);
 			}
 			else{ //si no hay encabezado entonces va a ser un texto sin formato
 				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, "");
-				listaDeEtiquetas = crearEtiqueta("", texto, listaDeEtiquetas);
+				listaDeEtiquetas = crearEtiqueta("", texto, listaDeEtiquetas, i);
 			}
 		}
 		return listaDeEtiquetas;
@@ -47,7 +45,7 @@ public class CreadorDeEtiquetas {
 	}
 
 	private String buscarEncabezadoCorrespondiente(String principioDeLinea) {
-		Iterator<String> it = this.diccionarioDeRepresentaciones.keySet().iterator();
+		Iterator<String> it = this.listaDeRepresentaciones.iterator();//aca estaba el dicc
 		boolean noHuboCoincidencia = true;
 		String representacionActual = "";
 		while(it.hasNext() && noHuboCoincidencia){
@@ -59,15 +57,18 @@ public class CreadorDeEtiquetas {
 		return representacionActual;
 	}
 
-	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas) {
+	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas, int posicion) {
 		List<EtiquetaHTML> listaADevolver = listaDeEtiquetas;
 		EtiquetaHTML etiquetaACrear = new TextoSinFormato(); //por defecto se crea un texto sin formato
 		if(!encabezado.equals("")){
-			etiquetaACrear = this.diccionarioDeRepresentaciones.get(encabezado);
+			etiquetaACrear = this.etiquetaHTMLFactory.crearEtiqueta(encabezado);
 		}
 		etiquetaACrear.setTexto(texto);
 		listaADevolver.add(etiquetaACrear);
 		return listaADevolver;
 	}
 
+	public List<String> getListaDeRepresentaciones(){
+		return this.listaDeRepresentaciones;
+	}
 }
