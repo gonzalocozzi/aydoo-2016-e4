@@ -2,10 +2,6 @@ package ar.edu.untref.aydoo;
 
 public class NumeroDeArgumentosExcedidoException extends RuntimeException {
 
-	public NumeroDeArgumentosExcedidoException(String string) {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * 
 	 */

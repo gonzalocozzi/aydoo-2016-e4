@@ -2,10 +2,6 @@ package ar.edu.untref.aydoo;
 
 public class SinNombreDelArchivoDeEntradaException extends RuntimeException{
 
-	public SinNombreDelArchivoDeEntradaException(String string) {
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * 
 	 */
