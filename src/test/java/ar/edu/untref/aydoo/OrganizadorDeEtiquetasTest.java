@@ -22,4 +22,16 @@ public class OrganizadorDeEtiquetasTest {
 		Assert.assertEquals(Titulo.class, seccion.getListaDeElementos().get(0).getClass());
 		Assert.assertEquals(Subtitulo.class, seccion.getListaDeElementos().get(1).getClass());
 	}
+	
+	@Test
+	public void siNoSeAbreSeccionSeGuardanLasEtiquetasFueraDeLaSeccion(){
+		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
+		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
+		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		listaDeEtiquetas.add(new Imagen());
+		listaDeEtiquetas.add(new Subtitulo());
+		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
+		Assert.assertEquals(Imagen.class, listaOrganizada.get(0).getClass());
+		Assert.assertEquals(Subtitulo.class, listaOrganizada.get(1).getClass());
+	}
 }
