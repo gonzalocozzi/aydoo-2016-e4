@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SliderTest {
+public class ProgramTest {
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();	
 
@@ -24,7 +24,7 @@ public class SliderTest {
 	public void sliderExigeElIngresoDeUnArgumentoConElNombreDelArchivoDeEntrada(){
 		
 		String[] args = {};
-		Slider.main(args);
+		Program.main(args);
 	}
 
 }

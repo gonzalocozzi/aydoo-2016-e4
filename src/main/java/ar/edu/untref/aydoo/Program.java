@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Slider {
+public class Program {
 	
 	public static void main(String[] args) {
 		
