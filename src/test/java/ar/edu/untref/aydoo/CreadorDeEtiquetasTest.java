@@ -102,4 +102,21 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals("o*esto no va a ser un item", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
 	}
 	
+	@Test
+	public void sePuedenCrearMasDeUnElementoDelMismoTipo(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		miLista.add("## subtitulo 1");
+		miLista.add("#titulo");
+		miLista.add("##subtitulo 2");
+		miLista.add("#ab");
+		Assert.assertEquals(Subtitulo.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
+		Assert.assertEquals(" subtitulo 1", miCreador.crearListaDeEtiquetas(miLista).get(0).getTexto());
+		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(1).getClass());
+		Assert.assertEquals("titulo", miCreador.crearListaDeEtiquetas(miLista).get(1).getTexto());
+		Assert.assertEquals(Subtitulo.class, miCreador.crearListaDeEtiquetas(miLista).get(2).getClass());
+		Assert.assertEquals("subtitulo 2", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
+		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(3).getClass());
+		Assert.assertEquals("ab", miCreador.crearListaDeEtiquetas(miLista).get(3).getTexto());
+	}
 }
