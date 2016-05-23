@@ -34,4 +34,21 @@ public class OrganizadorDeEtiquetasTest {
 		Assert.assertEquals(Imagen.class, listaOrganizada.get(0).getClass());
 		Assert.assertEquals(Subtitulo.class, listaOrganizada.get(1).getClass());
 	}
+	
+	@Test
+	public void seDetectaQueHayUnCambioDeSeccion(){
+		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
+		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
+		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		listaDeEtiquetas.add(new Seccion());
+		listaDeEtiquetas.add(new Titulo());
+		listaDeEtiquetas.add(new Seccion());
+		listaDeEtiquetas.add(new Subtitulo());
+		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
+		Seccion seccion1 = (Seccion) listaOrganizada.get(0);
+		Seccion seccion2 = (Seccion) listaOrganizada.get(1);
+		Assert.assertEquals(Seccion.class, listaOrganizada.get(0).getClass());
+		Assert.assertEquals(Titulo.class, seccion1.getListaDeElementos().get(0).getClass());
+		Assert.assertEquals(Subtitulo.class, seccion2.getListaDeElementos().get(0).getClass());
+	}
 }

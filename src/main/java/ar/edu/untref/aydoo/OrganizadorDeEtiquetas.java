@@ -9,9 +9,10 @@ public class OrganizadorDeEtiquetas {
 		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
 		boolean esSeccion = false;
 		for(int i = 0; i < listaDeEtiquetas.size(); i++){
-			
 			if(esSeccion){
-				agregarEtiquetaALaSeccion(listaDeEtiquetas, listaOrganizada, i);
+				if(!verSiEsCambioDeSeccion(listaDeEtiquetas, listaOrganizada, i)){
+					agregarEtiquetaALaSeccion(listaDeEtiquetas, listaOrganizada, i);
+				}
 			}
 			if(!esSeccion){
 				esSeccion = revisarSiEsSeccion(listaDeEtiquetas, i);
@@ -19,6 +20,16 @@ public class OrganizadorDeEtiquetas {
 			}
 		}
 		return listaOrganizada;
+	}
+
+	private boolean verSiEsCambioDeSeccion(List<EtiquetaHTML> listaDeEtiquetas, List<EtiquetaHTML> listaOrganizada,
+			int i) {
+		boolean respuesta = false;
+		if(listaDeEtiquetas.get(i).getClass().equals(Seccion.class)){
+			listaOrganizada.add(listaDeEtiquetas.get(i));
+			respuesta = true;
+		}
+		return respuesta;
 	}
 
 	private void agregarEtiquetaALaSeccion(List<EtiquetaHTML> listaDeEtiquetas, List<EtiquetaHTML> listaOrganizada,
