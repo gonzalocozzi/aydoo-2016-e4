@@ -17,12 +17,16 @@ public class EscritorDeArchivoHTML {
 	}
 
 	public void escritorAuxiliar(BufferedWriter escritor){		
+		
 		try{			
 			for(int i = 0; i < this.listaDeLineas.size(); i++){
 				escritor.write(this.listaDeLineas.get(i)+"\n");
 			}
+		
 			escritor.close();
+		
 		} catch (IOException e){			
+			
 			System.out.println("No se puede escribir en este archivo");
 		}	
 	}
