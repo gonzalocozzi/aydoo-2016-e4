@@ -44,5 +44,26 @@ public class LectorDeArchivoTest {
 		
 		Assert.assertTrue(listaDeRenglonesDelArchivo.get(0).equals("primer renglon"));
 	}
+	
+	@Test
+	public void lectorDeArchivoDevuelveListaDeRenglonesDelArchivoConVariosRenglones() throws IOException{
+		
+		File archivoDePrueba = new File("temp.txt");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		PrintWriter writer = new PrintWriter(direccionDelArchivoTemporal);
+		writer.println("primer renglon");
+		writer.println("segundo renglon");
+		writer.println("tercer renglon");
+		writer.println("cuarto renglon");
+		writer.close();
+		
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
+		archivoDePrueba.delete();
+		
+		Assert.assertTrue(listaDeRenglonesDelArchivo.get(3).equals("cuarto renglon"));
+	}
 
 }
