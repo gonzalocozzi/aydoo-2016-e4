@@ -99,4 +99,51 @@ public class EscritorDeArchivoHTMLTest {
 		
 		Assert.assertEquals(listaEsperada,listaDeRenglonesDelArchivo);
 	}
+	
+	@Test
+	public void escritorDeArchivoEscribeListaConUnaSeccionConTituloYSubtituloYImagenYLista() throws IOException{
+		
+		File archivoDePrueba = new File("temp.txt");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		EscritorDeArchivo escritor = new EscritorDeArchivo();
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<h1>un titulo</h1>");
+		listaDeLineas.add("<h2>un subtitulo</h2>");
+		listaDeLineas.add("</section>");
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<img src=\"imagen.jpg\"/>");
+		listaDeLineas.add("</section>");
+		listaDeLineas.add("<section>");
+		listaDeLineas.add("<ul>");
+		listaDeLineas.add("<li>item de lista</li>");
+		listaDeLineas.add("</ul>");
+		listaDeLineas.add("</section>");		
+		
+		escritor.setListaAEscribir(listaDeLineas);
+		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
+				
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
+		archivoDePrueba.delete();
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("<section>");
+		listaEsperada.add("<h1>un titulo</h1>");
+		listaEsperada.add("<h2>un subtitulo</h2>");
+		listaEsperada.add("</section>");
+		listaEsperada.add("<section>");
+		listaEsperada.add("<img src=\"imagen.jpg\"/>");
+		listaEsperada.add("</section>");
+		listaEsperada.add("<section>");
+		listaEsperada.add("<ul>");
+		listaEsperada.add("<li>item de lista</li>");
+		listaEsperada.add("</ul>");
+		listaEsperada.add("</section>");
+		
+		
+		Assert.assertEquals(listaEsperada,listaDeRenglonesDelArchivo);
+	}
 }
