@@ -7,7 +7,7 @@ public class AnalizadorDeArgumentos {
 	private List<String> listaDeArgumentos;
 	
 	public AnalizadorDeArgumentos(List<String> listaDeArgumentos) {
-		this.listaDeArgumentos = listaDeArgumentos;	
+		this.listaDeArgumentos = listaDeArgumentos;
 	}
 
 	public Boolean isModeDefault() {
