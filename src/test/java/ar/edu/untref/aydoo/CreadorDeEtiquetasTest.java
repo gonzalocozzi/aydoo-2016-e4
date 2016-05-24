@@ -11,31 +11,31 @@ public class CreadorDeEtiquetasTest {
 	@Test
 	public void seTieneLaRepresentacionDelTitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("#"));
+		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("#"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDelSubtitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("##"));
+		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("##"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeLaImagen(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("i:"));
+		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("i:"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeUnItem(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("*"));
+		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("*"));
 	}
 	
 	@Test
 	public void seTieneLaRepresentacionDeUnaSeccion(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Assert.assertEquals(true, miCreador.getListaDeRepresentaciones().contains("---"));
+		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("---"));
 	}
 	
 	@Test

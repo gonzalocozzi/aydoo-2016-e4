@@ -11,7 +11,7 @@ public class CreadorDeCarpetaDeSalida {
 	
 	//Se obtiene de la direccion del JAR, ubicado al lado de la carpeta de salida
 	private File archivo = new File(System.getProperty("java.class.path"));
-	private File direccion = archivo.getAbsoluteFile().getParentFile();		
+	private File direccion = archivo.getAbsoluteFile().getParentFile();	
 	private String direccionDeLaCarpetaDeSalida = direccion.toString();
 
 	public CreadorDeCarpetaDeSalida(String nombreDeLaNuevaCarpeta) throws IOException {

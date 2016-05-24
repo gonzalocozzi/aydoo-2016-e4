@@ -27,12 +27,5 @@ public class ProgramTest {
 		String[] args = {};
 		Program.main(args);
 	}
-	
-	/*@Test
-	public void sliderOrdenaCrearCarpetaDeSalida() throws IOException{
-		
-		String[] args = {"mipresentacion.md", "--mode=default"};
-		Program.main(args);
-	}*/
 
 }
