@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -16,25 +17,19 @@ public class EscritorDeArchivo {
 	    escritorAuxiliar(escritor);
 	}
 
-	public void escritorAuxiliar(BufferedWriter escritor){		
+	public void escritorAuxiliar(BufferedWriter escritor) throws FileNotFoundException, IOException{		
 		
-		try{			
-			for(int i = 0; i < this.listaDeLineas.size(); i++){
-				escritor.write(this.listaDeLineas.get(i)+"\n");
-			}
-		
-			escritor.close();
-		
-		} catch (IOException e){			
-			
-			System.out.println("No se puede escribir en este archivo");
-		}	
+		for(int i = 0; i < this.listaDeLineas.size(); i++){
+			escritor.write(this.listaDeLineas.get(i)+"\n");
+		}
+	
+		escritor.close();		
 	}
 	
 	public List<String> getListaDeLineas() {
 		return this.listaDeLineas;
 	}
-
+	
 	public void setListaAEscribir(List<String> listaDeLineas) {
 		this.listaDeLineas = listaDeLineas;
 	}

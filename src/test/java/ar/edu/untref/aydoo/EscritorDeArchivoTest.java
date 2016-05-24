@@ -10,7 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-public class EscritorDeArchivoHTMLTest {
+public class EscritorDeArchivoTest {
 	
 	@Rule	 
 	public TemporaryFolder testFolder = new TemporaryFolder();
@@ -143,7 +143,21 @@ public class EscritorDeArchivoHTMLTest {
 		listaEsperada.add("</ul>");
 		listaEsperada.add("</section>");
 		
-		
 		Assert.assertEquals(listaEsperada,listaDeRenglonesDelArchivo);
+	}
+	
+
+	@Test(expected = IOException.class)
+	public void recibeNombreArchivoInvalidoLanzaIOException() throws IOException{
+		
+		File archivoDePrueba = new File("");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		EscritorDeArchivo escritor = new EscritorDeArchivo();
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("primer renglon");
+		listaDeLineas.add("segundo renglon");
+		escritor.setListaAEscribir(listaDeLineas);
+		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 	}
 }

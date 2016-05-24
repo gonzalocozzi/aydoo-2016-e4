@@ -49,9 +49,11 @@ public class Program {
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
 		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTML);
-		String salidaHTML = creadorDeSalidaHTML.getSalidaHTML();
+		List<String> listaDeSalida = creadorDeSalidaHTML.getListaDeSalidaHTML();
 		
-		System.out.println(salidaHTML);
+		for(String salida: listaDeSalida){
+			System.out.println(salida);			
+		}
 	}
 
 }

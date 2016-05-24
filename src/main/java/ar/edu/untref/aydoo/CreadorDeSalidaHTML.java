@@ -23,15 +23,4 @@ public class CreadorDeSalidaHTML {
 		}		
 		this.listaDeSalida = visitor.getListaDeLineas();
 	}
-	
-	public String getSalidaHTML(){
-		
-		String stringDeSalidaHTML = "";
-		
-		for(String lineaHTML : listaDeSalida){			
-			stringDeSalidaHTML += lineaHTML;
-		}
-		
-		return stringDeSalidaHTML;			
-	}
 }
