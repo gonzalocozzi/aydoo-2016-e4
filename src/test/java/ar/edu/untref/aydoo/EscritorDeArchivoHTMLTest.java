@@ -48,4 +48,28 @@ public class EscritorDeArchivoHTMLTest {
 		Assert.assertTrue(listaDeRenglonesDelArchivo.get(0).equals("primer renglon"));
 	}
 	
+	@Test
+	public void escritorDeArchivoEscribeListaConTresRenglones() throws IOException{
+		
+		File archivoDePrueba = new File("temp.txt");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		EscritorDeArchivo escritor = new EscritorDeArchivo();
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("primer renglon");
+		listaDeLineas.add("segundo renglon");
+		escritor.setListaAEscribir(listaDeLineas);
+		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
+				
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
+		archivoDePrueba.delete();
+		
+		List<String> listaEsperada = new LinkedList<String>();
+		listaEsperada.add("primer renglon");
+		listaEsperada.add("segundo renglon");
+		
+		Assert.assertEquals(listaEsperada,listaDeRenglonesDelArchivo);
+	}
 }
