@@ -14,8 +14,8 @@ public class Program {
 			listaDeArgumentos.add(i, args[i].toLowerCase());
 		}
 		
-		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos();
-		validadorDeArgumentos.validarListaDeArgumentos(listaDeArgumentos);		
+		@SuppressWarnings("unused")
+		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
 	}
 
 }
