@@ -45,7 +45,7 @@ public class OrganizadorDeEtiquetas {
 		else{
 			listaOrganizada.add(miListaDeItems);
 		}
-		return j;
+		return (j+i)-1;
 	}
 
 	private ListaSinOrden agregarItemALaListaDeItems(EtiquetaHTML etiquetaHTML, List<EtiquetaHTML> listaDeEtiquetas, ListaSinOrden listaDeItems  ,int i, int j) {
