@@ -36,7 +36,7 @@ public class ListaSinOrdenTest {
 		ItemDeLista item = new ItemDeLista();
 		lista.agregarItem(item);
 		
-		ArrayList<ItemDeLista> listaDeItems = lista.getColeccionDeItems();
+		List<ItemDeLista> listaDeItems = lista.getColeccionDeItems();
 		
 		Assert.assertTrue(listaDeItems.contains(item));
 	}

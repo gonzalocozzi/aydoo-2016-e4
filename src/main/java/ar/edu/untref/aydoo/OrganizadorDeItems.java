@@ -15,10 +15,10 @@ public class OrganizadorDeItems {
 				i = this.rellenarListaDeItems(i);
 			}
 			else{
-				listaOrganizada.add(this.listaDeEtiquetas.get(i));
+				this.listaOrganizada.add(this.listaDeEtiquetas.get(i));
 			}
 		}
-		return listaOrganizada;
+		return this.listaOrganizada;
 	}
 
 	private int rellenarListaDeItems(int i) {
@@ -28,16 +28,16 @@ public class OrganizadorDeItems {
 		 * El (i+j)<listaRecibida.size() esta para que no se vaya de rango.
 		 * Es decir mientras siga habiendo items.
 		 */
-		while(((i + j) < listaDeEtiquetas.size()) && listaDeEtiquetas.get(i + j).getClass().equals(ItemDeLista.class)){ 
-			listaDeItemsActual = agregarItemALaListaDeItems(listaDeEtiquetas.get(i), listaDeItemsActual, i+j);
+		while(((i + j) < this.listaDeEtiquetas.size()) && this.listaDeEtiquetas.get(i + j).getClass().equals(ItemDeLista.class)){ 
+			listaDeItemsActual = agregarItemALaListaDeItems(this.listaDeEtiquetas.get(i), listaDeItemsActual, i+j);
 			j++;
 		}
-		listaOrganizada.add(listaDeItemsActual);
+		this.listaOrganizada.add(listaDeItemsActual);
 		return (j+i)-1;
 	}
 
 	private ListaSinOrden agregarItemALaListaDeItems(EtiquetaHTML etiquetaHTML, ListaSinOrden listaDeItems, int posicionDeItemActual) {
-		listaDeItems.agregarItem((ItemDeLista) listaDeEtiquetas.get(posicionDeItemActual));
+		listaDeItems.agregarItem((ItemDeLista) this.listaDeEtiquetas.get(posicionDeItemActual));
 		return listaDeItems;
 	}
 }

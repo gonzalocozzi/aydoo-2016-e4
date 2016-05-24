@@ -87,7 +87,8 @@ public class OrganizadorDeEtiquetasTest {
 		listaDeEtiquetas.add(seccion);
 		listaDeEtiquetas.add(item2);
 		listaDeEtiquetas.add(item3);
-		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
+		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);	
+		
 		Assert.assertEquals(ListaSinOrden.class, listaOrganizada.get(0).getClass());
 		Assert.assertEquals(ItemDeLista.class, ((ListaSinOrden) listaOrganizada.get(0)).getColeccionDeItems().get(0).getClass());
 		Assert.assertEquals("primer item", ((ListaSinOrden) listaOrganizada.get(0)).getColeccionDeItems().get(0).getTexto());
@@ -95,6 +96,7 @@ public class OrganizadorDeEtiquetasTest {
 		Assert.assertEquals("segundo item", ((((ListaSinOrden) ((Seccion) listaOrganizada.get(1)).getListaDeElementos().get(0)).getColeccionDeItems().get(0).getTexto())));
 		Assert.assertEquals(ItemDeLista.class, ((((ListaSinOrden) ((Seccion) listaOrganizada.get(1)).getListaDeElementos().get(0)).getColeccionDeItems().get(1).getClass())));
 		Assert.assertEquals("tercer item", ((((ListaSinOrden) ((Seccion) listaOrganizada.get(1)).getListaDeElementos().get(0)).getColeccionDeItems().get(1).getTexto())));
+		 
 	}
 	
 	@Test
@@ -113,7 +115,7 @@ public class OrganizadorDeEtiquetasTest {
 		texto.setTexto("texto normal");
 		item3.setTexto("tercer item");
 		listaDeEtiquetas.add(seccion1);
-		listaDeEtiquetas.add(item1);//este se tiene que guardar fuera de la seccion, porque esta antes
+		listaDeEtiquetas.add(item1);
 		listaDeEtiquetas.add(item2);
 		listaDeEtiquetas.add(seccion2);
 		listaDeEtiquetas.add(texto);
