@@ -11,8 +11,7 @@ public class LectorDeArchivoTest {
 	public void lectorDeArchivoRecibeDireccionDelArchivoALeer() throws IOException{
 		
 		String direccionDelArchivo = "direccion de prueba";
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
-		lectorDeArchivo.setDireccionDelArchivo(direccionDelArchivo);
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivo);
 		
 		String direccionAlmacenada = lectorDeArchivo.getDireccionDelArchivo();
 		

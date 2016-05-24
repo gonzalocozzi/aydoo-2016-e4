@@ -2,6 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -12,14 +13,17 @@ public class LectorDeArchivo {
 	private List<String> listaDeRenglonesDelArchivo;
 	private String direccionDelArchivo;
 	
-	public LectorDeArchivo(){		
+	public LectorDeArchivo(String direccionDelArchivo){		
 		this.listaDeRenglonesDelArchivo = new LinkedList<String>();
+		this.direccionDelArchivo = direccionDelArchivo;
 	}
 	
-	public List<String> leerArchivo(String direccionDelArchivo) throws IOException{
-		
-		this.setDireccionDelArchivo(direccionDelArchivo);
-		
+	public List<String> getListaDeRenglonesDelArchivo() throws IOException{		
+		this.leerArchivo();
+		return this.listaDeRenglonesDelArchivo;
+	}
+
+	private void leerArchivo() throws FileNotFoundException, IOException {		
 		File archivo = new File (this.direccionDelArchivo);
 		FileReader fr = new FileReader (archivo);
 		BufferedReader br = new BufferedReader(fr);
@@ -36,12 +40,7 @@ public class LectorDeArchivo {
 		}
 		
 		br.close();
-		return this.listaDeRenglonesDelArchivo;
-	}
-	
-	public void setDireccionDelArchivo(String direccionDelArchivo){
-		this.direccionDelArchivo = direccionDelArchivo;
-	}
+	}	
 
 	public String getDireccionDelArchivo() {
 		return this.direccionDelArchivo;

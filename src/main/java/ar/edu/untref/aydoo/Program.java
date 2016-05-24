@@ -32,8 +32,8 @@ public class Program {
 	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {		
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
-		List<String> entradaDeMarkdown = lectorDeArchivo.leerArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
 		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTML);
@@ -44,8 +44,8 @@ public class Program {
 	}
 	
 	private static void modeNoOutput() throws IOException {
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo();
-		List<String> entradaDeMarkdown = lectorDeArchivo.leerArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
 		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTML);
