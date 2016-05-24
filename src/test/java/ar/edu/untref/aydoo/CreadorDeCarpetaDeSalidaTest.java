@@ -10,9 +10,23 @@ public class CreadorDeCarpetaDeSalidaTest {
 	public void creadorDeCarpetaDeSalidaRecibeDireccionDeLaNuevaCarpeta(){
 		
 		String direccionDeLaNuevaCarpeta = "una direccion";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaNuevaCarpeta);
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaNuevaCarpeta, null);
 		
-		Assert.assertEquals(direccionDeLaNuevaCarpeta, creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida());
+		String direccionAlmacenadaDeLaCarpeta = creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida();
+		
+		Assert.assertEquals(direccionDeLaNuevaCarpeta, direccionAlmacenadaDeLaCarpeta);
+	}
+	
+	@Test
+	public void creadorDeCarpetaDeSalidaRecibeNombreDeLaNuevaCarpeta(){
+		
+		String direccionDeLaNuevaCarpeta = "una direccion";
+		String nombreDeLaNuevaCarpeta = "un nombre";
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaNuevaCarpeta, nombreDeLaNuevaCarpeta);
+		
+		String nombreAlmacenadoDeLaCarpeta = creadorDeCarpetaDeSalida.getNombreDeLaCarpetaDeSalida();
+		
+		Assert.assertEquals(nombreDeLaNuevaCarpeta, nombreAlmacenadoDeLaCarpeta);
 	}
 
 }
