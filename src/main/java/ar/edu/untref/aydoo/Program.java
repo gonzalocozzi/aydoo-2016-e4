@@ -7,6 +7,8 @@ public class Program {
 	
 	public static void main(String[] args) {	
 		
+		
+		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		
 		//Se completa la lista de argumentos con el arreglo de argumentos
@@ -16,7 +18,10 @@ public class Program {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
-				
+		@SuppressWarnings("unused")
+		AnalizadorDeArgumentos analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
+		
+		
 	}
 
 }

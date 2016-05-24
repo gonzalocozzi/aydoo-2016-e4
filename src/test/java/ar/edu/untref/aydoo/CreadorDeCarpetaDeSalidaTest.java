@@ -1,14 +1,15 @@
 package ar.edu.untref.aydoo;
 
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class CreadorDeCarpetaDeSalidaTest {
 	
-		
 	@Test
-	public void creadorDeCarpetaDeSalidaRecibeUbicacionDeLaNuevaCarpeta(){
-		
+	public void creadorDeCarpetaDeSalidaRecibeUbicacionDeLaNuevaCarpeta() throws IOException{
+				
 		String direccionDeLaCarpetaDeSalida = "una direccion";
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "");
 		
@@ -18,27 +19,25 @@ public class CreadorDeCarpetaDeSalidaTest {
 	}
 	
 	@Test
-	public void creadorDeCarpetaDeSalidaRecibeNombreDeLaNuevaCarpeta(){
+	public void creadorDeCarpetaDeSalidaRecibeNombreDeLaNuevaCarpeta() throws IOException{
 		
 		String direccionDeLaCarpetaDeSalida = "una direccion";
-		String nombreDeLaNuevaCarpeta = "un nombre";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, nombreDeLaNuevaCarpeta);
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "un nombre");
 		
 		String nombreAlmacenadoDeLaCarpeta = creadorDeCarpetaDeSalida.getNombreDeLaCarpetaDeSalida();
 		
-		Assert.assertEquals(nombreDeLaNuevaCarpeta, nombreAlmacenadoDeLaCarpeta);
+		Assert.assertEquals("un nombre", nombreAlmacenadoDeLaCarpeta);
 	}
 	
 	@Test
-	public void creadorDeCarpetaDeSalidaIndicaDireccionCompletaDeLaNuevaCarpeta(){
+	public void creadorDeCarpetaDeSalidaIndicaDireccionCompletaDeLaNuevaCarpeta() throws IOException{
 		
 		String direccionDeLaCarpetaDeSalida = "una direccion";
-		String nombreDeLaNuevaCarpeta = "un nombre";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, nombreDeLaNuevaCarpeta);
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "un nombre");
 		
 		String direccionAlmacenadaDeLaCarpeta = creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida();
 		
-		Assert.assertEquals(direccionDeLaCarpetaDeSalida + "/" + nombreDeLaNuevaCarpeta, direccionAlmacenadaDeLaCarpeta);
+		Assert.assertEquals(direccionDeLaCarpetaDeSalida + "/" + "un nombre", direccionAlmacenadaDeLaCarpeta);
 	}
 
 }
