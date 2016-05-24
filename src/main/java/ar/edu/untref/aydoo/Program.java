@@ -38,7 +38,7 @@ public class Program {
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
 		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTML);
 		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
-		EscritorDeArchivoHTML escritorDeArchivo = new EscritorDeArchivoHTML();
+		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
 		escritorDeArchivo.escribirEnArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
 	}
