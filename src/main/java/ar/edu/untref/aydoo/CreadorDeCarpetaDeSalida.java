@@ -7,17 +7,21 @@ import org.apache.commons.io.FileUtils;
 
 public class CreadorDeCarpetaDeSalida {
 	
-	private String direccionDeLaCarpetaDeSalida;
 	private String nombreDeLaCarpetaDeSalida;
+	
+	//Se obtiene de la direccion del JAR, ubicado al lado de la carpeta de salida
+	private File archivo = new File(System.getProperty("java.class.path"));
+	private File direccion = archivo.getAbsoluteFile().getParentFile();		
+	private String direccionDeLaCarpetaDeSalida = direccion.toString();
 
-	public CreadorDeCarpetaDeSalida(String direccionDelJAR, String nombreDeLaNuevaCarpeta) throws IOException {
+	public CreadorDeCarpetaDeSalida(String nombreDeLaNuevaCarpeta) throws IOException {
 		this.nombreDeLaCarpetaDeSalida = nombreDeLaNuevaCarpeta;
-		this.direccionDeLaCarpetaDeSalida = direccionDelJAR + "/" + nombreDeLaNuevaCarpeta;
+		this.direccionDeLaCarpetaDeSalida = direccionDeLaCarpetaDeSalida + "/" + nombreDeLaNuevaCarpeta;
 	}
 	
-	public void crearCarpetaDeSalida(String direccionDelJAR) throws IOException{	
-		File directorioFuente = new File(direccionDelJAR + "/plantilla");
-		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida);
+	public void crearCarpetaDeSalida() throws IOException{	
+		File directorioFuente = new File(this.direccionDeLaCarpetaDeSalida + "/plantilla");
+		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida + "/" + this.nombreDeLaCarpetaDeSalida);
 		FileUtils.copyDirectory(directorioFuente, carpetaDeSalida);
 	}
 

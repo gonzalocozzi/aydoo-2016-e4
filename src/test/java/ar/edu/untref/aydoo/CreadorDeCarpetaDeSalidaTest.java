@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.Assert;
@@ -8,21 +9,10 @@ import org.junit.Test;
 public class CreadorDeCarpetaDeSalidaTest {
 	
 	@Test
-	public void creadorDeCarpetaDeSalidaRecibeUbicacionDeLaNuevaCarpeta() throws IOException{
-				
-		String direccionDeLaCarpetaDeSalida = "una direccion";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "");
-		
-		String direccionAlmacenadaDeLaCarpeta = creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida();
-		
-		Assert.assertEquals(direccionDeLaCarpetaDeSalida + "/", direccionAlmacenadaDeLaCarpeta);
-	}
-	
-	@Test
 	public void creadorDeCarpetaDeSalidaRecibeNombreDeLaNuevaCarpeta() throws IOException{
 		
-		String direccionDeLaCarpetaDeSalida = "una direccion";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "un nombre");
+		String nombreDeLaCarpetaDeSalida = "un nombre";
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		
 		String nombreAlmacenadoDeLaCarpeta = creadorDeCarpetaDeSalida.getNombreDeLaCarpetaDeSalida();
 		
@@ -32,8 +22,12 @@ public class CreadorDeCarpetaDeSalidaTest {
 	@Test
 	public void creadorDeCarpetaDeSalidaIndicaDireccionCompletaDeLaNuevaCarpeta() throws IOException{
 		
-		String direccionDeLaCarpetaDeSalida = "una direccion";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "un nombre");
+		File archivo = new File(System.getProperty("java.class.path"));
+		File direccion = archivo.getAbsoluteFile().getParentFile();		
+		String direccionDeLaCarpetaDeSalida = direccion.toString();
+		
+		String nombreDeLaCarpetaDeSalida = "un nombre";
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		
 		String direccionAlmacenadaDeLaCarpeta = creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida();
 		

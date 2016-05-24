@@ -1,6 +1,7 @@
 package ar.edu.untref.aydoo;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
@@ -21,10 +22,17 @@ public class ProgramTest {
 	}
 	
 	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
-	public void sliderExigeElIngresoDeUnArgumentoConElNombreDelArchivoDeEntrada(){
+	public void sliderExigeElIngresoDeUnArgumentoConElNombreDelArchivoDeEntrada() throws IOException{
 		
 		String[] args = {};
 		Program.main(args);
 	}
+	
+	/*@Test
+	public void sliderOrdenaCrearCarpetaDeSalida() throws IOException{
+		
+		String[] args = {"mipresentacion.md", "--mode=default"};
+		Program.main(args);
+	}*/
 
 }

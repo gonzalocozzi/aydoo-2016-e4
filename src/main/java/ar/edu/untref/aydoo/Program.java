@@ -1,13 +1,12 @@
 package ar.edu.untref.aydoo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Program {
 	
-	public static void main(String[] args) {	
-		
-		
+	public static void main(String[] args) throws IOException {	
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		
@@ -16,11 +15,13 @@ public class Program {
 			listaDeArgumentos.add(i, args[i].toLowerCase());
 		}
 		
-		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
-		@SuppressWarnings("unused")
 		AnalizadorDeArgumentos analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
-		
+				
+		if(analizadorDeArgumentos.isModeDefault()){	
+			CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+			creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
+		}		
 		
 	}
 
