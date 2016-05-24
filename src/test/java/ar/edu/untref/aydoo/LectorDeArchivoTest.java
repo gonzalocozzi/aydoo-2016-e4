@@ -1,12 +1,21 @@
 package ar.edu.untref.aydoo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 public class LectorDeArchivoTest {
 	
+	@Rule	 
+	public TemporaryFolder testFolder = new TemporaryFolder();
+		
 	@Test
 	public void lectorDeArchivoRecibeDireccionDelArchivoALeer() throws IOException{
 		
@@ -16,6 +25,24 @@ public class LectorDeArchivoTest {
 		String direccionAlmacenada = lectorDeArchivo.getDireccionDelArchivo();
 		
 		Assert.assertEquals(direccionAlmacenada, direccionDelArchivo);
+	}
+	
+	@Test
+	public void lectorDeArchivoDevuelveListaDeRenglonesDelArchivoConUnRenglon() throws IOException{
+		
+		File archivoDePrueba = new File("temp.txt");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		PrintWriter writer = new PrintWriter(direccionDelArchivoTemporal);
+		writer.println("primer renglon");
+		writer.close();
+		
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
+		archivoDePrueba.delete();
+		
+		Assert.assertTrue(listaDeRenglonesDelArchivo.get(0).equals("primer renglon"));
 	}
 
 }
