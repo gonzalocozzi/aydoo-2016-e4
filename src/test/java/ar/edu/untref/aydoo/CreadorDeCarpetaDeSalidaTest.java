@@ -7,26 +7,38 @@ public class CreadorDeCarpetaDeSalidaTest {
 	
 		
 	@Test
-	public void creadorDeCarpetaDeSalidaRecibeDireccionDeLaNuevaCarpeta(){
+	public void creadorDeCarpetaDeSalidaRecibeUbicacionDeLaNuevaCarpeta(){
 		
-		String direccionDeLaNuevaCarpeta = "una direccion";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaNuevaCarpeta, null);
+		String direccionDeLaCarpetaDeSalida = "una direccion";
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, "");
 		
 		String direccionAlmacenadaDeLaCarpeta = creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida();
 		
-		Assert.assertEquals(direccionDeLaNuevaCarpeta, direccionAlmacenadaDeLaCarpeta);
+		Assert.assertEquals(direccionDeLaCarpetaDeSalida + "/", direccionAlmacenadaDeLaCarpeta);
 	}
 	
 	@Test
 	public void creadorDeCarpetaDeSalidaRecibeNombreDeLaNuevaCarpeta(){
 		
-		String direccionDeLaNuevaCarpeta = "una direccion";
+		String direccionDeLaCarpetaDeSalida = "una direccion";
 		String nombreDeLaNuevaCarpeta = "un nombre";
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaNuevaCarpeta, nombreDeLaNuevaCarpeta);
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, nombreDeLaNuevaCarpeta);
 		
 		String nombreAlmacenadoDeLaCarpeta = creadorDeCarpetaDeSalida.getNombreDeLaCarpetaDeSalida();
 		
 		Assert.assertEquals(nombreDeLaNuevaCarpeta, nombreAlmacenadoDeLaCarpeta);
+	}
+	
+	@Test
+	public void creadorDeCarpetaDeSalidaIndicaDireccionCompletaDeLaNuevaCarpeta(){
+		
+		String direccionDeLaCarpetaDeSalida = "una direccion";
+		String nombreDeLaNuevaCarpeta = "un nombre";
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(direccionDeLaCarpetaDeSalida, nombreDeLaNuevaCarpeta);
+		
+		String direccionAlmacenadaDeLaCarpeta = creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida();
+		
+		Assert.assertEquals(direccionDeLaCarpetaDeSalida + "/" + nombreDeLaNuevaCarpeta, direccionAlmacenadaDeLaCarpeta);
 	}
 
 }

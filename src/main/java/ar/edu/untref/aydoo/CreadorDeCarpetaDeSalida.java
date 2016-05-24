@@ -6,8 +6,8 @@ public class CreadorDeCarpetaDeSalida {
 	private String nombreDeLaCarpetaDeSalida;
 
 	public CreadorDeCarpetaDeSalida(String direccionDelJAR, String nombreDeLaNuevaCarpeta) {
-		this.direccionDeLaCarpetaDeSalida = direccionDelJAR;
 		this.nombreDeLaCarpetaDeSalida = nombreDeLaNuevaCarpeta;
+		this.direccionDeLaCarpetaDeSalida = direccionDelJAR + "/" + nombreDeLaNuevaCarpeta;
 	}
 
 	public String getDireccionDeLaCarpetaDeSalida() {
