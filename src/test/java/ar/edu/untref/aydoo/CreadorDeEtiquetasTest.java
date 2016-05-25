@@ -119,4 +119,20 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(3).getClass());
 		Assert.assertEquals("ab", miCreador.crearListaDeEtiquetas(miLista).get(3).getTexto());
 	}
+	
+	@Test
+	public void seCreaEtiquetaDeSeccion(){
+		
+		CreadorDeEtiquetas creador = new CreadorDeEtiquetas();
+		List<String> lista = new LinkedList<String>();
+		lista.add("---");
+		
+		List<EtiquetaHTML> listaEtiquetaHTML = creador.crearListaDeEtiquetas(lista);
+		
+		Seccion seccion = new Seccion();
+		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		listaEsperada.add(seccion);
+		
+		Assert.assertEquals(listaEsperada.get(0).getClass(), listaEtiquetaHTML.get(0).getClass());
+	}
 }
