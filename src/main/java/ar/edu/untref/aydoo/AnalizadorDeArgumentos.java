@@ -1,13 +1,19 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnalizadorDeArgumentos {
 
 	private List<String> listaDeArgumentos;
-	
-	public AnalizadorDeArgumentos(List<String> listaDeArgumentos) {
-		this.listaDeArgumentos = listaDeArgumentos;
+
+	public AnalizadorDeArgumentos(List<String> listaDeArgumentos) {	
+		
+		this.listaDeArgumentos = new ArrayList<String>();
+		
+		for(int i=0; i < listaDeArgumentos.size(); i++) {
+			this.listaDeArgumentos.add(listaDeArgumentos.get(i).toLowerCase());
+		}
 	}
 
 	public Boolean isModeDefault() {
@@ -22,5 +28,9 @@ public class AnalizadorDeArgumentos {
 		String stringDeArgumentos = this.listaDeArgumentos.toString();
 		return stringDeArgumentos.contains("--output=");
 	}
+
+	public List<String> getListaDeArgumentos() {
+		return this.listaDeArgumentos;
+	}	
 
 }
