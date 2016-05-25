@@ -54,4 +54,19 @@ public class EscritorDeArchivoTest {
 		
 		Assert.assertEquals(lineaEsperada, lineaAEscribir);
 	}
+	
+	@Test
+	public void guardaLineaDeArchivoHtmlEntrante(){
+		
+		EscritorDeArchivo escritor = new EscritorDeArchivo();
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("primera linea");
+		escritor.setListaAEscribir(listaDeLineas);
+		String entradaResultante = "";
+		String lineaAEscribir = escritor.guardarLineaDeEntrada("[este-es-el-texto-a-reemplazar]", entradaResultante);
+		
+		String lineaEsperada = "primera linea"+"\n";
+		
+		Assert.assertEquals(lineaEsperada, lineaAEscribir);
+	}
 }
