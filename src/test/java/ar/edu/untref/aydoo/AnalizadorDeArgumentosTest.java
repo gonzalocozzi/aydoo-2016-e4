@@ -9,6 +9,18 @@ import org.junit.Test;
 public class AnalizadorDeArgumentosTest {
 	
 	@Test
+	public void analizadorDeArgumentosAlmacenaArgumentosEnMinusculas(){
+		
+		List<String> listaDeArgumentos = new ArrayList<String>();
+		listaDeArgumentos.add("--MODE=NO-OUTPUT");
+		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(listaDeArgumentos);
+		
+		List<String> listaDeArgumentosAlmacenada = analizador.getListaDeArgumentos();
+		
+		Assert.assertEquals(listaDeArgumentosAlmacenada.get(0), "--mode=no-output");
+	}
+	
+	@Test
 	public void analizadorDeArgumentosIndicaQueSeRecibioArgumentoModeDefault(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
