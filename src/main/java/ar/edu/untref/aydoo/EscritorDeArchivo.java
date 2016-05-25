@@ -12,28 +12,26 @@ public class EscritorDeArchivo {
 	
 	public void escribirEnArchivo(String nombreArchivo) throws IOException{
 				
-        BufferedReader file = new BufferedReader(new FileReader(nombreArchivo));
-        String line;
-        String input = "";
+        BufferedReader archivo = new BufferedReader(new FileReader(nombreArchivo));
+        String lineaArchivo;
+        String entrada = "";
 
-        while ((line = file.readLine()) != null){
+        while ((lineaArchivo = archivo.readLine()) != null){
         	
-        	if((line.trim()).equals("[este-es-el-texto-a-reemplazar]")){
+        	if((lineaArchivo.trim()).equals("[este-es-el-texto-a-reemplazar]")){
         	
         		for(String linea: this.listaDeLineas){
-        			input += linea + "\n";
+        			entrada += linea + "\n";
         		}
         	
         	}else{	        		
-        		input += line + '\n';
+        		entrada += lineaArchivo + '\n';
         	}
         }
-        
-        System.out.println(input);
-    	file.close();
+    	archivo.close();
     	
         FileOutputStream fileOut = new FileOutputStream(nombreArchivo);
-        fileOut.write(input.getBytes());
+        fileOut.write(entrada.getBytes());
         fileOut.close();
 	}
 	
