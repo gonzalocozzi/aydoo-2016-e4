@@ -135,4 +135,21 @@ public class CreadorDeEtiquetasTest {
 		
 		Assert.assertEquals(listaEsperada.get(0).getClass(), listaEtiquetaHTML.get(0).getClass());
 	}
+	
+	@Test
+	public void sePuedenGenerarEtiquetasSinTexto(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+		miLista.add("##");
+		miLista.add("#");
+		miLista.add("*");
+		listaGenerada = miCreador.crearListaDeEtiquetas(miLista);
+		Assert.assertEquals(Subtitulo.class, listaGenerada.get(0).getClass());
+		Assert.assertEquals("", listaGenerada.get(0).getTexto());
+		Assert.assertEquals(Titulo.class, listaGenerada.get(1).getClass());
+		Assert.assertEquals("", listaGenerada.get(1).getTexto());
+		Assert.assertEquals(ItemDeLista.class, listaGenerada.get(2).getClass());
+		Assert.assertEquals("", listaGenerada.get(2).getTexto());
+	}
 }
