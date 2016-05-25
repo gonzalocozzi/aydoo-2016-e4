@@ -8,7 +8,7 @@ public class NombreInvalidoExceptionTest {
 	@Test
 	public void nombreInvalidoExceptionDevuelveMensajeExplicativo(){
 		
-		ArgumentoInvalidoException excepcion = new ArgumentoInvalidoException("mensaje explicativo");
+		NombreInvalidoException excepcion = new NombreInvalidoException("mensaje explicativo");
 		
 		String mensajeExplicativo = excepcion.getMessage();
 		
