@@ -21,9 +21,9 @@ public class LectorDeArchivoTest {
 		String direccionDelArchivo = "direccion de prueba";
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivo);
 		
-		String direccionAlmacenada = lectorDeArchivo.getDireccionDelArchivo();
+		String direccionAlmacenadaDelArchivo = lectorDeArchivo.getDireccionDelArchivo();
 		
-		Assert.assertEquals(direccionAlmacenada, direccionDelArchivo);
+		Assert.assertEquals(direccionAlmacenadaDelArchivo, direccionDelArchivo);
 	}
 	
 	@Test

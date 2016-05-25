@@ -4,50 +4,61 @@ import java.util.List;
 
 public class ValidadorDeArgumentos {
 
+	private List<String> listaDeArgumentos;
+	private String nombreDelArchivoDeEntrada;
 	private String nombreDeCarpetaDeSalida;
 	private boolean argumentosSonValidos;
-	
-	public ValidadorDeArgumentos(List<String> listaDeArgumentos){	
+
+	public ValidadorDeArgumentos(List<String> listaDeArgumentos){
 		this.argumentosSonValidos = false;	
-		this.validarListaDeArgumentos(listaDeArgumentos);
-		this.setNombreDeCarpetaDeSalida(listaDeArgumentos);			
+		this.listaDeArgumentos = listaDeArgumentos;
+		this.validarListaDeArgumentos();
+		this.setNombreDelArchivoDeEntrada();
+		this.setNombreDeCarpetaDeSalida();			
+	}	
+
+	public void setNombreDelArchivoDeEntrada(){
+
+		if(this.listaDeArgumentos.size() == 1){			
+			this.nombreDelArchivoDeEntrada = this.listaDeArgumentos.get(0);			
+		} else {				
+			Integer posicionDelNombrelDeArchivoDeEntrada = this.getPosicionDelNombreDelArchivoDeEntrada();
+			this.nombreDelArchivoDeEntrada = this.listaDeArgumentos.get(posicionDelNombrelDeArchivoDeEntrada);
+		}
+
+		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){			
+			throw new NombreInvalidoException();
+		}
 	}
-	
-	private Integer getPosicionDelNombreDelArchivoDeEntrada(List<String> listaDeArgumentos){
+
+	private void setNombreDeCarpetaDeSalida(){
+
+		String nombreDeLaCarpetaSinExtension = ""; 
+
+		if (this.listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
+		} else if (this.listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
+		} else {			
+			nombreDeLaCarpetaSinExtension = this.nombreDelArchivoDeEntrada.replace(".md", "");
+		}
+
+		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
+	}
+
+	private Integer getPosicionDelNombreDelArchivoDeEntrada(){
 
 		Integer posicionDelNombreDeArchivoDeEntrada = 0;
 
-		for(int i = 0; i < listaDeArgumentos.size(); i++){			
-			if(!listaDeArgumentos.get(i).contains("--")){				
+		for(int i = 0; i < this.listaDeArgumentos.size(); i++){			
+			if(!this.listaDeArgumentos.get(i).contains("--")){				
 				posicionDelNombreDeArchivoDeEntrada = i;
 			}			
 		}
 
 		return posicionDelNombreDeArchivoDeEntrada;			
 	}
-	
-	private void setNombreDeCarpetaDeSalida(List<String> listaDeArgumentos){
 
-		String nombreDeLaCarpetaSinExtension = ""; 
-
-		if(listaDeArgumentos.size() == 1){
-			nombreDeLaCarpetaSinExtension = listaDeArgumentos.get(0).replace(".md", "");
-		} else if (listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
-			nombreDeLaCarpetaSinExtension = listaDeArgumentos.get(0).substring(9);			
-		} else if (listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
-			nombreDeLaCarpetaSinExtension = listaDeArgumentos.get(0).substring(9);			
-		} else {			
-			Integer posicionDelNombrelDeArchivoDeEntrada = this.getPosicionDelNombreDelArchivoDeEntrada(listaDeArgumentos);
-			nombreDeLaCarpetaSinExtension = listaDeArgumentos.get(posicionDelNombrelDeArchivoDeEntrada).replace(".md", "");
-		}
-
-		if(this.nombreContieneCaracteresInvalidos(nombreDeLaCarpetaSinExtension)){			
-			throw new NombreInvalidoException();
-		}
-
-		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
-	}
-	
 	private boolean nombreContieneCaracteresInvalidos(String nombreDeLaCarpetaSinExtension) {
 
 		Boolean contieneCaracteresInvalidos = false;		
@@ -66,13 +77,13 @@ public class ValidadorDeArgumentos {
 		return contieneCaracteresInvalidos;
 	}	
 
-	private void validarListaDeArgumentos(List<String> listaDeArgumentos) {
-		
-		String stringDeArgumentos = listaDeArgumentos.toString();
-		Boolean sinNombreDelArchivoDeEntrada = listaDeArgumentos.size() == 0 || listaDeArgumentos.size() == 1 && listaDeArgumentos.get(0).contains("--");
-		Boolean argumentoInvalido = listaDeArgumentos.size() == 2 && !stringDeArgumentos.contains("--mode=default") && !stringDeArgumentos.contains("--mode=no-output") && !stringDeArgumentos.contains("--output=");
-		Boolean soloArgumentosDeConfiguracion = listaDeArgumentos.size() == 2 && listaDeArgumentos.get(0).contains("--") && listaDeArgumentos.get(1).contains("--");
-	
+	private void validarListaDeArgumentos() {
+
+		String stringDeArgumentos = this.listaDeArgumentos.toString();
+		Boolean sinNombreDelArchivoDeEntrada = this.listaDeArgumentos.size() == 0 || this.listaDeArgumentos.size() == 1 && this.listaDeArgumentos.get(0).contains("--");
+		Boolean argumentoInvalido = this.listaDeArgumentos.size() == 2 && !stringDeArgumentos.contains("--mode=default") && !stringDeArgumentos.contains("--mode=no-output") && !stringDeArgumentos.contains("--output=");
+		Boolean soloArgumentosDeConfiguracion = this.listaDeArgumentos.size() == 2 && this.listaDeArgumentos.get(0).contains("--") && this.listaDeArgumentos.get(1).contains("--");
+
 		if (sinNombreDelArchivoDeEntrada) {			
 
 			throw new SinNombreDelArchivoDeEntradaException();
@@ -85,7 +96,7 @@ public class ValidadorDeArgumentos {
 
 			throw new SinNombreDelArchivoDeEntradaException();
 
-		} else if (listaDeArgumentos.size() > 2) {
+		} else if (this.listaDeArgumentos.size() > 2) {
 
 			throw new NumeroDeArgumentosExcedidoException();
 
@@ -95,7 +106,11 @@ public class ValidadorDeArgumentos {
 		}
 
 	}
-	
+
+	public String getNombreDelArchivoDeEntrada(){
+		return this.nombreDelArchivoDeEntrada;
+	}
+
 	public String getNombreDeCarpetaDeSalida() {		
 		return this.nombreDeCarpetaDeSalida;
 	}
