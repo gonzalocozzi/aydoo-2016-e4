@@ -11,29 +11,32 @@ public class Program {
 
 		//Se completa la lista de argumentos con el arreglo de argumentos
 		for(int i = 0; i < args.length; i++){
-			listaDeArgumentos.add(i, args[i].toLowerCase());
+			listaDeArgumentos.add(i, args[i]);
 		}
 
 		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
 		AnalizadorDeArgumentos analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
+		
+		String nombreDelArchivoDeEntrada = validadorDeArgumentos.getNombreDelArchivoDeEntrada();
+		String nombreDeLaCarpetaDeSalida = validadorDeArgumentos.getNombreDeCarpetaDeSalida();
 
-		if(analizadorDeArgumentos.isModeDefault()){	
+		if(analizadorDeArgumentos.isModeDefault() || analizadorDeArgumentos.isOutput()){	
 
-			modeDefault(validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+			modeDefault(nombreDelArchivoDeEntrada, nombreDeLaCarpetaDeSalida);
 
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
 
-			modeNoOutput(validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+			modeNoOutput(nombreDelArchivoDeEntrada, nombreDeLaCarpetaDeSalida);
 		}
 
 	}	
 
-	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {	
+	private static void modeDefault(String nombreDelArchivoDeEntrada, String nombreDeLaCarpetaDeSalida) throws IOException {	
 		//Se crea la carpeta en donde se guardara el index.html modificado
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 
 		//Se lee el archivo markdown de entrada
-		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(nombreDeLaCarpetaDeSalida, creadorDeCarpetaDeSalida);
+		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(nombreDelArchivoDeEntrada, creadorDeCarpetaDeSalida);
 
 		//Se crean y organizan las etiquetas HTML a partir de la entrada del archivo markdown
 		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
@@ -45,9 +48,10 @@ public class Program {
 		escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, listaDeSalidaHTML);
 	}
 
-	private static void modeNoOutput(String nombreDeLaCarpetaDeSalida) throws IOException {	
+	private static void modeNoOutput(String nombreDelArchivoDeEntrada, String nombreDeLaCarpetaDeSalida) throws IOException {
+		
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
-		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
 		
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
@@ -60,18 +64,18 @@ public class Program {
 		
 	}
 
-	private static void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
-		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
-		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
-		escritorDeArchivo.escribirEnArchivo(creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida() + "/index.html");
+	private static CreadorDeCarpetaDeSalida creacionDeLaCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
+		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
+		return creadorDeCarpetaDeSalida;
 	}
-
-	private static List<String> creacionDeSalidaHTMLEstandar(List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada) {
-		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
-		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
-		return listaDeSalidaHTML;
+	
+	private static List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada, CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida) throws IOException {
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDelArchivoDeEntrada);
+		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
+		return entradaDeMarkdown;
 	}
-
+	
 	private static List<EtiquetaHTML> creacionDeEtiquetasHTML(List<String> entradaDeMarkdown) {
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
@@ -79,17 +83,17 @@ public class Program {
 		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = organizadorDeEtiquetas.organizarEtiquetasHTML(listaDeEtiquetasHTML);
 		return listaDeEtiquetasHTMLOrganizada;
 	}
-
-	private static List<String> lecturaDelArchivoDeEntrada(String nombreDeLaCarpetaDeSalida, CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida) throws IOException {
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDeLaCarpetaDeSalida + ".md");
-		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
-		return entradaDeMarkdown;
+	
+	private static List<String> creacionDeSalidaHTMLEstandar(List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada) {
+		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
+		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
+		return listaDeSalidaHTML;
 	}
-
-	private static CreadorDeCarpetaDeSalida creacionDeLaCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
-		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
-		return creadorDeCarpetaDeSalida;
+	
+	private static void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
+		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
+		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
+		escritorDeArchivo.escribirEnArchivo(creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida() + "/index.html");
 	}
 	
 }

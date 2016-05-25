@@ -10,17 +10,17 @@ import java.util.List;
 
 public class LectorDeArchivo {
 	
-	private List<String> listaDeRenglonesDelArchivo;
+	private List<String> listaDeLineasDelArchivo;
 	private String direccionDelArchivo;
 	
 	public LectorDeArchivo(String direccionDelArchivo){		
-		this.listaDeRenglonesDelArchivo = new LinkedList<String>();
+		this.listaDeLineasDelArchivo = new LinkedList<String>();
 		this.direccionDelArchivo = direccionDelArchivo;
 	}
 	
-	public List<String> getListaDeRenglonesDelArchivo() throws IOException{		
+	public List<String> getLineasDelArchivo() throws IOException{		
 		this.leerArchivo();
-		return this.listaDeRenglonesDelArchivo;
+		return this.listaDeLineasDelArchivo;
 	}
 
 	private void leerArchivo() throws FileNotFoundException, IOException {		
@@ -30,7 +30,7 @@ public class LectorDeArchivo {
 				
 		String linea = br.readLine();
 		while(linea != null){
-			this.listaDeRenglonesDelArchivo.add(linea);
+			this.listaDeLineasDelArchivo.add(linea);
 			linea = br.readLine();
 		}
 		

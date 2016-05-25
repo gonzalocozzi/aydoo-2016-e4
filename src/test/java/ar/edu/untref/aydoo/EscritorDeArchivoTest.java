@@ -39,7 +39,7 @@ public class EscritorDeArchivoTest {
 		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 				
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
-		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getLineasDelArchivo();
 		
 		archivoDePrueba.delete();
 		
@@ -60,7 +60,7 @@ public class EscritorDeArchivoTest {
 		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 				
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
-		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getLineasDelArchivo();
 		
 		archivoDePrueba.delete();
 		
@@ -87,7 +87,7 @@ public class EscritorDeArchivoTest {
 		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 				
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
-		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getLineasDelArchivo();
 		
 		archivoDePrueba.delete();
 		
@@ -125,7 +125,7 @@ public class EscritorDeArchivoTest {
 		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 				
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
-		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getLineasDelArchivo();
 		
 		archivoDePrueba.delete();
 		
