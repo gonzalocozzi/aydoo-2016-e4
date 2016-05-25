@@ -100,7 +100,7 @@ public class ValidadorDeArgumentosTest {
 		Assert.assertEquals("123", nombreDeLaCarpetaDeSalida);
 	}
 	
-	@Test/*(expected=NombreInvalidoException.class)*/
+	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEspacio(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
@@ -108,12 +108,10 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("mi psentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-		
-		Assert.assertEquals("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos); 	
 	}
 	
-	@Test/*(expected=NombreInvalidoException.class)*/
+	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMayuscula(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
@@ -121,12 +119,10 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("mipresentacionÑ.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-		
-		Assert.assertEquals("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos); 	
 	}
 	
-	@Test/*(expected=NombreInvalidoException.class)*/
+	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMinuscula(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
@@ -135,11 +131,9 @@ public class ValidadorDeArgumentosTest {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-		
-		Assert.assertEquals("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
 	}
 	
-	@Test/*(expected=NombreInvalidoException.class)*/
+	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConBarra(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
@@ -147,12 +141,10 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("mi/presentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-		
-		Assert.assertEquals("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);	
 	}
 	
-	@Test/*(expected=NombreInvalidoException.class)*/
+	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConVocalesMayusculasAcentuadas(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
@@ -160,12 +152,10 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("miprÉsentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-		
-		Assert.assertEquals("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);	
 	}
 	
-	@Test/*(expected=NombreInvalidoException.class)*/
+	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConVocalesMinusculasAcentuadas(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
@@ -174,8 +164,6 @@ public class ValidadorDeArgumentosTest {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-		
-		Assert.assertEquals("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
 	}
 
 	@Test

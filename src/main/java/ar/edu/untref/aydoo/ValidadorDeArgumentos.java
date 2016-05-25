@@ -31,8 +31,8 @@ public class ValidadorDeArgumentos {
 		}
 
 		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){	
-			System.out.println("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
-			//throw new NombreInvalidoException();
+			//System.out.println("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
+			throw new NombreInvalidoException("[ERROR] El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
 		}
 	}
 
