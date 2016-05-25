@@ -1,9 +1,8 @@
 package ar.edu.untref.aydoo;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -12,18 +11,30 @@ public class EscritorDeArchivo {
 	private List<String> listaDeLineas;
 	
 	public void escribirEnArchivo(String nombreArchivo) throws IOException{
-	    File archivo = new File(nombreArchivo);
-	    BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo));
-	    escritorAuxiliar(escritor);
-	}
+				
+        BufferedReader file = new BufferedReader(new FileReader(nombreArchivo));
+        String line;
+        String input = "";
 
-	public void escritorAuxiliar(BufferedWriter escritor) throws FileNotFoundException, IOException{		
-		
-		for(int i = 0; i < this.listaDeLineas.size(); i++){
-			escritor.write(this.listaDeLineas.get(i)+"\n");
-		}
-	
-		escritor.close();		
+        while ((line = file.readLine()) != null){
+        	
+        	if((line.trim()).equals("[este-es-el-texto-a-reemplazar]")){
+        	
+        		for(String linea: this.listaDeLineas){
+        			input += linea + "\n";
+        		}
+        	
+        	}else{	        		
+        		input += line + '\n';
+        	}
+        }
+        
+        System.out.println(input);
+    	file.close();
+    	
+        FileOutputStream fileOut = new FileOutputStream(nombreArchivo);
+        fileOut.write(input.getBytes());
+        fileOut.close();
 	}
 	
 	public List<String> getListaDeLineas() {
