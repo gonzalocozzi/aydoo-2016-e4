@@ -24,8 +24,8 @@ public class Program {
 			
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
 			
-			modeNoOutput();
-		}		
+			modeNoOutput(validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+		}
 	}	
 
 	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {		
@@ -33,24 +33,25 @@ public class Program {
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
 
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDeLaCarpetaDeSalida + ".md");
+
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
 		
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
+
+		OrganizadorDeEtiquetas organizadorDeEtiquetas = new OrganizadorDeEtiquetas();
+		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = organizadorDeEtiquetas.organizarEtiquetasHTML(listaDeEtiquetasHTML);
 		
-		OrganizadorDeEtiquetas organizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaOrganizada = organizador.organizarEtiquetasHTML(listaDeEtiquetasHTML);
-		
-		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaOrganizada);
+		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
 		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
 		
 		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
-		escritorDeArchivo.escribirEnArchivo("mipresentacion1.md");
+		escritorDeArchivo.escribirEnArchivo(creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida() + "/index.html");
 	}
-	
-	private static void modeNoOutput() throws IOException {
+
+	private static void modeNoOutput(String nombreDeLaCarpetaDeSalida) throws IOException {		
 
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
