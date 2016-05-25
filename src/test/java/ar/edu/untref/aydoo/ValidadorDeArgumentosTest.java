@@ -176,7 +176,7 @@ public class ValidadorDeArgumentosTest {
 		Assert.assertTrue(validador.argumentosSonValidos());
 	}
 
-	@Test/*(expected=SinNombreDelArchivoDeEntradaException.class)*/
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
 	public void validadorDeArgumentosExigeNombreDelArchivoDeEntrada(){
 
 		List<String> args = new ArrayList<String>();
@@ -184,11 +184,9 @@ public class ValidadorDeArgumentosTest {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-	
-		Assert.assertEquals("[ERROR] Por favor, indique el nombre del archivo Markdown de entrada.\n", outContent.toString()); 	
 	}
 
-	@Test/*(expected=ArgumentoInvalidoException.class)*/
+	@Test(expected=ArgumentoInvalidoException.class)
 	public void validadorDeArgumentosImpideElIngresoDeUnArgumentoModeInvalido(){
 
 		List<String> args = new ArrayList<String>();
@@ -197,11 +195,9 @@ public class ValidadorDeArgumentosTest {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-		
-		Assert.assertEquals("[ERROR] Usted ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
 	}
 
-	@Test/*(expected=ArgumentoInvalidoException.class)*/
+	@Test(expected=ArgumentoInvalidoException.class)
 	public void validadorDeArgumentosImpideElIngresoDeUnArgumentoInvalido(){
 
 		List<String> args = new ArrayList<String>();
@@ -209,12 +205,10 @@ public class ValidadorDeArgumentosTest {
 		args.add("mi.presentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-		
-		Assert.assertEquals("[ERROR] Usted ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);	
 	}
 
-	@Test/*(expected=NumeroDeArgumentosExcedidoException.class)*/
+	@Test(expected=NumeroDeArgumentosExcedidoException.class)
 	public void validadorDeArgumentosImpideElIngresoDeMasDeDosArgumentos(){
 
 		List<String> args = new ArrayList<String>();
@@ -224,11 +218,9 @@ public class ValidadorDeArgumentosTest {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-		
-		Assert.assertEquals("[ERROR] No debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.\n", outContent.toString()); 	
 	}
 
-	@Test/*(expected=SinNombreDelArchivoDeEntradaException.class)*/
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
 	public void validadorDeArgumentosExigeNombreDelArchivoDeEntradaCuandoRecibeDosArgumentos(){
 
 		List<String> args = new ArrayList<String>();
@@ -236,20 +228,16 @@ public class ValidadorDeArgumentosTest {
 		args.add("--mode=no-output");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-		
-		Assert.assertEquals("[ERROR] Por favor, indique el nombre del archivo Markdown de entrada.\n", outContent.toString()); 	
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);	
 	}
 
-	@Test/*(expected=SinNombreDelArchivoDeEntradaException.class)*/
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
 	public void validadorDeArgumentosExigeIngresarElNombreDelArchivoDeEntradaCuandoNoRecibeArgumentos(){
 
 		List<String> args = new ArrayList<String>();
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-		
-		Assert.assertEquals("[ERROR] Por favor, indique el nombre del archivo Markdown de entrada.\n", outContent.toString()); 	
 	}
 
 }
