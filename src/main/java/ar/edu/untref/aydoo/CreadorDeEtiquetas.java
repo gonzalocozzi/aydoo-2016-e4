@@ -8,7 +8,7 @@ public class CreadorDeEtiquetas {
 
 	private EtiquetaHTMLFactory etiquetaHTMLFactory;
 	private List<String> listaDeRepresentaciones;
-	
+
 	public CreadorDeEtiquetas(){
 		this.listaDeRepresentaciones = new LinkedList<String>();
 		this.listaDeRepresentaciones.add("##");
@@ -18,13 +18,17 @@ public class CreadorDeEtiquetas {
 		this.listaDeRepresentaciones.add("---");
 		this.etiquetaHTMLFactory = new EtiquetaHTMLFactory();
 	}
-	
+
 	public List<EtiquetaHTML> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
 		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
 		for(int i = 0; i < lineasDelMarkDown.size(); i++){
-			String principioDeLinea = lineasDelMarkDown.get(i).substring(0, 3);//me toma los primeros 3 caracteres
+			String lineaActual = lineasDelMarkDown.get(i);
+			String principioDeLinea = obtenerPrincipioDeLinea(lineaActual);
 			String representacionActual = buscarEncabezadoCorrespondiente(principioDeLinea);
-			String posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
+			String posibleEncabezado = "";
+			if(!lineaActual.equals("")){
+				posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
+			}
 			if(posibleEncabezado.equals(representacionActual)){ //compara para ver si realmente es un encabezado, es decir que esta al inicio de la linea
 				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, representacionActual);
 				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas, i);
@@ -37,6 +41,16 @@ public class CreadorDeEtiquetas {
 		return listaDeEtiquetas;
 	}
 
+	private String obtenerPrincipioDeLinea(String linea) {
+		int j = 0;
+		String principioDeLinea = "";
+		while(j < 3 && j < linea.length()){
+			principioDeLinea += linea.charAt(j);
+			j++;
+		}
+		return principioDeLinea;
+	}
+
 	private String asignarTextoALaEtiquetaAGenerar(List<String> lineasDelMarkDown, int i, String representacionActual) {
 		int tamanioDelEncabezado = representacionActual.length();
 		String texto = lineasDelMarkDown.get(i).substring(tamanioDelEncabezado, lineasDelMarkDown.get(i).length());
@@ -44,7 +58,7 @@ public class CreadorDeEtiquetas {
 	}
 
 	private String buscarEncabezadoCorrespondiente(String principioDeLinea) {
-		Iterator<String> it = this.listaDeRepresentaciones.iterator();//aca estaba el dicc
+		Iterator<String> it = this.listaDeRepresentaciones.iterator();
 		boolean noHuboCoincidencia = true;
 		String representacionActual = "";
 		while(it.hasNext() && noHuboCoincidencia){

@@ -29,9 +29,10 @@ public class Program {
 	}	
 
 	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {		
+		
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
-		
+
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
 		
@@ -50,7 +51,7 @@ public class Program {
 	}
 	
 	private static void modeNoOutput() throws IOException {
-		
+
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
 		

@@ -161,6 +161,37 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(TextoSinFormato.class, lista.get(5).getClass());
 		Assert.assertEquals(Titulo.class, lista.get(6).getClass());
 		Assert.assertEquals(Subtitulo.class, lista.get(7).getClass());
-		
+	}
+	
+	public void sePuedenGenerarEtiquetasSinTexto(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+		miLista.add("##");
+		miLista.add("#");
+		miLista.add("*");
+		listaGenerada = miCreador.crearListaDeEtiquetas(miLista);
+		Assert.assertEquals(Subtitulo.class, listaGenerada.get(0).getClass());
+		Assert.assertEquals("", listaGenerada.get(0).getTexto());
+		Assert.assertEquals(Titulo.class, listaGenerada.get(1).getClass());
+		Assert.assertEquals("", listaGenerada.get(1).getTexto());
+		Assert.assertEquals(ItemDeLista.class, listaGenerada.get(2).getClass());
+		Assert.assertEquals("", listaGenerada.get(2).getTexto());
+	}
+	
+	@Test
+	public void puedoInsertarLineaVacia(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+		miLista.add("---");
+		miLista.add("");//este es el espacio vacio que inserto
+		miLista.add("# slide1 :titulo 1");
+		miLista.add("---");
+		miLista.add("slide 3");
+		miLista.add("# titulo 1");
+		miLista.add("## titulo 2");
+		listaGenerada = miCreador.crearListaDeEtiquetas(miLista);
+		Assert.assertEquals("", listaGenerada.get(1).getTexto());
 	}
 }

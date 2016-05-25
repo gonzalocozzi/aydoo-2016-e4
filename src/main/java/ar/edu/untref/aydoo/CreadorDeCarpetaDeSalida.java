@@ -20,7 +20,9 @@ public class CreadorDeCarpetaDeSalida {
 	}
 	
 	public void crearCarpetaDeSalida() throws IOException{	
+
 		File directorioFuente = new File("./plantilla");
+
 		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida + "/" + this.nombreDeLaCarpetaDeSalida);
 		FileUtils.copyDirectory(directorioFuente, carpetaDeSalida);
 	}
