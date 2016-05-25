@@ -26,12 +26,4 @@ public class ProgramTest {
 	public void cleanUpStreams() {
 	    System.setOut(null);
 	}
-	
-	@Test
-	public void sliderExigeElIngresoDeUnArgumentoConElNombreDelArchivoDeEntrada() throws IOException{
-		
-		File archivoTemporal = testFolder.newFile("miarchivo.md");
-		String[] args = {archivoTemporal.getName()};
-		Program.main(args);
-	}
 }
