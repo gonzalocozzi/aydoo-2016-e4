@@ -18,21 +18,26 @@ public class EscritorDeArchivo {
 
         while ((lineaArchivo = archivo.readLine()) != null){
         	
-        	if((lineaArchivo.trim()).equals("[este-es-el-texto-a-reemplazar]")){
-        	
-        		for(String linea: this.listaDeLineas){
-        			entrada += linea + "\n";
-        		}
-        	
-        	}else{	        		
-        		entrada += lineaArchivo + '\n';
-        	}
+        	entrada = guardarLineaDeEntrada(lineaArchivo, entrada);
         }
-    	archivo.close();
+        archivo.close();
     	
-        FileOutputStream fileOut = new FileOutputStream(nombreArchivo);
-        fileOut.write(entrada.getBytes());
-        fileOut.close();
+		FileOutputStream fileOut = new FileOutputStream(nombreArchivo);
+		fileOut.write(entrada.getBytes());
+		fileOut.close();
+	}
+
+	public String guardarLineaDeEntrada(String lineaArchivo, String entrada) {
+		if((lineaArchivo.trim()).equals("[este-es-el-texto-a-reemplazar]")){
+		
+			for(String linea: this.listaDeLineas){
+				entrada += linea + "\n";
+			}
+		
+		}else{	        		
+			entrada += lineaArchivo + '\n';
+		}
+		return entrada;
 	}
 	
 	public List<String> getListaDeLineas() {

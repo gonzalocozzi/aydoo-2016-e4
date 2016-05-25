@@ -39,4 +39,19 @@ public class EscritorDeArchivoTest {
 		escritor.setListaAEscribir(listaDeLineas);
 		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 	}	
+	
+	@Test
+	public void guardaLineaDeArchivoQueNoHayQueReemplazarPorHtmlEntrante(){
+		
+		EscritorDeArchivo escritor = new EscritorDeArchivo();
+		List<String> listaDeLineas = new LinkedList<String>();
+		listaDeLineas.add("primera linea");
+		escritor.setListaAEscribir(listaDeLineas);
+		String entradaResultante = "";
+		String lineaAEscribir = escritor.guardarLineaDeEntrada("<div>", entradaResultante);
+		
+		String lineaEsperada = "<div>"+"\n";
+		
+		Assert.assertEquals(lineaEsperada, lineaAEscribir);
+	}
 }
