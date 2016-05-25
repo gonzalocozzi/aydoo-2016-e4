@@ -6,6 +6,18 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ValidadorDeArgumentosTest {
+	
+	@Test
+	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDelArchivoDeEntrada() throws SinNombreDelArchivoDeEntradaException{
+
+		List<String> listaDeArgumentos = new ArrayList<String>();
+		listaDeArgumentos.add("mi-presentacion.md");
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
+
+		String nombreDelArchivoDeEntrada = validador.getNombreDelArchivoDeEntrada();
+
+		Assert.assertEquals("mi-presentacion.md", nombreDelArchivoDeEntrada);
+	}
 
 	@Test
 	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{

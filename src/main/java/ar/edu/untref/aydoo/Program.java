@@ -45,7 +45,7 @@ public class Program {
 		escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, listaDeSalidaHTML);
 	}
 
-	private static void modeNoOutput(String nombreDeLaCarpetaDeSalida) throws IOException {		
+	private static void modeNoOutput(String nombreDeLaCarpetaDeSalida) throws IOException {	
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
 		
