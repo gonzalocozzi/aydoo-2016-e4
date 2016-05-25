@@ -20,7 +20,6 @@ public class CreadorDeCarpetaDeSalida {
 		this.direccionDeLaCarpetaDeSalida = direccionDelJAR + "/" + nombreDeLaCarpetaDeSalida;
 	}
 	
-	//No se ejecuta desde del constructor porque no encuentra correctamente la direccion del JAR
 	public void crearCarpetaDeSalida() throws IOException{	
 		File directorioFuente = new File(this.direccionDelJAR + "/plantilla");
 		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida);
