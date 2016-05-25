@@ -20,7 +20,7 @@ public class CreadorDeCarpetaDeSalida {
 	}
 	
 	public void crearCarpetaDeSalida() throws IOException{	
-		File directorioFuente = new File(this.direccionDeLaCarpetaDeSalida + "/plantilla");
+		File directorioFuente = new File("/home/fernando/workspace/aydoo-2016-e4/target/plantilla");
 		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida + "/" + this.nombreDeLaCarpetaDeSalida);
 		FileUtils.copyDirectory(directorioFuente, carpetaDeSalida);
 	}

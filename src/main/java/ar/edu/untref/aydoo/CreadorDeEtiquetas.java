@@ -8,7 +8,7 @@ public class CreadorDeEtiquetas {
 
 	private EtiquetaHTMLFactory etiquetaHTMLFactory;
 	private List<String> listaDeRepresentaciones;
-	
+
 	public CreadorDeEtiquetas(){
 		this.listaDeRepresentaciones = new LinkedList<String>();
 		this.listaDeRepresentaciones.add("##");
@@ -18,14 +18,17 @@ public class CreadorDeEtiquetas {
 		this.listaDeRepresentaciones.add("---");
 		this.etiquetaHTMLFactory = new EtiquetaHTMLFactory();
 	}
-	
+
 	public List<EtiquetaHTML> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
 		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
 		for(int i = 0; i < lineasDelMarkDown.size(); i++){
 			String lineaActual = lineasDelMarkDown.get(i);
 			String principioDeLinea = obtenerPrincipioDeLinea(lineaActual);
 			String representacionActual = buscarEncabezadoCorrespondiente(principioDeLinea);
-			String posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
+			String posibleEncabezado = "";
+			if(!lineaActual.equals("")){
+				posibleEncabezado = principioDeLinea.substring(0, representacionActual.length());
+			}
 			if(posibleEncabezado.equals(representacionActual)){ //compara para ver si realmente es un encabezado, es decir que esta al inicio de la linea
 				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, representacionActual);
 				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas, i);
@@ -45,7 +48,6 @@ public class CreadorDeEtiquetas {
 			principioDeLinea += linea.charAt(j);
 			j++;
 		}
-		//String principioDeLinea = lineasDelMarkDown.get(i).substring(0, 3);//me toma los primeros 3 caracteres
 		return principioDeLinea;
 	}
 
@@ -56,7 +58,7 @@ public class CreadorDeEtiquetas {
 	}
 
 	private String buscarEncabezadoCorrespondiente(String principioDeLinea) {
-		Iterator<String> it = this.listaDeRepresentaciones.iterator();//aca estaba el dicc
+		Iterator<String> it = this.listaDeRepresentaciones.iterator();
 		boolean noHuboCoincidencia = true;
 		String representacionActual = "";
 		while(it.hasNext() && noHuboCoincidencia){
