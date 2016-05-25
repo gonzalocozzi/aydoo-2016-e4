@@ -135,4 +135,32 @@ public class CreadorDeEtiquetasTest {
 		
 		Assert.assertEquals(listaEsperada.get(0).getClass(), listaEtiquetaHTML.get(0).getClass());
 	}
+	
+	@Test
+	public void seReproduceMiPresentacion1ParaFixearBug(){
+		
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		
+		miLista.add("---");
+		miLista.add("# slide1 :titulo 1");
+		miLista.add("---");
+		miLista.add("## slide2: titulo 2");
+		miLista.add("---");
+		miLista.add("slide 3");
+		miLista.add("# titulo 1");
+		miLista.add("## titulo 2");
+		
+		List<EtiquetaHTML> lista = miCreador.crearListaDeEtiquetas(miLista);
+		
+		Assert.assertEquals(Seccion.class,lista.get(0).getClass());
+		Assert.assertEquals(Titulo.class, lista.get(1).getClass());
+		Assert.assertEquals(Seccion.class, lista.get(2).getClass());
+		Assert.assertEquals(Subtitulo.class, lista.get(3).getClass());
+		Assert.assertEquals(Seccion.class, lista.get(4).getClass());
+		Assert.assertEquals(TextoSinFormato.class, lista.get(5).getClass());
+		Assert.assertEquals(Titulo.class, lista.get(6).getClass());
+		Assert.assertEquals(Subtitulo.class, lista.get(7).getClass());
+		
+	}
 }

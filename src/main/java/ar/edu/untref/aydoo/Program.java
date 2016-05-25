@@ -25,35 +25,46 @@ public class Program {
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
 			
 			modeNoOutput();
-		}
-		
+		}		
 	}	
 
 	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {		
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
-		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTML);
+		
+		OrganizadorDeEtiquetas organizador = new OrganizadorDeEtiquetas();
+		List<EtiquetaHTML> listaOrganizada = organizador.organizarEtiquetasHTML(listaDeEtiquetasHTML);
+		
+		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaOrganizada);
 		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
+		
 		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
-		escritorDeArchivo.escribirEnArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		escritorDeArchivo.escribirEnArchivo("mipresentacion1.md");
 	}
 	
 	private static void modeNoOutput() throws IOException {
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("/home/gonzalo/Documentos/UNTREF/Análisis y Diseño Orientado a Objetos/Práctica/aydoo-2016-e4/target/mipresentacion1.md");
+		
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
-		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTML);
+		
+		OrganizadorDeEtiquetas organizador = new OrganizadorDeEtiquetas();
+		List<EtiquetaHTML> listaOrganizada = organizador.organizarEtiquetasHTML(listaDeEtiquetasHTML);
+		
+		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaOrganizada);
 		List<String> listaDeSalida = creadorDeSalidaHTML.getListaDeSalidaHTML();
 		
 		for(String salida: listaDeSalida){
 			System.out.println(salida);			
 		}
 	}
-
 }
