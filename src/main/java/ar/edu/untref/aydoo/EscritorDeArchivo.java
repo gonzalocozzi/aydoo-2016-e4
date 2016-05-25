@@ -28,8 +28,7 @@ public class EscritorDeArchivo {
         		input += line + '\n';
         	}
         }
-        
-        System.out.println(input);
+
     	file.close();
     	
         FileOutputStream fileOut = new FileOutputStream(nombreArchivo);
