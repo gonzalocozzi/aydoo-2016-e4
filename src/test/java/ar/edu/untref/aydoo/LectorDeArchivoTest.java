@@ -37,11 +37,11 @@ public class LectorDeArchivoTest {
 		writer.close();
 		
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
-		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> listaDeLineasDelArchivo = lectorDeArchivo.getLineasDelArchivo();
 		
 		archivoDePrueba.delete();
 		
-		Assert.assertTrue(listaDeRenglonesDelArchivo.get(0).equals("primer renglon"));
+		Assert.assertTrue(listaDeLineasDelArchivo.get(0).equals("primer renglon"));
 	}
 	
 	@Test
@@ -58,11 +58,11 @@ public class LectorDeArchivoTest {
 		writer.close();
 		
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(direccionDelArchivoTemporal);
-		List<String> listaDeRenglonesDelArchivo = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		List<String> listaDeLineasDelArchivo = lectorDeArchivo.getLineasDelArchivo();
 		
 		archivoDePrueba.delete();
 		
-		Assert.assertTrue(listaDeRenglonesDelArchivo.get(3).equals("cuarto renglon"));
+		Assert.assertTrue(listaDeLineasDelArchivo.get(3).equals("cuarto renglon"));
 	}
 
 }

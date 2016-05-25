@@ -11,29 +11,32 @@ public class Program {
 
 		//Se completa la lista de argumentos con el arreglo de argumentos
 		for(int i = 0; i < args.length; i++){
-			listaDeArgumentos.add(i, args[i].toLowerCase());
+			listaDeArgumentos.add(i, args[i]);
 		}
 
 		ValidadorDeArgumentos validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
 		AnalizadorDeArgumentos analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
 
-		if(analizadorDeArgumentos.isModeDefault()){	
+		String nombreDelArchivoDeEntrada = validadorDeArgumentos.getNombreDelArchivoDeEntrada();
+		String nombreDeLaCarpetaDeSalida = validadorDeArgumentos.getNombreDeCarpetaDeSalida();
 
-			modeDefault(validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+		if(analizadorDeArgumentos.isModeDefault() || analizadorDeArgumentos.isOutput()){	
+
+			modeDefault(nombreDelArchivoDeEntrada, nombreDeLaCarpetaDeSalida);
 
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
 
-			modeNoOutput(validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+			modeNoOutput(nombreDelArchivoDeEntrada, nombreDeLaCarpetaDeSalida);
 		}
 
 	}	
 
-	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {	
+	private static void modeDefault(String nombreDelArchivoDeEntrada, String nombreDeLaCarpetaDeSalida) throws IOException {	
 		//Se crea la carpeta en donde se guardara el index.html modificado
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 
 		//Se lee el archivo markdown de entrada
-		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(nombreDeLaCarpetaDeSalida, creadorDeCarpetaDeSalida);
+		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(nombreDelArchivoDeEntrada, creadorDeCarpetaDeSalida);
 
 		//Se crean y organizan las etiquetas HTML a partir de la entrada del archivo markdown
 		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
@@ -43,33 +46,41 @@ public class Program {
 
 		//Se escribe en el archivo index.html la salida HTML estandar
 		escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, listaDeSalidaHTML);
+
+		System.out.println("[INFO] El archivo fue exportado con exito a " + creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDeLaCarpetaDeSalida + "/index.html");
 	}
 
-	private static void modeNoOutput(String nombreDeLaCarpetaDeSalida) throws IOException {	
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
-		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
-		
-		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
+	private static void modeNoOutput(String nombreDelArchivoDeEntrada, String nombreDeLaCarpetaDeSalida) throws IOException {
 
-		List<String> listaDeSalida = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTML);
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);		
 
-		for(String salida: listaDeSalida){
+		//Se lee el archivo markdown de entrada
+		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(nombreDelArchivoDeEntrada, creadorDeCarpetaDeSalida);
+
+		//Se crean y organizan las etiquetas HTML a partir de la entrada del archivo markdown
+		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
+
+		//Se crea una salida HTML estandar en base a las etiquetas HTML previamente creadas
+		List<String> listaDeSalidaHTML = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTMLOrganizada);
+
+		//Salida estandar de la salida HTML
+		System.out.println("[INFO] Salida HTML generada a partir de " + nombreDelArchivoDeEntrada);
+		for(String salida: listaDeSalidaHTML){
 			System.out.println(salida);			
 		}
-		
+
 	}
 
-	private static void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
-		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
-		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
-		escritorDeArchivo.escribirEnArchivo(creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida() + "/index.html");
+	private static CreadorDeCarpetaDeSalida creacionDeLaCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
+		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
+		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
+		return creadorDeCarpetaDeSalida;
 	}
 
-	private static List<String> creacionDeSalidaHTMLEstandar(List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada) {
-		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
-		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
-		return listaDeSalidaHTML;
+	private static List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada, CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida) throws IOException {
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDelArchivoDeEntrada);
+		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
+		return entradaDeMarkdown;
 	}
 
 	private static List<EtiquetaHTML> creacionDeEtiquetasHTML(List<String> entradaDeMarkdown) {
@@ -80,16 +91,16 @@ public class Program {
 		return listaDeEtiquetasHTMLOrganizada;
 	}
 
-	private static List<String> lecturaDelArchivoDeEntrada(String nombreDeLaCarpetaDeSalida, CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida) throws IOException {
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDeLaCarpetaDeSalida + ".md");
-		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
-		return entradaDeMarkdown;
+	private static List<String> creacionDeSalidaHTMLEstandar(List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada) {
+		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
+		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
+		return listaDeSalidaHTML;
 	}
 
-	private static CreadorDeCarpetaDeSalida creacionDeLaCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
-		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
-		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
-		return creadorDeCarpetaDeSalida;
+	private static void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
+		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
+		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
+		escritorDeArchivo.escribirEnArchivo(creadorDeCarpetaDeSalida.getDireccionDeLaCarpetaDeSalida() + "/index.html");
 	}
-	
+
 }

@@ -35,10 +35,10 @@ public class ValidadorDeArgumentos {
 
 		String nombreDeLaCarpetaSinExtension = ""; 
 
-		if (this.listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
+		if (this.listaDeArgumentos.get(0).substring(0, 9).equalsIgnoreCase("--output=")) {			
 			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
-		} else if (this.listaDeArgumentos.get(0).substring(0, 9).equals("--output=")) {			
-			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
+		} else if (this.listaDeArgumentos.size() > 1 && this.listaDeArgumentos.get(1).substring(0, 9).equalsIgnoreCase("--output=")) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(1).substring(9);			
 		} else {			
 			nombreDeLaCarpetaSinExtension = this.nombreDelArchivoDeEntrada.replace(".md", "");
 		}
@@ -79,7 +79,7 @@ public class ValidadorDeArgumentos {
 
 	private void validarListaDeArgumentos() {
 
-		String stringDeArgumentos = this.listaDeArgumentos.toString();
+		String stringDeArgumentos = this.listaDeArgumentos.toString().toLowerCase();
 		Boolean sinNombreDelArchivoDeEntrada = this.listaDeArgumentos.size() == 0 || this.listaDeArgumentos.size() == 1 && this.listaDeArgumentos.get(0).contains("--");
 		Boolean argumentoInvalido = this.listaDeArgumentos.size() == 2 && !stringDeArgumentos.contains("--mode=default") && !stringDeArgumentos.contains("--mode=no-output") && !stringDeArgumentos.contains("--output=");
 		Boolean soloArgumentosDeConfiguracion = this.listaDeArgumentos.size() == 2 && this.listaDeArgumentos.get(0).contains("--") && this.listaDeArgumentos.get(1).contains("--");
