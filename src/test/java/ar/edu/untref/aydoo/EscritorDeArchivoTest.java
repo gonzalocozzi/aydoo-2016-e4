@@ -25,7 +25,7 @@ public class EscritorDeArchivoTest {
 		
 		Assert.assertEquals(listaDeLineas, escritor.getListaDeLineas());
 	}
-	
+	/*
 	@Test
 	public void escritorDeArchivoDevuelveListaDeRenglonesDelArchivoConUnRenglon() throws IOException{
 		
@@ -160,4 +160,5 @@ public class EscritorDeArchivoTest {
 		escritor.setListaAEscribir(listaDeLineas);
 		escritor.escribirEnArchivo(direccionDelArchivoTemporal);
 	}
+	*/
 }
