@@ -7,7 +7,6 @@ import java.util.List;
 public class Program {
 
 	public static void main(String[] args) throws IOException {	
-
 		List<String> listaDeArgumentos = new ArrayList<String>();
 
 		//Se completa la lista de argumentos con el arreglo de argumentos
@@ -30,7 +29,6 @@ public class Program {
 	}	
 
 	private static void modeDefault(String nombreDeLaCarpetaDeSalida) throws IOException {	
-
 		//Se crea la carpeta en donde se guardara el index.html modificado
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 
@@ -50,13 +48,16 @@ public class Program {
 	private static void modeNoOutput(String nombreDeLaCarpetaDeSalida) throws IOException {		
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo("mipresentacion1.md");
 		List<String> entradaDeMarkdown = lectorDeArchivo.getListaDeRenglonesDelArchivo();
+		
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
+
 		List<String> listaDeSalida = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTML);
 
 		for(String salida: listaDeSalida){
 			System.out.println(salida);			
 		}
+		
 	}
 
 	private static void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
@@ -90,5 +91,5 @@ public class Program {
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
 		return creadorDeCarpetaDeSalida;
 	}
-
+	
 }

@@ -27,16 +27,11 @@ public class LectorDeArchivo {
 		File archivo = new File (this.direccionDelArchivo);
 		FileReader fr = new FileReader (archivo);
 		BufferedReader br = new BufferedReader(fr);
-		boolean seguirLeyendo = true;
-		
-		while(seguirLeyendo){
-			String linea = br.readLine();
-			if(linea == null){
-				seguirLeyendo = false;
-			}
-			else{
-				this.listaDeRenglonesDelArchivo.add(linea);
-			}
+				
+		String linea = br.readLine();
+		while(linea != null){
+			this.listaDeRenglonesDelArchivo.add(linea);
+			linea = br.readLine();
 		}
 		
 		br.close();
