@@ -21,7 +21,7 @@ public class ProgramTest {
 	    System.setOut(null);
 	}
 	
-	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
+	@Test
 	public void sliderExigeElIngresoDeUnArgumentoConElNombreDelArchivoDeEntrada() throws IOException{
 		
 		String[] args = {};
