@@ -29,7 +29,7 @@ public class ValidadorDeArgumentos {
 		}
 
 		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){	
-			throw new NombreInvalidoException("El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
+			throw new NombreInvalidoException("el nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
 		}
 	}
 
