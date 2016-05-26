@@ -16,13 +16,23 @@ public class EtiquetaHTMLFactoryTest {
 	}
 	
 	@Test
-	public void etiquetaHTMLFactoryDevuelveUnSubitulo(){
+	public void etiquetaHTMLFactoryDevuelveUnSubtitulo(){
 		
 		EtiquetaHTMLFactory creadorDeEtiquetas = new EtiquetaHTMLFactory();
 		
 		EtiquetaHTML etiquetaCreada = creadorDeEtiquetas.crearEtiqueta("##");
 		
 		Assert.assertEquals(etiquetaCreada.getClass(), Subtitulo.class);
+	}
+	
+	@Test
+	public void etiquetaHTMLFactoryDevuelveUnaImagen(){
+		
+		EtiquetaHTMLFactory creadorDeEtiquetas = new EtiquetaHTMLFactory();
+		
+		EtiquetaHTML etiquetaCreada = creadorDeEtiquetas.crearEtiqueta("i:");
+		
+		Assert.assertEquals(etiquetaCreada.getClass(), Imagen.class);
 	}
 
 }
