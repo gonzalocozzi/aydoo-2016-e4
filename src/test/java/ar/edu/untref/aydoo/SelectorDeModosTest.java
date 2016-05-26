@@ -34,4 +34,18 @@ public class SelectorDeModosTest {
 		
 		Assert.assertEquals(nombreEsperado, nombreDeArchivoResultante);
 	}
+	
+	@Test
+	public void selectorCreaNombreDeCarpetaDeSalida(){
+		
+		String[] argumentos = {"mipresentacion1.md"};
+		
+		SelectorDeModos selector = new SelectorDeModos(argumentos);
+		
+		String nombreDeArchivoResultante = selector.getNombreDeLaCarpetaDeSalida();
+		
+		String nombreEsperado = "mipresentacion1";
+		
+		Assert.assertEquals(nombreEsperado, nombreDeArchivoResultante);		
+	}
 }

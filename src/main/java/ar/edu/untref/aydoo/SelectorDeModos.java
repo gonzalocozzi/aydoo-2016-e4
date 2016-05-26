@@ -28,16 +28,19 @@ public class SelectorDeModos {
 	}
 
 	public String getNombreDelArchivo() {		
-		return validadorDeArgumentos.getNombreDelArchivoDeEntrada();
+		return this.validadorDeArgumentos.getNombreDelArchivoDeEntrada();
 	}
 	
-	private ValidadorDeArgumentos validarArgumentos(){
+	public String getNombreDeLaCarpetaDeSalida() {
+		
+		return this.validadorDeArgumentos.getNombreDeCarpetaDeSalida();
+	}
+	
+	private void validarArgumentos(){
 		this.validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
-		return validadorDeArgumentos;
 	}
 	
-	private AnalizadorDeArgumentos analizarArgumentos(){
+	private void analizarArgumentos(){
 		this.analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
-		return analizadorDeArgumentos;
 	}
 }
