@@ -44,5 +44,15 @@ public class EtiquetaHTMLFactoryTest {
 		
 		Assert.assertEquals(etiquetaCreada.getClass(), ItemDeLista.class);
 	}
+	
+	@Test
+	public void etiquetaHTMLFactoryDevuelveUnaSeccion(){
+		
+		EtiquetaHTMLFactory creadorDeEtiquetas = new EtiquetaHTMLFactory();
+		
+		EtiquetaHTML etiquetaCreada = creadorDeEtiquetas.crearEtiqueta("---");
+		
+		Assert.assertEquals(etiquetaCreada.getClass(), Seccion.class);
+	}
 
 }
