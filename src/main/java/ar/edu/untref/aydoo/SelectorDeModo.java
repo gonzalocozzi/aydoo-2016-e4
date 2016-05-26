@@ -65,8 +65,8 @@ public class SelectorDeModo {
 
 	public void seleccionarModoNoOutput() throws IOException {		
 		List<String> listaDeSalida = this.getListaHTMLDeSalida();
-
 		System.out.println("Salida HTML generada");
+		
 		for(String salida: listaDeSalida){
 			System.out.println(salida);			
 		}		
