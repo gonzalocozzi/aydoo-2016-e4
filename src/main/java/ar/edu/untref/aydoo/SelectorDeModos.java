@@ -120,5 +120,17 @@ public class SelectorDeModos {
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
 		//escritorDeArchivo.escribirEnArchivo(this.getNombreDeLaCarpetaDeSalida() + "/index.html");
 		escritorDeArchivo.escribirEnArchivo(this.archivoParaEscribirHtml);
+	}
+
+	public void seleccionarModo() throws IOException {
+		
+		if(analizadorDeArgumentos.isModeDefault() || analizadorDeArgumentos.isOutput()){	
+
+			this.seleccionarModoDefault();
+
+		} else if(analizadorDeArgumentos.isModeNoOutput()){
+
+			this.seleccionarModoNoOutput();
+		}
 	}	
 }
