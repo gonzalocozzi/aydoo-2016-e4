@@ -1,11 +1,28 @@
 package ar.edu.untref.aydoo;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ValidadorDeArgumentosTest {
+	
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();	
+	
+	@Before
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	}
+
+	@After
+	public void cleanUpStreams() {
+	    System.setOut(null);
+	}
 	
 	@Test
 	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDelArchivoDeEntrada() throws SinNombreDelArchivoDeEntradaException{
@@ -60,7 +77,6 @@ public class ValidadorDeArgumentosTest {
 	@Test
 	public void analizadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
 
-
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--output=nuevacarpeta");
 		listaDeArgumentos.add("mipresentacion.md");
@@ -71,6 +87,19 @@ public class ValidadorDeArgumentosTest {
 		Assert.assertEquals("nuevacarpeta", nombreDeLaCarpetaDeSalida);
 	}
 	
+	@Test
+	public void analizadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalidaSInImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
+
+		List<String> listaDeArgumentos = new ArrayList<String>();
+		listaDeArgumentos.add("mipresentacion.md");
+		listaDeArgumentos.add("--output=123");
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
+
+		String nombreDeLaCarpetaDeSalida = validador.getNombreDeCarpetaDeSalida();
+
+		Assert.assertEquals("123", nombreDeLaCarpetaDeSalida);
+	}
+	
 	@Test(expected=NombreInvalidoException.class)
 	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEspacio(){
 		
@@ -79,7 +108,7 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("mi psentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos); 	
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
@@ -90,7 +119,7 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("mipresentacionÑ.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos); 	
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
@@ -112,7 +141,7 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("mi/presentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);	
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
@@ -123,7 +152,7 @@ public class ValidadorDeArgumentosTest {
 		listaDeArgumentos.add("miprÉsentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);	
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
@@ -176,7 +205,7 @@ public class ValidadorDeArgumentosTest {
 		args.add("mi.presentacion.md");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);	
 	}
 
 	@Test(expected=NumeroDeArgumentosExcedidoException.class)
@@ -199,7 +228,7 @@ public class ValidadorDeArgumentosTest {
 		args.add("--mode=no-output");
 		
 		@SuppressWarnings("unused")
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
+		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);	
 	}
 
 	@Test(expected=SinNombreDelArchivoDeEntradaException.class)

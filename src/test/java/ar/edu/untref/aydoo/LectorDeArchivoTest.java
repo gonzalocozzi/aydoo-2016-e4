@@ -13,7 +13,7 @@ import org.junit.rules.TemporaryFolder;
 public class LectorDeArchivoTest {
 	
 	@Rule	 
-	public TemporaryFolder testFolder = new TemporaryFolder();
+	public TemporaryFolder carpetaDePrueba = new TemporaryFolder();
 		
 	@Test
 	public void lectorDeArchivoRecibeDireccionDelArchivoALeer() throws IOException{
@@ -29,7 +29,7 @@ public class LectorDeArchivoTest {
 	@Test
 	public void lectorDeArchivoDevuelveListaDeRenglonesDelArchivoConUnRenglon() throws IOException{
 		
-		File archivoDePrueba = new File("temp.txt");
+		File archivoDePrueba = carpetaDePrueba.newFile("temp.txt");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
 		
 		PrintWriter writer = new PrintWriter(direccionDelArchivoTemporal);
@@ -47,7 +47,7 @@ public class LectorDeArchivoTest {
 	@Test
 	public void lectorDeArchivoDevuelveListaDeRenglonesDelArchivoConVariosRenglones() throws IOException{
 		
-		File archivoDePrueba = new File("temp.txt");
+		File archivoDePrueba = carpetaDePrueba.newFile("temp.txt");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
 		
 		PrintWriter writer = new PrintWriter(direccionDelArchivoTemporal);

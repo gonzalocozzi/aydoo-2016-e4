@@ -13,8 +13,11 @@ public class ValidadorDeArgumentos {
 		this.argumentosSonValidos = false;	
 		this.listaDeArgumentos = listaDeArgumentos;
 		this.validarListaDeArgumentos();
-		this.setNombreDelArchivoDeEntrada();
-		this.setNombreDeCarpetaDeSalida();			
+		
+		if(this.argumentosSonValidos){
+			this.setNombreDelArchivoDeEntrada();
+			this.setNombreDeCarpetaDeSalida();				
+		}		
 	}	
 
 	public void setNombreDelArchivoDeEntrada(){
@@ -26,8 +29,8 @@ public class ValidadorDeArgumentos {
 			this.nombreDelArchivoDeEntrada = this.listaDeArgumentos.get(posicionDelNombrelDeArchivoDeEntrada);
 		}
 
-		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){			
-			throw new NombreInvalidoException();
+		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){	
+			throw new NombreInvalidoException("El nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
 		}
 	}
 
@@ -85,20 +88,16 @@ public class ValidadorDeArgumentos {
 		Boolean soloArgumentosDeConfiguracion = this.listaDeArgumentos.size() == 2 && this.listaDeArgumentos.get(0).contains("--") && this.listaDeArgumentos.get(1).contains("--");
 
 		if (sinNombreDelArchivoDeEntrada) {
-			//System.out.println("[ERROR] Por favor, indique el nombre del archivo Markdown de entrada.");
-			throw new SinNombreDelArchivoDeEntradaException();
+			throw new SinNombreDelArchivoDeEntradaException("Por favor, indique el nombre del archivo Markdown de entrada.");
 		} 
 		else if (argumentoInvalido) {
-			//System.out.println("[ERROR] Usted ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.");
-			throw new ArgumentoInvalidoException();
+			throw new ArgumentoInvalidoException("Ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.");
 		} 
 		else if (soloArgumentosDeConfiguracion) {
-			//System.out.println("[ERROR] Por favor, indique el nombre del archivo Markdown de entrada.");
-			throw new SinNombreDelArchivoDeEntradaException();
+			throw new SinNombreDelArchivoDeEntradaException("Por favor, indique el nombre del archivo Markdown de entrada.");
 		} 
 		else if (this.listaDeArgumentos.size() > 2) {
-			//System.out.println("[ERROR] No debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
-			throw new NumeroDeArgumentosExcedidoException();
+			throw new NumeroDeArgumentosExcedidoException("No debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
 		} 
 		else {
 			this.argumentosSonValidos = true;
