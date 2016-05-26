@@ -14,5 +14,15 @@ public class EtiquetaHTMLFactoryTest {
 		
 		Assert.assertEquals(etiquetaCreada.getClass(), Titulo.class);
 	}
+	
+	@Test
+	public void etiquetaHTMLFactoryDevuelveUnSubitulo(){
+		
+		EtiquetaHTMLFactory creadorDeEtiquetas = new EtiquetaHTMLFactory();
+		
+		EtiquetaHTML etiquetaCreada = creadorDeEtiquetas.crearEtiqueta("##");
+		
+		Assert.assertEquals(etiquetaCreada.getClass(), Subtitulo.class);
+	}
 
 }
