@@ -26,6 +26,26 @@ public class OrganizadorDeSeccionesTest {
 		listaEsperada.add(seccion);
 		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
 	}
-	
 
+	@Test
+	public void unaSeccionDetectaCuandoTerminaYEmpiezaLaSiguiente(){
+		OrganizadorDeSecciones organizadorDeSecciones = new OrganizadorDeSecciones();
+		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
+		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
+		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		Seccion seccion1 = new Seccion();
+		Titulo titulo = new Titulo();
+		Seccion seccion2 = new Seccion();
+		Subtitulo subtitulo = new Subtitulo();
+		listaDeEtiquetas.add(seccion1);
+		listaDeEtiquetas.add(titulo);
+		listaDeEtiquetas.add(seccion2);
+		listaDeEtiquetas.add(subtitulo);
+		listaOrganizadaObtenida = organizadorDeSecciones.organizar(listaDeEtiquetas);
+		seccion1.agregarElemento(titulo);
+		seccion2.agregarElemento(subtitulo);
+		listaEsperada.add(seccion1);
+		listaEsperada.add(seccion2);
+		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
+	}
 }

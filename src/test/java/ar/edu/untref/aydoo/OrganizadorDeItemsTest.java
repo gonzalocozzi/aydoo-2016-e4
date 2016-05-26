@@ -20,17 +20,17 @@ public class OrganizadorDeItemsTest {
 		listaDeEtiquetas.add(item1);
 		listaDeEtiquetas.add(item2);
 		listaOrganizadaObtenida = organizadorDeItems.organizar(listaDeEtiquetas);
-		
+
 		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
 		ListaSinOrden listaDeItems = new ListaSinOrden();
 		listaDeItems.agregarItem(item1);
 		listaDeItems.agregarItem(item2);
 		listaEsperada.add(listaDeItems);
-		
+
 		Assert.assertEquals(((ListaSinOrden)listaEsperada.get(0)).getColeccionDeItems().get(0), ((ListaSinOrden)listaOrganizadaObtenida.get(0)).getColeccionDeItems().get(0));
 		Assert.assertEquals(((ListaSinOrden)listaEsperada.get(0)).getColeccionDeItems().get(1), ((ListaSinOrden)listaOrganizadaObtenida.get(0)).getColeccionDeItems().get(1));
 	}
-	
+
 	@Test
 	public void siHayAlgoQueNoEsItemEntreLosItemsEntoncesPertenecenAListasDistintasLosItemsYLoQueNoEsItemNoEntraEnLaLista(){
 		OrganizadorDeItems organizadorDeItems = new OrganizadorDeItems();
@@ -45,7 +45,7 @@ public class OrganizadorDeItemsTest {
 		listaDeEtiquetas.add(texto);
 		listaDeEtiquetas.add(item2);
 		listaOrganizadaObtenida = organizadorDeItems.organizar(listaDeEtiquetas);
-		
+
 		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
 		ListaSinOrden listaDeItems1 = new ListaSinOrden();
 		ListaSinOrden listaDeItems2 = new ListaSinOrden();
@@ -54,12 +54,12 @@ public class OrganizadorDeItemsTest {
 		listaEsperada.add(listaDeItems1);
 		listaEsperada.add(texto);
 		listaEsperada.add(listaDeItems2);
-		
+
 		Assert.assertEquals(listaEsperada.get(0).getClass(), listaOrganizadaObtenida.get(0).getClass());
 		Assert.assertEquals(listaEsperada.get(1).getClass(), listaOrganizadaObtenida.get(1).getClass());
 		Assert.assertEquals(listaEsperada.get(2).getClass(), listaOrganizadaObtenida.get(2).getClass());
 	}
-	
+
 	@Test
 	public void seAgreganVariosItemsYTodosConservanSuTexto(){
 		OrganizadorDeItems organizadorDeItems = new OrganizadorDeItems();
@@ -82,13 +82,13 @@ public class OrganizadorDeItemsTest {
 		listaDeTextosGenerados.add(textoDelItem1);
 		listaDeTextosGenerados.add(textoDelItem2);
 		listaDeTextosGenerados.add(textoDelItem3);
-		
+
 		List<String> listaDeTextosEsperada = new LinkedList<String>();
 		listaDeTextosEsperada.add("item 1");
 		listaDeTextosEsperada.add("item 2");
 		listaDeTextosEsperada.add("item 3");
-		
+
 		Assert.assertEquals(listaDeTextosEsperada, listaDeTextosGenerados);
-		
+
 	}
 }
