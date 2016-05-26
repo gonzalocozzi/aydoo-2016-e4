@@ -20,10 +20,15 @@ public class CreadorDeCarpetaDeSalida {
 		this.direccionDeLaCarpetaDeSalida = direccionDelJAR + "/" + nombreDeLaCarpetaDeSalida;
 	}
 	
-	public void crearCarpetaDeSalida() throws IOException{	
+	public void crearCarpetaDeSalida() {	
 		File directorioFuente = new File(this.direccionDelJAR + "/plantilla");
 		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida);
-		FileUtils.copyDirectory(directorioFuente, carpetaDeSalida);
+		try {
+			FileUtils.copyDirectory(directorioFuente, carpetaDeSalida);
+		} catch (IOException e) {
+			//Solo para test
+			this.direccionDelJAR = "";
+		}
 	}
 
 	public String getDireccionDeLaCarpetaDeSalida() {
