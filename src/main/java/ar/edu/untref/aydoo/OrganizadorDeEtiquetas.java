@@ -7,12 +7,12 @@ public class OrganizadorDeEtiquetas {
 
 	private OrganizadorDeItems organizadorDeItems;
 	private OrganizadorDeSecciones organizadorDeSecciones;
-	
+
 	public OrganizadorDeEtiquetas(){
 		this.organizadorDeItems = new OrganizadorDeItems();
 		this.organizadorDeSecciones = new OrganizadorDeSecciones();
 	}
-	
+
 	public List<EtiquetaHTML> organizarEtiquetasHTML(List<EtiquetaHTML> listaDeEtiquetas){
 		List<EtiquetaHTML> listaOrdenada = new LinkedList<EtiquetaHTML>();
 		listaOrdenada = this.organizadorDeItems.organizar(listaDeEtiquetas);

@@ -13,31 +13,31 @@ public class CreadorDeEtiquetasTest {
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("#"));
 	}
-	
+
 	@Test
 	public void seTieneLaRepresentacionDelSubtitulo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("##"));
 	}
-	
+
 	@Test
 	public void seTieneLaRepresentacionDeLaImagen(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("i:"));
 	}
-	
+
 	@Test
 	public void seTieneLaRepresentacionDeUnItem(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("*"));
 	}
-	
+
 	@Test
 	public void seTieneLaRepresentacionDeUnaSeccion(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		Assert.assertTrue(miCreador.getListaDeRepresentaciones().contains("---"));
 	}
-	
+
 	@Test
 	public void seGeneraUnaListaDeUnaEtiquetaDeTipoTituloYSubtituloAPartirDeUnaLista(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
@@ -47,7 +47,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
 		Assert.assertEquals(Subtitulo.class, miCreador.crearListaDeEtiquetas(miLista).get(1).getClass());
 	}
-	
+
 	@Test
 	public void seGeneraUnaListaDeEtiquetasDeUnaListaQueTieneLosEncabezadosDeTodosLosElementosDelDiccionario(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
@@ -63,7 +63,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(Seccion.class, miCreador.crearListaDeEtiquetas(miLista).get(3).getClass());
 		Assert.assertEquals(Subtitulo.class, miCreador.crearListaDeEtiquetas(miLista).get(4).getClass());
 	}
-	
+
 	@Test
 	public void lasEtiquetasQueEstanEnLaListaGeneradaTienenSuCorrespondienteTexto(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
@@ -77,7 +77,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals("esto es un item", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
 		Assert.assertEquals("subtituloDePrueba", miCreador.crearListaDeEtiquetas(miLista).get(3).getTexto());
 	}
-	
+
 	@Test
 	public void sePuedeGenerarUnaEtiquetaDeTextoSinFormato(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
@@ -86,7 +86,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(0).getClass());
 		Assert.assertEquals("esto es un texto sin formato", miCreador.crearListaDeEtiquetas(miLista).get(0).getTexto());
 	}
-	
+
 	@Test
 	public void siElEncabezadoNoEstaAlPrincipioEntoncesEsUnTextoSinFormato(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
@@ -101,7 +101,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(TextoSinFormato.class, miCreador.crearListaDeEtiquetas(miLista).get(2).getClass());
 		Assert.assertEquals("o*esto no va a ser un item", miCreador.crearListaDeEtiquetas(miLista).get(2).getTexto());
 	}
-	
+
 	@Test
 	public void sePuedenCrearMasDeUnElementoDelMismoTipo(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
@@ -119,29 +119,29 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(Titulo.class, miCreador.crearListaDeEtiquetas(miLista).get(3).getClass());
 		Assert.assertEquals("ab", miCreador.crearListaDeEtiquetas(miLista).get(3).getTexto());
 	}
-	
+
 	@Test
 	public void seCreaEtiquetaDeSeccion(){
-		
+
 		CreadorDeEtiquetas creador = new CreadorDeEtiquetas();
 		List<String> lista = new LinkedList<String>();
 		lista.add("---");
-		
+
 		List<EtiquetaHTML> listaEtiquetaHTML = creador.crearListaDeEtiquetas(lista);
-		
+
 		Seccion seccion = new Seccion();
 		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
 		listaEsperada.add(seccion);
-		
+
 		Assert.assertEquals(listaEsperada.get(0).getClass(), listaEtiquetaHTML.get(0).getClass());
 	}
-	
+
 	@Test
 	public void seReproduceMiPresentacion1ParaFixearBug(){
-		
+
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		List<String> miLista = new LinkedList<String>();
-		
+
 		miLista.add("---");
 		miLista.add("# slide1 :titulo 1");
 		miLista.add("---");
@@ -150,9 +150,9 @@ public class CreadorDeEtiquetasTest {
 		miLista.add("slide 3");
 		miLista.add("# titulo 1");
 		miLista.add("## titulo 2");
-		
+
 		List<EtiquetaHTML> lista = miCreador.crearListaDeEtiquetas(miLista);
-		
+
 		Assert.assertEquals(Seccion.class,lista.get(0).getClass());
 		Assert.assertEquals(Titulo.class, lista.get(1).getClass());
 		Assert.assertEquals(Seccion.class, lista.get(2).getClass());
@@ -162,7 +162,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(Titulo.class, lista.get(6).getClass());
 		Assert.assertEquals(Subtitulo.class, lista.get(7).getClass());
 	}
-	
+
 	public void sePuedenGenerarEtiquetasSinTexto(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 		List<String> miLista = new LinkedList<String>();
@@ -178,7 +178,7 @@ public class CreadorDeEtiquetasTest {
 		Assert.assertEquals(ItemDeLista.class, listaGenerada.get(2).getClass());
 		Assert.assertEquals("", listaGenerada.get(2).getTexto());
 	}
-	
+
 	@Test
 	public void puedoInsertarLineaVacia(){
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
