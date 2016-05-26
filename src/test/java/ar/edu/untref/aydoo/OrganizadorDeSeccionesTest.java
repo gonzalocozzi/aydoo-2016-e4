@@ -26,4 +26,6 @@ public class OrganizadorDeSeccionesTest {
 		listaEsperada.add(seccion);
 		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
 	}
+	
+
 }
