@@ -1,7 +1,7 @@
 package ar.edu.untref.aydoo;
 
 public class NombreInvalidoException extends RuntimeException {
-	
+
 	/**
 	 * 
 	 */
@@ -11,10 +11,10 @@ public class NombreInvalidoException extends RuntimeException {
 	public NombreInvalidoException(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+
 	@Override
-    public String getMessage(){
-        return this.mensaje;
-    }
+	public String getMessage(){
+		return this.mensaje;
+	}
 
 }

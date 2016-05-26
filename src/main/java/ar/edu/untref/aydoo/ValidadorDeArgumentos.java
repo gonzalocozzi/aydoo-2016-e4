@@ -13,7 +13,7 @@ public class ValidadorDeArgumentos {
 		this.argumentosSonValidos = false;	
 		this.listaDeArgumentos = listaDeArgumentos;
 		this.validarListaDeArgumentos();
-		
+
 		if(this.argumentosSonValidos){
 			this.setNombreDelArchivoDeEntrada();
 			this.setNombreDeCarpetaDeSalida();				
@@ -21,7 +21,6 @@ public class ValidadorDeArgumentos {
 	}	
 
 	public void setNombreDelArchivoDeEntrada(){
-
 		if(this.listaDeArgumentos.size() == 1){			
 			this.nombreDelArchivoDeEntrada = this.listaDeArgumentos.get(0);			
 		} else {				
@@ -35,7 +34,6 @@ public class ValidadorDeArgumentos {
 	}
 
 	private void setNombreDeCarpetaDeSalida(){
-
 		String nombreDeLaCarpetaSinExtension = ""; 
 
 		if (this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(0).substring(0, 9).equalsIgnoreCase("--output=")) {			
@@ -50,7 +48,6 @@ public class ValidadorDeArgumentos {
 	}
 
 	private Integer getPosicionDelNombreDelArchivoDeEntrada(){
-
 		Integer posicionDelNombreDeArchivoDeEntrada = 0;
 
 		for(int i = 0; i < this.listaDeArgumentos.size(); i++){			
@@ -63,7 +60,6 @@ public class ValidadorDeArgumentos {
 	}
 
 	private boolean nombreContieneCaracteresInvalidos(String nombreDeLaCarpetaSinExtension) {
-
 		Boolean contieneCaracteresInvalidos = false;		
 		String caracteresInvalidos = " ñÑáéíóúÁÉÍÓÚ/";
 
@@ -81,23 +77,22 @@ public class ValidadorDeArgumentos {
 	}	
 
 	private void validarListaDeArgumentos() {
-
 		String stringDeArgumentos = this.listaDeArgumentos.toString().toLowerCase();
 		Boolean sinNombreDelArchivoDeEntrada = this.listaDeArgumentos.size() == 0 || this.listaDeArgumentos.size() == 1 && this.listaDeArgumentos.get(0).contains("--");
 		Boolean argumentoInvalido = this.listaDeArgumentos.size() == 2 && !stringDeArgumentos.contains("--mode=default") && !stringDeArgumentos.contains("--mode=no-output") && !stringDeArgumentos.contains("--output=");
 		Boolean soloArgumentosDeConfiguracion = this.listaDeArgumentos.size() == 2 && this.listaDeArgumentos.get(0).contains("--") && this.listaDeArgumentos.get(1).contains("--");
 
 		if (sinNombreDelArchivoDeEntrada) {
-			throw new SinNombreDelArchivoDeEntradaException("Por favor, indique el nombre del archivo Markdown de entrada.");
+			throw new SinNombreDelArchivoDeEntradaException("por favor, indique el nombre del archivo Markdown de entrada.");
 		} 
 		else if (argumentoInvalido) {
-			throw new ArgumentoInvalidoException("Ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.");
+			throw new ArgumentoInvalidoException("ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.");
 		} 
 		else if (soloArgumentosDeConfiguracion) {
-			throw new SinNombreDelArchivoDeEntradaException("Por favor, indique el nombre del archivo Markdown de entrada.");
+			throw new SinNombreDelArchivoDeEntradaException("por favor, indique el nombre del archivo Markdown de entrada.");
 		} 
 		else if (this.listaDeArgumentos.size() > 2) {
-			throw new NumeroDeArgumentosExcedidoException("No debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
+			throw new NumeroDeArgumentosExcedidoException("no debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
 		} 
 		else {
 			this.argumentosSonValidos = true;

@@ -9,15 +9,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LectorDeArchivo {
-	
+
 	private List<String> listaDeLineasDelArchivo;
 	private String direccionDelArchivo;
-	
+
 	public LectorDeArchivo(String direccionDelArchivo){		
 		this.listaDeLineasDelArchivo = new LinkedList<String>();
 		this.direccionDelArchivo = direccionDelArchivo;
 	}
-	
+
 	public List<String> getLineasDelArchivo() throws IOException{		
 		this.leerArchivo();
 		return this.listaDeLineasDelArchivo;
@@ -27,13 +27,13 @@ public class LectorDeArchivo {
 		File archivo = new File (this.direccionDelArchivo);
 		FileReader fr = new FileReader (archivo);
 		BufferedReader br = new BufferedReader(fr);
-				
+
 		String linea = br.readLine();
 		while(linea != null){
 			this.listaDeLineasDelArchivo.add(linea);
 			linea = br.readLine();
 		}
-		
+
 		br.close();
 	}	
 
