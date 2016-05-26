@@ -6,10 +6,14 @@ import java.util.List;
 public class SelectorDeModos {
 	
 	private List<String> listaDeArgumentos;
+	private ValidadorDeArgumentos validadorDeArgumentos;
+	private AnalizadorDeArgumentos analizadorDeArgumentos;
 
 	public SelectorDeModos(String[] argumentos) {
 		this.listaDeArgumentos = new ArrayList<String>();
 		this.setListaDeArgumentos(argumentos);
+		this.validarArgumentos();
+		this.analizarArgumentos();
 	}
 
 	public List<String> getListaDeArgumentos() {
@@ -23,4 +27,17 @@ public class SelectorDeModos {
 		}
 	}
 
+	public String getNombreDelArchivo() {		
+		return validadorDeArgumentos.getNombreDelArchivoDeEntrada();
+	}
+	
+	private ValidadorDeArgumentos validarArgumentos(){
+		this.validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
+		return validadorDeArgumentos;
+	}
+	
+	private AnalizadorDeArgumentos analizarArgumentos(){
+		this.analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
+		return analizadorDeArgumentos;
+	}
 }

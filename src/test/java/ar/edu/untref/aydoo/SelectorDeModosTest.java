@@ -11,14 +11,27 @@ public class SelectorDeModosTest {
 	@Test
 	public void selectorGuardaArgumentosEnUnaLista(){
 		
-		String[] argumentos = {"argumento 1","argumento 2"};
+		String[] argumentos = {"mipresentacion1.md"};
 		
 		SelectorDeModos selector = new SelectorDeModos(argumentos);
 		
 		List<String> listaEsperada = new ArrayList<String>();
-		listaEsperada.add("argumento 1");
-		listaEsperada.add("argumento 2");
+		listaEsperada.add("mipresentacion1.md");
 		
 		Assert.assertEquals(listaEsperada, selector.getListaDeArgumentos());		
+	}
+	
+	@Test
+	public void selectorCreaNombreDelArchivoDeEntradaConUnValidador(){
+		
+		String[] argumentos = {"mipresentacion1.md"};
+		
+		SelectorDeModos selector = new SelectorDeModos(argumentos);
+		
+		String nombreDeArchivoResultante = selector.getNombreDelArchivo();
+		
+		String nombreEsperado = "mipresentacion1.md";
+		
+		Assert.assertEquals(nombreEsperado, nombreDeArchivoResultante);
 	}
 }
