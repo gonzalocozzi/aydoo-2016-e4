@@ -49,12 +49,14 @@ public class SelectorDeModo {
 		this.analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
 	}
 
-	public void seleccionarModo() throws IOException {		
+	public void seleccionarModo() throws IOException {	
+
 		if(analizadorDeArgumentos.isModeDefault() || analizadorDeArgumentos.isOutput()){	
 			this.seleccionarModoDefault();
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
 			this.seleccionarModoNoOutput();
 		}
+
 	}	
 
 	public void seleccionarModoDefault() throws IOException {		
@@ -66,7 +68,7 @@ public class SelectorDeModo {
 	public void seleccionarModoNoOutput() throws IOException {		
 		List<String> listaDeSalida = this.getListaHTMLDeSalida();
 		System.out.println("Salida HTML generada");
-		
+
 		for(String salida: listaDeSalida){
 			System.out.println(salida);			
 		}		

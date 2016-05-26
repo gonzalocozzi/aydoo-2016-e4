@@ -7,7 +7,7 @@ public class ValidadorDeArgumentos {
 	private List<String> listaDeArgumentos;
 	private String nombreDelArchivoDeEntrada;
 	private String nombreDeCarpetaDeSalida;
-	private boolean argumentosSonValidos;
+	private Boolean argumentosSonValidos;
 
 	public ValidadorDeArgumentos(List<String> listaDeArgumentos){
 		this.argumentosSonValidos = false;	
@@ -21,6 +21,7 @@ public class ValidadorDeArgumentos {
 	}	
 
 	public void setNombreDelArchivoDeEntrada(){
+
 		if(this.listaDeArgumentos.size() == 1){			
 			this.nombreDelArchivoDeEntrada = this.listaDeArgumentos.get(0);			
 		} else {				
@@ -31,6 +32,7 @@ public class ValidadorDeArgumentos {
 		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){	
 			throw new NombreInvalidoException("el nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
 		}
+
 	}
 
 	private void setNombreDeCarpetaDeSalida(){
@@ -108,7 +110,7 @@ public class ValidadorDeArgumentos {
 		return this.nombreDeCarpetaDeSalida;
 	}
 
-	public boolean argumentosSonValidos() {
+	public Boolean argumentosSonValidos() {
 		return this.argumentosSonValidos;
 	}	
 

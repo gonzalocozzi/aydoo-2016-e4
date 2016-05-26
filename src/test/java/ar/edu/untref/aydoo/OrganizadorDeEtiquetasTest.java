@@ -18,6 +18,7 @@ public class OrganizadorDeEtiquetasTest {
 		listaDeEtiquetas.add(new Subtitulo());
 		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
 		Seccion seccion = (Seccion) listaOrganizada.get(0);
+		
 		Assert.assertEquals(Seccion.class, listaOrganizada.get(0).getClass());
 		Assert.assertEquals(Titulo.class, seccion.getListaDeElementos().get(0).getClass());
 		Assert.assertEquals(Subtitulo.class, seccion.getListaDeElementos().get(1).getClass());
@@ -31,6 +32,7 @@ public class OrganizadorDeEtiquetasTest {
 		listaDeEtiquetas.add(new Imagen());
 		listaDeEtiquetas.add(new Subtitulo());
 		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
+		
 		Assert.assertEquals(Imagen.class, listaOrganizada.get(0).getClass());
 		Assert.assertEquals(Subtitulo.class, listaOrganizada.get(1).getClass());
 	}
@@ -47,6 +49,7 @@ public class OrganizadorDeEtiquetasTest {
 		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
 		Seccion seccion1 = (Seccion) listaOrganizada.get(0);
 		Seccion seccion2 = (Seccion) listaOrganizada.get(1);
+		
 		Assert.assertEquals(Seccion.class, listaOrganizada.get(0).getClass());
 		Assert.assertEquals(Titulo.class, seccion1.getListaDeElementos().get(0).getClass());
 		Assert.assertEquals(Subtitulo.class, seccion2.getListaDeElementos().get(0).getClass());
@@ -64,6 +67,7 @@ public class OrganizadorDeEtiquetasTest {
 		listaDeEtiquetas.add(item1);
 		listaDeEtiquetas.add(item2);
 		listaOrganizada = miOrganizador.organizarEtiquetasHTML(listaDeEtiquetas);
+		
 		Assert.assertEquals(ListaSinOrden.class, listaOrganizada.get(0).getClass());
 		Assert.assertEquals(ItemDeLista.class, ((ListaSinOrden) listaOrganizada.get(0)).getColeccionDeItems().get(0).getClass());
 		Assert.assertEquals("primer item", ((ListaSinOrden) listaOrganizada.get(0)).getColeccionDeItems().get(0).getTexto());

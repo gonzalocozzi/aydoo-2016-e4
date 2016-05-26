@@ -19,11 +19,11 @@ public class CreadorDeEtiquetas {
 		this.etiquetaHTMLFactory = new EtiquetaHTMLFactory();
 	}
 
-	public List<EtiquetaHTML> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
+	public List<EtiquetaHTML> crearListaDeEtiquetas(List<String> lineasDelMarkdown) {
 		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
 
-		for(int i = 0; i < lineasDelMarkDown.size(); i++){
-			String lineaActual = lineasDelMarkDown.get(i);
+		for(int i = 0; i < lineasDelMarkdown.size(); i++){
+			String lineaActual = lineasDelMarkdown.get(i);
 			String principioDeLinea = obtenerPrincipioDeLinea(lineaActual);
 			String representacionActual = buscarEncabezadoCorrespondiente(principioDeLinea);
 			String posibleEncabezado = "";
@@ -33,11 +33,11 @@ public class CreadorDeEtiquetas {
 			}
 
 			if(posibleEncabezado.equals(representacionActual)){ //compara para ver si realmente es un encabezado, es decir que esta al inicio de la linea
-				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, representacionActual);
+				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkdown, i, representacionActual);
 				listaDeEtiquetas = crearEtiqueta(posibleEncabezado, texto, listaDeEtiquetas, i);
 			}
 			else{ //si no hay encabezado entonces va a ser un texto sin formato
-				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkDown, i, "");
+				String texto = asignarTextoALaEtiquetaAGenerar(lineasDelMarkdown, i, "");
 				listaDeEtiquetas = crearEtiqueta("", texto, listaDeEtiquetas, i);
 			}
 		}
@@ -65,7 +65,7 @@ public class CreadorDeEtiquetas {
 
 	private String buscarEncabezadoCorrespondiente(String principioDeLinea) {
 		Iterator<String> it = this.listaDeRepresentaciones.iterator();
-		boolean noHuboCoincidencia = true;
+		Boolean noHuboCoincidencia = true;
 		String representacionActual = "";
 
 		while(it.hasNext() && noHuboCoincidencia){
@@ -79,7 +79,7 @@ public class CreadorDeEtiquetas {
 		return representacionActual;
 	}
 
-	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas, int posicion) {
+	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas, Integer posicion) {
 		List<EtiquetaHTML> listaADevolver = listaDeEtiquetas;
 		EtiquetaHTML etiquetaACrear = new TextoSinFormato(); //por defecto se crea un texto sin formato
 

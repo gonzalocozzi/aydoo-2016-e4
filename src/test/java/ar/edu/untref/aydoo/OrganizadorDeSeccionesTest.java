@@ -24,6 +24,7 @@ public class OrganizadorDeSeccionesTest {
 		seccion.agregarElemento(titulo);
 		seccion.agregarElemento(subtitulo);
 		listaEsperada.add(seccion);
+		
 		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
 	}
 
@@ -46,6 +47,7 @@ public class OrganizadorDeSeccionesTest {
 		seccion2.agregarElemento(subtitulo);
 		listaEsperada.add(seccion1);
 		listaEsperada.add(seccion2);
+		
 		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
 	}
 
@@ -71,6 +73,7 @@ public class OrganizadorDeSeccionesTest {
 		listaEsperada.add(imagen);
 		listaEsperada.add(seccion1);
 		listaEsperada.add(seccion2);
+		
 		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
 	}
 }

@@ -16,13 +16,12 @@ public class VisitorDeEtiquetas implements Visitor{
 	}
 
 	@Override
-	public void visitar(EtiquetaHTML etiqueta ) {
+	public void visitar(EtiquetaHTML etiqueta) {
 		this.listaDeLineas.add(etiqueta.getPrefijo()+etiqueta.getTexto()+etiqueta.getSufijo());	
 	}
 
 	@Override
 	public void visitar(ListaSinOrden lista){
-
 		this.listaDeLineas.add(lista.getPrefijo());
 
 		for(ItemDeLista item : lista.getColeccionDeItems()){
@@ -34,7 +33,6 @@ public class VisitorDeEtiquetas implements Visitor{
 
 	@Override
 	public void visitar(Seccion seccion) {
-
 		this.listaDeLineas.add(seccion.getPrefijo());
 
 		for(EtiquetaHTML etiqueta : seccion.getListaDeElementos()){

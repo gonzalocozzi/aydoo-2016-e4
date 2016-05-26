@@ -23,7 +23,7 @@ public class OrganizadorDeItems {
 		return this.listaOrganizada;
 	}
 
-	private int rellenarListaDeItems(int i) {
+	private Integer rellenarListaDeItems(Integer i) {
 		ListaSinOrden listaDeItemsActual = new ListaSinOrden();
 		int j = 0;
 
