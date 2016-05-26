@@ -55,16 +55,21 @@ public class SelectorDeModos {
 		this.analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
 	}
 
-	public void seleccionarModoDefault() {
+	public void seleccionarModoDefault() throws IOException {
 		
 		//Se escribe en el archivo index.html la salida HTML estandar
-		try {
-			escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.prepararListaParaSalida());
-			System.out.println("El archivo fue exportado con exito");
-		} catch (IOException e) {
-			
-			System.out.println("[ERROR] El archivo es erroneo o esta danado");
-		}
+		escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.prepararListaParaSalida());
+		System.out.println("El archivo fue exportado con exito");
+	}
+	
+	public void seleccionarModoNoOutput() throws IOException {
+		
+		List<String> listaDeSalida = this.prepararListaParaSalida();
+		
+		System.out.println("Salida HTML generada");
+		for(String salida: listaDeSalida){
+			System.out.println(salida);			
+		}		
 	}
 	
 	private List<String> prepararListaParaSalida() throws IOException{
@@ -115,7 +120,5 @@ public class SelectorDeModos {
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
 		//escritorDeArchivo.escribirEnArchivo(this.getNombreDeLaCarpetaDeSalida() + "/index.html");
 		escritorDeArchivo.escribirEnArchivo(this.archivoParaEscribirHtml);
-	}
-	
-	
+	}	
 }

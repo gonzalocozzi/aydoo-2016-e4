@@ -97,4 +97,29 @@ public class SelectorDeModosTest {
 		
 	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
 	}
+	
+	@Test
+	public void selectorSeleccionModeNoOutput() throws IOException{
+		
+		String[] argumentos = {""};		
+		SelectorDeModos selector = new SelectorDeModos(argumentos);
+				
+		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		PrintWriter writer = new PrintWriter(direccionDelArchivoTemporal);
+		writer.println("primer renglon");
+		writer.println("segundo renglon");
+		writer.close();	
+		
+		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setArchivoParaEscribirHtml(direccionDelArchivoTemporal);
+		selector.seleccionarModoNoOutput();
+				
+		String salidaEsperado = "Salida HTML generada\n"+"primer renglon\n"+"segundo renglon";
+		
+		archivoDePrueba.delete();
+		
+	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+	}
 }
