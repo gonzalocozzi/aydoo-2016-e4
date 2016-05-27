@@ -61,13 +61,15 @@ public class CreadorDeEtiquetas {
 		Iterator<String> it = this.listaDeRepresentaciones.iterator();
 		boolean noHuboCoincidencia = true;
 		String representacionActual = "";
+		String representacionADevolver = "";
 		while(it.hasNext() && noHuboCoincidencia){
 			representacionActual = it.next();
 			if(principioDeLinea.contains(representacionActual)){
 				noHuboCoincidencia = false;
+				representacionADevolver = representacionActual;
 			}
 		}
-		return representacionActual;
+		return representacionADevolver;
 	}
 
 	private List<EtiquetaHTML> crearEtiqueta(String encabezado, String texto, List<EtiquetaHTML> listaDeEtiquetas, int posicion) {
@@ -84,4 +86,5 @@ public class CreadorDeEtiquetas {
 	public List<String> getListaDeRepresentaciones(){
 		return this.listaDeRepresentaciones;
 	}
+
 }

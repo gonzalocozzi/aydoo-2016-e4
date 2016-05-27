@@ -105,7 +105,7 @@ public class SelectorDeModos {
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
 		OrganizadorDeEtiquetas organizadorDeEtiquetas = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = organizadorDeEtiquetas.organizarEtiquetasHTML(listaDeEtiquetasHTML);
+		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = organizadorDeEtiquetas.organizar(listaDeEtiquetasHTML);
 		return listaDeEtiquetasHTMLOrganizada;
 	}
 

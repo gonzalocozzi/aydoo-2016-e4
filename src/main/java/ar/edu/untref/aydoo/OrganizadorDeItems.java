@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
-public class OrganizadorDeItems {
+public class OrganizadorDeItems implements Organizable{
 
 	private List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
 	private List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();

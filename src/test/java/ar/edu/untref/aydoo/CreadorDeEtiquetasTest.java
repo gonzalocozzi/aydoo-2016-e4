@@ -194,4 +194,14 @@ public class CreadorDeEtiquetasTest {
 		listaGenerada = miCreador.crearListaDeEtiquetas(miLista);
 		Assert.assertEquals("", listaGenerada.get(1).getTexto());
 	}
+	
+	@Test
+	public void siSeRecibeAlgoQueContieneParcialmenteAUnEncabezadoEntoncesSigueSiendoUnTextoSinFormato(){
+		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+		List<String> miLista = new LinkedList<String>();
+		List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+		miLista.add("--");
+		listaGenerada = miCreador.crearListaDeEtiquetas(miLista);
+		Assert.assertEquals("--", listaGenerada.get(0).getTexto());
+	}
 }
