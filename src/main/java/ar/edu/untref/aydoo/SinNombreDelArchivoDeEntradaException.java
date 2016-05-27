@@ -11,10 +11,10 @@ public class SinNombreDelArchivoDeEntradaException extends RuntimeException{
 	public SinNombreDelArchivoDeEntradaException(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+
 	@Override
-    public String getMessage(){
-        return this.mensaje;
-    }
+	public String getMessage(){
+		return this.mensaje;
+	}
 
 }

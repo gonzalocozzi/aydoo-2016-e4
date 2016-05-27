@@ -35,49 +35,21 @@ public class SelectorDeModosTest {
 	@Test
 	public void selectorGuardaArgumentosEnUnaLista(){
 		
-		String[] argumentos = {"mipresentacion1.md"};
-		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
-		
+		String[] argumentos = {"mipresentacion1.md"};		
+		SelectorDeModo selector = new SelectorDeModo(argumentos);		
 		List<String> listaEsperada = new ArrayList<String>();
 		listaEsperada.add("mipresentacion1.md");
 		
-		Assert.assertEquals(listaEsperada, selector.getListaDeArgumentos());		
-	}
-	
-	@Test
-	public void selectorCreaNombreDelArchivoDeEntradaConUnValidador(){
+		List<String> listaHTMLALmacenada = selector.getListaDeArgumentos();
 		
-		String[] argumentos = {"mipresentacion1.md"};
-		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
-		
-		String nombreDeArchivoResultante = selector.getNombreDelArchivo();
-		
-		String nombreEsperado = "mipresentacion1.md";
-		
-		Assert.assertEquals(nombreEsperado, nombreDeArchivoResultante);
-	}
-	
-	@Test
-	public void selectorCreaNombreDeCarpetaDeSalida(){
-		
-		String[] argumentos = {"mipresentacion1.md"};
-		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
-		
-		String nombreDeArchivoResultante = selector.getNombreDeLaCarpetaDeSalida();
-		
-		String nombreEsperado = "mipresentacion1";
-		
-		Assert.assertEquals(nombreEsperado, nombreDeArchivoResultante);		
+		Assert.assertEquals(listaEsperada, listaHTMLALmacenada);		
 	}
 	
 	@Test
 	public void selectorSeleccionModeDefault() throws IOException{
 		
 		String[] argumentos = {"mipresentacion1.md"};		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
+		SelectorDeModo selector = new SelectorDeModo(argumentos);
 				
 		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
@@ -88,21 +60,21 @@ public class SelectorDeModosTest {
 		writer.close();	
 		
 		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirHtml(direccionDelArchivoTemporal);
+		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModoDefault();
 				
-		String salidaEsperado = "El archivo fue exportado con exito";
+		String salidaEsperada = "El archivo fue exportado con exito.";
 		
 		archivoDePrueba.delete();
 		
-	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+	    Assert.assertEquals(salidaEsperada, outContent.toString().trim());		
 	}
 	
 	@Test
 	public void selectorSeleccionModeNoOutput() throws IOException{
 		
 		String[] argumentos = {""};		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
+		SelectorDeModo selector = new SelectorDeModo(argumentos);
 				
 		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
@@ -113,21 +85,21 @@ public class SelectorDeModosTest {
 		writer.close();	
 		
 		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirHtml(direccionDelArchivoTemporal);
+		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModoNoOutput();
 				
-		String salidaEsperado = "Salida HTML generada\n"+"primer renglon\n"+"segundo renglon";
+		String salidaEsperada = "Salida HTML generada\n"+"primer renglon\n"+"segundo renglon";
 		
 		archivoDePrueba.delete();
 		
-	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+	    Assert.assertEquals(salidaEsperada, outContent.toString().trim());		
 	}
 	
 	@Test
 	public void selectorAnalizaQueModoSeleccionarYResultaNoOutput() throws IOException{
 		
 		String[] argumentos = {"mipresentacion1.md","--mode=no-output"};		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
+		SelectorDeModo selector = new SelectorDeModo(argumentos);
 		
 		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
@@ -138,7 +110,7 @@ public class SelectorDeModosTest {
 		writer.close();	
 		
 		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirHtml(direccionDelArchivoTemporal);
+		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		
 		selector.seleccionarModo();
 		
@@ -148,10 +120,10 @@ public class SelectorDeModosTest {
 	}
 	
 	@Test
-	public void selectorAnalizaQueModoSeleccionarYResultaDefault() throws IOException{
+	public void selectorAnalizaQueModoSeleccionarYResultaDefaultCuandoNoSeIndicaNingunModoPorArgumento() throws IOException{
 		
 		String[] argumentos = {"mipresentacion1.md"};		
-		SelectorDeModos selector = new SelectorDeModos(argumentos);
+		SelectorDeModo selector = new SelectorDeModo(argumentos);
 				
 		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
@@ -162,10 +134,35 @@ public class SelectorDeModosTest {
 		writer.close();	
 		
 		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirHtml(direccionDelArchivoTemporal);
+		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModo();
 				
-		String salidaEsperado = "El archivo fue exportado con exito";
+		String salidaEsperado = "El archivo fue exportado con exito.";
+		
+		archivoDePrueba.delete();
+		
+	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+	}
+	
+	@Test
+	public void selectorAnalizaQueModoSeleccionarYResultaDefault() throws IOException{
+		
+		String[] argumentos = {"mipresentacion1.md", "--mode=default"};		
+		SelectorDeModo selector = new SelectorDeModo(argumentos);
+				
+		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
+		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
+		
+		PrintWriter writer = new PrintWriter(direccionDelArchivoTemporal);
+		writer.println("primer renglon");
+		writer.println("segundo renglon");
+		writer.close();	
+		
+		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
+		selector.seleccionarModo();
+				
+		String salidaEsperado = "El archivo fue exportado con exito.";
 		
 		archivoDePrueba.delete();
 		

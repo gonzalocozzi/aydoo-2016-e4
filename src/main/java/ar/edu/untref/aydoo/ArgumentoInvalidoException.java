@@ -11,10 +11,10 @@ public class ArgumentoInvalidoException extends RuntimeException{
 	public ArgumentoInvalidoException(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+
 	@Override
-    public String getMessage(){
-        return this.mensaje;
-    }
+	public String getMessage(){
+		return this.mensaje;
+	}
 
 }

@@ -4,11 +4,8 @@ import java.io.IOException;
 
 public class Program {
 
-	public static void main(String[] args) throws IOException {	
-	
-		SelectorDeModos selector = new SelectorDeModos(args);		
-		selector.setArchivoDeEntrada(selector.getNombreDelArchivo());
-		selector.setArchivoParaEscribirHtml(selector.getNombreDeLaCarpetaDeSalida()+"/index.html");
-		selector.seleccionarModo();
+	public static void main(String[] args) throws IOException {		
+		SelectorDeModo selectorDeModo = new SelectorDeModo(args);
+		selectorDeModo.seleccionarModo();
 	}
 }

@@ -139,5 +139,4 @@ public class OrganizadorDeEtiquetasTest {
 		Assert.assertEquals(listaResultante, listaOrganizada);		
 	}
 	
-	
 }

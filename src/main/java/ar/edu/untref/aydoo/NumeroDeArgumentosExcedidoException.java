@@ -11,10 +11,10 @@ public class NumeroDeArgumentosExcedidoException extends RuntimeException {
 	public NumeroDeArgumentosExcedidoException(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+
 	@Override
-    public String getMessage(){
-        return this.mensaje;
-    }
+	public String getMessage(){
+		return this.mensaje;
+	}
 
 }

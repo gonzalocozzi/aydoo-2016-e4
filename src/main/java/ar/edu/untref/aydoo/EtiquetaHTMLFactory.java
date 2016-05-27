@@ -4,6 +4,7 @@ public class EtiquetaHTMLFactory implements EtiquetaHTMLFactoryMethod{
 
 	@Override
 	public EtiquetaHTML crearEtiqueta(String encabezado) {
+
 		if(encabezado.equals("#")){
 			return new Titulo();
 		}
@@ -22,7 +23,8 @@ public class EtiquetaHTMLFactory implements EtiquetaHTMLFactoryMethod{
 		else{
 			return new TextoSinFormato();
 		}
+
 	}
 
-	
+
 }

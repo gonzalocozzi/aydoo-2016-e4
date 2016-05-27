@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ListaSinOrden extends EtiquetaHTML {
-	
+
 	private List<ItemDeLista> listaDeItems;
-	
+
 	public ListaSinOrden(){
 		this.prefijo = "<ul>";
 		this.sufijo = "</ul>";
@@ -20,7 +20,8 @@ public class ListaSinOrden extends EtiquetaHTML {
 	public List<ItemDeLista> getColeccionDeItems() {
 		return this.listaDeItems;
 	}
-	
+
+	@Override
 	public void aceptarVisitor(Visitor visitor){
 		visitor.visitar(this);
 	}
