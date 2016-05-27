@@ -33,7 +33,7 @@ El Factory Method ayuda a desligarse de la responsabilidad de saber que objeto c
 *EtiquetaHTMLFactoryMethod: Declara la interfaz con el método public EtiquetaHTML crearEtiqueta(String encabezado);.
 *EtiquetaHTMLFactory : Implementa la interfaz. Según el encabezado recibido crea un tipo de EtiquetaHTML.
 ---
-El patron Factory Method lo utilizamos en la clase CreadorDeEtiquetas en el método privado crearEtiqueta que es llamado desde el método público crearListaDeEtiquetas. Al EtiquetaHTMLFactory se le da un encabezado, y a partir de ese encabezado crea un objeto que es devuelto por el método privado nombrado al método público crearListaDeEtiquetas, y este último lo agrega a la lista que va a devolver al finalizar el proceso de recorrer la lista que recibió. 
+El Factory Method lo utilizamos en la clase CreadorDeEtiquetas. Al EtiquetaHTMLFactory se le da un encabezado, y a partir de ese encabezado crea un objeto. El método crearListaDeEtiquetas agrega este objeto a una lista. Se repite este proceso hasta que este último método recorra toda su lista de String. Finalmente devuelve una lista de EtiquetasHTML, que es la lista donde fue agregando a los objetos. 
 ---
 ##Aclaraciones importantes
 ---
