@@ -5,8 +5,13 @@ import java.util.List;
 
 public class OrganizadorDeSecciones {
 
-	private List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
-	private List<EtiquetaHTML> listaRecibida = new LinkedList<EtiquetaHTML>();
+	private List<EtiquetaHTML> listaOrganizada;
+	private List<EtiquetaHTML> listaRecibida;
+	
+	public OrganizadorDeSecciones(){
+		this.listaOrganizada = new LinkedList<EtiquetaHTML>();
+		this.listaRecibida = new LinkedList<EtiquetaHTML>();
+	}
 
 	public List<EtiquetaHTML> organizar(List<EtiquetaHTML> listaDeEtiquetas) {
 		listaRecibida = listaDeEtiquetas;
