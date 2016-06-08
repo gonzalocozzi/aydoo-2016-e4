@@ -10,5 +10,3 @@ i:imagen.png
 ---
 *un item de una lista
 *otro item de una lista
-
-

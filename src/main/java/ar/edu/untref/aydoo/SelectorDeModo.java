@@ -56,11 +56,11 @@ public class SelectorDeModo {
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
 			this.seleccionarModoNoOutput();
 		}
-
 	}	
 
 	public void seleccionarModoDefault() throws IOException {		
 		//Se escribe en el archivo index.html la salida HTML estandar
+		this.creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
 		escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.getListaHTMLDeSalida());
 		System.out.println("El archivo fue exportado con exito.");
 	}
@@ -75,16 +75,8 @@ public class SelectorDeModo {
 	}
 
 	private List<String> getListaHTMLDeSalida() throws IOException{		
-		//Se crea la carpeta en donde se guardara el index.html modificado
-		this.creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
-
-		//Se lee el archivo markdown de entrada
-		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(this.archivoEntrada, this.creadorDeCarpetaDeSalida);
-
-		//Se crean y organizan las etiquetas HTML a partir de la entrada del archivo markdown
+		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(this.archivoEntrada);
 		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
-
-		//Se crea una salida HTML estandar en base a las etiquetas HTML previamente creadas
 		List<String> listaHTMLDeSalida = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTMLOrganizada);
 
 		return listaHTMLDeSalida;
@@ -96,8 +88,8 @@ public class SelectorDeModo {
 		return creadorDeCarpetaDeSalida;
 	}
 
-	private List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada, CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida) throws IOException {
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(creadorDeCarpetaDeSalida.getDireccionDelJAR() + "/" + nombreDelArchivoDeEntrada);
+	private List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada) throws IOException {
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(nombreDelArchivoDeEntrada);
 		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
 		return entradaDeMarkdown;
 	}
