@@ -15,8 +15,8 @@ public class ReconocedorDeDireccionTest {
 		File direccion = archivo.getAbsoluteFile().getParentFile();		
 		String direccionDelJAR = direccion.toString();
 		
-		ReconocedorDeDireccionDelJar reconocedor = new ReconocedorDeDireccionDelJar();
-		String direccionAlmacenadaDelJAR = reconocedor.getDireccionDelJar();
+		ReconocedorDeDireccionDelJAR reconocedor = new ReconocedorDeDireccionDelJAR();
+		String direccionAlmacenadaDelJAR = reconocedor.getDireccionDelJAR();
 		
 		Assert.assertEquals(direccionDelJAR, direccionAlmacenadaDelJAR);
 	}

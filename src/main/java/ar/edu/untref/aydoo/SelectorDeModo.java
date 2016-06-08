@@ -61,7 +61,7 @@ public class SelectorDeModo {
 	public void seleccionarModoDefault() throws IOException {		
 		//Se escribe en el archivo index.html la salida HTML estandar
 		this.creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
-		escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.getListaHTMLDeSalida());
+		this.escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.getListaHTMLDeSalida());
 		System.out.println("El archivo fue exportado con exito.");
 	}
 

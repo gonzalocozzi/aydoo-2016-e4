@@ -9,23 +9,23 @@ public class CreadorDeCarpetaDeSalida {
 
 	private String nombreDeLaCarpetaDeSalida;
 	private String direccionDeLaCarpetaDeSalida;
-	private ReconocedorDeDireccionDelJar reconocedor;
+	private ReconocedorDeDireccionDelJAR reconocedor;
 
 	public CreadorDeCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
 		this.nombreDeLaCarpetaDeSalida = nombreDeLaCarpetaDeSalida;
-		this.reconocedor = new ReconocedorDeDireccionDelJar();
-		this.direccionDeLaCarpetaDeSalida = this.reconocedor.getDireccionDelJar() + "/" + nombreDeLaCarpetaDeSalida;
+		this.reconocedor = new ReconocedorDeDireccionDelJAR();
+		this.direccionDeLaCarpetaDeSalida = this.reconocedor.getDireccionDelJAR() + "/" + nombreDeLaCarpetaDeSalida;
 	}
 
 	public void crearCarpetaDeSalida() {	
-		File directorioFuente = new File(this.reconocedor.getDireccionDelJar() + "/plantilla");
+		File directorioFuente = new File(this.reconocedor.getDireccionDelJAR() + "/plantilla");
 		File carpetaDeSalida = new File(this.direccionDeLaCarpetaDeSalida);
 
 		try {
 			FileUtils.copyDirectory(directorioFuente, carpetaDeSalida);
 		} catch (IOException e) {
 			//Solo para test
-			this.reconocedor.setDireccionDelJar("");
+			this.reconocedor.setDireccionDelJAR("");
 		}
 	}
 
