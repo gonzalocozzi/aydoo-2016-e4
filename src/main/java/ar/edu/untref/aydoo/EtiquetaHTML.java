@@ -5,6 +5,7 @@ public abstract class EtiquetaHTML implements Visitable{
 	protected String prefijo;
 	protected String sufijo;
 	private String texto;
+	protected String encabezado;
 
 	public String getPrefijo() {
 		return this.prefijo;
@@ -21,4 +22,9 @@ public abstract class EtiquetaHTML implements Visitable{
 	public String getTexto() {
 		return this.texto;
 	}
+	
+	public String getEncabezado() {
+		return this.encabezado;
+	}
+	
 }

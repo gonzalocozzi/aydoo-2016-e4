@@ -5,6 +5,7 @@ public class Imagen extends EtiquetaHTML implements Visitable {
 	public Imagen(){		
 		this.prefijo = "<img src=\"";
 		this.sufijo = "\"/>";
+		this.encabezado = "i:";
 	}
 
 	@Override
