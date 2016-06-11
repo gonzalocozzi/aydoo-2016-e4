@@ -9,7 +9,10 @@ public class CreadorDeEtiquetas {
 
 	private LinkedHashMap<EtiquetaHTML, EtiquetaHTML> diccionarioDeEtiquetas;
 
-	//no estoy seguro si es asi para que te vaya creando objetos distintos
+	/*
+	 * no me salio la forma del .class que se comento en clase, con el newInstance no funciono, y ademas esa forma hacia
+	 * que haya que tratar Exception en varios lados
+	 */
 	public CreadorDeEtiquetas() {
 		Subtitulo subtitulo = new Subtitulo();
 		Titulo titulo = new Titulo();
@@ -60,6 +63,10 @@ public class CreadorDeEtiquetas {
 		return etiquetaBuscada;
 	}
 
+	/*
+	 * este metodo esta para arreglar el tema de que devuelva el mismo objeto cuando se quiere crear mas de una instancia 
+	 * del mismo tipo de EtiquetaHTML. Por ej. dos subtitulos.
+	 */
 	private void reiniciarDiccionario() {
 		Subtitulo subtitulo = new Subtitulo();
 		Titulo titulo = new Titulo();
