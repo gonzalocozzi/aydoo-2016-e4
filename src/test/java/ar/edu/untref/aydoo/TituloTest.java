@@ -59,4 +59,12 @@ public class TituloTest {
 				
 		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
 	}
+	
+	@Test
+	public void elTituloSabeReconocerseYCrearseAPartirDeUnaEntrada(){
+		String entrada = "# titulo de prueba";
+		Titulo titulo = new Titulo();
+		
+		Assert.assertEquals(Titulo.class, titulo.crearConMd(entrada).getClass());
+	}
 }

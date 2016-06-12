@@ -27,4 +27,20 @@ public abstract class EtiquetaHTML implements Visitable{
 		return this.encabezadoMD;
 	}
 	
+	public EtiquetaHTML crearConMd(String entradaMarkdown) {
+		if(entradaMarkdown.startsWith(encabezadoMD)){
+			texto = this.buscarTexto(entradaMarkdown);
+			this.setTexto(texto);
+			return this;
+		}
+		return null;
+	}
+
+	private String buscarTexto(String linea) {
+		String textoADevolver = linea;
+		String encabezado = "";	
+		encabezado = this.getEncabezado();
+		textoADevolver = linea.substring(encabezado.length(), linea.length());
+		return textoADevolver;
+	}
 }
