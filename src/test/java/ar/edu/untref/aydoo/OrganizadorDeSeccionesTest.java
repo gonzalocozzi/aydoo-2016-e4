@@ -6,6 +6,12 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.dominio.Imagen;
+import ar.edu.untref.aydoo.dominio.Seccion;
+import ar.edu.untref.aydoo.dominio.Subtitulo;
+import ar.edu.untref.aydoo.dominio.Titulo;
+
 public class OrganizadorDeSeccionesTest {
 
 	@Test

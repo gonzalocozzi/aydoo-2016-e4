@@ -33,7 +33,7 @@ public class SelectorDeModosTest {
 	}
 	
 	@Test
-	public void selectorGuardaArgumentosEnUnaLista(){
+	public void selectorGuardaArgumentosEnUnaLista() throws IOException{
 		
 		String[] argumentos = {"mipresentacion1.md"};		
 		SelectorDeModo selector = new SelectorDeModo(argumentos);		

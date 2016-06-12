@@ -3,6 +3,9 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.dominio.Imagen;
+
 public class ImagenTest {
 	
 	@Test

@@ -6,6 +6,9 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.dominio.ItemDeLista;
+import ar.edu.untref.aydoo.dominio.ListaSinOrden;
+
 public class ListaSinOrdenTest {
 	
 	@Test

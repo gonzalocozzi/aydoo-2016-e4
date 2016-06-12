@@ -1,4 +1,6 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.dominio;
+
+import ar.edu.untref.aydoo.Visitable;
 
 public abstract class EtiquetaHTML implements Visitable{
 

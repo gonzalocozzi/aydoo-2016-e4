@@ -6,6 +6,11 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.dominio.ItemDeLista;
+import ar.edu.untref.aydoo.dominio.ListaSinOrden;
+import ar.edu.untref.aydoo.dominio.TextoSinFormato;
+
 public class OrganizadorDeItemsTest {
 
 	@Test

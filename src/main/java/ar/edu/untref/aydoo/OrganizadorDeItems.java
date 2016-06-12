@@ -3,6 +3,10 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.dominio.ItemDeLista;
+import ar.edu.untref.aydoo.dominio.ListaSinOrden;
+
 public class OrganizadorDeItems implements Organizable{
 
 	private List<EtiquetaHTML> listaOrganizada;

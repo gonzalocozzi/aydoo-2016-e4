@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+
 public class SelectorDeModo {
 
 	private List<String> listaDeArgumentos;
@@ -15,6 +17,10 @@ public class SelectorDeModo {
 
 	public SelectorDeModo(String[] argumentos) {
 		this.listaDeArgumentos = new ArrayList<String>();
+		inicializarSelector(argumentos);
+	}
+
+	private void inicializarSelector(String[] argumentos) {
 		this.setListaDeArgumentos(argumentos);
 		this.validarArgumentos();
 		this.analizarArgumentos();

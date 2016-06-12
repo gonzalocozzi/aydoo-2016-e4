@@ -3,6 +3,11 @@ package ar.edu.untref.aydoo;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.dominio.ItemDeLista;
+import ar.edu.untref.aydoo.dominio.ListaSinOrden;
+import ar.edu.untref.aydoo.dominio.Seccion;
+
 public class VisitorDeEtiquetas implements Visitor{
 
 	private List<String> listaDeLineas;

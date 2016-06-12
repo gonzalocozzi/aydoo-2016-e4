@@ -1,4 +1,7 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.dominio;
+
+import ar.edu.untref.aydoo.Visitable;
+import ar.edu.untref.aydoo.Visitor;
 
 public class ItemDeLista extends EtiquetaHTML implements Visitable {
 

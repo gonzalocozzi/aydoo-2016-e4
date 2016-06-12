@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.dominio.Imagen;
+import ar.edu.untref.aydoo.dominio.ItemDeLista;
+import ar.edu.untref.aydoo.dominio.Seccion;
+import ar.edu.untref.aydoo.dominio.Subtitulo;
+import ar.edu.untref.aydoo.dominio.TextoSinFormato;
+import ar.edu.untref.aydoo.dominio.Titulo;
+
 public class CreadorDeEtiquetas {
 
 	private final ArrayList<EtiquetaHTML> etiquetasHtml;
