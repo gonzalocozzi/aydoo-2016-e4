@@ -50,4 +50,13 @@ public class TituloTest {
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
 	
+	@Test
+	public void elTituloSeCreaConSuEncabezadoMD(){
+		Titulo titulo = new Titulo();
+		String encabezadoObtenido = titulo.getEncabezado();
+		
+		String encabezadoEsperado = "#";
+				
+		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
+	}
 }
