@@ -1,5 +1,6 @@
 package ar.edu.untref.aydoo;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -183,4 +184,12 @@ public class CreadorDeEtiquetasTest {
 			Assert.assertEquals("--", listaGenerada.get(0).getTexto());
 		}
 	
+		@Test
+		public void siAgregoUnaEtiquetaNuevaALaListaElTextoSinFormatoSigueAlFinal(){
+			CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
+			Titulo titulo = new Titulo(); //meto una Etiqueta cualquiera que no sea TextoSinFormato
+			miCreador.agregarEtiqueta(titulo);
+			ArrayList<EtiquetaHTML> lista = miCreador.getEtiquetasHtml();
+			Assert.assertEquals(TextoSinFormato.class, lista.get(lista.size()-1).getClass());
+		}
 }

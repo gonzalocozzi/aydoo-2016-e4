@@ -33,5 +33,16 @@ public class CreadorDeEtiquetas {
 		}
 		return listaDeEtiquetas;
 	}
+	
+	public void agregarEtiqueta(EtiquetaHTML nuevaEtiqueta){
+		int tamanioDeLista = this.etiquetasHtml.size();
+		EtiquetaHTML textoSinFormato = this.etiquetasHtml.get(tamanioDeLista-1);
+		this.etiquetasHtml.add(tamanioDeLista-1, nuevaEtiqueta);
+		this.etiquetasHtml.add(textoSinFormato);
+	}
+	
+	public ArrayList<EtiquetaHTML> getEtiquetasHtml(){
+		return this.etiquetasHtml;
+	}
 
 }
