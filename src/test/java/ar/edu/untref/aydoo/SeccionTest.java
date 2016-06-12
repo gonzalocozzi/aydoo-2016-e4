@@ -150,4 +150,14 @@ public class SeccionTest {
 		
 		Assert.assertEquals(listaDeLineasEsperada, visitor.getListaDeLineas());
 	}
+	
+	@Test
+	public void laSeccionSeCreaConSuEncabezadoMD(){
+		Seccion seccion = new Seccion();
+		String encabezadoObtenido = seccion.getEncabezado();
+		
+		String encabezadoEsperado = "---";
+				
+		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
+	}
 }
