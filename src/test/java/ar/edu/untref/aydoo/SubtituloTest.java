@@ -49,4 +49,14 @@ public class SubtituloTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void elSubtituloSeCreaConSuEncabezadoMD(){
+		Subtitulo subtitulo = new Subtitulo();
+		String encabezadoObtenido = subtitulo.getEncabezado();
+		
+		String encabezadoEsperado = "##";
+				
+		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
+	}
 }
