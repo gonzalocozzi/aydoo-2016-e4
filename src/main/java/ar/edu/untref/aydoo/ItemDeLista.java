@@ -5,7 +5,7 @@ public class ItemDeLista extends EtiquetaHTML implements Visitable {
 	public ItemDeLista(){
 		this.prefijo = "<li>";
 		this.sufijo = "</li>";
-		this.encabezado = "*";
+		this.encabezadoMD = "*";
 	}
 
 	@Override

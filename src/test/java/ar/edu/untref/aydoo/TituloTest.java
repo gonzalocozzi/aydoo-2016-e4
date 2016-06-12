@@ -49,4 +49,5 @@ public class TituloTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
 }

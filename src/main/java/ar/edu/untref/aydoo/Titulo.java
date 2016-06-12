@@ -5,7 +5,7 @@ public class Titulo extends EtiquetaHTML implements Visitable{
 	public Titulo(){		
 		this.prefijo = "<h1>";
 		this.sufijo = "</h1>";
-		this.encabezado = "#";
+		this.encabezadoMD = "#";
 	}
 
 	@Override

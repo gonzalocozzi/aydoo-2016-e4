@@ -49,4 +49,14 @@ public class ImagenTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void laImagenSeCreaConSuEncabezadoMD(){
+		Imagen imagen = new Imagen();
+		String encabezadoObtenido = imagen.getEncabezado();
+		
+		String encabezadoEsperado = "i:";
+				
+		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
+	}
 }
