@@ -59,4 +59,12 @@ public class ImagenTest {
 				
 		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
 	}
+	
+	@Test
+	public void laImagenSabeReconocerseYCrearseAPartirDeUnaEntradaMD(){
+		String entrada = "i:imagen.jpg";
+		Imagen imagen = new Imagen();
+		
+		Assert.assertEquals(Imagen.class, imagen.crearConMd(entrada).getClass());
+	}
 }
