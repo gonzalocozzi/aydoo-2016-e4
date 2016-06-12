@@ -49,4 +49,14 @@ public class ItemDeListaTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void elItemSeCreaConSuEncabezadoMD(){
+		ItemDeLista item = new ItemDeLista();
+		String encabezadoObtenido = item.getEncabezado();
+		
+		String encabezadoEsperado = "*";
+				
+		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
+	}
 }
