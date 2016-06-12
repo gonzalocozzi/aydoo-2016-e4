@@ -61,7 +61,7 @@ public class TituloTest {
 	}
 	
 	@Test
-	public void elTituloSabeReconocerseYCrearseAPartirDeUnaEntrada(){
+	public void elTituloSabeReconocerseYCrearseAPartirDeUnaEntradaMD(){
 		String entrada = "# titulo de prueba";
 		Titulo titulo = new Titulo();
 		

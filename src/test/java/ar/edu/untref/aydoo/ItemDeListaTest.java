@@ -59,4 +59,12 @@ public class ItemDeListaTest {
 				
 		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
 	}
+	
+	@Test
+	public void elItemSabeReconocerseYCrearseAPartirDeUnaEntradaMD(){
+		String entrada = "*item1";
+		ItemDeLista item = new ItemDeLista();
+		
+		Assert.assertEquals(ItemDeLista.class, item.crearConMd(entrada).getClass());
+	}
 }

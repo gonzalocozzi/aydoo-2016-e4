@@ -61,7 +61,7 @@ public class SubtituloTest {
 	}
 	
 	@Test
-	public void elSubtituloSabeReconocerseYCrearseAPartirDeUnaEntrada(){
+	public void elSubtituloSabeReconocerseYCrearseAPartirDeUnaEntradaMD(){
 		String entrada = "## subtitulo de prueba";
 		Subtitulo subtitulo = new Subtitulo();
 		
