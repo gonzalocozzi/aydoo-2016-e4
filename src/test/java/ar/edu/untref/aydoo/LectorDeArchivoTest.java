@@ -10,6 +10,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import ar.edu.untref.aydoo.io.LectorDeArchivo;
+
 public class LectorDeArchivoTest {
 
 	@Rule	 

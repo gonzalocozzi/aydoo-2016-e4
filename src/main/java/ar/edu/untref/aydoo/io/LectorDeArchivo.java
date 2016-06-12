@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.io;
 
 import java.io.BufferedReader;
 import java.io.File;

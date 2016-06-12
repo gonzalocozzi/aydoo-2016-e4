@@ -13,6 +13,7 @@ import ar.edu.untref.aydoo.dominio.Seccion;
 import ar.edu.untref.aydoo.dominio.Subtitulo;
 import ar.edu.untref.aydoo.dominio.TextoSinFormato;
 import ar.edu.untref.aydoo.dominio.Titulo;
+import ar.edu.untref.aydoo.procesamientoDeParametros.CreadorDeSalidaHTML;
 
 import org.junit.Assert;
 
