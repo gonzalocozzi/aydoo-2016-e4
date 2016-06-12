@@ -160,4 +160,12 @@ public class SeccionTest {
 				
 		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
 	}
+	
+	@Test
+	public void laSeccionSabeReconocerseYCrearseAPartirDeUnaEntradaMD(){
+		String entrada = "---";
+		Seccion seccion = new Seccion();
+		
+		Assert.assertEquals(Seccion.class, seccion.crearConMd(entrada).getClass());
+	}
 }
