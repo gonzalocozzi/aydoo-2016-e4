@@ -15,6 +15,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import ar.edu.untref.aydoo.opcionesDeEjecucion.SelectorDeModo;
+
 public class SelectorDeModosTest {
 	
 	@Rule	 

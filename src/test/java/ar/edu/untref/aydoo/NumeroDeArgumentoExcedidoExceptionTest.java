@@ -3,6 +3,8 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.excepciones.NumeroDeArgumentosExcedidoException;
+
 public class NumeroDeArgumentoExcedidoExceptionTest {
 	
 	@Test

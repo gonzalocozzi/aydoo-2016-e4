@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.excepciones;
 
 public class SinNombreDelArchivoDeEntradaException extends RuntimeException{
 

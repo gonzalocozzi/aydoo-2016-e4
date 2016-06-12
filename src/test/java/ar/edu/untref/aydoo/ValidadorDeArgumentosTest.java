@@ -10,6 +10,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ar.edu.untref.aydoo.excepciones.ArgumentoInvalidoException;
+import ar.edu.untref.aydoo.excepciones.NombreInvalidoException;
+import ar.edu.untref.aydoo.excepciones.NumeroDeArgumentosExcedidoException;
+import ar.edu.untref.aydoo.excepciones.SinNombreDelArchivoDeEntradaException;
+import ar.edu.untref.aydoo.opcionesDeEjecucion.ValidadorDeArgumentos;
+
 public class ValidadorDeArgumentosTest {
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();	

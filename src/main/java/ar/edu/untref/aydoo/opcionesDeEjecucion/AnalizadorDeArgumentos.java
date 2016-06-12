@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.opcionesDeEjecucion;
 
 import java.util.ArrayList;
 import java.util.List;

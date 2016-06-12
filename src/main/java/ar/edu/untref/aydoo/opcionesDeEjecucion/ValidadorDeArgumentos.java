@@ -1,6 +1,11 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.opcionesDeEjecucion;
 
 import java.util.List;
+
+import ar.edu.untref.aydoo.excepciones.ArgumentoInvalidoException;
+import ar.edu.untref.aydoo.excepciones.NombreInvalidoException;
+import ar.edu.untref.aydoo.excepciones.NumeroDeArgumentosExcedidoException;
+import ar.edu.untref.aydoo.excepciones.SinNombreDelArchivoDeEntradaException;
 
 public class ValidadorDeArgumentos {
 
