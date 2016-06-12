@@ -188,7 +188,7 @@ public class CreadorDeEtiquetasTest {
 		public void siAgregoUnaEtiquetaNuevaALaListaElTextoSinFormatoSigueAlFinal(){
 			CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 			Titulo titulo = new Titulo(); //meto una Etiqueta cualquiera que no sea TextoSinFormato
-			miCreador.agregarEtiqueta(titulo);
+			miCreador.agregarNuevaEtiqueta(titulo);
 			ArrayList<EtiquetaHTML> lista = miCreador.getEtiquetasHtml();
 			Assert.assertEquals(TextoSinFormato.class, lista.get(lista.size()-1).getClass());
 		}

@@ -22,19 +22,23 @@ public class CreadorDeEtiquetas {
 		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
 		for(int i = 0; i < lineasDelMarkDown.size(); i++){
 			String lineaActual = lineasDelMarkDown.get(i);
-			for(int j = 0; j < this.etiquetasHtml.size(); j++){
-				EtiquetaHTML etiquetaActual = this.etiquetasHtml.get(j);
-				EtiquetaHTML etiquetaResultante = etiquetaActual.crearConMd(lineaActual);
-				if(etiquetaResultante != null){
-					listaDeEtiquetas.add(etiquetaResultante);
-					j = this.etiquetasHtml.size();
-				}
-			}
+			agregarEtiquetaAListaDeEtiquetas(listaDeEtiquetas, lineaActual);
 		}
 		return listaDeEtiquetas;
 	}
+
+	private void agregarEtiquetaAListaDeEtiquetas(List<EtiquetaHTML> listaDeEtiquetas, String lineaActual) {
+		for(int j = 0; j < this.etiquetasHtml.size(); j++){
+			EtiquetaHTML etiquetaActual = this.etiquetasHtml.get(j);
+			EtiquetaHTML etiquetaResultante = etiquetaActual.crearConMD(lineaActual);
+			if(etiquetaResultante != null){
+				listaDeEtiquetas.add(etiquetaResultante);
+				j = this.etiquetasHtml.size();
+			}
+		}
+	}
 	
-	public void agregarEtiqueta(EtiquetaHTML nuevaEtiqueta){
+	public void agregarNuevaEtiqueta(EtiquetaHTML nuevaEtiqueta){
 		int tamanioDeLista = this.etiquetasHtml.size();
 		EtiquetaHTML textoSinFormato = this.etiquetasHtml.get(tamanioDeLista-1);
 		this.etiquetasHtml.add(tamanioDeLista-1, nuevaEtiqueta);

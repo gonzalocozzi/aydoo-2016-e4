@@ -166,6 +166,6 @@ public class SeccionTest {
 		String entrada = "---";
 		Seccion seccion = new Seccion();
 		
-		Assert.assertEquals(Seccion.class, seccion.crearConMd(entrada).getClass());
+		Assert.assertEquals(Seccion.class, seccion.crearConMD(entrada).getClass());
 	}
 }

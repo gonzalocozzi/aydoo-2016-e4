@@ -65,6 +65,6 @@ public class ImagenTest {
 		String entrada = "i:imagen.jpg";
 		Imagen imagen = new Imagen();
 		
-		Assert.assertEquals(Imagen.class, imagen.crearConMd(entrada).getClass());
+		Assert.assertEquals(Imagen.class, imagen.crearConMD(entrada).getClass());
 	}
 }

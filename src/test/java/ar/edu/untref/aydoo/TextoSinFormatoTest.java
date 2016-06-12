@@ -55,6 +55,6 @@ public class TextoSinFormatoTest {
 		String entrada = "esto es un texto sin formato";
 		TextoSinFormato texto = new TextoSinFormato();
 		
-		Assert.assertEquals(TextoSinFormato.class, texto.crearConMd(entrada).getClass());
+		Assert.assertEquals(TextoSinFormato.class, texto.crearConMD(entrada).getClass());
 	}
 }

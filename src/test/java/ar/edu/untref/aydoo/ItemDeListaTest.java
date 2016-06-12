@@ -65,6 +65,6 @@ public class ItemDeListaTest {
 		String entrada = "*item1";
 		ItemDeLista item = new ItemDeLista();
 		
-		Assert.assertEquals(ItemDeLista.class, item.crearConMd(entrada).getClass());
+		Assert.assertEquals(ItemDeLista.class, item.crearConMD(entrada).getClass());
 	}
 }

@@ -65,6 +65,6 @@ public class SubtituloTest {
 		String entrada = "## subtitulo de prueba";
 		Subtitulo subtitulo = new Subtitulo();
 		
-		Assert.assertEquals(Subtitulo.class, subtitulo.crearConMd(entrada).getClass());
+		Assert.assertEquals(Subtitulo.class, subtitulo.crearConMD(entrada).getClass());
 	}
 }

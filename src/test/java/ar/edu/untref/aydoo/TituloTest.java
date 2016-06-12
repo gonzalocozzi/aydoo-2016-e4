@@ -65,6 +65,6 @@ public class TituloTest {
 		String entrada = "# titulo de prueba";
 		Titulo titulo = new Titulo();
 		
-		Assert.assertEquals(Titulo.class, titulo.crearConMd(entrada).getClass());
+		Assert.assertEquals(Titulo.class, titulo.crearConMD(entrada).getClass());
 	}
 }

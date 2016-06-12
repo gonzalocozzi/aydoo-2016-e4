@@ -27,7 +27,7 @@ public abstract class EtiquetaHTML implements Visitable{
 		return this.encabezadoMD;
 	}
 	
-	public EtiquetaHTML crearConMd(String entradaMarkdown) {
+	public EtiquetaHTML crearConMD(String entradaMarkdown) {
 		EtiquetaHTML etiqueta = crearNuevaInstancia();
 		if(entradaMarkdown.startsWith(encabezadoMD)){
 			texto = this.buscarTexto(entradaMarkdown);
