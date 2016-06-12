@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
 import ar.edu.untref.aydoo.dominio.Titulo;
+import ar.edu.untref.aydoo.procesamientoDeParametros.VisitorDeEtiquetas;
 
 public class TituloTest {
 	

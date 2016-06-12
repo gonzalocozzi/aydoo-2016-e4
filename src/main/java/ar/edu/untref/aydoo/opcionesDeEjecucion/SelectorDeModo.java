@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.untref.aydoo.CreadorDeCarpetaDeSalida;
-import ar.edu.untref.aydoo.CreadorDeEtiquetas;
 import ar.edu.untref.aydoo.CreadorDeSalidaHTML;
 import ar.edu.untref.aydoo.EscritorDeArchivo;
 import ar.edu.untref.aydoo.LectorDeArchivo;
-import ar.edu.untref.aydoo.OrganizadorDeEtiquetas;
 import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.procesamientoDeParametros.CreadorDeEtiquetas;
+import ar.edu.untref.aydoo.procesamientoDeParametros.OrganizadorDeEtiquetas;
 
 public class SelectorDeModo {
 

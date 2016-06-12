@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.dominio.ItemDeLista;
 import ar.edu.untref.aydoo.dominio.ListaSinOrden;
+import ar.edu.untref.aydoo.procesamientoDeParametros.VisitorDeEtiquetas;
 
 public class ListaSinOrdenTest {
 	

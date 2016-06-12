@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.dominio.TextoSinFormato;
+import ar.edu.untref.aydoo.procesamientoDeParametros.VisitorDeEtiquetas;
 
 public class TextoSinFormatoTest {
 	

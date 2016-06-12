@@ -1,7 +1,7 @@
 package ar.edu.untref.aydoo.dominio;
 
-import ar.edu.untref.aydoo.Visitable;
-import ar.edu.untref.aydoo.Visitor;
+import ar.edu.untref.aydoo.procesamientoDeParametros.Visitable;
+import ar.edu.untref.aydoo.procesamientoDeParametros.Visitor;
 
 public class Titulo extends EtiquetaHTML implements Visitable{
 

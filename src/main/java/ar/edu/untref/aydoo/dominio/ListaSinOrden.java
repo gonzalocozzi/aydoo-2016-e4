@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo.dominio;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.Visitor;
+import ar.edu.untref.aydoo.procesamientoDeParametros.Visitor;
 
 public class ListaSinOrden extends EtiquetaHTML {
 
