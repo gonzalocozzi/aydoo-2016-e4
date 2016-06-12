@@ -49,4 +49,12 @@ public class TextoSinFormatoTest {
 		
 		Assert.assertEquals(resultadoEsperado, visitor.getListaDeLineas().get(0));
 	}
+	
+	@Test
+	public void elTextoSinFormatoSabeReconocerseYCrearseAPartirDeUnaEntrada(){
+		String entrada = "esto es un texto sin formato";
+		TextoSinFormato texto = new TextoSinFormato();
+		
+		Assert.assertEquals(TextoSinFormato.class, texto.crearConMd(entrada).getClass());
+	}
 }
