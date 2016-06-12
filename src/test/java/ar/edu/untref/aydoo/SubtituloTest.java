@@ -59,4 +59,12 @@ public class SubtituloTest {
 				
 		Assert.assertEquals(encabezadoEsperado, encabezadoObtenido);
 	}
+	
+	@Test
+	public void elSubtituloSabeReconocerseYCrearseAPartirDeUnaEntrada(){
+		String entrada = "## subtitulo de prueba";
+		Subtitulo titulo = new Subtitulo();
+		
+		Assert.assertEquals(Subtitulo.class, titulo.crearConMd(entrada).getClass());
+	}
 }
