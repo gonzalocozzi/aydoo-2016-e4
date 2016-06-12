@@ -12,4 +12,9 @@ public class Titulo extends EtiquetaHTML implements Visitable{
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);		
 	}
+	
+	@Override
+	protected Titulo crearNuevaInstancia() {
+		return new Titulo();
+	}
 }

@@ -12,4 +12,9 @@ public class ItemDeLista extends EtiquetaHTML implements Visitable {
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);
 	}
+	
+	@Override
+	protected ItemDeLista crearNuevaInstancia() {
+		return new ItemDeLista();
+	}
 }

@@ -12,4 +12,9 @@ public class Imagen extends EtiquetaHTML implements Visitable {
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);
 	}
+	
+	@Override
+	protected Imagen crearNuevaInstancia() {
+		return new Imagen();
+	}
 }

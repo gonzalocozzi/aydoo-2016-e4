@@ -28,12 +28,17 @@ public abstract class EtiquetaHTML implements Visitable{
 	}
 	
 	public EtiquetaHTML crearConMd(String entradaMarkdown) {
+		EtiquetaHTML etiqueta = crearNuevaInstancia();
 		if(entradaMarkdown.startsWith(encabezadoMD)){
 			texto = this.buscarTexto(entradaMarkdown);
-			this.setTexto(texto);
-			return this;
+			etiqueta.setTexto(texto);
+			return etiqueta;
 		}
 		return null;
+	}
+
+	protected EtiquetaHTML crearNuevaInstancia() {
+		return this;
 	}
 
 	private String buscarTexto(String linea) {

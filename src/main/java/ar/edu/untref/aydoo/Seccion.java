@@ -26,4 +26,9 @@ public class Seccion extends EtiquetaHTML{
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);
 	}
+	
+	@Override
+	protected Seccion crearNuevaInstancia() {
+		return new Seccion();
+	}
 }

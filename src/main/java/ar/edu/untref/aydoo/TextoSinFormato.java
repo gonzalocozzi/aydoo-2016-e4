@@ -13,4 +13,8 @@ public class TextoSinFormato extends EtiquetaHTML implements Visitable {
 		visitor.visitar(this);
 	}
 
+	@Override
+	protected TextoSinFormato crearNuevaInstancia() {
+		return new TextoSinFormato();
+	}
 }
