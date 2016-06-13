@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Titulo;
 
 public class TituloTest {
@@ -12,9 +12,9 @@ public class TituloTest {
 	@Test
 	public void tituloSeCreaConPrefijo(){
 		
-		EtiquetaHTML titulo = new Titulo();
+		Etiqueta titulo = new Titulo();
 		
-		String prefijo = titulo.getPrefijo();
+		String prefijo = titulo.getPrefijoHTML();
 		
 		Assert.assertEquals("<h1>", prefijo);
 	}	
@@ -22,9 +22,9 @@ public class TituloTest {
 	@Test
 	public void tituloSeCreaConSufijo(){
 		
-		EtiquetaHTML titulo = new Titulo();
+		Etiqueta titulo = new Titulo();
 		
-		String sufijo = titulo.getSufijo();
+		String sufijo = titulo.getSufijoHTML();
 		
 		Assert.assertEquals("</h1>", sufijo);
 	}
@@ -32,7 +32,7 @@ public class TituloTest {
 	@Test
 	public void seIncorporaTextoAlTitulo(){
 		
-		EtiquetaHTML titulo = new Titulo();		
+		Etiqueta titulo = new Titulo();		
 		String contenido = "el titulo";
 		titulo.setTexto(contenido);
 		
@@ -57,7 +57,7 @@ public class TituloTest {
 	@Test
 	public void elTituloSeCreaConSuEncabezadoMD(){
 		Titulo titulo = new Titulo();
-		String encabezadoObtenido = titulo.getEncabezado();
+		String encabezadoObtenido = titulo.getEncabezadoMD();
 		
 		String encabezadoEsperado = "#";
 				

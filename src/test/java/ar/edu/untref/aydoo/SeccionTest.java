@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
 import ar.edu.untref.aydoo.etiquetas.Seccion;
@@ -22,7 +22,7 @@ public class SeccionTest {
 
 		Seccion seccion = new Seccion();
 
-		String prefijo = seccion.getPrefijo();
+		String prefijo = seccion.getPrefijoHTML();
 
 		Assert.assertEquals("<section>", prefijo);
 	}
@@ -32,7 +32,7 @@ public class SeccionTest {
 
 		Seccion seccion = new Seccion();
 
-		String sufijo = seccion.getSufijo();
+		String sufijo = seccion.getSufijoHTML();
 
 		Assert.assertEquals("</section>", sufijo);
 	}
@@ -44,7 +44,7 @@ public class SeccionTest {
 		Titulo titulo = new Titulo();
 		seccion.agregarElemento(titulo);
 
-		List<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		List<Etiqueta> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(titulo));
 	}
@@ -56,7 +56,7 @@ public class SeccionTest {
 		Subtitulo subtitulo = new Subtitulo();
 		seccion.agregarElemento(subtitulo);
 
-		List<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		List<Etiqueta> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(subtitulo));
 	}
@@ -69,7 +69,7 @@ public class SeccionTest {
 		textoSinFormato.setTexto("solo texto sin nada mas");
 		seccion.agregarElemento(textoSinFormato);
 
-		List<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		List<Etiqueta> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(textoSinFormato));
 	}
@@ -81,7 +81,7 @@ public class SeccionTest {
 		Imagen imagen = new Imagen();
 		seccion.agregarElemento(imagen);
 
-		List<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		List<Etiqueta> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(imagen));
 	}
@@ -94,7 +94,7 @@ public class SeccionTest {
 
 		seccion.agregarElemento(listaSinOrden);
 
-		List<EtiquetaHTML> listaDeElementos = seccion.getListaDeElementos();
+		List<Etiqueta> listaDeElementos = seccion.getListaDeElementos();
 
 		Assert.assertTrue(listaDeElementos.contains(listaSinOrden));
 	}
@@ -163,7 +163,7 @@ public class SeccionTest {
 	@Test
 	public void laSeccionSeCreaConSuEncabezadoMD(){
 		Seccion seccion = new Seccion();
-		String encabezadoObtenido = seccion.getEncabezado();
+		String encabezadoObtenido = seccion.getEncabezadoMD();
 		
 		String encabezadoEsperado = "---";
 				

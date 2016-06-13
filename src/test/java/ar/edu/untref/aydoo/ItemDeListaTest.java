@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 
 public class ItemDeListaTest {
@@ -12,9 +12,9 @@ public class ItemDeListaTest {
 	@Test
 	public void itemDeListaSeCreaConPrefijo(){
 		
-		EtiquetaHTML itemDeLista = new ItemDeLista();
+		Etiqueta itemDeLista = new ItemDeLista();
 		
-		String prefijo = itemDeLista.getPrefijo();
+		String prefijo = itemDeLista.getPrefijoHTML();
 		
 		Assert.assertEquals("<li>", prefijo);
 	}	
@@ -22,9 +22,9 @@ public class ItemDeListaTest {
 	@Test
 	public void itemDeListaSeCreaConSufijo(){
 		
-		EtiquetaHTML itemDeLista = new ItemDeLista();
+		Etiqueta itemDeLista = new ItemDeLista();
 		
-		String sufijo = itemDeLista.getSufijo();
+		String sufijo = itemDeLista.getSufijoHTML();
 		
 		Assert.assertEquals("</li>", sufijo);
 	}
@@ -32,7 +32,7 @@ public class ItemDeListaTest {
 	@Test
 	public void seIncorporaTextoAlItemDeLista(){
 		
-		EtiquetaHTML itemDeLista = new ItemDeLista();
+		Etiqueta itemDeLista = new ItemDeLista();
 		String contenido = "un item de la lista";
 		itemDeLista.setTexto(contenido);
 		
@@ -57,7 +57,7 @@ public class ItemDeListaTest {
 	@Test
 	public void elItemSeCreaConSuEncabezadoMD(){
 		ItemDeLista item = new ItemDeLista();
-		String encabezadoObtenido = item.getEncabezado();
+		String encabezadoObtenido = item.getEncabezadoMD();
 		
 		String encabezadoEsperado = "*";
 				

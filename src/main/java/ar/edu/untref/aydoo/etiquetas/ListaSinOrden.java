@@ -5,13 +5,13 @@ import java.util.List;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitor;
 
-public class ListaSinOrden extends EtiquetaHTML {
+public class ListaSinOrden extends Etiqueta {
 
 	private List<ItemDeLista> listaDeItems;
 
 	public ListaSinOrden(){
-		this.prefijo = "<ul>";
-		this.sufijo = "</ul>";
+		this.prefijoHTML = "<ul>";
+		this.sufijoHTML = "</ul>";
 		this.listaDeItems = new LinkedList<ItemDeLista>();
 	}
 
@@ -27,5 +27,5 @@ public class ListaSinOrden extends EtiquetaHTML {
 	public void aceptarVisitor(Visitor visitor){
 		visitor.visitar(this);
 	}
-	
+
 }

@@ -13,7 +13,7 @@ public class TextoSinFormatoTest {
 		
 		TextoSinFormato textoSinFormato = new TextoSinFormato();
 		
-		String prefijo = textoSinFormato.getPrefijo();
+		String prefijo = textoSinFormato.getPrefijoHTML();
 		
 		Assert.assertEquals("", prefijo);
 	}
@@ -23,7 +23,7 @@ public class TextoSinFormatoTest {
 		
 		TextoSinFormato textoSinFormato = new TextoSinFormato();
 		
-		String sufijo = textoSinFormato.getSufijo();
+		String sufijo = textoSinFormato.getSufijoHTML();
 		
 		Assert.assertEquals("", sufijo);
 	}

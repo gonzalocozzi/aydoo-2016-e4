@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.Seccion;
@@ -14,10 +14,10 @@ import ar.edu.untref.aydoo.etiquetas.Titulo;
 
 public class CreadorDeEtiquetas {
 
-	private ArrayList<EtiquetaHTML> etiquetasHtml;
-	
+	private ArrayList<Etiqueta> etiquetasHtml;
+
 	public CreadorDeEtiquetas() {
-		this.etiquetasHtml = new ArrayList<EtiquetaHTML>();
+		this.etiquetasHtml = new ArrayList<Etiqueta>();
 		this.etiquetasHtml.add(new Subtitulo());
 		this.etiquetasHtml.add(new Titulo());
 		this.etiquetasHtml.add(new ItemDeLista());
@@ -26,8 +26,8 @@ public class CreadorDeEtiquetas {
 		this.etiquetasHtml.add(new TextoSinFormato());
 	}
 
-	public List<EtiquetaHTML> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
+	public List<Etiqueta> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
 		for(int i = 0; i < lineasDelMarkDown.size(); i++){
 			String lineaActual = lineasDelMarkDown.get(i);
 			agregarEtiquetaAListaDeEtiquetas(listaDeEtiquetas, lineaActual);
@@ -35,25 +35,25 @@ public class CreadorDeEtiquetas {
 		return listaDeEtiquetas;
 	}
 
-	private void agregarEtiquetaAListaDeEtiquetas(List<EtiquetaHTML> listaDeEtiquetas, String lineaActual) {
+	private void agregarEtiquetaAListaDeEtiquetas(List<Etiqueta> listaDeEtiquetas, String lineaActual) {
 		for(int j = 0; j < this.etiquetasHtml.size(); j++){
-			EtiquetaHTML etiquetaActual = this.etiquetasHtml.get(j);
-			EtiquetaHTML etiquetaResultante = etiquetaActual.crearConMD(lineaActual);
+			Etiqueta etiquetaActual = this.etiquetasHtml.get(j);
+			Etiqueta etiquetaResultante = etiquetaActual.crearConMD(lineaActual);
 			if(etiquetaResultante != null){
 				listaDeEtiquetas.add(etiquetaResultante);
 				j = this.etiquetasHtml.size();
 			}
 		}
 	}
-	
-	public void agregarNuevaEtiqueta(EtiquetaHTML nuevaEtiqueta){
+
+	public void agregarNuevaEtiqueta(Etiqueta nuevaEtiqueta){
 		int tamanioDeLista = this.etiquetasHtml.size();
-		EtiquetaHTML textoSinFormato = this.etiquetasHtml.get(tamanioDeLista-1);
+		Etiqueta textoSinFormato = this.etiquetasHtml.get(tamanioDeLista-1);
 		this.etiquetasHtml.add(tamanioDeLista-1, nuevaEtiqueta);
 		this.etiquetasHtml.add(textoSinFormato);
 	}
-	
-	public ArrayList<EtiquetaHTML> getEtiquetasHtml(){
+
+	public ArrayList<Etiqueta> getEtiquetasHtml(){
 		return this.etiquetasHtml;
 	}
 

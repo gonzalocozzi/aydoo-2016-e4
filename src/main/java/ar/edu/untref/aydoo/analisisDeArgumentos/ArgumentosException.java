@@ -7,6 +7,6 @@ public abstract class ArgumentosException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public abstract void getInstance();
+	public abstract void getNuevaInstancia();
 
 }

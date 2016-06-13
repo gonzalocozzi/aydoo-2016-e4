@@ -3,20 +3,21 @@ package ar.edu.untref.aydoo.creacionDeEtiquetas;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Seccion;
 
 public class OrganizadorDeSecciones implements Organizable {
 
-	private List<EtiquetaHTML> listaOrganizada;
-	private List<EtiquetaHTML> listaRecibida;
+	private List<Etiqueta> listaOrganizada;
+	private List<Etiqueta> listaRecibida;
 
 	public OrganizadorDeSecciones(){
-		this.listaOrganizada = new LinkedList<EtiquetaHTML>();
-		this.listaRecibida = new LinkedList<EtiquetaHTML>();
+		this.listaOrganizada = new LinkedList<Etiqueta>();
+		this.listaRecibida = new LinkedList<Etiqueta>();
 	}
 
-	public List<EtiquetaHTML> organizar(List<EtiquetaHTML> listaDeEtiquetas) {
+	@Override
+	public List<Etiqueta> organizar(List<Etiqueta> listaDeEtiquetas) {
 		listaRecibida = listaDeEtiquetas;
 		Boolean esSeccion = false;
 

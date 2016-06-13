@@ -7,7 +7,7 @@ import java.util.List;
 import ar.edu.untref.aydoo.creacionDeEtiquetas.CreadorDeEtiquetas;
 import ar.edu.untref.aydoo.creacionDeEtiquetas.CreadorDeSalidaHTML;
 import ar.edu.untref.aydoo.creacionDeEtiquetas.OrganizadorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.io.CreadorDeCarpetaDeSalida;
 import ar.edu.untref.aydoo.io.EscritorDeArchivo;
 import ar.edu.untref.aydoo.io.LectorDeArchivo;
@@ -54,9 +54,9 @@ public class SelectorDeModo {
 	}
 
 	public void seleccionarModo() throws IOException {	
-		if(analizadorDeArgumentos.isModeDefault() || analizadorDeArgumentos.isOutput()){	
+		if(analizadorDeArgumentos.contieneModoDefault() || analizadorDeArgumentos.contieneOutput()){	
 			this.seleccionarModoDefault();
-		} else if(analizadorDeArgumentos.isModeNoOutput()){
+		} else if(analizadorDeArgumentos.contieneModoNoOutput()){
 			this.seleccionarModoNoOutput();
 		}
 	}	
@@ -79,36 +79,36 @@ public class SelectorDeModo {
 
 	private List<String> getListaHTMLDeSalida() throws IOException{		
 		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(this.nombreDelArchivoEntrada);
-		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
+		List<Etiqueta> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
 		List<String> listaHTMLDeSalida = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTMLOrganizada);
 
 		return listaHTMLDeSalida;
+	}
+	
+	private List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada) throws IOException {
+		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(nombreDelArchivoDeEntrada);
+		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
+		return entradaDeMarkdown;
+	}
+	
+	private List<Etiqueta> creacionDeEtiquetasHTML(List<String> entradaDeMarkdown) {
+		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
+		List<Etiqueta> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
+		OrganizadorDeEtiquetas organizadorDeEtiquetas = new OrganizadorDeEtiquetas();
+		List<Etiqueta> listaDeEtiquetasHTMLOrganizada = organizadorDeEtiquetas.organizar(listaDeEtiquetasHTML);
+		return listaDeEtiquetasHTMLOrganizada;
+	}
+	
+	private List<String> creacionDeSalidaHTMLEstandar(List<Etiqueta> listaDeEtiquetasHTMLOrganizada) {
+		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
+		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
+		return listaDeSalidaHTML;
 	}
 
 	private CreadorDeCarpetaDeSalida creacionDeLaCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
 		return creadorDeCarpetaDeSalida;
-	}
-
-	private List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada) throws IOException {
-		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(nombreDelArchivoDeEntrada);
-		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
-		return entradaDeMarkdown;
-	}
-
-	private List<EtiquetaHTML> creacionDeEtiquetasHTML(List<String> entradaDeMarkdown) {
-		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
-		OrganizadorDeEtiquetas organizadorDeEtiquetas = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = organizadorDeEtiquetas.organizar(listaDeEtiquetasHTML);
-		return listaDeEtiquetasHTMLOrganizada;
-	}
-
-	private List<String> creacionDeSalidaHTMLEstandar(List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada) {
-		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
-		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
-		return listaDeSalidaHTML;
 	}
 
 	private void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {

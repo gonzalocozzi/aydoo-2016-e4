@@ -2,19 +2,19 @@ package ar.edu.untref.aydoo.etiquetas;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitable;
 
-public abstract class EtiquetaHTML implements Visitable{
+public abstract class Etiqueta implements Visitable{
 
-	protected String prefijo;
-	protected String sufijo;
-	private String texto;
+	protected String prefijoHTML;
+	protected String sufijoHTML;
 	protected String encabezadoMD;	
+	private String texto;
 
-	public String getPrefijo() {
-		return this.prefijo;
+	public String getPrefijoHTML() {
+		return this.prefijoHTML;
 	}
 
-	public String getSufijo() {
-		return this.sufijo;
+	public String getSufijoHTML() {
+		return this.sufijoHTML;
 	}
 
 	public void setTexto(String texto) {
@@ -24,17 +24,17 @@ public abstract class EtiquetaHTML implements Visitable{
 	public String getTexto() {
 		return this.texto;
 	}
-	
-	public String getEncabezado() {
+
+	public String getEncabezadoMD() {
 		return this.encabezadoMD;
 	}
-	
-	protected EtiquetaHTML crearNuevaInstancia(){
+
+	protected Etiqueta getNuevaInstancia(){
 		return this;
 	}
-	
-	public EtiquetaHTML crearConMD(String entradaMarkdown) {
-		EtiquetaHTML etiqueta = this.crearNuevaInstancia();
+
+	public Etiqueta crearConMD(String entradaMarkdown) {
+		Etiqueta etiqueta = this.getNuevaInstancia();
 		if(entradaMarkdown.startsWith(encabezadoMD)){
 			texto = this.buscarTexto(entradaMarkdown);
 			etiqueta.setTexto(texto);
@@ -46,7 +46,7 @@ public abstract class EtiquetaHTML implements Visitable{
 	private String buscarTexto(String linea) {
 		String textoADevolver = linea;
 		String encabezado = "";	
-		encabezado = this.getEncabezado();
+		encabezado = this.getEncabezadoMD();
 		textoADevolver = linea.substring(encabezado.length(), linea.length());
 		return textoADevolver;
 	}

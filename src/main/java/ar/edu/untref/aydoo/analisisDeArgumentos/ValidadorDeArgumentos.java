@@ -31,13 +31,13 @@ public class ValidadorDeArgumentos {
 		this.listaDeExcepciones.add(excepcion);
 	}
 
-	public String getNombreDelArchivoDeEntrada(){
-		return this.nombreDelArchivoDeEntrada;
-	}
-
 	public String getNombreDeCarpetaDeSalida() {		
 		return this.nombreDeCarpetaDeSalida;
 	}	
+	
+	public String getNombreDelArchivoDeEntrada(){
+		return this.nombreDelArchivoDeEntrada;
+	}
 
 	public void setNombreDelArchivoDeEntrada(){
 
@@ -66,23 +66,6 @@ public class ValidadorDeArgumentos {
 		return posicionDelNombreDeArchivoDeEntrada;			
 	}
 
-	private void setNombreDeCarpetaDeSalida(){
-		String nombreDeLaCarpetaSinExtension = ""; 
-		Boolean existeUnicamenteArgumentoOutput = this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(0).substring(0, 9).equalsIgnoreCase("--output=");
-		Boolean existeArgumentoOutput = this.listaDeArgumentos.size() > 1 && this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(1).substring(0, 9).equalsIgnoreCase("--output=");
-		//La presente estructura if-else busca el nombre de la carpeta de salida en la entrada 
-		//Es un procedimiento que esperamos que jamas cambie, sin importar el numero o tipo de argumentos
-		if (existeUnicamenteArgumentoOutput) {			
-			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
-		} else if (existeArgumentoOutput) {			
-			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(1).substring(9);			
-		} else {			
-			nombreDeLaCarpetaSinExtension = this.nombreDelArchivoDeEntrada.replace(".md", "");
-		}
-
-		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
-	}
-
 	private boolean nombreContieneCaracteresInvalidos(String nombreDeLaCarpetaSinExtension) {
 		Boolean contieneCaracteresInvalidos = false;		
 		String caracteresInvalidos = " ñÑáéíóúÁÉÍÓÚ/";
@@ -99,10 +82,27 @@ public class ValidadorDeArgumentos {
 
 		return contieneCaracteresInvalidos;
 	}	
+	
+	private void setNombreDeCarpetaDeSalida(){
+		String nombreDeLaCarpetaSinExtension = ""; 
+		Boolean existeUnicamenteArgumentoOutput = this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(0).substring(0, 9).equalsIgnoreCase("--output=");
+		Boolean existeArgumentoOutput = this.listaDeArgumentos.size() > 1 && this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(1).substring(0, 9).equalsIgnoreCase("--output=");
+		//La presente estructura if-else busca el nombre de la carpeta de salida en la entrada 
+		//Es un procedimiento que esperamos que jamas cambie, sin importar el numero o tipo de argumentos
+		if (existeUnicamenteArgumentoOutput) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
+		} else if (existeArgumentoOutput) {			
+			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(1).substring(9);			
+		} else {			
+			nombreDeLaCarpetaSinExtension = this.nombreDelArchivoDeEntrada.replace(".md", "");
+		}
+		
+		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
+	}
 
 	private void validarListaDeArgumentos() {	
 		for(ArgumentosException excepcion : this.listaDeExcepciones){
-			excepcion.getInstance();
+			excepcion.getNuevaInstancia();
 		}
 	}
 

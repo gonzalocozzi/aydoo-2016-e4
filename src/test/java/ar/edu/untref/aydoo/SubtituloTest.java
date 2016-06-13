@@ -13,7 +13,7 @@ public class SubtituloTest {
 		
 		Subtitulo subtitulo = new Subtitulo();
 		
-		String prefijo = subtitulo.getPrefijo();
+		String prefijo = subtitulo.getPrefijoHTML();
 		
 		Assert.assertEquals("<h2>", prefijo);
 	}
@@ -23,7 +23,7 @@ public class SubtituloTest {
 		
 		Subtitulo subtitulo = new Subtitulo();
 		
-		String sufijo = subtitulo.getSufijo();
+		String sufijo = subtitulo.getSufijoHTML();
 		
 		Assert.assertEquals("</h2>", sufijo);
 	}	
@@ -56,7 +56,7 @@ public class SubtituloTest {
 	@Test
 	public void elSubtituloSeCreaConSuEncabezadoMD(){
 		Subtitulo subtitulo = new Subtitulo();
-		String encabezadoObtenido = subtitulo.getEncabezado();
+		String encabezadoObtenido = subtitulo.getEncabezadoMD();
 		
 		String encabezadoEsperado = "##";
 				

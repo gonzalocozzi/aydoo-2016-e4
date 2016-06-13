@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
@@ -24,7 +24,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTML titulo = new Titulo();
+		Etiqueta titulo = new Titulo();
 		titulo.setTexto("un titulo");
 		
 		visitor.visitar(titulo);
@@ -39,7 +39,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTML subtitulo = new Subtitulo();
+		Etiqueta subtitulo = new Subtitulo();
 		subtitulo.setTexto("un subtitulo");
 		
 		visitor.visitar(subtitulo);
@@ -54,7 +54,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTML imagen = new Imagen();
+		Etiqueta imagen = new Imagen();
 		imagen.setTexto("imagen.jpg");
 		
 		visitor.visitar(imagen);
@@ -69,7 +69,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTML textoSinFormato = new TextoSinFormato();
+		Etiqueta textoSinFormato = new TextoSinFormato();
 		textoSinFormato.setTexto("un texto");
 		
 		visitor.visitar(textoSinFormato);
@@ -84,7 +84,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTML itemDeLista = new ItemDeLista();
+		Etiqueta itemDeLista = new ItemDeLista();
 		itemDeLista.setTexto("un item de lista");
 		
 		visitor.visitar(itemDeLista);
@@ -99,7 +99,7 @@ public class VisitorTest {
 		
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();
 		
-		EtiquetaHTML etiquetaGenerica = new Titulo();
+		Etiqueta etiquetaGenerica = new Titulo();
 		etiquetaGenerica.setTexto("texto");
 		
 		visitor.visitar(etiquetaGenerica);

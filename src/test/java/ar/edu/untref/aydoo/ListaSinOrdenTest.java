@@ -17,7 +17,7 @@ public class ListaSinOrdenTest {
 		
 		ListaSinOrden lista = new ListaSinOrden();
 		
-		String prefijo = lista.getPrefijo();
+		String prefijo = lista.getPrefijoHTML();
 		
 		Assert.assertEquals("<ul>", prefijo);
 	}
@@ -27,7 +27,7 @@ public class ListaSinOrdenTest {
 		
 		ListaSinOrden lista = new ListaSinOrden();
 		
-		String sufijo = lista.getSufijo();
+		String sufijo = lista.getSufijoHTML();
 		
 		Assert.assertEquals("</ul>", sufijo);
 	}

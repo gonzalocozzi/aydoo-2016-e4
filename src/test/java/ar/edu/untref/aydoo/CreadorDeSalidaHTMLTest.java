@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.CreadorDeSalidaHTML;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
@@ -22,7 +22,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnListaVacia(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		CreadorDeSalidaHTML creador = new CreadorDeSalidaHTML(lista);
 		
 		List<String> listaEsperada = new LinkedList<String>();
@@ -33,7 +33,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnTitulo(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
 		lista.add(titulo);
@@ -49,7 +49,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnSubtitulo(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Subtitulo subtitulo = new Subtitulo();
 		subtitulo.setTexto("un subtitulo");
 		lista.add(subtitulo);
@@ -65,7 +65,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnaImagen(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Imagen imagen = new Imagen();
 		imagen.setTexto("imagen.jpg");
 		lista.add(imagen);
@@ -81,7 +81,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnTituloYUnaImagen(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
 		Imagen imagen = new Imagen();
@@ -102,7 +102,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnSubtituloYUnTextoSinFormato(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Subtitulo subtitulo = new Subtitulo();
 		subtitulo.setTexto("un subtitulo");
 		TextoSinFormato textoSinFormato = new TextoSinFormato();
@@ -123,7 +123,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnaSeccionConUnTitulo(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
@@ -144,7 +144,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnaSeccionConUnTituloYSubtitulo(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
@@ -169,7 +169,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnaSeccionConUnTituloYUnaListaSinOrdenYUnItem(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
@@ -199,7 +199,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConUnaSeccionConUnTituloYUnaListaSinOrdenYUnItemYUnaImagen(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
@@ -233,7 +233,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConDosSeccionesConUnTitulo(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("un titulo");
@@ -264,7 +264,7 @@ public class CreadorDeSalidaHTMLTest {
 	@Test
 	public void recibeUnaListaConEjemploDeConsigna(){
 		
-		List<EtiquetaHTML> lista = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> lista = new LinkedList<Etiqueta>();
 		Titulo titulo = new Titulo();
 		titulo.setTexto("El titulo");
 		Subtitulo subtitulo = new Subtitulo();

@@ -5,22 +5,22 @@ import java.util.List;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitor;
 
-public class Seccion extends EtiquetaHTML{
+public class Seccion extends Etiqueta{
 
-	private List<EtiquetaHTML> listaDeElementos;
+	private List<Etiqueta> listaDeElementos;
 
 	public Seccion(){
-		this.prefijo = "<section>";
-		this.sufijo = "</section>";
+		this.prefijoHTML = "<section>";
+		this.sufijoHTML = "</section>";
 		this.listaDeElementos = new LinkedList<>();
 		this.encabezadoMD = "---";
 	}
 
-	public void agregarElemento(EtiquetaHTML elemento) {
+	public void agregarElemento(Etiqueta elemento) {
 		this.listaDeElementos.add(elemento);		
 	}
 
-	public List<EtiquetaHTML> getListaDeElementos() {
+	public List<Etiqueta> getListaDeElementos() {
 		return this.listaDeElementos;
 	}
 
@@ -28,9 +28,9 @@ public class Seccion extends EtiquetaHTML{
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);
 	}
-	
+
 	@Override
-	protected Seccion crearNuevaInstancia() {
+	protected Seccion getNuevaInstancia() {
 		return new Seccion();
 	}
 }

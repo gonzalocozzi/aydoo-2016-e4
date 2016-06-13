@@ -21,7 +21,8 @@ public class NumeroDeArgumentosExcedidoException extends ArgumentosException {
 		return this.mensaje;
 	}
 	
-	public void getInstance(){
+	@Override
+	public void getNuevaInstancia(){
 		if(this.listaDeArgumentos.size() > 2){
 			throw new NumeroDeArgumentosExcedidoException(listaDeArgumentos, mensaje);
 		}

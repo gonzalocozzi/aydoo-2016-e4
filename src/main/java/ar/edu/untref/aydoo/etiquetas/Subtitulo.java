@@ -3,11 +3,11 @@ package ar.edu.untref.aydoo.etiquetas;
 import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitable;
 import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitor;
 
-public class Subtitulo extends EtiquetaHTML implements Visitable{
+public class Subtitulo extends Etiqueta implements Visitable{
 
 	public Subtitulo(){
-		this.prefijo = "<h2>";	
-		this.sufijo = "</h2>";
+		this.prefijoHTML = "<h2>";	
+		this.sufijoHTML = "</h2>";
 		this.encabezadoMD = "##";
 	}
 
@@ -15,9 +15,9 @@ public class Subtitulo extends EtiquetaHTML implements Visitable{
 	public void aceptarVisitor(Visitor visitor) {
 		visitor.visitar(this);		
 	}
-	
+
 	@Override
-	protected Subtitulo crearNuevaInstancia() {
+	protected Subtitulo getNuevaInstancia() {
 		return new Subtitulo();
 	}
 }

@@ -16,15 +16,15 @@ public class AnalizadorDeArgumentos {
 		}
 	}
 
-	public Boolean isModeDefault() {
+	public Boolean contieneModoDefault() {
 		return this.listaDeArgumentos.contains("--mode=default") || this.listaDeArgumentos.size() == 1;
 	}
 
-	public Boolean isModeNoOutput() {
+	public Boolean contieneModoNoOutput() {
 		return this.listaDeArgumentos.contains("--mode=no-output");
 	}
 
-	public Boolean isOutput() {
+	public Boolean contieneOutput() {
 		String stringDeArgumentos = this.listaDeArgumentos.toString();
 		return stringDeArgumentos.contains("--output=");
 	}

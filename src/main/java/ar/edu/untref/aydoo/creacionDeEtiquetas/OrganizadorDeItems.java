@@ -3,21 +3,22 @@ package ar.edu.untref.aydoo.creacionDeEtiquetas;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
 
 public class OrganizadorDeItems implements Organizable{
 
-	private List<EtiquetaHTML> listaOrganizada;
-	private List<EtiquetaHTML> listaDeEtiquetas;
-	
+	private List<Etiqueta> listaOrganizada;
+	private List<Etiqueta> listaDeEtiquetas;
+
 	public OrganizadorDeItems(){
-		this.listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		this.listaOrganizada =  new LinkedList<EtiquetaHTML>();
+		this.listaDeEtiquetas = new LinkedList<Etiqueta>();
+		this.listaOrganizada =  new LinkedList<Etiqueta>();
 	}
 
-	public List<EtiquetaHTML> organizar(List<EtiquetaHTML> listaDeEtiquetas) {
+	@Override
+	public List<Etiqueta> organizar(List<Etiqueta> listaDeEtiquetas) {
 		this.listaDeEtiquetas = listaDeEtiquetas;
 
 		for(int i = 0; i < this.listaDeEtiquetas.size(); i++){
@@ -50,7 +51,7 @@ public class OrganizadorDeItems implements Organizable{
 		return (j+i)-1;
 	}
 
-	private ListaSinOrden agregarItemALaListaDeItems(EtiquetaHTML etiquetaHTML, ListaSinOrden listaDeItems, int posicionDeItemActual) {
+	private ListaSinOrden agregarItemALaListaDeItems(Etiqueta etiquetaHTML, ListaSinOrden listaDeItems, int posicionDeItemActual) {
 		listaDeItems.agregarItem((ItemDeLista) this.listaDeEtiquetas.get(posicionDeItemActual));
 		return listaDeItems;
 	}

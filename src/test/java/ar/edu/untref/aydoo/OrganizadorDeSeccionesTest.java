@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.OrganizadorDeSecciones;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.Seccion;
 import ar.edu.untref.aydoo.etiquetas.Subtitulo;
@@ -18,9 +18,9 @@ public class OrganizadorDeSeccionesTest {
 	@Test
 	public void unaSeccionContieneEtiquetasDentro(){
 		OrganizadorDeSecciones organizadorDeSecciones = new OrganizadorDeSecciones();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		Subtitulo subtitulo = new Subtitulo();
@@ -38,9 +38,9 @@ public class OrganizadorDeSeccionesTest {
 	@Test
 	public void unaSeccionDetectaCuandoTerminaYEmpiezaLaSiguiente(){
 		OrganizadorDeSecciones organizadorDeSecciones = new OrganizadorDeSecciones();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		Seccion seccion1 = new Seccion();
 		Titulo titulo = new Titulo();
 		Seccion seccion2 = new Seccion();
@@ -61,9 +61,9 @@ public class OrganizadorDeSeccionesTest {
 	@Test
 	public void siUnaEtiquetaHTMLEstaAntesDeQueComiencenLasSeccionesEntoncesNoEstaEnNingunaSeccion(){
 		OrganizadorDeSecciones organizadorDeSecciones = new OrganizadorDeSecciones();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		Imagen imagen = new Imagen();
 		Seccion seccion1 = new Seccion();
 		Titulo titulo = new Titulo();

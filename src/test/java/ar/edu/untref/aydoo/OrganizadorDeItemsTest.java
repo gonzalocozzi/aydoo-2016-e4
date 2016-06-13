@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.OrganizadorDeItems;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
 import ar.edu.untref.aydoo.etiquetas.TextoSinFormato;
@@ -17,8 +17,8 @@ public class OrganizadorDeItemsTest {
 	@Test
 	public void siHayItemsSeCreaUnaListaDeItemsQueContengaAEseItemYALosQueEstanContiguos(){
 		OrganizadorDeItems organizadorDeItems = new OrganizadorDeItems();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
 		ItemDeLista item1 = new ItemDeLista();
 		item1.setTexto("item 1");
 		ItemDeLista item2 = new ItemDeLista();
@@ -27,7 +27,7 @@ public class OrganizadorDeItemsTest {
 		listaDeEtiquetas.add(item2);
 		listaOrganizadaObtenida = organizadorDeItems.organizar(listaDeEtiquetas);
 
-		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		ListaSinOrden listaDeItems = new ListaSinOrden();
 		listaDeItems.agregarItem(item1);
 		listaDeItems.agregarItem(item2);
@@ -40,8 +40,8 @@ public class OrganizadorDeItemsTest {
 	@Test
 	public void siHayAlgoQueNoEsItemEntreLosItemsEntoncesPertenecenAListasDistintasLosItemsYLoQueNoEsItemNoEntraEnLaLista(){
 		OrganizadorDeItems organizadorDeItems = new OrganizadorDeItems();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
 		ItemDeLista item1 = new ItemDeLista();
 		item1.setTexto("item 1");
 		ItemDeLista item2 = new ItemDeLista();
@@ -52,7 +52,7 @@ public class OrganizadorDeItemsTest {
 		listaDeEtiquetas.add(item2);
 		listaOrganizadaObtenida = organizadorDeItems.organizar(listaDeEtiquetas);
 
-		List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		ListaSinOrden listaDeItems1 = new ListaSinOrden();
 		ListaSinOrden listaDeItems2 = new ListaSinOrden();
 		listaDeItems1.agregarItem(item1);
@@ -69,8 +69,8 @@ public class OrganizadorDeItemsTest {
 	@Test
 	public void seAgreganVariosItemsYTodosConservanSuTexto(){
 		OrganizadorDeItems organizadorDeItems = new OrganizadorDeItems();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizadaObtenida = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
 		List<String> listaDeTextosGenerados = new LinkedList<String>();
 		ItemDeLista item1 = new ItemDeLista();
 		item1.setTexto("item 1");

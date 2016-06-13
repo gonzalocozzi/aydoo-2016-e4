@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.OrganizadorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
@@ -21,8 +21,8 @@ public class OrganizadorDeEtiquetasTest {
 	@Test
 	public void siHayUnaSeccionAbiertaLasEtiquetasQueLeSiguenSeAgreganALaSeccion(){
 		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizada = new LinkedList<Etiqueta>();
 		listaDeEtiquetas.add(new Seccion());
 		listaDeEtiquetas.add(new Titulo());
 		listaDeEtiquetas.add(new Subtitulo());
@@ -36,8 +36,8 @@ public class OrganizadorDeEtiquetasTest {
 	@Test
 	public void siNoSeAbreSeccionSeGuardanLasEtiquetasFueraDeLaSeccion(){
 		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizada = new LinkedList<Etiqueta>();
 		listaDeEtiquetas.add(new Imagen());
 		listaDeEtiquetas.add(new Subtitulo());
 		listaOrganizada = miOrganizador.organizar(listaDeEtiquetas);
@@ -48,8 +48,8 @@ public class OrganizadorDeEtiquetasTest {
 	@Test
 	public void seDetectaQueHayUnCambioDeSeccion(){
 		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizada = new LinkedList<Etiqueta>();
 		listaDeEtiquetas.add(new Seccion());
 		listaDeEtiquetas.add(new Titulo());
 		listaDeEtiquetas.add(new Seccion());
@@ -65,8 +65,8 @@ public class OrganizadorDeEtiquetasTest {
 	@Test
 	public void losItemsVanDentroDeUnaListaDeItems(){
 		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizada = new LinkedList<Etiqueta>();
 		ItemDeLista item1 = new ItemDeLista();
 		ItemDeLista item2 = new ItemDeLista();		
 		item1.setTexto("primer item");
@@ -84,8 +84,8 @@ public class OrganizadorDeEtiquetasTest {
 	@Test
 	public void losItemsVanDentroDeUnaListaDeItemsYLaListaDentroDeUnaSeccionSiHaySecciones(){
 		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizada = new LinkedList<Etiqueta>();
 		ItemDeLista item1 = new ItemDeLista();
 		ItemDeLista item2 = new ItemDeLista();		
 		ItemDeLista item3 = new ItemDeLista();
@@ -112,8 +112,8 @@ public class OrganizadorDeEtiquetasTest {
 	@Test
 	public void losItemsVanDentroDeUnaListaDeItemsYLaListaDentroDeSuSeccionCorrespondienteSiHayMasDeUnaSeccion(){
 		OrganizadorDeEtiquetas miOrganizador = new OrganizadorDeEtiquetas();
-		List<EtiquetaHTML> listaDeEtiquetas = new LinkedList<EtiquetaHTML>();
-		List<EtiquetaHTML> listaOrganizada = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
+		List<Etiqueta> listaOrganizada = new LinkedList<Etiqueta>();
 		ItemDeLista item1 = new ItemDeLista();
 		ItemDeLista item2 = new ItemDeLista();		
 		ItemDeLista item3 = new ItemDeLista();
@@ -132,7 +132,7 @@ public class OrganizadorDeEtiquetasTest {
 		listaDeEtiquetas.add(item3);
 		listaOrganizada = miOrganizador.organizar(listaDeEtiquetas);
 		
-		List<EtiquetaHTML> listaResultante = new LinkedList<EtiquetaHTML>();
+		List<Etiqueta> listaResultante = new LinkedList<Etiqueta>();
 		
 		ListaSinOrden lista1 = new ListaSinOrden();
 		lista1.agregarItem(item1);

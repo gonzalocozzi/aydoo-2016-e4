@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 
 public class ImagenTest {
@@ -12,9 +12,9 @@ public class ImagenTest {
 	@Test
 	public void imagenSeCreaConPrefijo(){
 		
-		EtiquetaHTML imagen = new Imagen();
+		Etiqueta imagen = new Imagen();
 		
-		String prefijo = imagen.getPrefijo();
+		String prefijo = imagen.getPrefijoHTML();
 		
 		Assert.assertEquals("<img src=\"", prefijo);
 	}	
@@ -22,9 +22,9 @@ public class ImagenTest {
 	@Test
 	public void imagenSeCreaConSufijo(){
 		
-		EtiquetaHTML imagen = new Imagen();
+		Etiqueta imagen = new Imagen();
 		
-		String sufijo = imagen.getSufijo();
+		String sufijo = imagen.getSufijoHTML();
 		
 		Assert.assertEquals("\"/>", sufijo);
 	}
@@ -32,7 +32,7 @@ public class ImagenTest {
 	@Test
 	public void seIncorporaRutaDeLaImagen(){
 		
-		EtiquetaHTML imagen = new Imagen();	
+		Etiqueta imagen = new Imagen();	
 		String ruta = "imagen.png";
 		imagen.setTexto(ruta);
 		
@@ -57,7 +57,7 @@ public class ImagenTest {
 	@Test
 	public void laImagenSeCreaConSuEncabezadoMD(){
 		Imagen imagen = new Imagen();
-		String encabezadoObtenido = imagen.getEncabezado();
+		String encabezadoObtenido = imagen.getEncabezadoMD();
 		
 		String encabezadoEsperado = "i:";
 				

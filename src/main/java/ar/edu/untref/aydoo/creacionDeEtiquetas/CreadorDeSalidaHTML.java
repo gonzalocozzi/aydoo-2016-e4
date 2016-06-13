@@ -3,13 +3,13 @@ package ar.edu.untref.aydoo.creacionDeEtiquetas;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 
 public class CreadorDeSalidaHTML {
 
 	private List<String> listaDeSalida;
 
-	public CreadorDeSalidaHTML(List<EtiquetaHTML> listaDeEtiquetas) {
+	public CreadorDeSalidaHTML(List<Etiqueta> listaDeEtiquetas) {
 		this.listaDeSalida = new LinkedList<String>();
 		this.crearSalidaHTML(listaDeEtiquetas);
 	}
@@ -18,10 +18,10 @@ public class CreadorDeSalidaHTML {
 		return this.listaDeSalida;
 	}
 
-	public void crearSalidaHTML(List<EtiquetaHTML> listaDeEtiquetas){
+	public void crearSalidaHTML(List<Etiqueta> listaDeEtiquetas){
 		VisitorDeEtiquetas visitor = new VisitorDeEtiquetas();	
 
-		for(EtiquetaHTML etiqueta : listaDeEtiquetas){
+		for(Etiqueta etiqueta : listaDeEtiquetas){
 			etiqueta.aceptarVisitor(visitor);
 		}	
 

@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.untref.aydoo.creacionDeEtiquetas.CreadorDeEtiquetas;
-import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Etiqueta;
 import ar.edu.untref.aydoo.etiquetas.Imagen;
 import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
 import ar.edu.untref.aydoo.etiquetas.Seccion;
@@ -113,10 +113,10 @@ public class CreadorDeEtiquetasTest {
 			List<String> lista = new LinkedList<String>();
 			lista.add("---");
 
-			List<EtiquetaHTML> listaEtiquetaHTML = creador.crearListaDeEtiquetas(lista);
+			List<Etiqueta> listaEtiquetaHTML = creador.crearListaDeEtiquetas(lista);
 
 			Seccion seccion = new Seccion();
-			List<EtiquetaHTML> listaEsperada = new LinkedList<EtiquetaHTML>();
+			List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 			listaEsperada.add(seccion);
 
 			Assert.assertEquals(listaEsperada.get(0).getClass(), listaEtiquetaHTML.get(0).getClass());
@@ -137,7 +137,7 @@ public class CreadorDeEtiquetasTest {
 			miLista.add("# titulo 1");
 			miLista.add("## titulo 2");
 
-			List<EtiquetaHTML> lista = miCreador.crearListaDeEtiquetas(miLista);
+			List<Etiqueta> lista = miCreador.crearListaDeEtiquetas(miLista);
 
 			Assert.assertEquals(Seccion.class,lista.get(0).getClass());
 			Assert.assertEquals(Titulo.class, lista.get(1).getClass());
@@ -152,7 +152,7 @@ public class CreadorDeEtiquetasTest {
 		public void sePuedenGenerarEtiquetasSinTexto() throws InstantiationException, IllegalAccessException{
 			CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 			List<String> miLista = new LinkedList<String>();
-			List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+			List<Etiqueta> listaGenerada = new LinkedList<Etiqueta>();
 			miLista.add("##");
 			miLista.add("#");
 			miLista.add("*");
@@ -170,7 +170,7 @@ public class CreadorDeEtiquetasTest {
 		public void puedoInsertarLineaVacia() throws InstantiationException, IllegalAccessException{
 			CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 			List<String> miLista = new LinkedList<String>();
-			List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+			List<Etiqueta> listaGenerada = new LinkedList<Etiqueta>();
 			miLista.add("---");
 			miLista.add("");//este es el espacio vacio que inserto
 			miLista.add("# slide1 :titulo 1");
@@ -187,7 +187,7 @@ public class CreadorDeEtiquetasTest {
 		public void siSeRecibeAlgoQueContieneParcialmenteAUnEncabezadoEntoncesSigueSiendoUnTextoSinFormato() throws InstantiationException, IllegalAccessException{
 			CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 			List<String> miLista = new LinkedList<String>();
-			List<EtiquetaHTML> listaGenerada = new LinkedList<EtiquetaHTML>();
+			List<Etiqueta> listaGenerada = new LinkedList<Etiqueta>();
 			miLista.add("--");
 			listaGenerada = miCreador.crearListaDeEtiquetas(miLista);
 			Assert.assertEquals("--", listaGenerada.get(0).getTexto());
@@ -198,7 +198,7 @@ public class CreadorDeEtiquetasTest {
 			CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
 			Titulo titulo = new Titulo(); //meto una Etiqueta cualquiera que no sea TextoSinFormato
 			miCreador.agregarNuevaEtiqueta(titulo);
-			ArrayList<EtiquetaHTML> lista = miCreador.getEtiquetasHtml();
+			ArrayList<Etiqueta> lista = miCreador.getEtiquetasHtml();
 			Assert.assertEquals(TextoSinFormato.class, lista.get(lista.size()-1).getClass());
 		}
 }

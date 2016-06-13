@@ -30,7 +30,7 @@ public class AnalizadorDeArgumentosTest {
 		listaDeArgumentos.add("mipresentacion.md");
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(listaDeArgumentos);
 		
-		Boolean modeDefault = analizador.isModeDefault();
+		Boolean modeDefault = analizador.contieneModoDefault();
 		
 		Assert.assertTrue(modeDefault);
 	}
@@ -42,7 +42,7 @@ public class AnalizadorDeArgumentosTest {
 		listaDeArgumentos.add("mipresentacion.md");
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(listaDeArgumentos);
 		
-		Boolean modeDefault = analizador.isModeDefault();
+		Boolean modeDefault = analizador.contieneModoDefault();
 		
 		Assert.assertTrue(modeDefault);
 	}
@@ -55,7 +55,7 @@ public class AnalizadorDeArgumentosTest {
 		listaDeArgumentos.add("mipresentacion.md");
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(listaDeArgumentos);
 		
-		Boolean modeNoOutput = analizador.isModeNoOutput();
+		Boolean modeNoOutput = analizador.contieneModoNoOutput();
 		
 		Assert.assertTrue(modeNoOutput);
 	}
@@ -68,7 +68,7 @@ public class AnalizadorDeArgumentosTest {
 		listaDeArgumentos.add("mipresentacion.md");		
 		AnalizadorDeArgumentos analizador = new AnalizadorDeArgumentos(listaDeArgumentos);
 		
-		Boolean output = analizador.isOutput();
+		Boolean output = analizador.contieneOutput();
 		
 		Assert.assertTrue(output);
 	}
