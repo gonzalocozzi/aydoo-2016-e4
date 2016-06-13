@@ -6,14 +6,14 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
-import ar.edu.untref.aydoo.dominio.Imagen;
-import ar.edu.untref.aydoo.dominio.ListaSinOrden;
-import ar.edu.untref.aydoo.dominio.Seccion;
-import ar.edu.untref.aydoo.dominio.Subtitulo;
-import ar.edu.untref.aydoo.dominio.TextoSinFormato;
-import ar.edu.untref.aydoo.dominio.Titulo;
-import ar.edu.untref.aydoo.procesamientoDeParametros.VisitorDeEtiquetas;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
+import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Imagen;
+import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
+import ar.edu.untref.aydoo.etiquetas.Seccion;
+import ar.edu.untref.aydoo.etiquetas.Subtitulo;
+import ar.edu.untref.aydoo.etiquetas.TextoSinFormato;
+import ar.edu.untref.aydoo.etiquetas.Titulo;
 
 public class SeccionTest {
 

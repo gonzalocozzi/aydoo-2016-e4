@@ -1,8 +1,8 @@
-package ar.edu.untref.aydoo.procesamientoDeParametros;
+package ar.edu.untref.aydoo.creacionDeEtiquetas;
 
 import java.util.List;
 
-import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
 
 public interface Organizable {
 

@@ -1,20 +1,20 @@
-package ar.edu.untref.aydoo.procesamientoDeParametros;
+package ar.edu.untref.aydoo.creacionDeEtiquetas;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
-import ar.edu.untref.aydoo.dominio.Imagen;
-import ar.edu.untref.aydoo.dominio.ItemDeLista;
-import ar.edu.untref.aydoo.dominio.Seccion;
-import ar.edu.untref.aydoo.dominio.Subtitulo;
-import ar.edu.untref.aydoo.dominio.TextoSinFormato;
-import ar.edu.untref.aydoo.dominio.Titulo;
+import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Imagen;
+import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
+import ar.edu.untref.aydoo.etiquetas.Seccion;
+import ar.edu.untref.aydoo.etiquetas.Subtitulo;
+import ar.edu.untref.aydoo.etiquetas.TextoSinFormato;
+import ar.edu.untref.aydoo.etiquetas.Titulo;
 
 public class CreadorDeEtiquetas {
 
-	private final ArrayList<EtiquetaHTML> etiquetasHtml;
+	private ArrayList<EtiquetaHTML> etiquetasHtml;
 	
 	public CreadorDeEtiquetas() {
 		this.etiquetasHtml = new ArrayList<EtiquetaHTML>();

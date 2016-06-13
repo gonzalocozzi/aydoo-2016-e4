@@ -1,13 +1,13 @@
-package ar.edu.untref.aydoo.dominio;
+package ar.edu.untref.aydoo.etiquetas;
 
-import ar.edu.untref.aydoo.procesamientoDeParametros.Visitable;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitable;
 
 public abstract class EtiquetaHTML implements Visitable{
 
 	protected String prefijo;
 	protected String sufijo;
 	private String texto;
-	protected String encabezadoMD;
+	protected String encabezadoMD;	
 
 	public String getPrefijo() {
 		return this.prefijo;
@@ -29,18 +29,18 @@ public abstract class EtiquetaHTML implements Visitable{
 		return this.encabezadoMD;
 	}
 	
+	protected EtiquetaHTML crearNuevaInstancia(){
+		return this;
+	}
+	
 	public EtiquetaHTML crearConMD(String entradaMarkdown) {
-		EtiquetaHTML etiqueta = crearNuevaInstancia();
+		EtiquetaHTML etiqueta = this.crearNuevaInstancia();
 		if(entradaMarkdown.startsWith(encabezadoMD)){
 			texto = this.buscarTexto(entradaMarkdown);
 			etiqueta.setTexto(texto);
 			return etiqueta;
 		}
 		return null;
-	}
-
-	protected EtiquetaHTML crearNuevaInstancia() {
-		return this;
 	}
 
 	private String buscarTexto(String linea) {

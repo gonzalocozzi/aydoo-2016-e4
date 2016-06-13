@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.opcionesDeEjecucion.AnalizadorDeArgumentos;
+import ar.edu.untref.aydoo.analisisDeArgumentos.AnalizadorDeArgumentos;
 
 public class AnalizadorDeArgumentosTest {
 	

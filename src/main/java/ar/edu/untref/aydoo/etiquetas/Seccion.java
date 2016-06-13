@@ -1,9 +1,9 @@
-package ar.edu.untref.aydoo.dominio;
+package ar.edu.untref.aydoo.etiquetas;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.procesamientoDeParametros.Visitor;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitor;
 
 public class Seccion extends EtiquetaHTML{
 

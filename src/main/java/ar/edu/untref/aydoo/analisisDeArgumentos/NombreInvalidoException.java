@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo.excepciones;
+package ar.edu.untref.aydoo.analisisDeArgumentos;
 
 public class NombreInvalidoException extends RuntimeException {
 

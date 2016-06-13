@@ -10,11 +10,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.excepciones.ArgumentoInvalidoException;
-import ar.edu.untref.aydoo.excepciones.NombreInvalidoException;
-import ar.edu.untref.aydoo.excepciones.NumeroDeArgumentosExcedidoException;
-import ar.edu.untref.aydoo.excepciones.SinNombreDelArchivoDeEntradaException;
-import ar.edu.untref.aydoo.opcionesDeEjecucion.ValidadorDeArgumentos;
+import ar.edu.untref.aydoo.analisisDeArgumentos.ArgumentoInvalidoException;
+import ar.edu.untref.aydoo.analisisDeArgumentos.NombreInvalidoException;
+import ar.edu.untref.aydoo.analisisDeArgumentos.NumeroDeArgumentosExcedidoException;
+import ar.edu.untref.aydoo.analisisDeArgumentos.SinNombreDelArchivoDeEntradaException;
+import ar.edu.untref.aydoo.analisisDeArgumentos.ValidadorDeArgumentos;
 
 public class ValidadorDeArgumentosTest {
 	
@@ -31,7 +31,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test
-	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDelArchivoDeEntrada() throws SinNombreDelArchivoDeEntradaException{
+	public void validadorDeArgumentosRecibeUnParametroYDevuelveElNombreDelArchivoDeEntrada() throws SinNombreDelArchivoDeEntradaException{
 
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("mi-presentacion.md");
@@ -43,7 +43,7 @@ public class ValidadorDeArgumentosTest {
 	}
 
 	@Test
-	public void analizadorDeArgumentosRecibeUnParametroYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
+	public void validadorDeArgumentosRecibeUnParametroYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
 
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("mipresentacion.md");
@@ -55,7 +55,7 @@ public class ValidadorDeArgumentosTest {
 	}
 
 	@Test
-	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
+	public void validadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
 
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -68,7 +68,7 @@ public class ValidadorDeArgumentosTest {
 	}
 
 	@Test
-	public void analizadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalidaSinImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
+	public void validadorDeArgumentosRecibeVariosParametrosYDevuelveElNombreDeLaCarpetaDeSalidaSinImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
 
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("mipresentacion.md");
@@ -81,7 +81,7 @@ public class ValidadorDeArgumentosTest {
 	}
 
 	@Test
-	public void analizadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
+	public void validadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalida() throws SinNombreDelArchivoDeEntradaException{
 
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--output=nuevacarpeta");
@@ -94,7 +94,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test
-	public void analizadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalidaSInImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
+	public void validadorDeArgumentosRecibeParametroOutputYDevuelveElNombreDeLaCarpetaDeSalidaSInImportarElOrden() throws SinNombreDelArchivoDeEntradaException{
 
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("mipresentacion.md");
@@ -107,7 +107,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEspacio(){
+	public void validadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEspacio(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -118,7 +118,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMayuscula(){
+	public void validadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMayuscula(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -129,7 +129,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMinuscula(){
+	public void validadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConEnieMinuscula(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -140,7 +140,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConBarra(){
+	public void validadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConBarra(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -151,7 +151,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConVocalesMayusculasAcentuadas(){
+	public void validadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConVocalesMayusculasAcentuadas(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -162,7 +162,7 @@ public class ValidadorDeArgumentosTest {
 	}
 	
 	@Test(expected=NombreInvalidoException.class)
-	public void analizadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConVocalesMinusculasAcentuadas(){
+	public void validadorDeArgumentosNoAceptaNombreDeArchivoDeEntradaConVocalesMinusculasAcentuadas(){
 		
 		List<String> listaDeArgumentos = new ArrayList<String>();
 		listaDeArgumentos.add("--mode=default");
@@ -170,16 +170,6 @@ public class ValidadorDeArgumentosTest {
 		
 		@SuppressWarnings("unused")
 		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(listaDeArgumentos);
-	}
-
-	@Test
-	public void validadorDeArgumentosIndicaQueArgumentoEsValido(){
-
-		List<String> args = new ArrayList<String>();
-		args.add("mi.presentacion.md");
-		ValidadorDeArgumentos validador = new ValidadorDeArgumentos(args);
-
-		Assert.assertTrue(validador.argumentosSonValidos());
 	}
 
 	@Test(expected=SinNombreDelArchivoDeEntradaException.class)

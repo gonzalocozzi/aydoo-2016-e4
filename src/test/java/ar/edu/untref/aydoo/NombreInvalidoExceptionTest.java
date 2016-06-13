@@ -3,7 +3,7 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.excepciones.NombreInvalidoException;
+import ar.edu.untref.aydoo.analisisDeArgumentos.NombreInvalidoException;
 
 public class NombreInvalidoExceptionTest {
 	

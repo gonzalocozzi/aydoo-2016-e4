@@ -1,16 +1,16 @@
-package ar.edu.untref.aydoo.opcionesDeEjecucion;
+package ar.edu.untref.aydoo.analisisDeArgumentos;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.CreadorDeEtiquetas;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.CreadorDeSalidaHTML;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.OrganizadorDeEtiquetas;
+import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
 import ar.edu.untref.aydoo.io.CreadorDeCarpetaDeSalida;
 import ar.edu.untref.aydoo.io.EscritorDeArchivo;
 import ar.edu.untref.aydoo.io.LectorDeArchivo;
-import ar.edu.untref.aydoo.procesamientoDeParametros.CreadorDeEtiquetas;
-import ar.edu.untref.aydoo.procesamientoDeParametros.CreadorDeSalidaHTML;
-import ar.edu.untref.aydoo.procesamientoDeParametros.OrganizadorDeEtiquetas;
 
 public class SelectorDeModo {
 
@@ -18,20 +18,20 @@ public class SelectorDeModo {
 	private ValidadorDeArgumentos validadorDeArgumentos;
 	private AnalizadorDeArgumentos analizadorDeArgumentos;
 	private CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida;
-	private String archivoEntrada;
-	private String archivoParaEscribirConSalidaHTML;
+	private String nombreDelArchivoEntrada;
+	private String direccionDelArchivoParaEscribirConSalidaHTML;
 
 	public SelectorDeModo(String[] argumentos) {
 		this.listaDeArgumentos = new ArrayList<String>();
-		inicializarSelector(argumentos);
+		this.inicializarSelector(argumentos);
 	}
 
 	private void inicializarSelector(String[] argumentos) {
 		this.setListaDeArgumentos(argumentos);
-		this.validarArgumentos();
-		this.analizarArgumentos();
-		this.setArchivoDeEntrada(this.validadorDeArgumentos.getNombreDelArchivoDeEntrada());
-		this.setArchivoParaEscribirConSalidaHTML(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida() + "/index.html");
+		this.validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
+		this.analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
+		this.setNombreDelArchivoDeEntrada(this.validadorDeArgumentos.getNombreDelArchivoDeEntrada());
+		this.setDireccionDelArchivoParaEscribirConSalidaHTML(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida() + "/index.html");
 	}
 
 	public List<String> getListaDeArgumentos() {
@@ -45,24 +45,15 @@ public class SelectorDeModo {
 		}
 	}
 
-	public void setArchivoDeEntrada(String archivo){
-		this.archivoEntrada = archivo;
+	public void setNombreDelArchivoDeEntrada(String archivo){
+		this.nombreDelArchivoEntrada = archivo;
 	}
 
-	public void setArchivoParaEscribirConSalidaHTML(String archivo){
-		this.archivoParaEscribirConSalidaHTML = archivo;
-	}
-
-	private void validarArgumentos(){
-		this.validadorDeArgumentos = new ValidadorDeArgumentos(listaDeArgumentos);
-	}
-
-	private void analizarArgumentos(){
-		this.analizadorDeArgumentos = new AnalizadorDeArgumentos(listaDeArgumentos);
+	public void setDireccionDelArchivoParaEscribirConSalidaHTML(String archivo){
+		this.direccionDelArchivoParaEscribirConSalidaHTML = archivo;
 	}
 
 	public void seleccionarModo() throws IOException {	
-
 		if(analizadorDeArgumentos.isModeDefault() || analizadorDeArgumentos.isOutput()){	
 			this.seleccionarModoDefault();
 		} else if(analizadorDeArgumentos.isModeNoOutput()){
@@ -72,7 +63,7 @@ public class SelectorDeModo {
 
 	public void seleccionarModoDefault() throws IOException {		
 		//Se escribe en el archivo index.html la salida HTML estandar
-		this.creadorDeCarpetaDeSalida = creacionDeLaCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+		this.creadorDeCarpetaDeSalida = this.creacionDeLaCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
 		this.escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.getListaHTMLDeSalida());
 		System.out.println("El archivo fue exportado con exito.");
 	}
@@ -87,7 +78,7 @@ public class SelectorDeModo {
 	}
 
 	private List<String> getListaHTMLDeSalida() throws IOException{		
-		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(this.archivoEntrada);
+		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(this.nombreDelArchivoEntrada);
 		List<EtiquetaHTML> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
 		List<String> listaHTMLDeSalida = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTMLOrganizada);
 
@@ -123,6 +114,6 @@ public class SelectorDeModo {
 	private void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
 		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
-		escritorDeArchivo.escribirEnArchivo(this.archivoParaEscribirConSalidaHTML);
+		escritorDeArchivo.escribirEnArchivo(this.direccionDelArchivoParaEscribirConSalidaHTML);
 	}
 }

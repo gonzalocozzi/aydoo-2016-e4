@@ -1,7 +1,7 @@
-package ar.edu.untref.aydoo.dominio;
+package ar.edu.untref.aydoo.etiquetas;
 
-import ar.edu.untref.aydoo.procesamientoDeParametros.Visitable;
-import ar.edu.untref.aydoo.procesamientoDeParametros.Visitor;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitable;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.Visitor;
 
 public class Subtitulo extends EtiquetaHTML implements Visitable{
 

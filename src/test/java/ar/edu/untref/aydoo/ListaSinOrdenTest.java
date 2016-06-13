@@ -6,9 +6,9 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.ItemDeLista;
-import ar.edu.untref.aydoo.dominio.ListaSinOrden;
-import ar.edu.untref.aydoo.procesamientoDeParametros.VisitorDeEtiquetas;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
+import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
+import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
 
 public class ListaSinOrdenTest {
 	

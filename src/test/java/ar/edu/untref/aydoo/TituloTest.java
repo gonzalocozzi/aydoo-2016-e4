@@ -3,9 +3,9 @@ package ar.edu.untref.aydoo;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
-import ar.edu.untref.aydoo.dominio.Titulo;
-import ar.edu.untref.aydoo.procesamientoDeParametros.VisitorDeEtiquetas;
+import ar.edu.untref.aydoo.creacionDeEtiquetas.VisitorDeEtiquetas;
+import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.Titulo;
 
 public class TituloTest {
 	

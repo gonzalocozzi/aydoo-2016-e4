@@ -1,12 +1,12 @@
-package ar.edu.untref.aydoo.procesamientoDeParametros;
+package ar.edu.untref.aydoo.creacionDeEtiquetas;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import ar.edu.untref.aydoo.dominio.EtiquetaHTML;
-import ar.edu.untref.aydoo.dominio.ItemDeLista;
-import ar.edu.untref.aydoo.dominio.ListaSinOrden;
-import ar.edu.untref.aydoo.dominio.Seccion;
+import ar.edu.untref.aydoo.etiquetas.EtiquetaHTML;
+import ar.edu.untref.aydoo.etiquetas.ItemDeLista;
+import ar.edu.untref.aydoo.etiquetas.ListaSinOrden;
+import ar.edu.untref.aydoo.etiquetas.Seccion;
 
 public class VisitorDeEtiquetas implements Visitor{
 

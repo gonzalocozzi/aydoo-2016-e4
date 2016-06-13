@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo.procesamientoDeParametros;
+package ar.edu.untref.aydoo.creacionDeEtiquetas;
 
 public interface Visitable {
 

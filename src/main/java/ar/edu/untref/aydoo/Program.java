@@ -2,7 +2,7 @@ package ar.edu.untref.aydoo;
 
 import java.io.IOException;
 
-import ar.edu.untref.aydoo.opcionesDeEjecucion.SelectorDeModo;
+import ar.edu.untref.aydoo.analisisDeArgumentos.SelectorDeModo;
 
 public class Program {
 

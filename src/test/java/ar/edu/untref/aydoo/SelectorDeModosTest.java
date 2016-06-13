@@ -15,7 +15,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import ar.edu.untref.aydoo.opcionesDeEjecucion.SelectorDeModo;
+import ar.edu.untref.aydoo.analisisDeArgumentos.SelectorDeModo;
 
 public class SelectorDeModosTest {
 	
@@ -61,8 +61,8 @@ public class SelectorDeModosTest {
 		writer.println("segundo renglon");
 		writer.close();	
 		
-		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
+		selector.setNombreDelArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setDireccionDelArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModoDefault();
 				
 		String salidaEsperada = "El archivo fue exportado con exito.";
@@ -86,8 +86,8 @@ public class SelectorDeModosTest {
 		writer.println("segundo renglon");
 		writer.close();	
 		
-		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
+		selector.setNombreDelArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setDireccionDelArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModoNoOutput();
 				
 		String salidaEsperada = "Salida HTML generada\n"+"primer renglon\n"+"segundo renglon";
@@ -111,8 +111,8 @@ public class SelectorDeModosTest {
 		writer.println("segundo renglon");
 		writer.close();	
 		
-		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
+		selector.setNombreDelArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setDireccionDelArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		
 		selector.seleccionarModo();
 		
@@ -135,8 +135,8 @@ public class SelectorDeModosTest {
 		writer.println("segundo renglon");
 		writer.close();	
 		
-		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
+		selector.setNombreDelArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setDireccionDelArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModo();
 				
 		String salidaEsperado = "El archivo fue exportado con exito.";
@@ -160,8 +160,8 @@ public class SelectorDeModosTest {
 		writer.println("segundo renglon");
 		writer.close();	
 		
-		selector.setArchivoDeEntrada(direccionDelArchivoTemporal);
-		selector.setArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
+		selector.setNombreDelArchivoDeEntrada(direccionDelArchivoTemporal);
+		selector.setDireccionDelArchivoParaEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		selector.seleccionarModo();
 				
 		String salidaEsperado = "El archivo fue exportado con exito.";
