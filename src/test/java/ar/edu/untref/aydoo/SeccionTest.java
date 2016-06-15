@@ -177,4 +177,5 @@ public class SeccionTest {
 		
 		Assert.assertEquals(Seccion.class, seccion.crearConMD(entrada).getClass());
 	}
+	
 }

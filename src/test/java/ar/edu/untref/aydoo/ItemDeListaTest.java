@@ -71,4 +71,5 @@ public class ItemDeListaTest {
 		
 		Assert.assertEquals(ItemDeLista.class, item.crearConMD(entrada).getClass());
 	}
+	
 }

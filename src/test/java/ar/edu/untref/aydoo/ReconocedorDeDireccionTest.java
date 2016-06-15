@@ -22,4 +22,5 @@ public class ReconocedorDeDireccionTest {
 		
 		Assert.assertEquals(direccionDelJAR, direccionAlmacenadaDelJAR);
 	}
+	
 }

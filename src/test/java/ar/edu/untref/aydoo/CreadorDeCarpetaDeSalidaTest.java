@@ -24,4 +24,5 @@ public class CreadorDeCarpetaDeSalidaTest {
 		
 		Assert.assertEquals("un nombre", nombreAlmacenadoDeLaCarpeta);
 	}
+	
 }

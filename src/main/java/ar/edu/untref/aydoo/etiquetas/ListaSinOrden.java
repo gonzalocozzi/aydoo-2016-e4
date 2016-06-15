@@ -27,5 +27,10 @@ public class ListaSinOrden extends Etiqueta {
 	public void aceptarVisitor(Visitor visitor){
 		visitor.visitar(this);
 	}
+	
+	@Override
+	protected ListaSinOrden getNuevaInstancia() {
+		return new ListaSinOrden();
+	}
 
 }

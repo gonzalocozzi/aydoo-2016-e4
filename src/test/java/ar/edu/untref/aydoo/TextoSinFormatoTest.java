@@ -60,4 +60,5 @@ public class TextoSinFormatoTest {
 		
 		Assert.assertEquals(TextoSinFormato.class, texto.crearConMD(entrada).getClass());
 	}
+	
 }

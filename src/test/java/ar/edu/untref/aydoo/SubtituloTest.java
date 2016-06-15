@@ -70,4 +70,5 @@ public class SubtituloTest {
 		
 		Assert.assertEquals(Subtitulo.class, subtitulo.crearConMD(entrada).getClass());
 	}
+	
 }

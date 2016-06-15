@@ -22,6 +22,7 @@ public class OrganizadorDeItemsTest {
 		ItemDeLista item1 = new ItemDeLista();
 		item1.setTexto("item 1");
 		ItemDeLista item2 = new ItemDeLista();
+		
 		item2.setTexto("item 2");
 		listaDeEtiquetas.add(item1);
 		listaDeEtiquetas.add(item2);
@@ -29,6 +30,7 @@ public class OrganizadorDeItemsTest {
 
 		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		ListaSinOrden listaDeItems = new ListaSinOrden();
+		
 		listaDeItems.agregarItem(item1);
 		listaDeItems.agregarItem(item2);
 		listaEsperada.add(listaDeItems);
@@ -47,6 +49,7 @@ public class OrganizadorDeItemsTest {
 		ItemDeLista item2 = new ItemDeLista();
 		item2.setTexto("item 2");
 		TextoSinFormato texto = new TextoSinFormato();
+		
 		listaDeEtiquetas.add(item1);
 		listaDeEtiquetas.add(texto);
 		listaDeEtiquetas.add(item2);
@@ -55,6 +58,7 @@ public class OrganizadorDeItemsTest {
 		List<Etiqueta> listaEsperada = new LinkedList<Etiqueta>();
 		ListaSinOrden listaDeItems1 = new ListaSinOrden();
 		ListaSinOrden listaDeItems2 = new ListaSinOrden();
+		
 		listaDeItems1.agregarItem(item1);
 		listaDeItems2.agregarItem(item2);
 		listaEsperada.add(listaDeItems1);
@@ -67,20 +71,23 @@ public class OrganizadorDeItemsTest {
 	}
 
 	@Test
-	public void seAgreganVariosItemsYTodosConservanSuTexto(){
+	public void seAgreganVariosItemsYTodosConservanSuTexto(){		
 		OrganizadorDeItems organizadorDeItems = new OrganizadorDeItems();
 		List<Etiqueta> listaDeEtiquetas = new LinkedList<Etiqueta>();
 		List<Etiqueta> listaOrganizadaObtenida = new LinkedList<Etiqueta>();
 		List<String> listaDeTextosGenerados = new LinkedList<String>();
+		
 		ItemDeLista item1 = new ItemDeLista();
 		item1.setTexto("item 1");
 		ItemDeLista item2 = new ItemDeLista();
 		item2.setTexto("item 2");
-		ItemDeLista item3 = new ItemDeLista();
+		ItemDeLista item3 = new ItemDeLista();		
 		item3.setTexto("item 3");
+		
 		listaDeEtiquetas.add(item1);
 		listaDeEtiquetas.add(item2);
 		listaDeEtiquetas.add(item3);
+		
 		listaOrganizadaObtenida = organizadorDeItems.organizar(listaDeEtiquetas);
 		String textoDelItem1 = ((ListaSinOrden) listaOrganizadaObtenida.get(0)).getColeccionDeItems().get(0).getTexto();
 		String textoDelItem2 = ((ListaSinOrden) listaOrganizadaObtenida.get(0)).getColeccionDeItems().get(1).getTexto();
@@ -95,6 +102,6 @@ public class OrganizadorDeItemsTest {
 		listaDeTextosEsperada.add("item 3");
 
 		Assert.assertEquals(listaDeTextosEsperada, listaDeTextosGenerados);
-
 	}
+	
 }

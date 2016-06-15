@@ -12,8 +12,8 @@ public class Seccion extends Etiqueta{
 	public Seccion(){
 		this.prefijoHTML = "<section>";
 		this.sufijoHTML = "</section>";
-		this.listaDeElementos = new LinkedList<>();
 		this.encabezadoMD = "---";
+		this.listaDeElementos = new LinkedList<>();
 	}
 
 	public void agregarElemento(Etiqueta elemento) {

@@ -33,7 +33,6 @@ public class LectorDeArchivo {
 			this.listaDeLineasDelArchivo.add(linea);
 			linea = br.readLine();
 		}
-
 		br.close();
 	}	
 

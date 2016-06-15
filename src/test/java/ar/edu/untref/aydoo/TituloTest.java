@@ -71,4 +71,5 @@ public class TituloTest {
 		
 		Assert.assertEquals(Titulo.class, titulo.crearConMD(entrada).getClass());
 	}
+	
 }

@@ -8,6 +8,10 @@ public abstract class Etiqueta implements Visitable{
 	protected String sufijoHTML;
 	protected String encabezadoMD;	
 	private String texto;
+	
+	protected Etiqueta getNuevaInstancia(){
+		return this;
+	}
 
 	public String getPrefijoHTML() {
 		return this.prefijoHTML;
@@ -27,10 +31,6 @@ public abstract class Etiqueta implements Visitable{
 
 	public String getEncabezadoMD() {
 		return this.encabezadoMD;
-	}
-
-	protected Etiqueta getNuevaInstancia(){
-		return this;
 	}
 
 	public Etiqueta crearConMD(String entradaMarkdown) {

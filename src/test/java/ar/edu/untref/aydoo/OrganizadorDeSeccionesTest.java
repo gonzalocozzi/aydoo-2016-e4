@@ -24,6 +24,7 @@ public class OrganizadorDeSeccionesTest {
 		Seccion seccion = new Seccion();
 		Titulo titulo = new Titulo();
 		Subtitulo subtitulo = new Subtitulo();
+		
 		listaDeEtiquetas.add(seccion);
 		listaDeEtiquetas.add(titulo);
 		listaDeEtiquetas.add(subtitulo);
@@ -45,6 +46,7 @@ public class OrganizadorDeSeccionesTest {
 		Titulo titulo = new Titulo();
 		Seccion seccion2 = new Seccion();
 		Subtitulo subtitulo = new Subtitulo();
+		
 		listaDeEtiquetas.add(seccion1);
 		listaDeEtiquetas.add(titulo);
 		listaDeEtiquetas.add(seccion2);
@@ -69,6 +71,7 @@ public class OrganizadorDeSeccionesTest {
 		Titulo titulo = new Titulo();
 		Seccion seccion2 = new Seccion();
 		Subtitulo subtitulo = new Subtitulo();
+		
 		listaDeEtiquetas.add(imagen);
 		listaDeEtiquetas.add(seccion1);
 		listaDeEtiquetas.add(titulo);
@@ -83,4 +86,5 @@ public class OrganizadorDeSeccionesTest {
 		
 		Assert.assertEquals(listaEsperada, listaOrganizadaObtenida);
 	}
+	
 }

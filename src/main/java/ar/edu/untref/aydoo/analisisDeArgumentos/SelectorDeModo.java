@@ -17,7 +17,6 @@ public class SelectorDeModo {
 	private List<String> listaDeArgumentos;
 	private ValidadorDeArgumentos validadorDeArgumentos;
 	private AnalizadorDeArgumentos analizadorDeArgumentos;
-	private CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida;
 	private String nombreDelArchivoEntrada;
 	private String direccionDelArchivoParaEscribirConSalidaHTML;
 
@@ -63,8 +62,8 @@ public class SelectorDeModo {
 
 	public void seleccionarModoDefault() throws IOException {		
 		//Se escribe en el archivo index.html la salida HTML estandar
-		this.creadorDeCarpetaDeSalida = this.creacionDeLaCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
-		this.escrituraEnArchivoHTML(creadorDeCarpetaDeSalida, this.getListaHTMLDeSalida());
+		this.crearCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
+		this.escribirArchivoHTML(this.getListaHTMLDeSalida());
 		System.out.println("El archivo fue exportado con exito.");
 	}
 
@@ -78,20 +77,20 @@ public class SelectorDeModo {
 	}
 
 	private List<String> getListaHTMLDeSalida() throws IOException{		
-		List<String> entradaDeMarkdown = lecturaDelArchivoDeEntrada(this.nombreDelArchivoEntrada);
-		List<Etiqueta> listaDeEtiquetasHTMLOrganizada = creacionDeEtiquetasHTML(entradaDeMarkdown);
-		List<String> listaHTMLDeSalida = creacionDeSalidaHTMLEstandar(listaDeEtiquetasHTMLOrganizada);
+		List<String> entradaDeMarkdown = leerArchivoDeEntrada(this.nombreDelArchivoEntrada);
+		List<Etiqueta> listaDeEtiquetasHTMLOrganizada = crearEtiquetasHTML(entradaDeMarkdown);
+		List<String> listaHTMLDeSalida = crearSalidaHTMLEstandar(listaDeEtiquetasHTMLOrganizada);
 
 		return listaHTMLDeSalida;
 	}
 	
-	private List<String> lecturaDelArchivoDeEntrada(String nombreDelArchivoDeEntrada) throws IOException {
+	private List<String> leerArchivoDeEntrada(String nombreDelArchivoDeEntrada) throws IOException {
 		LectorDeArchivo lectorDeArchivo = new LectorDeArchivo(nombreDelArchivoDeEntrada);
 		List<String> entradaDeMarkdown = lectorDeArchivo.getLineasDelArchivo();
 		return entradaDeMarkdown;
 	}
 	
-	private List<Etiqueta> creacionDeEtiquetasHTML(List<String> entradaDeMarkdown) {
+	private List<Etiqueta> crearEtiquetasHTML(List<String> entradaDeMarkdown) {
 		CreadorDeEtiquetas creadorDeEtiquetas = new CreadorDeEtiquetas();
 		List<Etiqueta> listaDeEtiquetasHTML = creadorDeEtiquetas.crearListaDeEtiquetas(entradaDeMarkdown);
 		OrganizadorDeEtiquetas organizadorDeEtiquetas = new OrganizadorDeEtiquetas();
@@ -99,19 +98,18 @@ public class SelectorDeModo {
 		return listaDeEtiquetasHTMLOrganizada;
 	}
 	
-	private List<String> creacionDeSalidaHTMLEstandar(List<Etiqueta> listaDeEtiquetasHTMLOrganizada) {
+	private List<String> crearSalidaHTMLEstandar(List<Etiqueta> listaDeEtiquetasHTMLOrganizada) {
 		CreadorDeSalidaHTML creadorDeSalidaHTML = new CreadorDeSalidaHTML(listaDeEtiquetasHTMLOrganizada);
 		List<String> listaDeSalidaHTML = creadorDeSalidaHTML.getListaDeSalidaHTML();
 		return listaDeSalidaHTML;
 	}
 
-	private CreadorDeCarpetaDeSalida creacionDeLaCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
+	private void crearCarpetaDeSalida(String nombreDeLaCarpetaDeSalida) throws IOException {
 		CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida = new CreadorDeCarpetaDeSalida(nombreDeLaCarpetaDeSalida);
 		creadorDeCarpetaDeSalida.crearCarpetaDeSalida();
-		return creadorDeCarpetaDeSalida;
 	}
 
-	private void escrituraEnArchivoHTML(CreadorDeCarpetaDeSalida creadorDeCarpetaDeSalida, List<String> listaDeSalidaHTML) throws IOException {
+	private void escribirArchivoHTML(List<String> listaDeSalidaHTML) throws IOException {
 		EscritorDeArchivo escritorDeArchivo = new EscritorDeArchivo();
 		escritorDeArchivo.setListaAEscribir(listaDeSalidaHTML);
 		escritorDeArchivo.escribirEnArchivo(this.direccionDelArchivoParaEscribirConSalidaHTML);
