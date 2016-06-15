@@ -8,6 +8,7 @@ public class Program {
 
 	public static void main(String[] args) throws IOException {		
 		SelectorDeModo selectorDeModo = new SelectorDeModo(args);
-		selectorDeModo.seleccionarModo();
+		selectorDeModo.seleccionarModo();		
 	}
+
 }
