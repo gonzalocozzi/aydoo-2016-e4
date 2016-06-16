@@ -15,8 +15,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-public class ModoDeSalidaNoOutputTest {
-
+public class ModoDeSalidaDefaultTest {
+	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
 	@Rule	 
@@ -31,10 +31,10 @@ public class ModoDeSalidaNoOutputTest {
 	public void cleanUpStreams() {
 		System.setOut(null);
 	}
-
+	
 	@Test
-	public void modoDeSalidaNoOutputLeeArchivoDeEntradaCorrectamenteYDevuelveSalidaHTMLPorConsola() throws IOException{
-
+	public void modoDeSalidaDefaultEscribeArchivoConSalidaHTML() throws IOException{
+		
 		File archivoDePrueba = carpetaDePrueba.newFile("mipresentacion1.md");
 		String direccionDelArchivoTemporal = archivoDePrueba.getAbsolutePath();
 
@@ -45,14 +45,15 @@ public class ModoDeSalidaNoOutputTest {
 
 		List<String> listaDeArgumentos = new ArrayList<>();
 		listaDeArgumentos.add("mipresentacion1.md");
-		listaDeArgumentos.add("--mode=no-output");
+		listaDeArgumentos.add("--mode=default");
 
-		ModoDeSalidaNoOutput modo = new ModoDeSalidaNoOutput(listaDeArgumentos, direccionDelArchivoTemporal);
+		ModoDeSalidaDefault modo = new ModoDeSalidaDefault(listaDeArgumentos, direccionDelArchivoTemporal);
+		modo.setDireccionDelArchivoAEscribirConSalidaHTML(direccionDelArchivoTemporal);
 		modo.traducir();
 
-		String salidaEsperada = "Salida HTML generada\n"+"<h1>titulo</h1>\n"+"<h2>subtitulo</h2>";
+		String salidaEsperada = "El archivo fue exportado con exito.";
 
 		Assert.assertEquals(salidaEsperada, outContent.toString().trim());
-	}	
+	}
 
 }

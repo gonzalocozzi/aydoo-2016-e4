@@ -136,6 +136,7 @@ public class ModoDeSalidaTest {
 
 		List<String> listaDeArgumentos = new ArrayList<>();
 		listaDeArgumentos.add("mipresentacion1.md");
+		
 		ModoDeSalida modo = new ModoDeSalida(listaDeArgumentos, direccionDelArchivoTemporal);
 		modo.traducir();
 

@@ -117,9 +117,9 @@ public class SelectorDeModoTest {
 		
 		selector.seleccionarModo();
 		
-		String salidaEsperado = "Salida HTML generada\n"+"primer renglon\n"+"segundo renglon";
+		String salidaEsperada = "Salida HTML generada\n"+"primer renglon\n"+"segundo renglon";
 		
-		Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+		Assert.assertEquals(salidaEsperada, outContent.toString().trim());		
 	}
 	
 	@Test
@@ -141,11 +141,11 @@ public class SelectorDeModoTest {
 		
 		selector.seleccionarModo();
 				
-		String salidaEsperado = "El archivo fue exportado con exito.";
+		String salidaEsperada = "El archivo fue exportado con exito.";
 		
 		archivoDePrueba.delete();
 		
-	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+	    Assert.assertEquals(salidaEsperada, outContent.toString().trim());		
 	}
 	
 	@Test
@@ -167,11 +167,11 @@ public class SelectorDeModoTest {
 		
 		selector.seleccionarModo();
 				
-		String salidaEsperado = "El archivo fue exportado con exito.";
+		String salidaEsperada = "El archivo fue exportado con exito.";
 		
 		archivoDePrueba.delete();
 		
-	    Assert.assertEquals(salidaEsperado, outContent.toString().trim());		
+	    Assert.assertEquals(salidaEsperada, outContent.toString().trim());		
 	}
 	
 }
