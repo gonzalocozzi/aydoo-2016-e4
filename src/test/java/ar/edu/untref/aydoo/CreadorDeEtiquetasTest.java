@@ -204,14 +204,14 @@ public class CreadorDeEtiquetasTest {
 	}
 
 	@Test
-	public void siAgregoUnaEtiquetaNuevaALaListaElTextoSinFormatoSigueAlFinal(){
+	public void siAgregoUnaEtiquetaNuevaALaListaElTextoSinFormatoSigueAlFinal() throws InstantiationException, IllegalAccessException{
 		CreadorDeEtiquetas miCreador = new CreadorDeEtiquetas();
-		Titulo titulo = new Titulo(); //meto una Etiqueta cualquiera que no sea TextoSinFormato
+		
+		//meto una Etiqueta cualquiera que no sea TextoSinFormato
+		miCreador.agregarNuevaEtiqueta(Titulo.class);
+		ArrayList<Class<? extends Etiqueta>> lista = miCreador.getEtiquetasHtml();
 
-		miCreador.agregarNuevaEtiqueta(titulo);
-		ArrayList<Etiqueta> lista = miCreador.getEtiquetasHtml();
-
-		Assert.assertEquals(TextoSinFormato.class, lista.get(lista.size()-1).getClass());
+		Assert.assertEquals("", lista.get(lista.size()-1).newInstance().getEncabezadoMD());
 	}
 	
 }

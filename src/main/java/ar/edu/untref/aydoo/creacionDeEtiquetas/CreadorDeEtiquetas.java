@@ -14,16 +14,17 @@ import ar.edu.untref.aydoo.etiquetas.Titulo;
 
 public class CreadorDeEtiquetas {
 
-	private ArrayList<Etiqueta> etiquetasHtml;
+	private ArrayList<Class<? extends Etiqueta>> etiquetasHtml;
 
 	public CreadorDeEtiquetas() {
-		this.etiquetasHtml = new ArrayList<Etiqueta>();
-		this.etiquetasHtml.add(new Subtitulo());
-		this.etiquetasHtml.add(new Titulo());
-		this.etiquetasHtml.add(new ItemDeLista());
-		this.etiquetasHtml.add(new Seccion());
-		this.etiquetasHtml.add(new Imagen());
-		this.etiquetasHtml.add(new TextoSinFormato());
+		//Etiquetas que el programa puede traducir por default
+		this.etiquetasHtml = new ArrayList<>();
+		this.etiquetasHtml.add(Subtitulo.class);
+		this.etiquetasHtml.add(Titulo.class);
+		this.etiquetasHtml.add(ItemDeLista.class);
+		this.etiquetasHtml.add(Seccion.class);
+		this.etiquetasHtml.add(Imagen.class);
+		this.etiquetasHtml.add(TextoSinFormato.class);
 	}
 
 	public List<Etiqueta> crearListaDeEtiquetas(List<String> lineasDelMarkDown) {
@@ -35,25 +36,32 @@ public class CreadorDeEtiquetas {
 		return listaDeEtiquetas;
 	}
 
-	private void agregarEtiquetaAListaDeEtiquetas(List<Etiqueta> listaDeEtiquetas, String lineaActual) {
-		for(int j = 0; j < this.etiquetasHtml.size(); j++){
-			Etiqueta etiquetaActual = this.etiquetasHtml.get(j);
+	private void agregarEtiquetaAListaDeEtiquetas(List<Etiqueta> listaDeEtiquetas, String lineaActual) {		
+		for(int j = 0; j < this.etiquetasHtml.size(); j++){			
+			Etiqueta etiquetaActual = null;			
+			try {
+				etiquetaActual = this.etiquetasHtml.get(j).newInstance();
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}			
 			Etiqueta etiquetaResultante = etiquetaActual.crearConMD(lineaActual);
 			if(etiquetaResultante != null){
 				listaDeEtiquetas.add(etiquetaResultante);
 				j = this.etiquetasHtml.size();
 			}
-		}
+		}		
 	}
 
-	public void agregarNuevaEtiqueta(Etiqueta nuevaEtiqueta){
+	public void agregarNuevaEtiqueta(Class<? extends Etiqueta> nuevaEtiqueta){
 		int tamanioDeLista = this.etiquetasHtml.size();
-		Etiqueta textoSinFormato = this.etiquetasHtml.get(tamanioDeLista-1);
+		Class<? extends Etiqueta> textoSinFormato = this.etiquetasHtml.get(tamanioDeLista-1);
 		this.etiquetasHtml.add(tamanioDeLista-1, nuevaEtiqueta);
 		this.etiquetasHtml.add(textoSinFormato);
 	}
 
-	public ArrayList<Etiqueta> getEtiquetasHtml(){
+	public ArrayList<Class<? extends Etiqueta>> getEtiquetasHtml(){
 		return this.etiquetasHtml;
 	}
 
