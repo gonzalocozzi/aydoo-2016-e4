@@ -15,9 +15,9 @@ public class ValidadorDeArgumentos {
 		this.listaDeExcepciones = new LinkedList<>();
 
 		//Se agregan excepciones por default al programa
-		SinNombreDelArchivoDeEntradaException sinNombreDelArchivoDeEntradaException = new SinNombreDelArchivoDeEntradaException(this.listaDeArgumentos, "por favor, indique el nombre del archivo Markdown de entrada.");
-		ArgumentoInvalidoException argumentoInvalidoException = new ArgumentoInvalidoException(this.listaDeArgumentos, "ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.");
-		NumeroDeArgumentosExcedidoException numeroDeArgumentosExcedidoException = new NumeroDeArgumentosExcedidoException(this.listaDeArgumentos,  "no debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
+		SinNombreDelArchivoDeEntradaException sinNombreDelArchivoDeEntradaException = new SinNombreDelArchivoDeEntradaException(this.listaDeArgumentos);
+		ArgumentoInvalidoException argumentoInvalidoException = new ArgumentoInvalidoException(this.listaDeArgumentos);
+		NumeroDeArgumentosExcedidoException numeroDeArgumentosExcedidoException = new NumeroDeArgumentosExcedidoException(this.listaDeArgumentos);
 		this.agregarExcepcion(sinNombreDelArchivoDeEntradaException);
 		this.agregarExcepcion(argumentoInvalidoException);
 		this.agregarExcepcion(numeroDeArgumentosExcedidoException);					
@@ -49,7 +49,7 @@ public class ValidadorDeArgumentos {
 		}
 
 		if(this.nombreContieneCaracteresInvalidos(this.nombreDelArchivoDeEntrada)){	
-			throw new NombreInvalidoException("el nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
+			throw new NombreInvalidoException();
 		}
 
 	}

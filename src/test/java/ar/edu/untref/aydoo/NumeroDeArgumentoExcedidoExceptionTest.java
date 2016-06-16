@@ -13,12 +13,12 @@ public class NumeroDeArgumentoExcedidoExceptionTest {
 	@Test
 	public void numeroDeArgumentosExcedidoExceptionDevuelveMensajeExplicativo(){
 		
-		List<String> listaDePrueba = new LinkedList<>();		
-		NumeroDeArgumentosExcedidoException excepcion = new NumeroDeArgumentosExcedidoException(listaDePrueba, "mensaje explicativo");
+		List<String> listaDeArgumentos = new LinkedList<>();		
+		NumeroDeArgumentosExcedidoException excepcion = new NumeroDeArgumentosExcedidoException(listaDeArgumentos);
 		
 		String mensajeExplicativo = excepcion.getMessage();
 		
-		Assert.assertEquals(mensajeExplicativo, "mensaje explicativo");
+		Assert.assertEquals(mensajeExplicativo, "no debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
 	}
 
 }

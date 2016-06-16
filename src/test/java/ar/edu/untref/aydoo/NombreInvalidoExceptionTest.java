@@ -10,11 +10,11 @@ public class NombreInvalidoExceptionTest {
 	@Test
 	public void nombreInvalidoExceptionDevuelveMensajeExplicativo(){
 		
-		NombreInvalidoException excepcion = new NombreInvalidoException("mensaje explicativo");
+		NombreInvalidoException excepcion = new NombreInvalidoException();
 		
 		String mensajeExplicativo = excepcion.getMessage();
 		
-		Assert.assertEquals(mensajeExplicativo, "mensaje explicativo");
+		Assert.assertEquals(mensajeExplicativo, "el nombre del archivo de entrada no es valido. Por favor, intentelo nuevamente.");
 	}
 
 }

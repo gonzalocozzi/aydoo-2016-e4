@@ -14,11 +14,11 @@ public class SinNombreDelArchivoDeEntradaExceptionTest {
 	public void sinNombreDelArchivoDeEntradaExceptionDevuelveMensajeExplicativo(){
 		
 		List<String> listaDePrueba = new LinkedList<>();		
-		SinNombreDelArchivoDeEntradaException excepcion = new SinNombreDelArchivoDeEntradaException(listaDePrueba, "mensaje explicativo");
+		SinNombreDelArchivoDeEntradaException excepcion = new SinNombreDelArchivoDeEntradaException(listaDePrueba);
 		
 		String mensajeExplicativo = excepcion.getMessage();
 		
-		Assert.assertEquals(mensajeExplicativo, "mensaje explicativo");
+		Assert.assertEquals(mensajeExplicativo, "por favor, indique el nombre del archivo markdown de entrada.");
 	}
 
 }

@@ -8,11 +8,10 @@ public class SinNombreDelArchivoDeEntradaException extends ArgumentosException{
 	 * 
 	 */
 	private static final long serialVersionUID = 6344319782237687844L;
-	private String mensaje;
+	private String mensaje = "por favor, indique el nombre del archivo markdown de entrada.";
 	private List<String> listaDeArgumentos;	
 
-	public SinNombreDelArchivoDeEntradaException(List<String> listaDeArgumentos, String mensaje) {
-		this.mensaje = mensaje;
+	public SinNombreDelArchivoDeEntradaException(List<String> listaDeArgumentos) {
 		this.listaDeArgumentos = listaDeArgumentos;
 	}
 
@@ -32,7 +31,7 @@ public class SinNombreDelArchivoDeEntradaException extends ArgumentosException{
 				&& this.listaDeArgumentos.get(1).contains("--");
 
 		if(sinNombreDelArchivoDeEntrada || soloArgumentosDeConfiguracion){
-			throw new SinNombreDelArchivoDeEntradaException(listaDeArgumentos, mensaje);
+			throw new SinNombreDelArchivoDeEntradaException(listaDeArgumentos);
 		}
 	}
 

@@ -8,12 +8,11 @@ public class ArgumentoInvalidoException extends ArgumentosException{
 	 * 
 	 */
 	private static final long serialVersionUID = -8530117359768300376L;
-	private String mensaje;
+	private String mensaje = "ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.";
 	private List<String> listaDeArgumentos;
 
 
-	public ArgumentoInvalidoException(List<String> listaDeArgumentos, String mensaje) {
-		this.mensaje = mensaje;
+	public ArgumentoInvalidoException(List<String> listaDeArgumentos) {
 		this.listaDeArgumentos = listaDeArgumentos;
 	}
 
@@ -31,7 +30,7 @@ public class ArgumentoInvalidoException extends ArgumentosException{
 				&& !stringDeArgumentos.contains("--output=");
 
 		if(argumentoInvalido){
-			throw new ArgumentoInvalidoException(listaDeArgumentos, mensaje);
+			throw new ArgumentoInvalidoException(listaDeArgumentos);
 		}
 	}
 
