@@ -20,5 +20,15 @@ public class SinNombreDelArchivoDeEntradaExceptionTest {
 		
 		Assert.assertEquals(mensajeExplicativo, "por favor, indique el nombre del archivo markdown de entrada.");
 	}
+	
+	@Test(expected=SinNombreDelArchivoDeEntradaException.class)
+	public void sinNombreDelArchivoDeEntradaExceptionSabeSiDebeSerLanzada(){
+		
+		List<String> listaDeArgumentos = new LinkedList<>();
+		
+		SinNombreDelArchivoDeEntradaException excepcion = new SinNombreDelArchivoDeEntradaException(listaDeArgumentos);
+		
+		excepcion.getNuevaInstancia();
+	}
 
 }
