@@ -20,5 +20,17 @@ public class ArgumentoInvalidoExceptionTest {
 		
 		Assert.assertEquals(mensajeExplicativo, "ha ingresado al menos un argumento invalido. Por favor, intentelo nuevamente.");
 	}
+	
+	@Test(expected=ArgumentoInvalidoException.class)
+	public void argumentoInvalidoExceptionSabeSiDebeSerLanzada(){
+		
+		List<String> listaDeArgumentos = new LinkedList<>();
+		listaDeArgumentos.add("cualquier cosa");
+		listaDeArgumentos.add("cualquier otra cosa");
+		
+		ArgumentoInvalidoException excepcion = new ArgumentoInvalidoException(listaDeArgumentos);
+		
+		excepcion.getNuevaInstancia();
+	}
 
 }
