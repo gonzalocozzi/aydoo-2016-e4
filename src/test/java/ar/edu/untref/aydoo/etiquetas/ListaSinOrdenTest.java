@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.etiquetas;
 
 import java.util.LinkedList;
 import java.util.List;

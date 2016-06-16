@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.creacionDeEtiquetas;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ import java.util.List;
 
 import org.junit.Assert;
 
-public class VisitorTest {
+public class VisitorDeEtiquetasTest {
 	
 	@Test
 	public void visitaUnTituloYPideContenido(){

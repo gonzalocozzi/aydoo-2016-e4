@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.analisisDeArgumentos;
 
 import org.junit.Assert;
 import org.junit.Test;

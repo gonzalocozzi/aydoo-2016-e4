@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.traduccion;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

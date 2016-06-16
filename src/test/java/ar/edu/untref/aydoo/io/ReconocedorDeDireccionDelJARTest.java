@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.io;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.io.ReconocedorDeDireccionDelJAR;
 
-public class ReconocedorDeDireccionTest {
+public class ReconocedorDeDireccionDelJARTest {
 	
 	@Test
 	public void creadorDeCarpetaDeSalidaDevuelveDireccionDelJAR() throws IOException{

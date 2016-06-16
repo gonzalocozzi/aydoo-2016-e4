@@ -1,4 +1,4 @@
-package ar.edu.untref.aydoo;
+package ar.edu.untref.aydoo.analisisDeArgumentos;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
