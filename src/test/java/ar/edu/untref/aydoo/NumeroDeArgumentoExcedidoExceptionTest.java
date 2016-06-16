@@ -20,5 +20,18 @@ public class NumeroDeArgumentoExcedidoExceptionTest {
 		
 		Assert.assertEquals(mensajeExplicativo, "no debe ingresar mas de 2 argumentos. Por favor, intentelo nuevamente.");
 	}
+	
+	@Test(expected=NumeroDeArgumentosExcedidoException.class)
+	public void numeroDeArgumentosInvalidoExceptionSabeSiDebeSerLanzada(){
+		
+		List<String> listaDeArgumentos = new LinkedList<>();
+		listaDeArgumentos.add("un argumento");
+		listaDeArgumentos.add("otro argumento");
+		listaDeArgumentos.add("argumento de mas");
+		
+		NumeroDeArgumentosExcedidoException excepcion = new NumeroDeArgumentosExcedidoException(listaDeArgumentos);
+		
+		excepcion.getNuevaInstancia();
+	}
 
 }
