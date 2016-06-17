@@ -25,19 +25,11 @@ public class Traductor {
 		ModoDeSalidaNoOutput modoNoOutput = new ModoDeSalidaNoOutput(this.listaDeArgumentos, this.nombreDelArchivoDeEntrada);
 		this.agregarModoDeSalida(modoDefault);
 		this.agregarModoDeSalida(modoNoOutput);
-	}	
+	}
 
 	public List<String> getListaDeArgumentos(){
 		return this.listaDeArgumentos;
 	}
-
-	public List<ModoDeSalida> getModosDeSalidaDisponibles(){
-		return this.modosDeSalidaDisponibles;
-	}
-
-	public void agregarModoDeSalida(ModoDeSalida modo){
-		this.modosDeSalidaDisponibles.add(modo);
-	}	
 
 	private void setListaDeArgumentos(String[] argumentos){		
 		//Se completa la lista de argumentos con el arreglo de argumentos
@@ -46,6 +38,14 @@ public class Traductor {
 		}
 
 	}
+
+	public List<ModoDeSalida> getModosDeSalidaDisponibles(){
+		return this.modosDeSalidaDisponibles;
+	}
+
+	public void agregarModoDeSalida(ModoDeSalida modoDeSalida){
+		this.modosDeSalidaDisponibles.add(modoDeSalida);
+	}	
 
 	public void traducir() throws IOException, InstantiationException, IllegalAccessException {	
 
