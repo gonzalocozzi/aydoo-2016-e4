@@ -211,7 +211,7 @@ public class CreadorDeEtiquetasTest {
 		miCreador.agregarNuevaEtiqueta(Titulo.class);
 		ArrayList<Class<? extends Etiqueta>> lista = miCreador.getEtiquetasHtml();
 
-		Assert.assertEquals("", lista.get(lista.size()-1).newInstance().getEncabezadoMD());
+		Assert.assertEquals("", lista.get(lista.size()-1).newInstance().getEncabezadoMarkdown());
 	}
 	
 }

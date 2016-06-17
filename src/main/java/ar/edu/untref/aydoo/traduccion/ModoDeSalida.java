@@ -26,6 +26,10 @@ public class ModoDeSalida {
 
 	public void traducir() throws IOException{}
 
+	public String getNombreDeArchivoDeEntrada() {
+		return this.nombreDelArchivoDeEntrada;
+	}
+
 	public List<String> getListaHTMLDeSalida() throws IOException{		
 		List<String> entradaDeMarkdown = this.leerArchivoDeEntrada();
 		List<Etiqueta> listaDeEtiquetasHTMLOrganizada = this.crearEtiquetasHTML(entradaDeMarkdown);
@@ -60,7 +64,4 @@ public class ModoDeSalida {
 		return listaDeSalidaHTML;
 	}
 
-	public String getNombreDeArchivoDeEntrada() {
-		return this.nombreDelArchivoDeEntrada;
-	}
 }

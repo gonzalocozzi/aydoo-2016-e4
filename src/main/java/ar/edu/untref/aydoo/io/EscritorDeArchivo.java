@@ -18,6 +18,7 @@ public class EscritorDeArchivo {
 		while ((lineaArchivo = archivo.readLine()) != null){        	
 			entrada = guardarLineaDeEntrada(lineaArchivo, entrada);
 		}
+
 		archivo.close();
 
 		FileOutputStream fileOut = new FileOutputStream(nombreArchivo);

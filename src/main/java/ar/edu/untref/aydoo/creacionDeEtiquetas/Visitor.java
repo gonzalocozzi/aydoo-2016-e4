@@ -6,7 +6,7 @@ import ar.edu.untref.aydoo.etiquetas.Seccion;
 
 public interface Visitor {
 
-	void visitar(Etiqueta etiquetaHTML);
+	void visitar(Etiqueta etiqueta);
 	void visitar(Seccion seccion);
 	void visitar(ListaSinOrden listaSinOrden);
 }

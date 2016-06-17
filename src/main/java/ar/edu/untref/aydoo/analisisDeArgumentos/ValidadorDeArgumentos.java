@@ -34,7 +34,7 @@ public class ValidadorDeArgumentos {
 	public String getNombreDeCarpetaDeSalida() {		
 		return this.nombreDeCarpetaDeSalida;
 	}	
-	
+
 	public String getNombreDelArchivoDeEntrada(){
 		return this.nombreDelArchivoDeEntrada;
 	}
@@ -57,10 +57,12 @@ public class ValidadorDeArgumentos {
 	private Integer getPosicionDelNombreDelArchivoDeEntrada(){
 		Integer posicionDelNombreDeArchivoDeEntrada = 0;
 
-		for(int i = 0; i < this.listaDeArgumentos.size(); i++){			
+		for(int i = 0; i < this.listaDeArgumentos.size(); i++){	
+
 			if(!this.listaDeArgumentos.get(i).contains("--")){				
 				posicionDelNombreDeArchivoDeEntrada = i;
-			}			
+			}
+
 		}
 
 		return posicionDelNombreDeArchivoDeEntrada;			
@@ -82,12 +84,13 @@ public class ValidadorDeArgumentos {
 
 		return contieneCaracteresInvalidos;
 	}	
-	
+
 	private void setNombreDeCarpetaDeSalida(){
 		String nombreDeLaCarpetaSinExtension = ""; 
 		Boolean existeUnicamenteArgumentoOutput = this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(0).substring(0, 9).equalsIgnoreCase("--output=");
 		Boolean existeArgumentoOutput = this.listaDeArgumentos.size() > 1 && this.listaDeArgumentos.get(0).length() > 8 && this.listaDeArgumentos.get(1).substring(0, 9).equalsIgnoreCase("--output=");
-		//La presente estructura if-else busca el nombre de la carpeta de salida en la entrada 
+
+		//La presente estructura if-else busca el nombre de la carpeta de salida en la entrada de argumentos
 		//Es un procedimiento que esperamos que jamas cambie, sin importar el numero o tipo de argumentos
 		if (existeUnicamenteArgumentoOutput) {			
 			nombreDeLaCarpetaSinExtension = this.listaDeArgumentos.get(0).substring(9);			
@@ -96,14 +99,16 @@ public class ValidadorDeArgumentos {
 		} else {			
 			nombreDeLaCarpetaSinExtension = this.nombreDelArchivoDeEntrada.replace(".md", "");
 		}
-		
+
 		this.nombreDeCarpetaDeSalida = nombreDeLaCarpetaSinExtension;
 	}
 
 	private void validarListaDeArgumentos() {	
+
 		for(ArgumentosException excepcion : this.listaDeExcepciones){
 			excepcion.getNuevaInstancia();
 		}
+
 	}
 
 }

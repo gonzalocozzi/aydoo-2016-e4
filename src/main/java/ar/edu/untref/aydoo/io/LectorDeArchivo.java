@@ -20,6 +20,7 @@ public class LectorDeArchivo {
 
 	public List<String> getLineasDelArchivo() throws IOException{		
 		this.leerArchivo();
+
 		return this.listaDeLineasDelArchivo;
 	}
 
@@ -27,12 +28,13 @@ public class LectorDeArchivo {
 		File archivo = new File (this.direccionDelArchivo);
 		FileReader fr = new FileReader (archivo);
 		BufferedReader br = new BufferedReader(fr);
-
 		String linea = br.readLine();
+
 		while(linea != null){
 			this.listaDeLineasDelArchivo.add(linea);
 			linea = br.readLine();
 		}
+
 		br.close();
 	}	
 

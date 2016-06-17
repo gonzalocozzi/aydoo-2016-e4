@@ -57,7 +57,7 @@ public class ImagenTest {
 	@Test
 	public void laImagenSeCreaConSuEncabezadoMD(){
 		Imagen imagen = new Imagen();
-		String encabezadoObtenido = imagen.getEncabezadoMD();
+		String encabezadoObtenido = imagen.getEncabezadoMarkdown();
 		
 		String encabezadoEsperado = "i:";
 				
@@ -69,7 +69,7 @@ public class ImagenTest {
 		String entrada = "i:imagen.jpg";
 		Imagen imagen = new Imagen();
 		
-		Assert.assertEquals(Imagen.class, imagen.crearConMD(entrada).getClass());
+		Assert.assertEquals(Imagen.class, imagen.crearDesdeArchivoMarkdown(entrada).getClass());
 	}
 	
 }

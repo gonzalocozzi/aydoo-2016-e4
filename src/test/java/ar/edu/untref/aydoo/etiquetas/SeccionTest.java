@@ -163,7 +163,7 @@ public class SeccionTest {
 	@Test
 	public void laSeccionSeCreaConSuEncabezadoMD(){
 		Seccion seccion = new Seccion();
-		String encabezadoObtenido = seccion.getEncabezadoMD();
+		String encabezadoObtenido = seccion.getEncabezadoMarkdown();
 		
 		String encabezadoEsperado = "---";
 				
@@ -175,7 +175,7 @@ public class SeccionTest {
 		String entrada = "---";
 		Seccion seccion = new Seccion();
 		
-		Assert.assertEquals(Seccion.class, seccion.crearConMD(entrada).getClass());
+		Assert.assertEquals(Seccion.class, seccion.crearDesdeArchivoMarkdown(entrada).getClass());
 	}
 	
 }

@@ -8,12 +8,12 @@ public class AnalizadorDeArgumentos {
 	private List<String> listaDeArgumentos;
 
 	public AnalizadorDeArgumentos(List<String> listaDeArgumentos) {	
-
 		this.listaDeArgumentos = new ArrayList<String>();
 
 		for(int i=0; i < listaDeArgumentos.size(); i++) {
 			this.listaDeArgumentos.add(listaDeArgumentos.get(i).toLowerCase());
 		}
+
 	}
 
 	public Boolean contieneModoDefault() {

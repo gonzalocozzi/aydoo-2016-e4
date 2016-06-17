@@ -57,7 +57,7 @@ public class TituloTest {
 	@Test
 	public void elTituloSeCreaConSuEncabezadoMD(){
 		Titulo titulo = new Titulo();
-		String encabezadoObtenido = titulo.getEncabezadoMD();
+		String encabezadoObtenido = titulo.getEncabezadoMarkdown();
 		
 		String encabezadoEsperado = "#";
 				
@@ -69,7 +69,7 @@ public class TituloTest {
 		String entrada = "# titulo de prueba";
 		Titulo titulo = new Titulo();
 		
-		Assert.assertEquals(Titulo.class, titulo.crearConMD(entrada).getClass());
+		Assert.assertEquals(Titulo.class, titulo.crearDesdeArchivoMarkdown(entrada).getClass());
 	}
 	
 }

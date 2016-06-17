@@ -11,6 +11,7 @@ public class ModoDeSalidaNoOutput extends ModoDeSalida {
 
 	@Override
 	public void traducir() throws IOException {
+
 		if(super.analizadorDeArgumentos.contieneModoNoOutput()){
 			List<String> listaDeSalida = super.getListaHTMLDeSalida();
 			System.out.println("Salida HTML generada");
@@ -18,7 +19,9 @@ public class ModoDeSalidaNoOutput extends ModoDeSalida {
 			for(String salida: listaDeSalida){
 				System.out.println(salida);			
 			}
+
 		}
+
 	}
 
 }

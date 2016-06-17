@@ -22,13 +22,15 @@ public class ModoDeSalidaDefault extends ModoDeSalida {
 
 	@Override
 	public void traducir() throws IOException {
+
 		if(super.analizadorDeArgumentos.contieneModoDefault() || super.analizadorDeArgumentos.contieneOutput()){
 			this.crearCarpetaDeSalida(this.validadorDeArgumentos.getNombreDeCarpetaDeSalida());
 			this.escribirEnArchivoHTML(this.getListaHTMLDeSalida());
 			System.out.println("El archivo fue exportado con exito.");
-		}		
+		}	
+
 	}
-	
+
 	//Es public solo para testear el comportamiento de la clase
 	public void setDireccionDelArchivoAEscribirConSalidaHTML(String direccionDelArchivo){
 		this.direccionDelArchivoAEscribirConSalidaHTML = direccionDelArchivo;

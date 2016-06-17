@@ -19,7 +19,7 @@ public class NumeroDeArgumentosExcedidoException extends ArgumentosException {
 	public String getMessage(){
 		return this.mensaje;
 	}
-	
+
 	@Override
 	public void getNuevaInstancia(){
 		if(this.listaDeArgumentos.size() > 2){

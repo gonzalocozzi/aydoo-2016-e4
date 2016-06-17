@@ -22,15 +22,16 @@ public class OrganizadorDeItems implements Organizable{
 		this.listaDeEtiquetas = listaDeEtiquetas;
 
 		for(int i = 0; i < this.listaDeEtiquetas.size(); i++){
+
 			if(this.listaDeEtiquetas.get(i).getClass().equals(ItemDeLista.class)){
 				/*este metodo (rellenarListaDeItems(i)) va a devolver un entero, ya que al poder agregar mas de un item, es necesario 
 				 * saber en que posicion de la lista se esta cuando se termino de agregar Items a la Lista de items. 
 				 */
 				i = this.rellenarListaDeItems(i);
-			}
-			else{
+			} else {
 				this.listaOrganizada.add(this.listaDeEtiquetas.get(i));
 			}
+
 		}
 
 		return this.listaOrganizada;
@@ -53,6 +54,7 @@ public class OrganizadorDeItems implements Organizable{
 
 	private ListaSinOrden agregarItemALaListaDeItems(Etiqueta etiquetaHTML, ListaSinOrden listaDeItems, int posicionDeItemActual) {
 		listaDeItems.agregarItem((ItemDeLista) this.listaDeEtiquetas.get(posicionDeItemActual));
+
 		return listaDeItems;
 	}
 }

@@ -56,7 +56,7 @@ public class SubtituloTest {
 	@Test
 	public void elSubtituloSeCreaConSuEncabezadoMD(){
 		Subtitulo subtitulo = new Subtitulo();
-		String encabezadoObtenido = subtitulo.getEncabezadoMD();
+		String encabezadoObtenido = subtitulo.getEncabezadoMarkdown();
 		
 		String encabezadoEsperado = "##";
 				
@@ -68,7 +68,7 @@ public class SubtituloTest {
 		String entrada = "## subtitulo de prueba";
 		Subtitulo subtitulo = new Subtitulo();
 		
-		Assert.assertEquals(Subtitulo.class, subtitulo.crearConMD(entrada).getClass());
+		Assert.assertEquals(Subtitulo.class, subtitulo.crearDesdeArchivoMarkdown(entrada).getClass());
 	}
 	
 }

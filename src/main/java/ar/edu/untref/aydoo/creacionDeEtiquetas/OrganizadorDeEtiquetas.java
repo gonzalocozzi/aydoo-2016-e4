@@ -20,6 +20,8 @@ public class OrganizadorDeEtiquetas implements Organizable{
 		List<Etiqueta> listaOrdenada = new LinkedList<Etiqueta>();
 		listaOrdenada = this.organizadorDeItems.organizar(listaDeEtiquetas);
 		listaOrdenada = this.organizadorDeSecciones.organizar(listaOrdenada);
+
 		return listaOrdenada; 
 	}
+
 }

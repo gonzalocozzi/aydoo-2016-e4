@@ -57,7 +57,7 @@ public class ItemDeListaTest {
 	@Test
 	public void elItemSeCreaConSuEncabezadoMD(){
 		ItemDeLista item = new ItemDeLista();
-		String encabezadoObtenido = item.getEncabezadoMD();
+		String encabezadoObtenido = item.getEncabezadoMarkdown();
 		
 		String encabezadoEsperado = "*";
 				
@@ -69,7 +69,7 @@ public class ItemDeListaTest {
 		String entrada = "*item1";
 		ItemDeLista item = new ItemDeLista();
 		
-		Assert.assertEquals(ItemDeLista.class, item.crearConMD(entrada).getClass());
+		Assert.assertEquals(ItemDeLista.class, item.crearDesdeArchivoMarkdown(entrada).getClass());
 	}
 	
 }
