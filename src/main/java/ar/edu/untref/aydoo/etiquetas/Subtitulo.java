@@ -8,7 +8,7 @@ public class Subtitulo extends Etiqueta implements Visitable{
 	public Subtitulo(){
 		this.prefijoHTML = "<h2>";	
 		this.sufijoHTML = "</h2>";
-		this.encabezadoMD = "##";
+		this.encabezadoMarkdown = "##";
 	}
 
 	@Override

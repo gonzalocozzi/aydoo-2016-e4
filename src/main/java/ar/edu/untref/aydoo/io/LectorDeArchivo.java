@@ -23,6 +23,10 @@ public class LectorDeArchivo {
 
 		return this.listaDeLineasDelArchivo;
 	}
+	
+	public String getDireccionDelArchivo() {
+		return this.direccionDelArchivo;
+	}
 
 	private void leerArchivo() throws FileNotFoundException, IOException {		
 		File archivo = new File (this.direccionDelArchivo);
@@ -37,9 +41,5 @@ public class LectorDeArchivo {
 
 		br.close();
 	}	
-
-	public String getDireccionDelArchivo() {
-		return this.direccionDelArchivo;
-	}
 
 }

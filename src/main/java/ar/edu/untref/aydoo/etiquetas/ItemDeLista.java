@@ -8,7 +8,7 @@ public class ItemDeLista extends Etiqueta implements Visitable {
 	public ItemDeLista(){
 		this.prefijoHTML = "<li>";
 		this.sufijoHTML = "</li>";
-		this.encabezadoMD = "*";
+		this.encabezadoMarkdown = "*";
 	}
 
 	@Override

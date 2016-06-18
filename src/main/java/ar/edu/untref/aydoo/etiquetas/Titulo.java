@@ -8,7 +8,7 @@ public class Titulo extends Etiqueta implements Visitable{
 	public Titulo(){		
 		this.prefijoHTML = "<h1>";
 		this.sufijoHTML = "</h1>";
-		this.encabezadoMD = "#";
+		this.encabezadoMarkdown = "#";
 	}
 
 	@Override

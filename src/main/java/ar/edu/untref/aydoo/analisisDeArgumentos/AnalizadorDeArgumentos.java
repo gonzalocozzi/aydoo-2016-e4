@@ -14,7 +14,11 @@ public class AnalizadorDeArgumentos {
 			this.listaDeArgumentos.add(listaDeArgumentos.get(i).toLowerCase());
 		}
 
-	}
+	}	
+
+	public List<String> getListaDeArgumentos() {
+		return this.listaDeArgumentos;
+	}	
 
 	public Boolean contieneModoDefault() {
 		return this.listaDeArgumentos.contains("--mode=default") || this.listaDeArgumentos.size() == 1;
@@ -28,9 +32,5 @@ public class AnalizadorDeArgumentos {
 		String stringDeArgumentos = this.listaDeArgumentos.toString();
 		return stringDeArgumentos.contains("--output=");
 	}
-
-	public List<String> getListaDeArgumentos() {
-		return this.listaDeArgumentos;
-	}	
 
 }

@@ -8,7 +8,7 @@ public class Imagen extends Etiqueta implements Visitable {
 	public Imagen(){		
 		this.prefijoHTML = "<img src=\"";
 		this.sufijoHTML = "\"/>";
-		this.encabezadoMD = "i:";
+		this.encabezadoMarkdown = "i:";
 	}
 
 	@Override

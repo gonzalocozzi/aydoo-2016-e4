@@ -8,7 +8,7 @@ public class TextoSinFormato extends Etiqueta implements Visitable {
 	public TextoSinFormato(){
 		this.prefijoHTML = "";
 		this.sufijoHTML = "";
-		this.encabezadoMD = "";
+		this.encabezadoMarkdown = "";
 	}
 
 	@Override

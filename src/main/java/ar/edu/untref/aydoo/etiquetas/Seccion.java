@@ -12,7 +12,7 @@ public class Seccion extends Etiqueta{
 	public Seccion(){
 		this.prefijoHTML = "<section>";
 		this.sufijoHTML = "</section>";
-		this.encabezadoMD = "---";
+		this.encabezadoMarkdown = "---";
 		this.listaDeElementos = new LinkedList<>();
 	}
 

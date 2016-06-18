@@ -6,7 +6,7 @@ public abstract class Etiqueta implements Visitable{
 
 	protected String prefijoHTML;
 	protected String sufijoHTML;
-	protected String encabezadoMD;	
+	protected String encabezadoMarkdown;	
 	private String texto;
 
 	protected Etiqueta getNuevaInstancia(){
@@ -20,23 +20,23 @@ public abstract class Etiqueta implements Visitable{
 	public String getSufijoHTML() {
 		return this.sufijoHTML;
 	}
+	
+	public String getEncabezadoMarkdown() {
+		return this.encabezadoMarkdown;
+	}
+	
+	public String getTexto() {
+		return this.texto;
+	}
 
 	public void setTexto(String texto) {
 		this.texto = texto;	
 	}
 
-	public String getTexto() {
-		return this.texto;
-	}
-
-	public String getEncabezadoMarkdown() {
-		return this.encabezadoMD;
-	}
-
 	public Etiqueta crearDesdeArchivoMarkdown(String entradaMarkdown) {
 		Etiqueta etiqueta = this.getNuevaInstancia();
 
-		if(entradaMarkdown.startsWith(encabezadoMD)){
+		if(entradaMarkdown.startsWith(encabezadoMarkdown)){
 			texto = this.buscarTexto(entradaMarkdown);
 			etiqueta.setTexto(texto);
 
