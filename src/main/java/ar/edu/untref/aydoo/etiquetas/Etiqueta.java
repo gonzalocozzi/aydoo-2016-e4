@@ -9,6 +9,11 @@ public abstract class Etiqueta implements Visitable{
 	protected String encabezadoMarkdown;	
 	private String texto;
 
+	/*
+	 * Este metodo no nos termina de convencer, pero es la mejor forma que se nos ocurrio para no repetir codigo 
+	 * del metodo crearDesdeArchivoMarkDown(String entradaMarkdown) en las clases hijas, es decir, en los distintos 
+	 * tipo de Etiquetas (Titulo, Subtitulo, ItemDeLista, etc)
+	 */
 	protected Etiqueta getNuevaInstancia(){
 		return this;
 	}

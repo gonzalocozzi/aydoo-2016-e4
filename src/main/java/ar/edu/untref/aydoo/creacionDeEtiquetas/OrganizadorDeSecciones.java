@@ -22,7 +22,7 @@ public class OrganizadorDeSecciones implements Organizable {
 		Boolean esSeccion = false;
 
 		for(int i = 0; i < listaRecibida.size(); i++){
-			//no se me ocurre alguna forma de sacar estos if (no funciona unir ambas condiciones en una misma sentencia)
+			//no se nos ocurre alguna forma de sacar estos if (no funciona unir ambas condiciones en una misma sentencia)
 			if(esSeccion){				
 				if(!esCambioDeSeccion(i)){
 					agregarEtiquetaALaSeccion(i);

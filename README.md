@@ -1,6 +1,7 @@
 ---
 # aydoo-2016-e4
-Trabajo práctico Nº1 de Análisis y Diseño Orientado a Objetos 2016
+##Trabajo práctico Nº1 de Análisis y Diseño Orientado a Objetos 2016
+##Integrantes del equipo: Fernando Gainey, Julián Moreno y Gonzalo Cozzi
 ---
 ## Consideraciones de diseño
 ---
@@ -45,12 +46,11 @@ Un concepto innovador es el de Modos de Salida. ModoDeSalida es una clase que en
 ---
 ## Otras consideraciones y modificaciones importantes
 ---
-* Para poder crear la carpeta de salida, y copiar en ella el contenido de la carpeta "plantilla", se utiliza la clase FileUtils de Apache Commons IO en su versión 2.5 Es FUNDAMENTAL colocar el archivo "commons-io-2.5.jar" dentro de la carpeta "target", es decir al lado de "slider.jar". Para ello, se modificó el POM incluyendo un comando que lo descarga automáticamente y lo ubica en la carpeta correspondiente, el cual fue probado en 3 equipos Linux distintos.
+* Para poder crear la carpeta de salida, y copiar en ella el contenido de la carpeta "plantilla", se utiliza la clase FileUtils de Apache Commons IO en su versión 2.5 era fundamental colocar el archivo "commons-io-2.5.jar" dentro de la carpeta "target", es decir al lado de "slider.jar". Para ello, se modificó el POM incluyendo un comando que lo descarga automáticamente y lo ubica en la carpeta correspondiente, el cual fue probado en 3 equipos Linux distintos.
 * Se asume que la carpeta a clonar se llamara obligatoriamente "plantilla" y se ubica dentro de la carpeta "target", al lado de "slider.jar". También se asume que dentro de esta carpeta se ubicará el archivo Markdown de entrada de datos. 
 * Se asume que la salida del programa, en caso de escribir a archivo, lo hará en el archivo "index.html" dentro de la carpeta de salida creada por el mismo programa. El programa puede ser modificado para hacer de estas condiciones configurables, pero se considera que la consigna inicial del trabajo no contempla esto.
 * En la clase CreadorDeEtiquetasTest hay Tests con varios Assert, ya que como el CreadorDeEtiquetas le encarga al Factory que cree los objetos, no hay forma de que yo pueda crear una lista con los mismos objetos y compararlas. En la clase OrganizadorDeEtiquetasTest pasa lo mismo, porque como la Seccion y la ListaSinOrden contienen Etiquetas dentro, no nos es posible verificar que contengan dichas Etiquetas de otra manera.
 * Los tests de las clases OrganizadorDeItems y OrganizadorDeSecciones se hicieron posteriormente a su creación debido a que anteriormente su lógica estaba combinada en una misma clase, la cual sufrió una refactorización. 
-* Existen algunas porciones del código que contienen posibles "smells": el método setNombreDeCarpetaDeSalida de la clase ValidadorDeArgumentos tiene un if anidado, que no fue retirado del código por suponer que no va a cambiar sin importar el número de argumentos adicionales que se agreguen al programa. Además, el método organizar dentro de la clase OrganizadorDeSecciones tiene un if dentro de otro. Se intentó retirarlo infructuosamente, por algún motivo que no conocemos varias pruebas fallan si se unen ambas condiciones en una misma condición.
 * Puede notarse cierto acoplamiento en la clase ModoDeSalida respecto de otras clases. Esto se debe a que se priorizó que las clases de creación de carpetas, análisis y validación de argumentos, lectura del archivo Markdown, etc., sean totalmente independientes entre ellas. De esta forma, la clase ModoDeSalida funciona como un "director de orquesta" que define la interacción entre ellas.
 * La cobertura entre la versión 1 y la versión 2 cayó 2% (del 98% al 96%). No nos parece un retroceso notable ni preocupante, y se debe principalmente a la aparición de un try-catch sin cobertura en la clase CreadorDeEtiquetas.
 * La clase CreadorDeEtiquetas almacena una lista de Class que extienden de la clase Etiqueta. Esto no pudo ser replicado ni en la clase ValidadorDeArgumentos ni en la clase Traductor, ya que las excepciones y los modos de salida reciben por constructor una serie de argumentos, y estos deben ser incluidos al momento de agregarlos a las listas.
