@@ -1,7 +1,11 @@
 ---
 # aydoo-2016-e4
 ##Trabajo práctico Nº1 de Análisis y Diseño Orientado a Objetos 2016
-##Integrantes del equipo: Fernando Gainey, Julián Moreno y Gonzalo Cozzi
+---
+##Integrantes del equipo
+* Fernando Gainey
+* Julián Moreno
+* Gonzalo Cozzi
 ---
 ## Consideraciones de diseño
 ---
