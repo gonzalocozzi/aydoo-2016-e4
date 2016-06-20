@@ -4,11 +4,11 @@ Trabajo práctico nº1 de Análisis y Diseño Orientado a Objetos 2016
 ---
 ##Consideraciones de diseño
 ---
-Se eligió para este proyecto crear una serie de clases encargadas de manejar la entrada del archivo Markdown y la salida HTML, además de verificar y validar los parámetros. En principio, esas clases no tienen relación alguna entre sí, estando desacopladas. La relación entre ellas se verifica exclusivamente en la clase SelectorDeModo, la cual es la que define el algoritmo que se ejecutará, dependiendo de los parámetros ingresados.
+Se eligió para este proyecto crear una serie de clases encargadas de manejar la entrada del archivo Markdown y la salida HTML, además de verificar y validar los parámetros. En principio, esas clases no tienen relación alguna entre sí, estando desacopladas. La relación entre ellas se verifica exclusivamente en la clase Traductor, la cual es la que define el algoritmo que se ejecutará, dependiendo de los parámetros ingresados.
 ---
-Se modeló la clase EtiquetaHTML, la cual define una serie de elementos HTML (título, subtítulo, items, etc.). El programa se encarga de leer el archivo Markdown de entrada linea a linea, creando una EtiquetaHTML por cada uno de ellos, siendo estos elementos los que luego son escritos en el archivo "index.html" o mostrados por consola.
+En un principio se habia modelado la clase EtiquetaHTML, la cual definia una serie de elementos HTML (título, subtítulo, items, etc.). El programa se encargaba de leer el archivo Markdown de entrada linea a linea, creando una EtiquetaHTML por cada uno de ellos, siendo estos elementos los que luego eran escritos en el archivo "index.html" o mostrados por consola. Pero esta solución violaba el principio Open/Close de SOLID, el cual señala que el software tiene que estar abierto a modificaciones y cerrado a cambios. Entonces decidimos implementar la conversion de una linea markdown a un objeto, esta consiste en que cada objeto conoce su cabecera y su transfomacion a html, de esta manera nos aseguramos que si necesitamos agregar una nueva etiqueta, podremos hacerlo sin ningun inconveniente.
 ---
-Se decidio utilizar en el proyecto dos patrones de diseño: visitor y factory method.
+Se decidio utilizar en el proyecto dos patrones de diseño: visitor y factory method (abandonado).
 ---
 #Patron Visitor:
 ##Propósito
@@ -34,6 +34,10 @@ El Factory Method ayuda a desligarse de la responsabilidad de saber que objeto c
 *EtiquetaHTMLFactory : Implementa la interfaz. Según el encabezado recibido crea un tipo de EtiquetaHTML.
 ---
 El Factory Method lo utilizamos en la clase CreadorDeEtiquetas. Al EtiquetaHTMLFactory se le da un encabezado, y a partir de ese encabezado crea un objeto. El método crearListaDeEtiquetas agrega este objeto a una lista. Se repite este proceso hasta que este último método recorra toda su lista de String. Finalmente devuelve una lista de EtiquetasHTML, que es la lista donde fue agregando a los objetos. 
+---
+##Por que lo descartamos
+* Violaba el principio SOLID: Open/Close
+* Por lo tanto, no estaba abierto a nuevas etiquetas sin modificar el codigo.
 ---
 ##Aclaraciones importantes
 ---
